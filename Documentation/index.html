@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Theme Installation Steps</title>
+    <link href="files/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="files/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="files/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/files/images/favicon.png" sizes="16x16"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="files/fonts/font.css" type="text/css" media="all"> -->
+    <script>
+        document.createElement('section');
+            var duration = 500, easing = 'swing';
+    </script>
+    <script src="files/js/jquery.js" type="text/javascript"></script>
+    <script src="files/js/jquery.colorbox.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            jQuery(function() {
+                jQuery('.menu li.toclevel-1:nth-child(1) a').addClass('active');
+            });
+
+            jQuery(".uploadtheme").colorbox({iframe: true, innerWidth: 640, innerHeight: 390});
+
+            jQuery('a[href*=#]').bind('click', function (e) {
+                e.preventDefault(); // prevent hard jump, the default behavior
+
+                var target = jQuery(this).attr("href"); // Set the target as variable
+
+                // perform animated scrolling by getting top-position of target-element and set it as scroll target
+                jQuery('html, body').stop().animate({
+                    scrollTop: jQuery(target).offset().top
+                }, 1000, function () {
+                    location.hash = target; //attach the hash (#jumptarget) to the pageurl
+                });
+                return false;
+            });
+            jQuery(window).scroll(function () {
+                var scrollDistance = jQuery(window).scrollTop();
+                jQuery('section').each(function (i) {
+                    if (jQuery(this).position().top <= scrollDistance) {
+                        jQuery('.menu li.toclevel-1 a.active').removeClass('active');
+                        jQuery('.menu li.toclevel-1 a').eq(i).addClass('active');
+                    }
+                });
+            }).scroll();
+        });
+    </script>
+    <div class="header-area">
+        <div class="div-container">
+            <div class="logo">
+                <img src="files/images/logo.png" alt="logo" />
+            </div>
+            <a target="_blank" class="need-button" href="https://templatemela.freshdesk.com/support/home">Need Help</a>
+        </div>
+    </div>
+</head>
+
+<body>
+    <div class="content-area">
+        <div class="left">
+            <aside id="secondary" class="sidebar widget-area">
+            <ul class="menu">
+                <li class="toclevel-1"><a href="#androidstep1"><span>Step 1 : </span> Which Android Studio version is needed? </a>
+                </li>
+                <li class="toclevel-1"><a href="#androidstep2"><span>Step 2 : </span> How to Open The Project in Android Studio? </a>
+                </li>
+                <li class="toclevel-1"><a href="#androidstep3"><span>Step 3 : </span> How to change the package name? </a>
+                </li>
+                <li class="toclevel-1"><a href="#androidstep4"><span>Step 4 : </span> How to change app name? </a>
+                </li>
+                <li class="toclevel-1"><a href="#androidstep5"><span>Step 5 : </span> How to change Application Icon? </a>
+                </li>
+                <li class="toclevel-1"><a href="#androidstep6"><span>Step 6 : </span> How to change admob id's? </a>
+                </li>
+                <li class="toclevel-1"><a href="#androidstep7"><span>Step 7 : </span> How to change oneSignal id? </a>
+                </li>
+                <br>
+            </ul>
+            </aside>
+        </div>
+
+        <div class="right">
+            <div class="primary">
+            <h2 class="app-title" style="padding-top:40px;">CamScanner</h2>
+            <section id="androidstep1" class="androidstep">
+                <h2 style="padding-top:40px;">Step 1 : Which Android Studio version is needed?</h2>
+                <ul>
+                    <li>Latest Android Studio version is recommended.</li></br>
+                    <a href="files/images/screen-1.png">
+                        <img alt="" src="files/images/screen-1.png" />
+                    </a>
+                </ul>
+            </section>
+            <section id="androidstep2" class="androidstep">
+                <h2 style="padding-top:40px;">Step 2 : How to Open The Project in Android Studio?</h2>
+                <ul>
+                    <li><b>1.</b> Unzip Project Folder.</li></br>
+                    <a href="files/images/screen-2.png">
+                        <img alt="" src="files/images/screen-2.png" />
+                    </a>
+                    <a href="files/images/screen-3.png">
+                        <img alt="" src="files/images/screen-3.png" />
+                    </a>
+                    <li><b>2.</b> Open Android Studio > Open an Existing Android Studio Project > Select Your Project > ok.</li></br>
+                    <a href="files/images/screen-4.png">
+                        <img alt="" src="files/images/screen-4.png" />
+                    </a>
+                    <li><b>3.</b> Wait for Gradle Process.</li></br>
+                    <li><b>4.</b> Click on Run and install.</li></br>
+                </ul>
+            </section>
+            <section id="androidstep3" class="androidstep">
+                <h2 style="padding-top:40px;">Step 3 : How to change the package name?</h2>
+                <ul>
+                    <li><h2>You can change it easily from Android Studio. Here are the steps:</h2></li>
+                    <li><b>1.</b> In the Project pane, click on the little gear icon. Uncheck/Deselect the Compact Empty Middle Packages option.</li></br>
+                    <a href="files/images/screen-5.png">
+                        <img alt="" src="files/images/screen-5.png" />
+                    </a>
+                    <li><b>2.</b> Your package directory will now be broken up in individual directories.</li></br>
+                    <a href="files/images/screen-6.png">
+                        <img alt="" src="files/images/screen-6.png" />
+                    </a>
+                    <li><b>3.</b> Individually select each directory you want to rename, and: Right-click it Select Refactor Click on Rename In the Pop-up dialog.</li></br>
+                    <a href="files/images/screen-7.png">
+                        <img alt="" src="files/images/screen-7.png" />
+                    </a>
+                    <li><b>4.</b> Click on Rename Package instead of Rename Directory Enter the new name and hit Refactor Allow a minute to let Android Studio update all changes.</li></br>
+                    <a href="files/images/screen-8.png">
+                        <img alt="" src="files/images/screen-8.png" />
+                    </a>
+                    <li><b>5.</b> Now open your build.gradle (Usually 'app' or 'mobile'). Update the applicationId to your Package Name and Sync Gradle, if it hasn't already been updated automatically.</li></br>
+                    <a href="files/images/screen-9.png">
+                        <img alt="" src="files/images/screen-9.png" />
+                    </a>
+                    <h2 style="padding-top:40px;">NOTE: When renaming com in Android Studio, it might give a warning. In such case, select Rename All. </h2>
+                </ul>
+            </section>
+            <section id="androidstep4" class="androidstep">
+                <h2 style="padding-top:40px;">Step 4 : How to change app name?</h2>
+                <ul>
+                    <li><b>1.</b> Open Android Studio > CamScanner > res > values > strings.xml.</li></br>
+                    <li><b>2.</b> Enter your app name inside "app_name" string tag: </br>
+                           &lt;string name="app_name"&gt; CamScanner &lt;/string&gt;</li></br>
+                    <a href="files/images/screen-10.png">
+                        <img alt="" src="files/images/screen-10.png" />
+                    </a>
+                </ul>
+            </section>
+            <section id="androidstep5" class="androidstep">
+                <h2 style="padding-top:40px;">Step 5 : How to change Application Icon?</h2>
+                <ul>
+                    <li><b>1.</b> Open Android Studio > app > res >.</li></br>
+                    <li><b>2.</b> Replace your icon with ic_launcher.png and paste in all mipmap folders.</li></br>
+                    <a href="files/images/screen-11.png">
+                        <img alt="" src="files/images/screen-11.png" />
+                    </a>
+                </ul>
+            </section>
+            <section id="androidstep6" class="androidstep">
+                <h2 style="padding-top:40px;">Step 6 : How to change admob id's?</h2>
+                <ul>
+                    <li><b>1.</b> Open Android Studio > CamScanner > res > values > strings.xml.</li></br>
+                    <li><b>2.</b> Enter your admob app id inside "admob_app_id" string tag: </br></br>
+                                &lt;string name="admob_app_id"&gt; ca-app-pub-3940256099942544~3347511713 &lt;/string&gt;</li>
+                                &lt;string name="admob_banner_id"&gt; ca-app-pub-3940256099942544/6300978111 &lt;/string&gt;</li></br>
+                                &lt;string name="admob_interstitial_id"&gt; ca-app-pub-3940256099942544/1033173712 &lt;/string&gt;</li></br>
+                                &lt;string name="admob_native_ad"&gt; /6499/example/native &lt;/string&gt;</li></br>
+
+                                <a href="files/images/screen-11.png">
+                                    <img alt="" src="files/images/screen-12.png" />
+                                </a>
+                </ul>
+            </section>
+            <section id="androidstep7" class="androidstep">
+                <h2 style="padding-top:40px;">Step 7 : How to change oneSignal id?</h2>
+                <ul>
+                    <li><b>1.</b> Open Android Studio > CamScanner > java > MyApp.java</li></br>
+                    <li><b>2.</b> Enter your oneSignal id inside "ONESIGNAL_APP_ID" string tag: </br></br>
+                             </li>
+                                <a href="files/images/screen-11.png">
+                                    <img alt="" src="files/images/screen-13.png" />
+                                </a>
+                            </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+                           
+                </ul>
+            </section>
+    
+            </div>
+        </div>
+</body>
+</html>
