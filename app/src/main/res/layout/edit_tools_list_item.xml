@@ -21,6 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5sdp"
         android:textSize="@dimen/_8sdp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/tab_white"/>
 
 </LinearLayout>

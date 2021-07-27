@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextPopMed14">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/TextTheme</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+
+    </style>
+
+    <style name="TextPopBold22">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+   <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/TextTheme</item>
+        <item name="android:textSize">@dimen/_22sdp</item>
+
+    </style>
+
+
+    <style name="TextPopReg12">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/TextTheme</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+
+    <style name="WhitePopSemi12">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/tab_white</item>
+        <item name="android:textSize">@dimen/_14sdp</item>
+    </style>
+
+
+    <style name="WhitePopMed12">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/tab_white</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+
+    </style>
+
+    <style name="TextSemiBold12">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/TextTheme</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+
+    </style>
+
+
+    <style name="IvLogo">
+        <item name="android:layout_width">@dimen/_50sdp</item>
+        <item name="android:layout_height">@dimen/_50sdp</item>
+        <item name="android:src">@drawable/logo</item>
+    </style>
+
+    <style name="IvDocuments">
+        <item name="android:layout_width">@dimen/_70sdp</item>
+        <item name="android:layout_height">@dimen/_70sdp</item>
+        <item name="android:src">@drawable/ic_document</item>
+    </style>
+
+    <style name="IvNext">
+        <item name="android:layout_width">@dimen/_20sdp</item>
+        <item name="android:layout_height">@dimen/_20sdp</item>
+        <item name="android:src">@drawable/ic_next_white</item>
+    </style>
+
+
+   <!-- <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
+        <item name="tabBackground">@drawable/tab_selector</item>
+    </style>-->
+
+
+</resources>

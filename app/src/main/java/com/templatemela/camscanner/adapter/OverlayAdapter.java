@@ -23,7 +23,7 @@ public class OverlayAdapter extends RecyclerView.Adapter<OverlayAdapter.ViewHold
 
     public OverlayAdapter(Activity activity2) {
         activity = activity2;
-        overlayList.add(new Pair("overlay/ic_none.png", "None"));
+        overlayList.add(new Pair("overlay/none.png", "None"));
         overlayList.add(new Pair("overlay/overlay_1.jpg", "Overlay 1"));
         overlayList.add(new Pair("overlay/overlay_2.jpg", "Overlay 2"));
         overlayList.add(new Pair("overlay/overlay_3.jpg", "Overlay 3"));

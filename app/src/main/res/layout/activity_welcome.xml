@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ThemeBg"
+        tools:context=".activity.WelcomeScreen">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            style="@style/IvLogo"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvLogoName"
+            style="@style/TextPopMed14"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:text="CamScanner"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+            app:layout_constraintStart_toEndOf="@id/iv_logo"
+            app:layout_constraintTop_toTopOf="@id/iv_logo" />
+
+
+        <ImageView
+            android:id="@+id/ivDocument"
+            style="@style/IvDocuments"
+            android:layout_marginStart="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvWelcome"
+            style="@style/TextPopBold22"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:lineSpacingExtra="4dp"
+            android:maxWidth="@dimen/_160sdp"
+            android:text="Welcome to Cam Scanner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivDocument" />
+
+        <TextView
+            android:id="@+id/tvScan"
+            style="@style/TextPopReg12"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:maxWidth="@dimen/_160sdp"
+            android:text="Scan anything, anytime, anywhere"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
+
+
+        <TextView
+            android:id="@+id/tvStarted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:background="@drawable/btn_curve_bg"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="start"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Get Started"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/ivNext"
+            style="@style/IvNext"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@id/tvStarted"
+            app:layout_constraintEnd_toEndOf="@id/tvStarted"
+            app:layout_constraintTop_toTopOf="@id/tvStarted" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

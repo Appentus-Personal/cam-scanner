@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+
+    <!--1 item-->
 
     <RelativeLayout
         android:id="@+id/docLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_150sdp"
+        android:background="@drawable/rb_grp_doc"
         android:layout_margin="@dimen/_6sdp">
 
         <com.templatemela.camscanner.document_view.roundshapeImageview
             android:id="@+id/iv_doc"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_150sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
             android:scaleType="centerCrop" />
 
         <RelativeLayout
@@ -27,13 +33,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_7sdp"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:layout_toStartOf="@+id/iv_note"
-                android:fontFamily="@font/inter_medium"
+                android:fontFamily="@font/poppins_medium"
                 android:singleLine="true"
                 android:text="Page  1"
                 android:textColor="#FFFFFF"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_10sdp" />
 
             <ImageView
                 android:id="@+id/iv_note"
@@ -43,36 +49,39 @@
                 android:layout_marginEnd="@dimen/_3sdp"
                 android:layout_toStartOf="@+id/iv_doc_item_more"
                 android:src="@drawable/ic_note"
-                android:tint="#FFFFFF"
-                android:visibility="gone" />
+                android:visibility="gone"
+                app:tint="#FFFFFF" />
 
             <ImageView
                 android:id="@+id/iv_doc_item_more"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_25sdp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:paddingStart="@dimen/_12sdp"
+                android:paddingStart="@dimen/_8sdp"
                 android:paddingTop="@dimen/_7sdp"
-                android:paddingEnd="@dimen/_12sdp"
+                android:paddingEnd="@dimen/_8sdp"
                 android:paddingBottom="@dimen/_7sdp"
-                android:src="@drawable/ic_more"
-                android:tint="#FFFFFF" />
+                android:src="@drawable/more_white"
+               />
         </RelativeLayout>
     </RelativeLayout>
 
+
+
+    <!--2 item-->
     <RelativeLayout
         android:id="@+id/newScanLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_150sdp"
-        android:background="@drawable/rounded_border_bg"
-        android:visibility="gone"
+     android:visibility="gone"
+        android:background="@drawable/rb_grp_doc"
         android:layout_margin="@dimen/_6sdp">
 
         <com.templatemela.camscanner.document_view.roundshapeImageview
             android:id="@+id/iv_cam_doc"
             android:layout_width="@dimen/_30sdp"
-            android:src="@drawable/camera_plus_outline"
+            android:src="@drawable/cam_list_item"
             android:layout_centerInParent="true"
             android:layout_height="@dimen/_30sdp" />
         <TextView
@@ -84,7 +93,7 @@
             android:fontFamily="@font/inter_medium"
             android:singleLine="true"
             android:text="@string/tapToAddNew"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/TextTheme"
             android:textSize="@dimen/_12sdp" />
     </RelativeLayout>
 </LinearLayout>

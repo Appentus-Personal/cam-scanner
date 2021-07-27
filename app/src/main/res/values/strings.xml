@@ -92,10 +92,10 @@
     <string name="checkMark">Check Mark</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="noDocumentScan">No Document Scanned Yet.</string>
-    <string name="cropDocument">Crop Document</string>
+    <string name="cropDocument">Crop</string>
     <string name="rotateDoc">Rotate Doc</string>
     <string name="currentFilter">Current Filter</string>
-    <string name="editorDocument">Editor Document</string>
+    <string name="editorDocument">Edit</string>
     <string name="colorFilter">Color Filter</string>
     <string name="adjust">Adjust</string>
     <string name="size">Size</string>
@@ -121,10 +121,10 @@
     <string name="share">Share</string>
     <string name="qrReader">QR Reader</string>
     <string name="qrCodeResult">QR Code Result</string>
-    <string name="areUSure">Are you Sure ?</string>
+    <string name="areUSure">Are you sure! you want to delete this document ?</string>
     <string name="deleteThisDoc">you want to delete this Document ?</string>
     <string name="saveChanges">Save Changes?</string>
-    <string name="changesBeLost">Your unsaved changes will be lost.</string>
+    <string name="changesBeLost">You changes are not saved.</string>
     <string name="saveChangesBeforeLost">Save Changes before closing?</string>
     <string name="sendToMail">Send to Mail</string>
     <string name="enterEmailId">Enter E-mail Id</string>

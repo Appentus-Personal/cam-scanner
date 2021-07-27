@@ -70,7 +70,7 @@ import java.util.Iterator;
 import me.pqpo.smartcropperlib.view.CropImageView;
 
 public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRequestPermissionsResultCallback, AspectRatioFragment.Listener, View.OnClickListener {
-    private static final int[] FLASH_ICONS = {R.drawable.ic_flash_auto, R.drawable.ic_flash_off, R.drawable.ic_flash_on};
+    private static final int[] FLASH_ICONS = {R.drawable.flash_auto, R.drawable.flash_off, R.drawable.flash_on};
     private static final int[] FLASH_SETTING = {3, 0, 1};
     private static final String FRAGMENT_DIALOG = "dialog";
     private static final int REQUEST_CAMERA_PERMISSION = 1;
@@ -312,10 +312,10 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
     public TextView tv_id_card;
     private TextView tv_idcard;
     private TextView tv_photo;
-    private View v_book;
+   /* private View v_book;
     private View v_document;
     private View v_idcard;
-    private View v_photo;
+    private View v_photo;*/
 
     @Override
     public void onResume() {
@@ -375,10 +375,10 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
         tv_book = (TextView) findViewById(R.id.tv_book);
         tv_idcard = (TextView) findViewById(R.id.tv_idcard);
         tv_photo = (TextView) findViewById(R.id.tv_photo);
-        v_document = findViewById(R.id.v_document);
+        /*v_document = findViewById(R.id.v_document);
         v_book = findViewById(R.id.v_book);
         v_idcard = findViewById(R.id.v_idcard);
-        v_photo = findViewById(R.id.v_photo);
+        v_photo = findViewById(R.id.v_photo);*/
         cameraView = (CameraView) findViewById(R.id.cameraView);
         rl_book_view = (RelativeLayout) findViewById(R.id.rl_book_view);
         rl_idcard_view = (RelativeLayout) findViewById(R.id.rl_idcard_view);
@@ -438,48 +438,75 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
         if (Constant.current_camera_view.equals("Document")) {
             rl_book_view.setVisibility(View.GONE);
             rl_idcard_view.setVisibility(View.GONE);
-            tv_document.setTextColor(getResources().getColor(R.color.black));
-            tv_book.setTextColor(getResources().getColor(R.color.unselected_txt_color));
-            tv_idcard.setTextColor(getResources().getColor(R.color.unselected_txt_color));
-            tv_photo.setTextColor(getResources().getColor(R.color.unselected_txt_color));
-            v_document.setVisibility(View.VISIBLE);
+
+
+          /*  tv_document.setTextColor(getResources().getColor(R.color.black));*/
+            tv_document.setBackgroundResource(R.drawable.tab_curve);
+            tv_book.setBackgroundResource(R.drawable.tab_curve_black);
+            tv_idcard.setBackgroundResource(R.drawable.tab_curve_black);
+            tv_photo.setBackgroundResource(R.drawable.tab_curve_black);
+
+            tv_book.setTextColor(getResources().getColor(R.color.tab_white));
+            tv_idcard.setTextColor(getResources().getColor(R.color.tab_white));
+            tv_photo.setTextColor(getResources().getColor(R.color.tab_white));
+            tv_document.setTextColor(getResources().getColor(R.color.tab_white));
+
+         /*   v_document.setVisibility(View.VISIBLE);
             v_book.setVisibility(View.INVISIBLE);
             v_idcard.setVisibility(View.INVISIBLE);
-            v_photo.setVisibility(View.INVISIBLE);
+            v_photo.setVisibility(View.INVISIBLE);*/
+
         } else if (Constant.current_camera_view.equals("Book")) {
             rl_book_view.setVisibility(View.VISIBLE);
             rl_idcard_view.setVisibility(View.GONE);
-            tv_document.setTextColor(getResources().getColor(R.color.unselected_txt_color));
-            tv_book.setTextColor(getResources().getColor(R.color.black));
-            tv_idcard.setTextColor(getResources().getColor(R.color.unselected_txt_color));
-            tv_photo.setTextColor(getResources().getColor(R.color.unselected_txt_color));
-            v_document.setVisibility(View.INVISIBLE);
+            tv_document.setBackgroundResource(R.drawable.tab_curve_black);
+            tv_idcard.setBackgroundResource(R.drawable.tab_curve_black);
+            tv_photo.setBackgroundResource(R.drawable.tab_curve_black);
+
+            tv_document.setTextColor(getResources().getColor(R.color.tab_white));
+            tv_book.setBackgroundResource(R.drawable.tab_curve);
+            tv_idcard.setTextColor(getResources().getColor(R.color.tab_white));
+            tv_photo.setTextColor(getResources().getColor(R.color.tab_white));
+
+          /*  v_document.setVisibility(View.INVISIBLE);
             v_book.setVisibility(View.VISIBLE);
             v_idcard.setVisibility(View.INVISIBLE);
-            v_photo.setVisibility(View.INVISIBLE);
+            v_photo.setVisibility(View.INVISIBLE);*/
+
         } else if (Constant.current_camera_view.equals("ID Card")) {
             rl_book_view.setVisibility(View.GONE);
             rl_idcard_view.setVisibility(View.VISIBLE);
-            tv_document.setTextColor(getResources().getColor(R.color.unselected_txt_color));
-            tv_book.setTextColor(getResources().getColor(R.color.unselected_txt_color));
-            tv_idcard.setTextColor(getResources().getColor(R.color.black));
-            tv_photo.setTextColor(getResources().getColor(R.color.unselected_txt_color));
-            v_document.setVisibility(View.INVISIBLE);
+
+            tv_book.setBackgroundResource(R.drawable.tab_curve_black);
+            tv_document.setBackgroundResource(R.drawable.tab_curve_black);
+            tv_photo.setBackgroundResource(R.drawable.tab_curve_black);
+
+            tv_document.setTextColor(getResources().getColor(R.color.tab_white));
+            tv_book.setTextColor(getResources().getColor(R.color.tab_white));
+            tv_idcard.setBackgroundResource(R.drawable.tab_curve);
+            tv_photo.setTextColor(getResources().getColor(R.color.tab_white));
+
+          /*  v_document.setVisibility(View.INVISIBLE);
             v_book.setVisibility(View.INVISIBLE);
             v_idcard.setVisibility(View.VISIBLE);
-            v_photo.setVisibility(View.INVISIBLE);
+            v_photo.setVisibility(View.INVISIBLE);*/
             IDCardDialog();
         } else if (Constant.current_camera_view.equals("Photo")) {
             rl_book_view.setVisibility(View.GONE);
             rl_idcard_view.setVisibility(View.GONE);
-            tv_document.setTextColor(getResources().getColor(R.color.unselected_txt_color));
-            tv_book.setTextColor(getResources().getColor(R.color.unselected_txt_color));
-            tv_idcard.setTextColor(getResources().getColor(R.color.unselected_txt_color));
-            tv_photo.setTextColor(getResources().getColor(R.color.black));
-            v_document.setVisibility(View.INVISIBLE);
+
+            tv_book.setBackgroundResource(R.drawable.tab_curve_black);
+            tv_document.setBackgroundResource(R.drawable.tab_curve_black);
+            tv_idcard.setBackgroundResource(R.drawable.tab_curve_black);
+            tv_document.setTextColor(getResources().getColor(R.color.tab_white));
+            tv_book.setTextColor(getResources().getColor(R.color.tab_white));
+            tv_idcard.setTextColor(getResources().getColor(R.color.tab_white));
+            tv_photo.setBackgroundResource(R.drawable.tab_curve);
+
+         /*   v_document.setVisibility(View.INVISIBLE);
             v_book.setVisibility(View.INVISIBLE);
             v_idcard.setVisibility(View.INVISIBLE);
-            v_photo.setVisibility(View.VISIBLE);
+            v_photo.setVisibility(View.VISIBLE);*/
         }
     }
 
@@ -1199,7 +1226,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
             super.onPostExecute(bitmap);
             progressBar.setVisibility(View.GONE);
             finish();
-            Constant.IdentifyActivity = "SavedEditDocumentActivity3";
+            Constant.IdentifyActivity = "SavedEdittvdActivity3";
             AdsUtils.showGoogleInterstitialAd(ScannerActivity.this, false);
         }
     }

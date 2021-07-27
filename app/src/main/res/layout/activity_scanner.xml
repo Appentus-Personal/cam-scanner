@@ -20,27 +20,27 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_55sdp"
                 android:elevation="5dp"
-                android:background="@color/white"
+                android:background="#000000"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize">
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:id="@+id/iv_back_camera"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_marginStart="@dimen/_8sdp"
                         android:onClick="onClick"
                         android:padding="@dimen/_7sdp"
-                        android:src="@drawable/ic_back"
-                        android:tint="@color/black" />
+                        android:src="@drawable/cross_icn"
+                        app:tint="#ffffff" />
 
-                    <TextView
+                    <!--   <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -49,18 +49,18 @@
                         android:text="@string/scanner"
                         android:layout_marginLeft="@dimen/_5sdp"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_16sdp" />
+                        android:textSize="@dimen/_16sdp" />-->
 
                     <ImageView
                         android:id="@+id/iv_switch_flash"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/_8sdp"
                         android:layout_toStartOf="@+id/iv_done"
                         android:onClick="onClick"
-                        android:src="@drawable/ic_flash_auto" />
+                        android:src="@drawable/flash_auto" />
 
                     <ImageView
                         android:id="@+id/iv_done"
@@ -76,7 +76,7 @@
                         android:visibility="gone" />
                 </RelativeLayout>
 
-                <LinearLayout
+             <!--   <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
                     android:layout_marginTop="@dimen/_2sdp"
@@ -131,9 +131,11 @@
                         android:text="@string/photo"
                         android:textColor="#585d64"
                         android:textSize="@dimen/_11sdp" />
-                </LinearLayout>
+                </LinearLayout>-->
 
-                <LinearLayout
+
+                <!--View-->
+              <!--  <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_2sdp"
                     android:gravity="center"
@@ -170,7 +172,7 @@
                         android:layout_weight="1"
                         android:background="@color/tab_indicator_color"
                         android:visibility="invisible" />
-                </LinearLayout>
+                </LinearLayout>-->
             </LinearLayout>
 
             <RelativeLayout
@@ -296,8 +298,74 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/toolbar_color"
+                android:background="#000000"
                 android:orientation="vertical">
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:background="#000000"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_document"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:onClick="onClick"
+                        android:text="@string/document"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:onClick="onClick"
+                        android:text="@string/book"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_idcard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:onClick="onClick"
+                        android:text="@string/idCard"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins_regular"
+                        android:gravity="center"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:paddingBottom="@dimen/_2sdp"
+                        android:onClick="onClick"
+                        android:text="@string/photo"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -309,24 +377,25 @@
 
                     <ImageView
                         android:id="@+id/iv_gallery"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
                         android:layout_weight="1"
                         android:onClick="onClick"
                         android:padding="@dimen/_5sdp"
-                        android:src="@drawable/ic_gallery" />
+                        android:src="@drawable/ic_select_gallery"
+                        app:tint="#ffff" />
 
                     <ImageView
                         android:id="@+id/iv_take_picture"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_45sdp"
                         android:onClick="onClick"
                         android:src="@drawable/ic_capture" />
 
                     <ImageView
                         android:id="@+id/iv_switch_camera"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
                         android:layout_weight="1"
                         android:onClick="onClick"
                         android:padding="@dimen/_5sdp"

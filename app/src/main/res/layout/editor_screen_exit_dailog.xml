@@ -3,22 +3,21 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bottom_sheet"
     android:elevation="5dp"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_15sdp"
         android:background="@color/dialog_bg_color"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_2sdp"
+            android:layout_margin="@dimen/_4sdp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -41,21 +40,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/iv_close"
-                        android:layout_width="@dimen/_25sdp"
-                        android:layout_height="@dimen/_25sdp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="@dimen/_7sdp"
-                        android:padding="@dimen/_4sdp"
-                        android:src="@drawable/ic_close" />
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="40dp"
+                        android:layout_height="5dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@color/ViewColor" />
+
+
+                    <TextView
+                        android:id="@+id/tvInputText"
+                        style="@style/TextSemiBold12"
+                        android:layout_below="@id/view"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Discard Changes ?" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/tvInputText"
+                        android:background="#59606A" />
+
+
                 </RelativeLayout>
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_exit_logo" />
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:src="@drawable/discard" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -66,46 +83,47 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_bold"
-                        android:text="@string/saveChanges"
-                        android:textColor="@color/txt_color"
-                        android:textSize="@dimen/_17sdp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopMed14"
                         android:layout_marginTop="@dimen/_6sdp"
-                        android:fontFamily="@font/inter_medium"
-                        android:singleLine="true"
                         android:text="@string/changesBeLost"
-                        android:textColor="@color/unselected_txt_color"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textSize="@dimen/_10sdp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_medium"
-                        android:singleLine="true"
-                        android:text="@string/saveChangesBeforeLost"
-                        android:textColor="@color/unselected_txt_color"
-                        android:textSize="@dimen/_13sdp" />
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_3sdp"
+                        android:layout_marginBottom="@dimen/_4sdp">
 
-                    <TextView
-                        android:id="@+id/iv_exit"
-                        android:layout_width="@dimen/_100sdp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_25sdp"
-                        android:textSize="@dimen/_15sdp"
-                        android:text="@string/exit"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:paddingBottom="@dimen/_5sdp"
-                        android:paddingTop="@dimen/_5sdp"
-                        android:fontFamily="@font/inter_medium"
-                        android:background="@drawable/round_shape" />
+                        <TextView
+                            android:id="@+id/keep_editing"
+                            style="@style/TextPopMed14"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:background="@drawable/white_border_grey"
+                            android:paddingStart="@dimen/_15sdp"
+                            android:paddingTop="@dimen/_8sdp"
+                            android:paddingEnd="@dimen/_40sdp"
+                            android:paddingBottom="@dimen/_8sdp"
+                            android:text="Keep Editing"
+                            android:textColor="@color/TextTheme"
+                            android:textSize="@dimen/_12sdp" />
+
+                        <TextView
+                            android:id="@+id/iv_exit"
+                            style="@style/TextPopMed14"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@drawable/btn_curve_bg"
+                            android:paddingStart="@dimen/_30sdp"
+                            android:paddingTop="@dimen/_8sdp"
+                            android:paddingEnd="@dimen/_30sdp"
+                            android:paddingBottom="@dimen/_8sdp"
+                            android:text="Discard"
+                            android:textColor="#ffffff"
+                            android:textSize="@dimen/_12sdp" />
+                    </RelativeLayout>
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

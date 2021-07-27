@@ -5,7 +5,7 @@
     <color name="colorPrimary">#25c4a4</color>
     <color name="colorPrimaryDark">#25c4a4</color>
 
-    <color name="bg_color">#39393A</color>
+    <color name="bg_color">#59606A</color>
     <color name="bg_color1">#121212</color>
 <!--    <color name="bg_color1">#1B1A1A</color>-->
     <color name="fg_color">#0D0D0D</color>
@@ -31,5 +31,17 @@
     <color name="text_color_white">@color/white</color>
 <!--    <color name="ucrop_color_black">#FFF</color>-->
 <!--    <color name="ucrop_color_white">#000</color>-->
+
+
+
+
+    <!-- TODO :: DARK Colors -->
+
+    <color name="ThemeBg">#000000</color>
+    <color name="TextTheme">#FFFFFF</color>
+    <color name="DialogBottom">#373B40</color>
+    <color name="tab_color">#373B40</color>
+    <color name="sig_color">#373B40</color>
+    <color name="border_color">#59606A</color>
 
 </resources>

@@ -2,16 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:background="@color/dialog_bg_color"
     android:layout_height="wrap_content"
+    android:background="@color/dialog_bg_color"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_margin="@dimen/_4sdp"
         android:background="@color/dialog_bg_color"
         android:orientation="vertical">
 
@@ -32,25 +30,36 @@
                     android:id="@+id/admob_native_container"
                     layout="@layout/admob_native_medium"
                     android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
                     android:layout_marginLeft="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginRight="@dimen/_5sdp"
-                    android:layout_height="@dimen/_200sdp"
                     android:visibility="gone" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_4sdp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/ViewColor" />
+
+
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:id="@+id/tvInputText"
+                        style="@style/TextSemiBold12"
+                        android:layout_below="@id/view"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:padding="@dimen/_5sdp"
-                        android:text="@string/share"
-                        android:textColor="@color/txt_color"
-                        android:textSize="@dimen/_15sdp" />
+                        android:singleLine="true"
+                        android:text="Share" />
+
 
                     <ImageView
                         android:id="@+id/iv_close"
@@ -62,14 +71,24 @@
                         android:padding="@dimen/_4sdp"
                         android:src="@drawable/ic_close_black_24dp"
                         android:tint="@color/txt_color" />
+
+
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/tvInputText"
+                        android:background="#59606A" />
+
+
                 </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
                     android:orientation="vertical">
 
@@ -83,21 +102,18 @@
                             android:id="@+id/iv_img"
                             android:layout_width="@dimen/_23sdp"
                             android:layout_height="@dimen/_23sdp"
-                            android:padding="@dimen/_1sdp"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/ic_save_as_gallery" />
+                            android:padding="@dimen/_1sdp"
+                            android:src="@drawable/menu_gallery" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            style="@style/TextPopMed14"
                             android:layout_centerVertical="true"
                             android:layout_marginStart="@dimen/_15sdp"
                             android:layout_toEndOf="@+id/iv_img"
-                            android:fontFamily="@font/inter_medium"
                             android:singleLine="true"
                             android:text="@string/saveAsImage"
-                            android:textColor="@color/txt_color"
-                            android:textSize="@dimen/_13sdp" />
+                            android:textSize="@dimen/_10sdp" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -108,23 +124,20 @@
 
                         <ImageView
                             android:id="@+id/iv_pdf"
-                            android:padding="@dimen/_1sdp"
                             android:layout_width="@dimen/_23sdp"
                             android:layout_height="@dimen/_23sdp"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/ic_save_as_pdf" />
+                            android:padding="@dimen/_1sdp"
+                            android:src="@drawable/pdf" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            style="@style/TextPopMed14"
                             android:layout_centerVertical="true"
                             android:layout_marginStart="@dimen/_15sdp"
                             android:layout_toEndOf="@+id/iv_pdf"
-                            android:fontFamily="@font/inter_medium"
                             android:singleLine="true"
                             android:text="@string/shareAsPdf"
-                            android:textColor="@color/txt_color"
-                            android:textSize="@dimen/_13sdp" />
+                            android:textSize="@dimen/_10sdp" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -137,19 +150,16 @@
                             android:layout_width="@dimen/_23sdp"
                             android:layout_height="@dimen/_23sdp"
                             android:layout_centerVertical="true"
-                            android:src="@drawable/ic_lock" />
+                            android:src="@drawable/pdflock" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            style="@style/TextPopMed14"
                             android:layout_centerVertical="true"
                             android:layout_marginStart="@dimen/_15sdp"
                             android:layout_toEndOf="@+id/iv_pdf_pswrd"
-                            android:fontFamily="@font/inter_medium"
                             android:singleLine="true"
                             android:text="@string/sharePdfPass"
-                            android:textColor="@color/txt_color"
-                            android:textSize="@dimen/_13sdp" />
+                            android:textSize="@dimen/_10sdp" />
                     </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>

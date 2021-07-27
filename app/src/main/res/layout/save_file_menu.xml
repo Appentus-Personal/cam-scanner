@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bottom_sheet"
+    android:orientation="vertical">
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_4sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@color/ViewColor" />
+
+    <!-- <include
+         android:id="@+id/admob_native_container"
+         layout="@layout/admob_native_medium"
+         android:layout_width="match_parent"
+         android:layout_marginLeft="@dimen/_5sdp"
+         android:layout_marginTop="@dimen/_5sdp"
+         android:layout_marginRight="@dimen/_5sdp"
+         android:layout_height="@dimen/_200sdp"
+         android:visibility="gone" />-->
+
+
+    <LinearLayout
+        android:id="@+id/LL1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:orientation="vertical"
+        android:padding="@dimen/_5sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/rename" />
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/share" />
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/photos" />
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/menu_gallery" />
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/mail" />
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/delete" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/LL2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+
+        android:layout_toEndOf="@id/LL1"
+        android:orientation="vertical"
+        android:padding="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/rename"
+            style="@style/TextPopMed14"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:onClick="BottomClick"
+            android:text="Rename"
+            android:textSize="@dimen/_10sdp" />
+
+
+        <TextView
+            android:id="@+id/share"
+            style="@style/TextPopMed14"
+            android:onClick="BottomClick"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:text="Share"
+            android:textSize="@dimen/_10sdp" />
+
+
+        <TextView
+            android:id="@+id/import_from_gallery"
+            style="@style/TextPopMed14"
+            android:onClick="BottomClick"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Add From Photos"
+            android:textSize="@dimen/_10sdp" />
+
+
+        <TextView
+            android:id="@+id/save_to_gallery"
+            style="@style/TextPopMed14"
+            android:onClick="BottomClick"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Save to Gallery"
+            android:textSize="@dimen/_10sdp" />
+
+        <TextView
+            android:id="@+id/send_to_mail"
+            style="@style/TextPopMed14"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:text="Send to Mail"
+            android:onClick="BottomClick"
+            android:textSize="@dimen/_10sdp" />
+
+
+        <TextView
+            android:id="@+id/delete"
+            style="@style/TextPopMed14"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:text="Delete"
+            android:onClick="BottomClick"
+            android:textSize="@dimen/_10sdp" />
+
+
+    </LinearLayout>
+
+
+    <!--
+
+
+    -->
+
+
+    <!--        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:orientation="vertical">
+
+                &lt;!&ndash; <include
+                     android:id="@+id/admob_native_container"
+                     layout="@layout/admob_native_medium"
+                     android:layout_width="match_parent"
+                     android:layout_marginLeft="@dimen/_5sdp"
+                     android:layout_marginTop="@dimen/_5sdp"
+                     android:layout_marginRight="@dimen/_5sdp"
+                     android:layout_height="@dimen/_200sdp"
+                     android:visibility="gone" />&ndash;&gt;
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="40dp"
+                        android:layout_height="5dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/ViewColor" />
+
+                </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+-->
+
+</RelativeLayout>

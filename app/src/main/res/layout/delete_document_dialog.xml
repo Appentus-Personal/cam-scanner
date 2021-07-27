@@ -3,15 +3,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bottom_sheet"
     android:elevation="5dp"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:background="@color/dialog_bg_color"
         android:orientation="vertical">
 
@@ -39,74 +40,104 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:fontFamily="@font/inter_medium"
-                        android:padding="@dimen/_5sdp"
-                        android:text="@string/delete"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="center"
-                        android:textColor="@color/txt_color"
-                        android:textSize="@dimen/_15sdp" />
 
-                    <ImageView
-                        android:id="@+id/iv_close"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="@dimen/_7sdp"
-                        android:padding="@dimen/_4sdp"
-                        android:src="@drawable/ic_close_black_24dp"
-                        android:tint="@color/txt_color" />
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="40dp"
+                        android:layout_height="5dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/ViewColor" />
+
+                    <TextView
+                        android:id="@+id/tvInputText"
+                        style="@style/TextSemiBold12"
+                        android:layout_below="@id/view"
+                        android:layout_centerInParent="true"
+
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="Delete" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/tvInputText"
+                        android:background="#59606A" />
+
+                    <!--    <ImageView
+                            android:id="@+id/iv_close"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/_7sdp"
+                            android:padding="@dimen/_4sdp"
+                            android:src="@drawable/ic_close_black_24dp"
+                            android:tint="@color/txt_color" />-->
+
                 </RelativeLayout>
 
+
+                <ImageView
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:src="@drawable/bottom_delete"/>
+
+
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/TextPopReg12"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:fontFamily="@font/inter_medium"
                     android:gravity="center"
+                    android:maxWidth="@dimen/_180sdp"
                     android:text="@string/areUSure"
-                    android:textColor="@color/unselected_txt_color"
-                    android:textSize="@dimen/_13sdp" />
+                    android:textSize="@dimen/_10sdp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_7sdp"
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:layout_marginEnd="@dimen/_7sdp"
-                    android:layout_marginBottom="@dimen/_5sdp"
-                    android:fontFamily="@font/inter_medium"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:text="@string/deleteThisDoc"
-                    android:textColor="@color/unselected_txt_color"
-                    android:textSize="@dimen/_13sdp" />
+
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginBottom="@dimen/_12sdp"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:layout_marginBottom="@dimen/_4sdp">
+
+                <TextView
+                    android:id="@+id/iv_close"
+                    style="@style/TextPopMed14"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:background="@drawable/white_border_grey"
+                    android:paddingStart="@dimen/_40sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_40sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text="@string/cancel"
+                    android:textColor="@color/TextTheme"
+                    android:textSize="@dimen/_12sdp" />
 
                 <TextView
                     android:id="@+id/tv_delete"
-                    android:layout_width="@dimen/_110sdp"
-                    android:layout_height="@dimen/_30sdp"
-                    android:background="@drawable/done_btn_bg"
-                    android:fontFamily="@font/inter_medium"
-                    android:gravity="center"
-                    android:text="@string/delete"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_13sdp" />
-            </LinearLayout>
+                    style="@style/TextPopMed14"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/btn_curve_bg"
+                    android:paddingStart="@dimen/_50sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_50sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text="@string/ok"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_12sdp" />
+            </RelativeLayout>
+
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
+
+
+

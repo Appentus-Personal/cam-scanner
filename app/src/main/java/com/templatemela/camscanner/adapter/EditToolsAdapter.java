@@ -26,15 +26,15 @@ public class EditToolsAdapter extends RecyclerView.Adapter<EditToolsAdapter.View
 
     public EditToolsAdapter(OnToolSelected onToolSelected2) {
         onToolSelected = onToolSelected2;
-        toolsList.add(new EditToolModel(R.drawable.ic_color_filter, EditToolType.COLORFILTER,"Color Filter"));
-        toolsList.add(new EditToolModel(R.drawable.ic_adjust, EditToolType.ADJUST,"Adjust"));
-        toolsList.add(new EditToolModel(R.drawable.ic_highlight_edit, EditToolType.HIGHLIGHT,"Highlight"));
-        toolsList.add(new EditToolModel(R.drawable.ic_picture, EditToolType.PICTURE,"Picture"));
-        toolsList.add(new EditToolModel(R.drawable.ic_sign, EditToolType.SIGNATURE,"Signature"));
-        toolsList.add(new EditToolModel(R.drawable.ic_watermark, EditToolType.WATERMARK,"Watermark"));
-        toolsList.add(new EditToolModel(R.drawable.ic_text, EditToolType.TEXT,"Text"));
-        toolsList.add(new EditToolModel(R.drawable.ic_overlay, EditToolType.OVERLAY,"Overlay"));
-        toolsList.add(new EditToolModel(R.drawable.ic_color_effect, EditToolType.COLOREFFECT,"Color Effect"));
+        toolsList.add(new EditToolModel(R.drawable.color_filter, EditToolType.COLORFILTER,"Color Filter"));
+        toolsList.add(new EditToolModel(R.drawable.adjust, EditToolType.ADJUST,"Adjust"));
+        toolsList.add(new EditToolModel(R.drawable.highlight, EditToolType.HIGHLIGHT,"Highlight"));
+        toolsList.add(new EditToolModel(R.drawable.picture, EditToolType.PICTURE,"Picture"));
+        toolsList.add(new EditToolModel(R.drawable.signature, EditToolType.SIGNATURE,"Signature"));
+        toolsList.add(new EditToolModel(R.drawable.watermark, EditToolType.WATERMARK,"Watermark"));
+        toolsList.add(new EditToolModel(R.drawable.text, EditToolType.TEXT,"Text"));
+        toolsList.add(new EditToolModel(R.drawable.overlay, EditToolType.OVERLAY,"Overlay"));
+        toolsList.add(new EditToolModel(R.drawable.color_effect, EditToolType.COLOREFFECT,"Color Effect"));
     }
 
     @Override

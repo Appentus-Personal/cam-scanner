@@ -14,10 +14,11 @@
         android:id="@+id/ly_img"
         android:layout_width="@dimen/_45sdp"
         android:layout_height="@dimen/_45sdp"
-        android:background="@drawable/img_border_unselected"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/_1sdp">
+        <!-- android:background="@drawable/img_border_unselected"-->
+
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
@@ -29,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@color/white" />
+                android:src="@color/tab_white" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
@@ -38,9 +39,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_6sdp"
-        android:fontFamily="@font/inter_medium"
+        android:fontFamily="@font/poppins_regular"
         android:singleLine="true"
         android:text="None"
-        android:textColor="@color/white"
+        android:textColor="@color/tab_white"
         android:textSize="@dimen/_9sdp" />
 </LinearLayout>

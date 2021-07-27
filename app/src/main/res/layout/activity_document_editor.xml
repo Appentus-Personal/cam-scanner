@@ -19,30 +19,25 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:elevation="5dp"
-                android:background="@color/fg_color">
+                android:background="#000000"
+                android:elevation="5dp">
 
                 <ImageView
                     android:id="@+id/iv_back"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_28sdp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
                     android:onClick="onClick"
                     android:padding="@dimen/_7sdp"
-                    android:src="@drawable/ic_back"
-                    android:tint="@color/black" />
+                    android:src="@drawable/backwhite" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/WhitePopSemi12"
                     android:layout_centerInParent="true"
-                    android:fontFamily="@font/inter_medium"
-                    android:text="@string/editorDocument"
                     android:layout_marginLeft="@dimen/_8sdp"
                     android:layout_toRightOf="@+id/iv_back"
-                    android:textColor="@color/txt_color"
-                    android:textSize="@dimen/_15sdp" />
+                    android:text="@string/editorDocument" />
 
                 <ImageView
                     android:id="@+id/iv_done"
@@ -54,7 +49,7 @@
                     android:onClick="onClick"
                     android:padding="@dimen/_6sdp"
                     android:src="@drawable/ic_check_mark"
-                    android:tint="@color/black" />
+                    app:tint="#ffffff" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -80,7 +75,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             app:showBorder="true"
-                            app:showIcons="true" />
+                            app:showIcons="true">
+
+                            <com.kyanogen.signatureview.SignatureView
+                                android:id="@+id/signature_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:backgroundColor="#00000000"
+                                app:enableSignature="true"
+                                app:penColor="@color/txt_color"
+                                app:penSize="5dp" />
+                        </com.xiaopo.flying.sticker.StickerView>
                     </ja.burhanrashid52.photoeditor.PhotoEditorView>
 
                     <ImageView
@@ -99,7 +104,7 @@
             android:id="@+id/ly_edit_tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="#000000"
             android:orientation="vertical"
             android:paddingTop="@dimen/_10sdp"
             android:paddingBottom="@dimen/_10sdp"
@@ -110,16 +115,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_4sdp" />
+
+            <!--
+                           <TextView
+                                android:id="@+id/iv_done"
+                                android:layout_width="@dimen/_26sdp"
+                                android:layout_height="@dimen/_26sdp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/_5sdp"
+                                android:onClick="onClick"
+
+                                android:padding="@dimen/_6sdp"
+                                app:tint="@color/white" />
+                        -->
         </LinearLayout>
 
     </LinearLayout>
+
+    <!--Color Filter-->
 
     <LinearLayout
         android:id="@+id/ly_color_filter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
+        android:background="#000000"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -127,37 +147,43 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp">
 
-            <ImageView
-                android:id="@+id/iv_close_filter"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+            <TextView
+                android:id="@+id/tv_close_filter"
+                style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_7sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:background="@drawable/white_border_black"
                 android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_close"
-                android:tint="@color/white" />
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Cancel"
+                android:textSize="@dimen/_10sdp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:fontFamily="@font/inter_medium"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/colorFilter"
-                android:textColor="@color/white"
+                android:textColor="#ffffff"
                 android:textSize="@dimen/_13sdp" />
 
-            <ImageView
-                android:id="@+id/iv_apply_filter"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+            <TextView
+                android:id="@+id/tv_apply_filter"
+                style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_7sdp"
+                android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_check_mark"
-                android:tint="@color/white" />
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Apply"
+                android:textSize="@dimen/_10sdp" />
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -168,12 +194,14 @@
 
     </LinearLayout>
 
+
+    <!--Adjust-->
     <LinearLayout
         android:id="@+id/ly_adjust"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
+        android:background="#000000"
         android:orientation="vertical"
         android:paddingTop="@dimen/_5sdp"
         android:visibility="gone">
@@ -182,37 +210,41 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp">
 
-            <ImageView
-                android:id="@+id/iv_close_adjust"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+            <TextView
+                android:id="@+id/tv_close_adjust"
+                style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_7sdp"
+                android:background="@drawable/white_border_black"
                 android:onClick="onClick"
                 android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_close"
-                android:tint="@color/white" />
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Cancel"
+                android:textSize="@dimen/_10sdp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/WhitePopMed12"
                 android:layout_centerInParent="true"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/adjust"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12sdp" />
+                android:text="@string/adjust" />
 
-            <ImageView
-                android:id="@+id/iv_apply_adjust"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
+            <TextView
+                android:id="@+id/tv_apply_adjust"
+                style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_7sdp"
+                android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
                 android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_check_mark"
-                android:tint="@color/white" />
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Apply"
+                android:textSize="@dimen/_10sdp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -227,7 +259,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_18sdp"
                 android:fontFamily="@font/inter_medium"
-                android:text="0"
+                android:text="50"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_11sdp" />
 
@@ -277,7 +309,7 @@
                     android:layout_marginTop="@dimen/_8sdp"
                     android:fontFamily="@font/inter_medium"
                     android:text="@string/brightness"
-                    android:textColor="@color/black"
+                    android:textColor="#ffffff"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -368,13 +400,15 @@
 
     </LinearLayout>
 
+
+    <!--Opacity-->
+
     <LinearLayout
         android:id="@+id/ly_opacity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-
-        android:background="@color/colorPrimary"
+        android:background="#000000"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -382,16 +416,20 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp">
 
-            <ImageView
+            <TextView
                 android:id="@+id/iv_close_opacity"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+                style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_7sdp"
+                android:background="@drawable/white_border_black"
                 android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_close"
-                android:tint="@color/white" />
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Cancel"
+                android:textSize="@dimen/_10sdp" />
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -402,17 +440,23 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp" />
 
-            <ImageView
+            <TextView
                 android:id="@+id/iv_apply_opacity"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
+                style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_7sdp"
+                android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
                 android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_check_mark"
-                android:tint="@color/white" />
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Apply"
+                android:textSize="@dimen/_10sdp" />
+
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -435,18 +479,22 @@
                 android:paddingBottom="@dimen/_9sdp"
                 android:progress="255"
                 android:progressDrawable="@drawable/seekbar_opacity"
+                android:progressTint="#11C099"
                 android:thumb="@drawable/ic_thumb" />
         </RelativeLayout>
 
 
     </LinearLayout>
 
+
+    <!--Highlight-->
+
     <LinearLayout
         android:id="@+id/ly_highlight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
+        android:background="#000000"
         android:orientation="vertical"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_5sdp"
@@ -456,37 +504,42 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp">
 
-            <ImageView
+            <TextView
                 android:id="@+id/iv_close_highlight"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+                style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_7sdp"
+                android:background="@drawable/white_border_black"
                 android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_close"
-                android:tint="@color/white" />
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Cancel"
+                android:textSize="@dimen/_10sdp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/WhitePopMed12"
                 android:layout_centerInParent="true"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/highlight"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12sdp" />
+                android:text="@string/highlight" />
 
-            <ImageView
+            <TextView
                 android:id="@+id/iv_apply_highlight"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
+                style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_7sdp"
+                android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
                 android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_check_mark"
-                android:tint="@color/white" />
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Apply"
+                android:textSize="@dimen/_10sdp" />
+
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -495,14 +548,10 @@
 
             <TextView
                 android:id="@+id/tv_brush_size"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_18sdp"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/size"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_11sdp" />
+                android:text="@string/size" />
 
             <SeekBar
                 android:id="@+id/sb_highlight_size"
@@ -517,6 +566,7 @@
                 android:paddingBottom="@dimen/_8sdp"
                 android:progress="25"
                 android:progressDrawable="@drawable/seekbar_opacity"
+                android:progressTint="#11C099"
                 android:thumb="@drawable/ic_thumb" />
 
             <SeekBar
@@ -556,16 +606,13 @@
                     android:id="@+id/iv_highlight"
                     android:layout_width="@dimen/_18sdp"
                     android:layout_height="@dimen/_18sdp"
-                    android:src="@drawable/ic_highlight" />
+                    android:src="@drawable/highlight_green" />
 
                 <TextView
                     android:id="@+id/txtHighlight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:fontFamily="@font/inter_medium"
+                    style="@style/WhitePopMed12"
+                    android:layout_marginTop="@dimen/_4sdp"
                     android:text="@string/highlight"
-                    android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -584,16 +631,13 @@
                     android:id="@+id/iv_erase"
                     android:layout_width="@dimen/_18sdp"
                     android:layout_height="@dimen/_18sdp"
-                    android:src="@drawable/bic_erase" />
+                    android:src="@drawable/eraserwhite" />
 
                 <TextView
                     android:id="@+id/txtEraser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:fontFamily="@font/inter_medium"
+                    style="@style/WhitePopMed12"
+                    android:layout_marginTop="@dimen/_4sdp"
                     android:text="@string/eraser"
-                    android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -612,16 +656,13 @@
                     android:id="@+id/iv_color"
                     android:layout_width="@dimen/_24sdp"
                     android:layout_height="@dimen/_24sdp"
-                    android:src="@drawable/bic_color" />
+                    android:src="@drawable/white_color" />
 
                 <TextView
                     android:id="@+id/txtColor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:fontFamily="@font/inter_medium"
+                    style="@style/WhitePopMed12"
+                    android:layout_marginTop="@dimen/_4sdp"
                     android:text="@string/color"
-                    android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -632,12 +673,15 @@
 
     </LinearLayout>
 
+
+    <!--Signature-->  <!--Adding icon -->
+
     <RelativeLayout
         android:id="@+id/rl_signature"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="@color/fg_color"
+        android:background="@color/sig_color"
         android:visibility="gone">
 
 
@@ -645,15 +689,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/rl_bottom">
-
-            <com.kyanogen.signatureview.SignatureView
-                android:id="@+id/signature_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:backgroundColor="#00000000"
-                app:enableSignature="true"
-                app:penColor="@color/txt_color"
-                app:penSize="5dp" />
 
 
             <RelativeLayout
@@ -675,7 +710,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_marginBottom="@dimen/_7sdp"
-                    android:fontFamily="@font/inter_medium"
+                    android:fontFamily="@font/poppins_regular"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
                     android:text="@string/noSignFound"
@@ -689,11 +724,11 @@
                 android:layout_height="@dimen/_28sdp"
                 android:layout_margin="@dimen/_15sdp"
                 android:background="@drawable/clear_btn_bg"
-                android:fontFamily="@font/inter_medium"
+                android:fontFamily="@font/poppins_medium"
                 android:gravity="center"
                 android:onClick="onClick"
                 android:text="@string/clear"
-                android:textColor="@color/black"
+                android:textColor="#ffffff"
                 android:textSize="@dimen/_13sdp" />
         </RelativeLayout>
 
@@ -702,39 +737,41 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_above="@+id/ly_seek_view"
-            android:background="@color/colorPrimary">
-
-            <ImageView
-                android:id="@+id/iv_close_signature"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_7sdp"
-                android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_close"
-                android:tint="@color/white" />
+            android:background="#000000">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/signature"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12sdp" />
+                android:id="@+id/iv_close_signature"
+                style="@style/WhitePopMed12"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:background="@drawable/white_border_black"
+                android:onClick="onClick"
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Cancel"
+                android:textSize="@dimen/_10sdp" />
 
-            <ImageView
+            <TextView
+                style="@style/WhitePopMed12"
+                android:layout_centerInParent="true"
+                android:text="@string/signature" />
+
+            <TextView
                 android:id="@+id/iv_apply_signature"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
+                style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_7sdp"
+                android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_check_mark"
-                android:tint="@color/white" />
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Apply"
+                android:textSize="@dimen/_10sdp" />
         </RelativeLayout>
 
         <LinearLayout
@@ -742,7 +779,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/ly_btn"
-            android:background="@color/colorPrimary"
+            android:background="#000000"
             android:orientation="vertical"
             android:visibility="visible">
 
@@ -752,13 +789,10 @@
 
                 <TextView
                     android:id="@+id/tv_pen_size"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/WhitePopMed12"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_18sdp"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/size"
-                    android:textColor="@color/white"
                     android:textSize="@dimen/_11sdp" />
 
                 <SeekBar
@@ -774,6 +808,7 @@
                     android:paddingBottom="@dimen/_8sdp"
                     android:progress="20"
                     android:progressDrawable="@drawable/seekbar_opacity"
+                    android:progressTint="#11C099"
                     android:thumb="@drawable/ic_thumb" />
             </RelativeLayout>
 
@@ -785,13 +820,10 @@
 
                 <TextView
                     android:id="@+id/tv_pen_color"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/WhitePopMed12"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_18sdp"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/color"
-                    android:textColor="@color/white"
                     android:textSize="@dimen/_11sdp" />
 
                 <com.divyanshu.colorseekbar.ColorSeekBar
@@ -814,7 +846,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:background="@color/colorPrimary"
+            android:background="#000000"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingBottom="@dimen/_5sdp">
@@ -833,15 +865,13 @@
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:padding="@dimen/_4sdp"
-                    android:src="@drawable/ic_create_sig" />
+                    android:src="@drawable/green_create_sig" />
 
                 <TextView
                     android:id="@+id/txtCreateSig"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/WhitePopMed12"
                     android:layout_gravity="center"
                     android:text="@string/createSig"
-                    android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -861,15 +891,13 @@
                     android:layout_width="@dimen/_24sdp"
                     android:layout_height="@dimen/_24sdp"
                     android:padding="@dimen/_4sdp"
-                    android:src="@drawable/ic_saved_sig" />
+                    android:src="@drawable/save_sig" />
 
                 <TextView
                     android:id="@+id/txtSavedSig"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/WhitePopMed12"
                     android:layout_gravity="center"
                     android:text="@string/saved_sig"
-                    android:textColor="@color/light_bg_color"
                     android:textSize="@dimen/_10sdp" />
             </LinearLayout>
         </LinearLayout>
@@ -877,19 +905,23 @@
 
     </RelativeLayout>
 
+
+    <!--WaterMark-->  <!--Due-->
+
+
     <RelativeLayout
         android:id="@+id/rl_watermark"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="@color/fg_color"
+        android:background="@color/sig_color"
         android:visibility="gone">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/rl_bottom2"
-            android:background="@color/bg_color">
+            android:background="@color/sig_color">
 
             <EditText
                 android:id="@+id/et_watermark_txt"
@@ -901,7 +933,7 @@
                 android:background="@drawable/white_bg"
                 android:cursorVisible="true"
                 android:focusable="true"
-                android:fontFamily="@font/inter_medium"
+                android:fontFamily="@font/poppins_regular"
                 android:gravity="top|left|center_vertical|center_horizontal|center|start"
                 android:hint="@string/enterText"
                 android:imeOptions="actionDone"
@@ -909,7 +941,7 @@
                 android:padding="@dimen/_10sdp"
                 android:textColor="@color/txt_color"
                 android:textColorHint="@color/unselected_txt_color"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_12sdp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -918,13 +950,13 @@
                 android:background="@color/fg_color"
                 android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_watermark_font"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="@dimen/_4sdp"
-                    android:visibility="gone" />
+                <!--  <androidx.recyclerview.widget.RecyclerView
+                      android:id="@+id/rv_watermark_font"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_centerVertical="true"
+                      android:layout_margin="@dimen/_4sdp"
+                      android:visibility="gone" />-->
 
                 <RelativeLayout
                     android:id="@+id/rl_watermark_color"
@@ -999,47 +1031,79 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_above="@+id/ly_btn2"
-            android:background="@color/colorPrimary">
-
-            <ImageView
-                android:id="@+id/iv_close_watermark"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_7sdp"
-                android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_close"
-                android:tint="@color/white" />
+            android:background="#000000">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/watermark"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12sdp" />
+                android:id="@+id/iv_close_watermark"
+                style="@style/WhitePopMed12"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:background="@drawable/white_border_black"
+                android:onClick="onClick"
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Cancel"
+                android:textSize="@dimen/_10sdp" />
 
-            <ImageView
+            <TextView
+                style="@style/WhitePopMed12"
+                android:layout_centerInParent="true"
+                android:text="@string/watermark" />
+
+            <TextView
                 android:id="@+id/iv_apply_watermark"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
+                style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_7sdp"
+                android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_check_mark"
-                android:tint="@color/white" />
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Apply"
+                android:textSize="@dimen/_10sdp" />
+
+
+            <!--  <androidx.recyclerview.widget.RecyclerView
+                     android:id="@+id/rv_watermark_font"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_centerVertical="true"
+                  android:layout_below="@id/iv_apply_watermark"
+                     android:layout_margin="@dimen/_4sdp"
+                     android:visibility="gone" />-->
+
         </RelativeLayout>
+
+
+        <!--   <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_below="@id/rl_bottom2">
+
+
+
+                 <androidx.recyclerview.widget.RecyclerView
+                       android:id="@+id/rv_watermark_font"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_centerVertical="true"
+                       android:layout_margin="@dimen/_4sdp"
+                     android:visibility="gone"
+                       />
+
+           </RelativeLayout>-->
 
         <LinearLayout
             android:id="@+id/ly_btn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/colorPrimary"
+            android:background="#000000"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingBottom="@dimen/_6sdp">
@@ -1056,15 +1120,13 @@
                     android:layout_height="@dimen/_24sdp"
                     android:onClick="onClick"
                     android:padding="@dimen/_4sdp"
-                    android:src="@drawable/ic_txt_font" />
+                    android:src="@drawable/greenfont" />
 
                 <TextView
                     android:id="@+id/txtFont"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/WhitePopMed12"
                     android:layout_gravity="center"
                     android:text="@string/font"
-                    android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -1082,15 +1144,13 @@
                     android:layout_height="@dimen/_27sdp"
                     android:onClick="onClick"
                     android:padding="@dimen/_4sdp"
-                    android:src="@drawable/bic_color" />
+                    android:src="@drawable/white_color" />
 
                 <TextView
                     android:id="@+id/txtWatermarkColor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/WhitePopMed12"
                     android:layout_gravity="center"
                     android:text="@string/color"
-                    android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -1108,15 +1168,13 @@
                     android:layout_height="@dimen/_24sdp"
                     android:onClick="onClick"
                     android:padding="@dimen/_4sdp"
-                    android:src="@drawable/ic_brightness" />
+                    android:src="@drawable/brightnesswhite" />
 
                 <TextView
                     android:id="@+id/txtOpacity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/WhitePopMed12"
                     android:layout_gravity="center"
                     android:text="@string/Opacity"
-                    android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -1127,6 +1185,8 @@
 
     </RelativeLayout>
 
+
+    <!--Text-->
     <LinearLayout
         android:id="@+id/ly_text"
         android:layout_width="match_parent"
@@ -1150,7 +1210,7 @@
                 android:onClick="onClick"
                 android:padding="@dimen/_6sdp"
                 android:src="@drawable/ic_close"
-                android:tint="@color/white" />
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -1176,9 +1236,9 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:paddingBottom="@dimen/_5sdp"
+            android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:layout_height="wrap_content">
+            android:paddingBottom="@dimen/_5sdp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_font"
@@ -1277,8 +1337,8 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:paddingBottom="@dimen/_8sdp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/_8sdp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -1315,8 +1375,8 @@
                     android:id="@+id/iv_txt_color"
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:onClick="onClick"
                     android:layout_gravity="center"
+                    android:onClick="onClick"
                     android:padding="@dimen/_4sdp"
                     android:src="@drawable/bic_color" />
 
@@ -1356,21 +1416,65 @@
             </LinearLayout>
 
 
-
         </LinearLayout>
 
 
     </LinearLayout>
+
+    <!--Ovarlay-->
 
     <LinearLayout
         android:id="@+id/ly_overlay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
+        android:background="#000000"
         android:orientation="vertical"
         android:paddingTop="@dimen/_5sdp"
-        android:visibility="gone">
+        android:visibility="gone"
+
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp">
+
+            <TextView
+                android:id="@+id/iv_close_overlay"
+                style="@style/WhitePopMed12"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_7sdp"
+                android:background="@drawable/white_border_black"
+                android:onClick="onClick"
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Cancel"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                style="@style/WhitePopMed12"
+                android:layout_centerInParent="true"
+                android:text="@string/overlay" />
+
+            <TextView
+                android:id="@+id/iv_apply_overlay"
+                style="@style/WhitePopMed12"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_7sdp"
+                android:background="@drawable/btn_curve_bg"
+                android:onClick="onClick"
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Apply"
+                android:textSize="@dimen/_10sdp" />
+        </RelativeLayout>
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -1378,14 +1482,10 @@
 
             <TextView
                 android:id="@+id/tv_overlay_opacity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_18sdp"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/Opacity"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_11sdp" />
+                android:text="@string/Opacity" />
 
             <SeekBar
                 android:id="@+id/sb_overlay"
@@ -1400,44 +1500,10 @@
                 android:paddingBottom="@dimen/_6sdp"
                 android:progress="100"
                 android:progressDrawable="@drawable/seekbar_opacity"
+                android:progressTint="#11C099"
                 android:thumb="@drawable/ic_thumb" />
         </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp">
 
-            <ImageView
-                android:id="@+id/iv_close_overlay"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_7sdp"
-                android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
-                android:tint="@color/white"
-                android:src="@drawable/ic_close" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/overlay"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_13sdp" />
-
-            <ImageView
-                android:id="@+id/iv_apply_overlay"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_7sdp"
-                android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
-                android:tint="@color/white"
-                android:src="@drawable/ic_check_mark" />
-        </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_overlay"
@@ -1445,15 +1511,17 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_4sdp" />
 
-
     </LinearLayout>
+
+
+    <!--ColorEffects-->
 
     <LinearLayout
         android:id="@+id/ly_color_effect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
+        android:background="#000000"
         android:orientation="vertical"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_5sdp"
@@ -1463,37 +1531,40 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp">
 
-            <ImageView
+            <TextView
                 android:id="@+id/iv_close_effect"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+                style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_7sdp"
+                android:background="@drawable/white_border_black"
                 android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
-                android:tint="@color/white"
-                android:src="@drawable/ic_close" />
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Cancel"
+                android:textSize="@dimen/_10sdp" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/WhitePopMed12"
                 android:layout_centerInParent="true"
-                android:fontFamily="@font/inter_medium"
                 android:text="@string/colorEffect"
-                android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp" />
 
-            <ImageView
+            <TextView
                 android:id="@+id/iv_apply_effect"
-                android:layout_width="@dimen/_26sdp"
-                android:layout_height="@dimen/_26sdp"
+                style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_7sdp"
+                android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
-                android:tint="@color/white"
-                android:src="@drawable/ic_check_mark" />
+                android:paddingStart="@dimen/_14sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_14sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="Apply"
+                android:textSize="@dimen/_10sdp" />
 
 
         </RelativeLayout>
