@@ -1,6 +1,5 @@
 package com.templatemela.camscanner.activity;
 
-import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -33,7 +32,7 @@ public class ImageToTextActivity extends BaseActivity implements View.OnClickLis
     protected ImageView iv_rescan_img;
     protected ImageView iv_share_txt;
 
-    public ProgressDialog progressDialog;
+/*    public ProgressDialog progressDialog;*/
 
     public TextView tv_ocr_txt;
     private TextView tv_title;
@@ -73,6 +72,7 @@ public class ImageToTextActivity extends BaseActivity implements View.OnClickLis
                 return;
             case R.id.iv_copy_txt:
                 ((ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE)).setPrimaryClip(ClipData.newPlainText(TextBundle.TEXT_ENTRY, tv_ocr_txt.getText().toString()));
+
                 Toast.makeText(this, "Text copied to clipboard", Toast.LENGTH_SHORT).show();
                 return;
             case R.id.iv_rescan_img:
@@ -92,11 +92,12 @@ public class ImageToTextActivity extends BaseActivity implements View.OnClickLis
     }
 
     private void doOCR(final Bitmap bitmap) {
-        if (progressDialog == null) {
+        Toast.makeText(this ,"Processing OCR",Toast.LENGTH_SHORT).show();
+       /* if (progressDialog == null) {
             progressDialog = ProgressDialog.show(this, "Processing", "Doing OCR...", true);
         } else {
             progressDialog.show();
-        }
+        }*/
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -119,7 +120,7 @@ public class ImageToTextActivity extends BaseActivity implements View.OnClickLis
                         } else {
                             tv_ocr_txt.setText("No Text Found...");
                         }
-                        progressDialog.dismiss();
+                       /* progressDialog.dismiss();*/
                     }
                 });
             }

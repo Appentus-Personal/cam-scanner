@@ -43,5 +43,8 @@
     <color name="tab_color">#373B40</color>
     <color name="sig_color">#373B40</color>
     <color name="border_color">#59606A</color>
+    <color name="note_color">#59606A</color>
+    <color name="unselected_tab">#373B40</color>
+
 
 </resources>

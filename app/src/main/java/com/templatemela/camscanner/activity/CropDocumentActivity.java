@@ -151,8 +151,6 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
 
     }
 
-
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -161,6 +159,18 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
 
                 /*Original*/
             case R.id.iv_original:
+
+                iv_original.setBackgroundResource(R.drawable.originalgreen);
+                // iv_original.setTextColor(getResources().getColor(R.color.white));
+                iv_color.setBackgroundResource(R.drawable.colorwhite);
+                // iv_color.setTextColor(getResources().getColor(R.color.black));
+
+                iv_sharp_black.setBackgroundResource(R.drawable.sharpwhite);
+                // iv_sharp_black.setTextColor(getResources().getColor(R.color.black));
+
+                iv_ocv_black.setBackgroundResource(R.drawable.originalwhite);
+                // iv_ocv_black.setTextColor(getResources().getColor(R.color.black));
+
                 try {
                     showProgressDialog();
                     tempBitmap = original;
@@ -171,20 +181,25 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
                     dismissProgressDialog();
                 }
 
-                iv_original.setBackgroundResource(R.drawable.originalgreen);
-               // iv_original.setTextColor(getResources().getColor(R.color.white));
-                iv_color.setBackgroundResource(R.drawable.colorwhite);
-               // iv_color.setTextColor(getResources().getColor(R.color.black));
 
-                iv_sharp_black.setBackgroundResource(R.drawable.sharpwhite);
-               // iv_sharp_black.setTextColor(getResources().getColor(R.color.black));
-
-                iv_ocv_black.setBackgroundResource(R.drawable.originalwhite);
-               // iv_ocv_black.setTextColor(getResources().getColor(R.color.black));
                 return;
 
             /*OCVBlack*/
             case R.id.iv_ocv_black:
+
+                iv_ocv_black.setBackgroundResource(R.drawable.originalgreen);
+
+                iv_original.setBackgroundResource(R.drawable.originalwhite);
+                // iv_original.setTextColor(getResources().getColor(R.color.black));
+
+                iv_color.setBackgroundResource(R.drawable.colorwhite);
+//                iv_color.setTextColor(getResources().getColor(R.color.black));
+
+                iv_sharp_black.setBackgroundResource(R.drawable.sharpwhite);
+                //  iv_sharp_black.setTextColor(getResources().getColor(R.color.black));
+
+                // iv_ocv_black.setTextColor(getResources().getColor(R.color.white));
+
                 showProgressDialog();
                 AsyncTask.execute(new Runnable() {
                     @Override
@@ -212,22 +227,23 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
                     }
                 });
 
-                iv_original.setBackgroundResource(R.drawable.originalwhite);
-               // iv_original.setTextColor(getResources().getColor(R.color.black));
-
-                iv_color.setBackgroundResource(R.drawable.colorwhite);
-//                iv_color.setTextColor(getResources().getColor(R.color.black));
-
-                iv_sharp_black.setBackgroundResource(R.drawable.sharpwhite);
-              //  iv_sharp_black.setTextColor(getResources().getColor(R.color.black));
-
-                iv_ocv_black.setBackgroundResource(R.drawable.originalgreen);
-               // iv_ocv_black.setTextColor(getResources().getColor(R.color.white));
 
                 return;
 
             /*Color*/
             case R.id.iv_color:
+
+                iv_color.setBackgroundResource(R.drawable.colorgreen);
+
+                iv_original.setBackgroundResource(R.drawable.originalwhite);
+                //iv_original.setTextColor(getResources().getColor(R.color.black));
+
+                iv_sharp_black.setBackgroundResource(R.drawable.sharpwhite);
+                // iv_sharp_black.setTextColor(getResources().getColor(R.color.black));
+
+                iv_ocv_black.setBackgroundResource(R.drawable.originalwhite);
+                // iv_ocv_black.setTextColor(getResources().getColor(R.color.black));
+
                 showProgressDialog();
                 AsyncTask.execute(new Runnable() {
                     @Override
@@ -254,17 +270,9 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
                         });
                     }
                 });
-                iv_original.setBackgroundResource(R.drawable.originalwhite);
-                //iv_original.setTextColor(getResources().getColor(R.color.black));
 
-                iv_color.setBackgroundResource(R.drawable.colorgreen);
-               // iv_color.setTextColor(getResources().getColor(R.color.white));
 
-                iv_sharp_black.setBackgroundResource(R.drawable.originalwhite);
-               // iv_sharp_black.setTextColor(getResources().getColor(R.color.black));
 
-                iv_ocv_black.setBackgroundResource(R.drawable.originalwhite);
-               // iv_ocv_black.setTextColor(getResources().getColor(R.color.black));
                 return;
 
             /*SharpBlack*/
@@ -296,18 +304,22 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
                         });
                     }
                 });
+
+                iv_sharp_black.setBackgroundResource(R.drawable.sharpgreen);
+
                 iv_original.setBackgroundResource(R.drawable.originalwhite);
                // iv_original.setTextColor(getResources().getColor(R.color.black));
 
                 iv_color.setBackgroundResource(R.drawable.colorwhite);
                // iv_color.setTextColor(getResources().getColor(R.color.black));
 
-                iv_sharp_black.setBackgroundResource(R.drawable.sharpgreen);
+
                // iv_sharp_black.setTextColor(getResources().getColor(R.color.white));
 
                 iv_ocv_black.setBackgroundResource(R.drawable.originalwhite);
                 //iv_ocv_black.setTextColor(getResources().getColor(R.color.black));
                 return;
+
             case R.id.iv_done:
                 if (iv_preview_crop.canRightCrop()) {
                     Constant.original = iv_preview_crop.crop();

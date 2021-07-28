@@ -57,7 +57,7 @@ public class NoteActivity extends BaseActivity {
                 onBackPressed();
             }
         });
-        findViewById(R.id.iv_save_note).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.tv_save_note).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(NoteActivity.this, "Note Saved", Toast.LENGTH_SHORT).show();

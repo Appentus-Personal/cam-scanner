@@ -19,7 +19,8 @@
         android:id="@+id/txtIconName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
         android:layout_marginTop="@dimen/_5sdp"
         android:textSize="@dimen/_8sdp"
-        android:textColor="@color/white"/>
+        android:textColor="#ffffff"/>
 </LinearLayout>

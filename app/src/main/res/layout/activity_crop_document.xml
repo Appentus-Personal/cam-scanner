@@ -154,7 +154,6 @@
                         android:max="100"
                         android:maxHeight="2dp"
                         android:progress="20"
-
                         android:progressTint="#11C099"
                         android:thumb="@drawable/ic_thumb"
                         android:progressDrawable="@drawable/seekbar_opacity"/>
@@ -193,8 +192,7 @@
                             android:id="@+id/iv_original"
                             android:layout_width="@dimen/_25sdp"
                             android:layout_height="@dimen/_25sdp"
-                            android:onClick="onClick"
-                            android:text="O" />
+                            android:onClick="onClick" />
 
                         <TextView
                             style="@style/TextPopReg12"
@@ -217,6 +215,7 @@
                             android:layout_width="@dimen/_25sdp"
                             android:layout_height="@dimen/_25sdp"
                             android:onClick="onClick"
+
                             android:text="C" />
 
                         <TextView
@@ -263,6 +262,7 @@
                             android:id="@+id/iv_ocv_black"
                             android:layout_width="@dimen/_25sdp"
                             android:layout_height="@dimen/_25sdp"
+
                             android:onClick="onClick" />
 
                         <TextView

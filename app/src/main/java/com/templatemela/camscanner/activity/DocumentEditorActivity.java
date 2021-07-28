@@ -787,6 +787,13 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                 iv_done.setVisibility(View.VISIBLE);
                                 slideDownAnimation(ly_adjust);
                                 return;
+
+                            case R.id.tv_close_adjust:
+                                ly_edit_tools.setVisibility(View.VISIBLE);
+                                iv_done.setVisibility(View.VISIBLE);
+                                slideDownAnimation(ly_adjust);
+                                return;
+
                             case R.id.iv_close_effect:
                                 iv_editImg.getSource().setColorFilter(Constant.coloreffect[0]);
                                 ly_edit_tools.setVisibility(View.VISIBLE);
@@ -880,7 +887,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                         switch (id) {
                                             case R.id.llContrast:
                                                 Constant.filterPosition = 0;
-                                                iv_brightness.setImageResource(R.drawable.ic_brightness);
+                                                iv_brightness.setImageResource(R.drawable.brightnesswhite);
                                                 iv_contrast.setImageResource(R.drawable.ic_contrast_selection);
                                                 iv_saturation.setImageResource(R.drawable.ic_saturation);
                                                 iv_exposure.setImageResource(R.drawable.ic_exposure);

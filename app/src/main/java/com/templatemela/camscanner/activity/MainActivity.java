@@ -255,10 +255,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     private void setTab() {
+
+
+
+
+
         for (String text : tabList) {
             TabLayout tabLayout = tag_tabs;
             tabLayout.addTab(tabLayout.newTab().setText((CharSequence) text));
         }
+
+        for(int i=0; i < tag_tabs.getTabCount(); i++) {
+            View tab = ((ViewGroup) tag_tabs.getChildAt(0)).getChildAt(i);
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
+            p.setMargins(0, 0, 30, 0);
+            tab.requestLayout();
+        }
+
+
         Constant.current_tag = "All Docs";
         tag_tabs.addOnTabSelectedListener((TabLayout.OnTabSelectedListener) new TabLayout.OnTabSelectedListener() {
             @Override
@@ -267,6 +281,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
+
+
+
             }
 
             @Override

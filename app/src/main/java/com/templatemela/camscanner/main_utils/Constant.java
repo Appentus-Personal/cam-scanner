@@ -34,13 +34,13 @@ public class Constant {
     public static int selectedWatermarkFont;
     public static Bitmap singleSideBitmap;
 
-
     public static String PREFS_NAME = "theme_prefs";
     public static String KEY_THEME = "prefs.theme";
     public static  int THEME_UNDEFINED = -1;
     public static  int THEME_LIGHT = 0;
     public static  int THEME_DARK = 1;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public static String getDateTime(String str) {
         return new SimpleDateFormat(str).format(new Date());
     }

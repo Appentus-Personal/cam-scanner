@@ -116,18 +116,42 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_4sdp" />
 
-            <!--
-                           <TextView
-                                android:id="@+id/iv_done"
-                                android:layout_width="@dimen/_26sdp"
-                                android:layout_height="@dimen/_26sdp"
-                                android:layout_centerVertical="true"
-                                android:layout_marginEnd="@dimen/_5sdp"
-                                android:onClick="onClick"
 
-                                android:padding="@dimen/_6sdp"
-                                app:tint="@color/white" />
-                        -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/WhitePopMed12"
+                android:text="Cancel"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:background="@drawable/white_border_black"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:textColor="@color/tab_white"
+                android:textSize="@dimen/_12sdp" />
+
+            <TextView
+
+                style="@style/TextPopMed14"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/btn_curve_bg"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="Save"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_12sdp" />
+            </RelativeLayout>
+
         </LinearLayout>
 
     </LinearLayout>

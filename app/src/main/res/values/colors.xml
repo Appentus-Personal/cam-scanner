@@ -69,16 +69,13 @@
 
 
     <!-- TODO :: Light Colors -->
-
     <color name="ThemeBg">#F7FFFD</color>
     <color name="TextTheme">#000000</color>
     <color name="DialogBottom">#FFFFFF</color>
     <color name="tab_color">#E7F7F3</color>
     <color name="sig_color">#F9FCFB</color>
     <color name="border_color">#E7F7F3</color>
-
-
-
-    #373B40
+    <color name="note_color">#ffffff</color>
+    <color name="unselected_tab">#E7F7F3</color>
 
 </resources>

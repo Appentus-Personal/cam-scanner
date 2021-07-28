@@ -212,7 +212,7 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
                         previewPagerAdapter = new PreviewPagerAdapter(SavedDocumentPreviewActivity.this, currentDocList);
                         viewPager.setAdapter(previewPagerAdapter);
                         viewPager.setCurrentItem(position);
-                        tv_page.setText(String.format("%s / %s", new Object[]{Integer.valueOf(position + 1), Integer.valueOf(currentDocList.size())}));
+                        tv_page.setText(String.format("Page %s of %s", new Object[]{Integer.valueOf(position + 1), Integer.valueOf(currentDocList.size())}));
                         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                             @Override
                             public void onPageScrollStateChanged(int i) {
@@ -227,7 +227,7 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
                                 Log.e(TAG, "onPageSelected: " + i);
                                 position = i;
                                 current_doc_name = currentDocList.get(position).getGroup_doc_name();
-                                tv_page.setText(String.format("%s / %s", new Object[]{Integer.valueOf(position + 1), Integer.valueOf(currentDocList.size())}));
+                                tv_page.setText(String.format("Page %s of %s", new Object[]{Integer.valueOf(position + 1), Integer.valueOf(currentDocList.size())}));
                             }
                         });
                         setSavedToolsAdapter();

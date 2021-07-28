@@ -32,6 +32,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -518,7 +519,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(false);
-        ((TextView) dialog.findViewById(R.id.tv_select1)).setOnClickListener(new View.OnClickListener() {
+        ((LinearLayout) dialog.findViewById(R.id.tv_select1)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Constant.card_type = "Single";
@@ -526,7 +527,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                 dialog.dismiss();
             }
         });
-        ((TextView) dialog.findViewById(R.id.tv_select2)).setOnClickListener(new View.OnClickListener() {
+        ((LinearLayout) dialog.findViewById(R.id.tv_select2)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Constant.card_type = "Double";
@@ -607,6 +608,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
             progressDialog.show();
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
         public Bitmap doInBackground(Bitmap... bitmapArr) {
             Bitmap bitmap = Constant.original;

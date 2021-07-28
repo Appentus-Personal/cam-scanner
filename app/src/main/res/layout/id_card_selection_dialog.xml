@@ -13,7 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bg_color1"
+        android:background="@color/DialogBottom"
         android:orientation="vertical">
 
         <LinearLayout
@@ -31,19 +31,17 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_30sdp"
-                    android:background="@drawable/rounded_toolbar_5dp">
+                    android:layout_height="@dimen/_30sdp">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/WhitePopSemi12"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:fontFamily="@font/inter_medium"
                         android:padding="@dimen/_5sdp"
-                        android:text="ID Card"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_13sdp" />
+                        android:layout_centerHorizontal="true"
+                        android:text="Please Select your ID Card"
+                       android:textColor="@color/TextTheme"
+                        android:textSize="@dimen/_12sdp" />
 
                     <ImageView
                         android:id="@+id/iv_close"
@@ -54,7 +52,8 @@
                         android:layout_marginEnd="@dimen/_7sdp"
                         android:padding="@dimen/_4sdp"
                         android:src="@drawable/ic_close_black_24dp"
-                        android:tint="@color/white" />
+                        app:tint="@color/TextTheme" />
+
                 </RelativeLayout>
 
                 <LinearLayout
@@ -65,28 +64,40 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/tv_select1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/tab_color"
                         android:layout_marginStart="@dimen/_12sdp"
                         android:layout_marginEnd="@dimen/_12sdp"
                         android:orientation="vertical">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
+                            android:padding="@dimen/_4sdp"
                             android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:id="@+id/ivsingle_id"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:layout_centerVertical="true"
+                                android:layout_height="@dimen/_30sdp"
+                                android:src="@drawable/oneside_id_grn"/>
 
 
                             <TextView
                                 android:id="@+id/txtTitle1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:fontFamily="@font/inter_medium"
+                                style="@style/WhitePopSemi12"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_toEndOf="@id/ivsingle_id"
+                                android:layout_marginStart="@dimen/_10sdp"
                                 android:text="Single side ID Card"
-                                android:textColor="@color/selected_txt_color"
-                                android:textSize="@dimen/_12sdp" />
+                                android:textColor="@color/TextTheme"
+                                android:textSize="@dimen/_10sdp" />
 
-                            <TextView
+                          <!--  <TextView
                                 android:id="@+id/tv_select1"
                                 android:layout_width="@dimen/_40sdp"
                                 android:layout_height="wrap_content"
@@ -98,26 +109,35 @@
                                 android:padding="@dimen/_2sdp"
                                 android:text="Select"
                                 android:textColor="@color/white"
+                                android:textSize="@dimen/_10sdp" />-->
+
+                            <TextView
+                                style="@style/TextPopReg12"
+                                android:layout_below="@+id/txtTitle1"
+                                android:layout_gravity="start"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:maxWidth="@dimen/_170sdp"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:textColor="@color/TextTheme"
+                                android:layout_toRightOf="@id/ivsingle_id"
+                                android:text="@string/single_id_card_txt"
                                 android:textSize="@dimen/_10sdp" />
+
                         </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtTitle1"
-                            android:layout_gravity="start"
-                            android:layout_marginEnd="@dimen/_6sdp"
-                            android:text="@string/single_id_card_txt"
-                            android:textColor="@color/unselected_txt_color"
-                            android:textSize="@dimen/_11sdp" />
+
+
+
 
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/tv_select2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_12sdp"
+                        android:background="@color/tab_color"
                         android:layout_marginTop="@dimen/_8sdp"
                         android:layout_marginEnd="@dimen/_12sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
@@ -126,18 +146,29 @@
 
                         <RelativeLayout
                             android:layout_width="match_parent"
+                            android:padding="@dimen/_4sdp"
                             android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:id="@+id/iv_double_id"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:layout_centerVertical="true"
+                                android:layout_height="@dimen/_30sdp"
+                                android:src="@drawable/twoside_id"/>
 
                             <TextView
                                 android:id="@+id/txtTitle2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/inter_medium"
+                                style="@style/WhitePopSemi12"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_toEndOf="@id/iv_double_id"
+                                android:layout_marginTop="@dimen/_10sdp"
                                 android:text="Two side ID Card"
-                                android:textColor="@color/selected_txt_color"
-                                android:textSize="@dimen/_12sdp" />
+                                android:textColor="@color/TextTheme"
+                                android:textSize="@dimen/_10sdp" />
 
-                            <TextView
+                         <!--   <TextView
                                 android:id="@+id/tv_select2"
                                 android:layout_width="@dimen/_40sdp"
                                 android:layout_height="wrap_content"
@@ -150,18 +181,23 @@
                                 android:text="Select"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/_10sdp" />
+                                !-->
 
-                        </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            <TextView
+                            style="@style/TextPopReg12"
                             android:layout_gravity="start"
-
+                            android:maxWidth="@dimen/_170sdp"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:textColor="@color/TextTheme"
+                                android:layout_below="@id/txtTitle2"
+                            android:layout_toEndOf="@id/iv_double_id"
                             android:layout_marginEnd="@dimen/_6sdp"
                             android:text="@string/two_id_card_txt"
-                            android:textColor="@color/unselected_txt_color"
                             android:textSize="@dimen/_11sdp" />
+                        </RelativeLayout>
+
+
 
                     </LinearLayout>
                 </LinearLayout>

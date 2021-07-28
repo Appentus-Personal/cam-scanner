@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color1"
+    android:background="@color/ThemeBg"
     android:orientation="vertical">
 
     <LinearLayout
@@ -14,48 +14,61 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="@dimen/_45sdp"
             android:elevation="5dp"
-            android:background="@color/white">
+            android:background="@color/TextTheme">
 
             <ImageView
                 android:id="@+id/iv_back"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_28sdp"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_2sdp"
+                android:onClick="onClick"
                 android:padding="@dimen/_7sdp"
-                android:src="@drawable/ic_back" />
+                android:src="@drawable/backwhite"
+                app:tint="@color/TextTheme" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/note"
-                android:textColor="@color/black"
+                style="@style/TextPopMed14"
+                android:layout_toEndOf="@+id/iv_back"
+                android:layout_centerVertical="true"
+                android:text="Note"
+                android:textColor="@color/TextTheme"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:textSize="@dimen/_15sdp" />
 
-            <ImageView
-                android:id="@+id/iv_save_note"
-                android:layout_width="@dimen/_28sdp"
-                android:layout_height="@dimen/_28sdp"
+            <TextView
+                android:id="@+id/tv_save_note"
+                style="@style/TextPopMed14"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_6sdp"
-                android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_save_note"
-                android:tint="@color/black" />
+                android:background="@drawable/btn_curve_bg"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                android:text="Save"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_10sdp"
+                />
+
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/sig_color"
             android:orientation="vertical">
 
             <jp.wasabeef.richeditor.RichEditor
                 android:id="@+id/editor"
                 android:layout_width="match_parent"
+                android:background="@color/note_color"
+                android:layout_margin="@dimen/_6sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:layout_height="match_parent" />
         </LinearLayout>
     </LinearLayout>
@@ -68,7 +81,7 @@
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="#000000"
             android:paddingTop="@dimen/_10sdp"
             android:paddingBottom="@dimen/_10sdp"
             android:scrollbars="none">
@@ -93,17 +106,15 @@
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_undo" />
+                        android:src="@drawable/undo" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/undo"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -122,17 +133,15 @@
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_redo" />
+                        android:src="@drawable/redo" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/redo"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -151,17 +160,15 @@
                         android:layout_width="@dimen/_15sdp"
                         android:layout_gravity="center"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_bold_icon" />
+                        android:src="@drawable/bold" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/bold"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -180,17 +187,15 @@
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_italic" />
+                        android:src="@drawable/italic" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/italic"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -209,17 +214,15 @@
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_subscript" />
+                        android:src="@drawable/subscript" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/subscript"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -238,17 +241,15 @@
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_superscript" />
+                        android:src="@drawable/superscript" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/superscript"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -267,17 +268,15 @@
                         android:layout_width="@dimen/_15sdp"
                         android:layout_gravity="center"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_strek" />
+                        android:src="@drawable/strike" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/strikethrough"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -297,17 +296,15 @@
                         android:layout_width="@dimen/_15sdp"
                         android:layout_gravity="center"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_underline" />
+                        android:src="@drawable/underline" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/underline"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -326,17 +323,15 @@
                         android:layout_gravity="center"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_headline1" />
+                        android:src="@drawable/head1" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/headline1"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -355,17 +350,15 @@
                         android:layout_gravity="center"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_headline2" />
+                        android:src="@drawable/head2" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/headline2"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -384,17 +377,15 @@
                         android:layout_gravity="center"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_headline3" />
+                        android:src="@drawable/head3" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/headline3"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -413,17 +404,15 @@
                         android:layout_gravity="center"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_headline4" />
+                        android:src="@drawable/head4" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/headline4"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -443,17 +432,15 @@
                         android:layout_width="@dimen/_15sdp"
                         android:layout_gravity="center"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_headline5" />
+                        android:src="@drawable/head5" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/headline5"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -472,17 +459,15 @@
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_headline6" />
+                        android:src="@drawable/head6" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/headline6"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -501,17 +486,15 @@
                         android:layout_width="@dimen/_15sdp"
                         android:layout_gravity="center"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_red_text" />
+                        android:src="@drawable/r_text" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/redText"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -531,17 +514,15 @@
                         android:id="@+id/iv_indent"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_indent" />
+                        android:src="@drawable/indent" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/indent"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -560,17 +541,15 @@
                         android:id="@+id/iv_outdent"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_outdent" />
+                        android:src="@drawable/outdent" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/outdent"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -589,17 +568,15 @@
                         android:id="@+id/iv_align_left"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_left_text" />
+                        android:src="@drawable/left" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/leftText"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -618,17 +595,15 @@
                         android:id="@+id/iv_align_center"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_center" />
+                        android:src="@drawable/center" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -648,17 +623,15 @@
                         android:id="@+id/iv_align_right"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_right_text" />
+                        android:src="@drawable/right" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/rightText"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -677,17 +650,15 @@
                         android:id="@+id/iv_insert_bullets"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_line_dot" />
+                        android:src="@drawable/linedot" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/lineDot"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -706,17 +677,15 @@
                         android:id="@+id/iv_insert_numbers"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_number" />
+                        android:src="@drawable/line_num" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/number"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 
@@ -735,17 +704,15 @@
                         android:id="@+id/iv_insert_checkbox"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:src="@drawable/ic_check_box" />
+                        android:src="@drawable/checkmark" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:layout_marginTop="@dimen/_6sdp"
                         android:gravity="center"
                         android:text="@string/checkMark"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_9sdp" />
                 </LinearLayout>
 

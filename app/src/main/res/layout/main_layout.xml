@@ -15,22 +15,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:elevation="5dp"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_70sdp"
-                >
+                android:layout_height="@dimen/_70sdp">
 
                 <ImageView
                     android:id="@+id/iv_drawer"
-                    android:layout_width="@dimen/_45sdp"
-                    android:layout_height="@dimen/_45sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:onClick="onClick"
-                    android:padding="@dimen/_8sdp"
+                  android:layout_marginTop="@dimen/_10sdp"
                     android:src="@drawable/hamburger_icn" />
 
                 <TextView
@@ -39,6 +37,7 @@
                     android:layout_below="@id/iv_drawer"
                     android:text="Documents"
                     android:gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15sdp" />
 
@@ -47,31 +46,31 @@
                     android:id="@+id/iv_folder"
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
-                    android:layout_marginEnd="@dimen/_18sdp"
-                 android:layout_below="@id/iv_drawer"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                     android:layout_below="@id/iv_drawer"
                     android:layout_alignParentEnd="true"
                     android:onClick="onClick"
-                    android:padding="@dimen/_1sdp"
                     android:src="@drawable/folder" />
 
                 <ImageView
                     android:id="@+id/iv_search"
-                    android:layout_width="@dimen/_35sdp"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_toStartOf="@+id/iv_more"
                     android:onClick="onClick"
-                    android:padding="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:src="@drawable/search" />
 
                 <ImageView
                     android:id="@+id/iv_more"
-                    android:layout_width="@dimen/_35sdp"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
                     android:onClick="onClick"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
-                    android:padding="@dimen/_8sdp"
                     android:src="@drawable/more" />
             </RelativeLayout>
 
@@ -126,21 +125,25 @@
                     android:onClick="onClick"
                     android:padding="@dimen/_5sdp"
                     android:src="@drawable/ic_close_black_24dp"
-                    android:tint="#858997"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    app:tint="#858997" />
             </RelativeLayout>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tag_tabs"
                 style="@style/CustomTabLayout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@color/ThemeBg"
+                android:layout_marginStart="@dimen/_5sdp"
+                app:tabBackground="@drawable/selector_tab_layout"
                 app:tabGravity="fill"
+                app:tabTextAppearance="@style/MyCustomTabText"
+                app:tabIndicatorHeight="0dp"
                 app:tabMode="scrollable"
-                app:tabSelectedTextColor="@color/selected_txt_color"
-                app:tabTextColor="@color/unselected_txt_color" />
+                app:tabSelectedTextColor="@color/tab_white"
+                app:tabTextColor="@color/TextTheme" />
         </LinearLayout>
 
         <RelativeLayout
@@ -211,8 +214,6 @@
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_8sdp"
                     android:background="#ffffff"/>
-
-
 
 
                 <ImageView
