@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
+    <solid android:color="@color/DialogBottom" />
+
+    <corners
+        android:radius="@dimen/_8sdp"/>
+    <stroke android:width="1dip" android:color="@color/tab_color"/>
+</shape>

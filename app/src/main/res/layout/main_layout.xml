@@ -43,7 +43,7 @@
 
 
                 <ImageView
-                    android:id="@+id/iv_folder"
+                    android:id="@+id/iv_list"
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -52,6 +52,19 @@
                     android:layout_alignParentEnd="true"
                     android:onClick="onClick"
                     android:src="@drawable/folder" />
+
+                <ImageView
+                    android:id="@+id/iv_grid"
+                    android:layout_width="@dimen/_28sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_below="@id/iv_drawer"
+                    android:layout_alignParentEnd="true"
+                    android:onClick="onClick"
+                    android:visibility="invisible"
+                    android:src="@drawable/grid_icn" />
+
 
                 <ImageView
                     android:id="@+id/iv_search"

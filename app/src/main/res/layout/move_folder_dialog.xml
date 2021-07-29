@@ -2,22 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:background="@drawable/dialog_bottom_sheet"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:background="@color/dialog_bg_color"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_2sdp"
+            android:layout_margin="@dimen/_4sdp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -31,28 +29,33 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_4sdp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/ViewColor" />
+
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:fontFamily="@font/inter_medium"
-                        android:gravity="center"
-                        android:padding="@dimen/_5sdp"
-                        android:text="@string/moveFolder"
-                        android:textColor="@color/txt_color"
-                        android:textSize="@dimen/_15sdp" />
+                        android:id="@+id/tvInputText"
+                        style="@style/TextSemiBold12"
+                        android:layout_below="@id/view"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:singleLine="true"
+                        android:text="Move To" />
 
-                    <ImageView
-                        android:id="@+id/iv_close"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="@dimen/_7sdp"
-                        android:padding="@dimen/_4sdp"
-                        android:src="@drawable/ic_close_black_24dp"
-                        android:tint="@color/txt_color" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/tvInputText"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#59606A" />
+
+
                 </RelativeLayout>
 
                 <LinearLayout
@@ -68,18 +71,17 @@
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_gravity="center"
-                        android:tint="@color/colorPrimary"
-                        android:src="@drawable/ic_folder_plus_icon"/>
+                        android:src="@drawable/create_folder"/>
+
+
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopMed14"
                         android:text="@string/createNewFolder"
-                        android:textSize="15dp"
+                        android:textSize="@dimen/_12sdp"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/_5sdp"
-                        android:fontFamily="@font/inter_medium"
-                        android:textColor="@color/colorPrimary"/>
+                        android:layout_marginLeft="@dimen/_8sdp"
+                 />
                 </LinearLayout>
 
                 <LinearLayout
@@ -98,27 +100,43 @@
                         android:orientation="vertical" />
                 </LinearLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_12sdp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_marginEnd="@dimen/_3sdp"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/iv_close"
+                        style="@style/TextPopMed14"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:background="@drawable/white_border_grey"
+                        android:paddingStart="@dimen/_40sdp"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_40sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:text="@string/cancel"
+                        android:textColor="@color/TextTheme"
+                        android:textSize="@dimen/_12sdp" />
+
+
 
                     <TextView
                         android:id="@+id/tv_move"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:background="@drawable/done_btn_bg"
-                        android:fontFamily="@font/inter_medium"
-                        android:gravity="center"
-                        android:text="@string/move"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_13sdp" />
-                </LinearLayout>
+                        style="@style/TextPopMed14"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/btn_curve_bg"
+                        android:paddingStart="@dimen/_50sdp"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_50sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:text="Move"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/_12sdp" />
+                </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

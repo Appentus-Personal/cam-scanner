@@ -41,37 +41,20 @@
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:src="@drawable/rename" />
-
-        <ImageView
-            android:layout_width="@dimen/_18sdp"
-            android:layout_height="@dimen/_18sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:src="@drawable/share" />
-
-        <ImageView
-            android:layout_width="@dimen/_18sdp"
-            android:layout_height="@dimen/_18sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:src="@drawable/photos" />
-
-        <ImageView
-            android:layout_width="@dimen/_18sdp"
-            android:layout_height="@dimen/_18sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:src="@drawable/menu_gallery" />
+            android:src="@drawable/sort" />
 
         <ImageView
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:src="@drawable/mail" />
+            android:src="@drawable/create_folder" />
 
         <ImageView
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:src="@drawable/delete" />
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/share" />
+
     </LinearLayout>
 
 
@@ -88,56 +71,30 @@
         android:padding="@dimen/_5sdp">
 
         <TextView
-            android:id="@+id/rename"
+            android:id="@+id/sort_by"
             style="@style/TextPopMed14"
             android:layout_marginTop="@dimen/_8sdp"
             android:onClick="BottomClick"
-            android:text="Rename"
-            android:textSize="@dimen/_12sdp" />
+            android:text="Sort by"
+            android:textSize="@dimen/_10sdp" />
 
 
         <TextView
-            android:id="@+id/share"
+            android:id="@+id/create_folder"
             style="@style/TextPopMed14"
             android:onClick="BottomClick"
             android:layout_marginTop="@dimen/_14sdp"
-            android:text="Share"
-            android:textSize="@dimen/_12sdp" />
+            android:text="Create Folder"
+            android:textSize="@dimen/_10sdp" />
 
 
         <TextView
-            android:id="@+id/import_from_gallery"
+            android:id="@+id/share_all"
             style="@style/TextPopMed14"
             android:onClick="BottomClick"
             android:layout_marginTop="@dimen/_10sdp"
-            android:text="Add From Photos"
-            android:textSize="@dimen/_12sdp" />
-
-
-        <TextView
-            android:id="@+id/save_to_gallery"
-            style="@style/TextPopMed14"
-            android:onClick="BottomClick"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:text="Save to Gallery"
-            android:textSize="@dimen/_12sdp" />
-
-        <TextView
-            android:id="@+id/send_to_mail"
-            style="@style/TextPopMed14"
-            android:layout_marginTop="@dimen/_14sdp"
-            android:text="Send to Mail"
-            android:onClick="BottomClick"
-            android:textSize="@dimen/_12sdp" />
-
-
-        <TextView
-            android:id="@+id/delete"
-            style="@style/TextPopMed14"
-            android:layout_marginTop="@dimen/_14sdp"
-            android:text="Delete"
-            android:onClick="BottomClick"
-            android:textSize="@dimen/_12sdp" />
+            android:text="Share All Documents"
+            android:textSize="@dimen/_10sdp" />
 
 
     </LinearLayout>

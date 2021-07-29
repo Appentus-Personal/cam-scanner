@@ -26,9 +26,12 @@ import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -130,12 +133,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     public String current_group;
     protected String current_mode;
 
+    public Dialog dialogMore;
+
+    public TextView sortBy ,create_folder ,shareAll;
+
+
+
     public DBHelper dbHelper;
     protected DrawerItemAdapter drawerItemAdapter;
     private ArrayList<DrawerModel> drawerList = new ArrayList<>();
     private DrawerLayout drawer_ly;
     protected SharedPreferences.Editor editor;
+
     private EditText et_search;
+//    public EditText et_folder_name;
 
     public ArrayList<DBModel> groupList = new ArrayList<>();
 
@@ -163,6 +174,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     public TextView tv_empty;
     private ImageView iv_folder;
+    private ImageView iv_grid;
 
     @Override
     public void onResume() {
@@ -220,13 +232,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private void init() {
         drawer_ly = (DrawerLayout) findViewById(R.id.drawer_ly);
         lv_drawer = (ListView) findViewById(R.id.lv_drawer);
-        iv_folder = (ImageView) findViewById(R.id.iv_folder);
+
+        shareAll = (TextView) findViewById(R.id.share_all);
+        sortBy = (TextView) findViewById(R.id.sort_by);
+        create_folder = (TextView) findViewById(R.id.create_folder);
+
+        iv_folder = (ImageView) findViewById(R.id.iv_list);
+        iv_grid = (ImageView) findViewById(R.id.iv_grid);
+
         iv_drawer = (ImageView) findViewById(R.id.iv_drawer);
         iv_search = (ImageView) findViewById(R.id.iv_search);
         iv_more = (ImageView) findViewById(R.id.iv_more);
         rl_search_bar = (RelativeLayout) findViewById(R.id.rl_search_bar);
         iv_close_search = (ImageView) findViewById(R.id.iv_close_search);
+
         et_search = (EditText) findViewById(R.id.et_search);
+
+//        et_folder_name = (EditText) findViewById(R.id.et_folder_name);
+
         iv_clear_txt = (ImageView) findViewById(R.id.iv_clear_txt);
         tag_tabs = (TabLayout) findViewById(R.id.tag_tabs);
         rv_group = (RecyclerView) findViewById(R.id.rv_group);
@@ -237,28 +260,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
 
     private void bindView() {
-        drawerList.add(new DrawerModel("My Documents", R.drawable.ic_my_documents));
-        drawerList.add(new DrawerModel("QR Reader", R.drawable.ic_qr_reader));
-        drawerList.add(new DrawerModel("QR Generate", R.drawable.ic_qr_generate));
-        drawerList.add(new DrawerModel("Privacy Policy", R.drawable.ic_privacy_policy));
-        drawerList.add(new DrawerModel("Share App", R.drawable.ic_share_app));
-        drawerList.add(new DrawerModel("Rate Us", R.drawable.ic_rate_us));
+        drawerList.add(new DrawerModel("Home", R.drawable.home));
+        drawerList.add(new DrawerModel("QR Code Scan", R.drawable.qr_scan));
+        drawerList.add(new DrawerModel("QR Code Generate", R.drawable.qr_generate));
+        drawerList.add(new DrawerModel("About Us", R.drawable.aboutus));
+        drawerList.add(new DrawerModel("Terms and Condition", R.drawable.t_and_c));
+        drawerList.add(new DrawerModel("Privacy Policy", R.drawable.policy));
+        drawerList.add(new DrawerModel("Share App", R.drawable.share_drawer));
+        drawerList.add(new DrawerModel("Rate Us", R.drawable.rateus));
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-        drawerList.add(new DrawerModel(getResources().getString(R.string.darkTheme), R.drawable.theme_light_dark));
+        drawerList.add(new DrawerModel(getResources().getString(R.string.darkTheme), R.drawable.theme_drawer));
 //        }
 
         toggle = new ActionBarDrawerToggle(this, drawer_ly, R.string.drawer_open, R.string.drawer_close);
         drawer_ly.addDrawerListener(toggle);
         drawerItemAdapter = new DrawerItemAdapter(this, drawerList);
         lv_drawer.setAdapter(drawerItemAdapter);
+
         setTab();
     }
 
     private void setTab() {
-
-
-
-
 
         for (String text : tabList) {
             TabLayout tabLayout = tag_tabs;
@@ -274,17 +296,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
 
         Constant.current_tag = "All Docs";
+
         tag_tabs.addOnTabSelectedListener((TabLayout.OnTabSelectedListener) new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-
-
-            }
+            public void onTabUnselected(TabLayout.Tab tab) { }
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -329,12 +348,43 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         allGroupAdapter.filterList(arrayList);
     }
 
+
+
+
+
+
+
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.iv_folder:
-                openNewFolderDialog("");
+
+            case R.id.iv_list:
+                iv_folder.setVisibility(View.INVISIBLE);
+                iv_grid.setVisibility(View.VISIBLE);
+                editor = preferences.edit();
+                editor.putString("ViewMode", "List");
+                editor.apply();
+                new setAllGroupAdapter().execute(new String[0]);
                 return;
+               /* iv_folder.setImageResource(R.drawable.grid_icn);*/
+
+                /*openNewFolderDialog("");*/
+
+            case R.id.iv_grid:
+                iv_grid.setVisibility(View.INVISIBLE);
+                iv_folder.setVisibility(View.VISIBLE);
+
+                editor = preferences.edit();
+                editor.putString("ViewMode", "Grid");
+                editor.apply();
+                new setAllGroupAdapter().execute(new String[0]);
+                return;
+
+
+
+             /*   iv_grid.setImageResource(R.drawable.folder);*/
+
             case R.id.iv_clear_txt:
                 et_search.setText("");
                 iv_clear_txt.setVisibility(View.GONE);
@@ -351,8 +401,29 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             case R.id.iv_group_camera:
                 ActivityCompat.requestPermissions(this, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.CAMERA"}, 2);
                 return;
+
+
+
             case R.id.iv_more:
-                PopupMenu popupMenu = new PopupMenu(this, view);
+                dialogMore = new Dialog(this);
+                dialogMore.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialogMore.setContentView(R.layout.main_file_menu);
+                dialogMore.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+//               dialog.getWindow().setLayout(-1, -2);
+                dialogMore.setCanceledOnTouchOutside(true);
+                dialogMore.setCancelable(true);
+
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialogMore.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                lp.gravity = Gravity.BOTTOM;
+                dialogMore.getWindow().setAttributes(lp);
+                dialogMore.show();
+                return;
+
+
+               /* PopupMenu popupMenu = new PopupMenu(this, view);
                 popupMenu.setOnMenuItemClickListener(this);
                 popupMenu.inflate(R.menu.group_more);
                 try {
@@ -365,7 +436,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 } catch (Exception exception) {
                     popupMenu.show();
                     return;
+
                 }
+*/
             case R.id.iv_search:
                 iv_search.setVisibility(View.GONE);
                 rl_search_bar.setVisibility(View.VISIBLE);
@@ -376,23 +449,36 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
     }
 
-    private void openNewFolderDialog(String groupName) {
-        final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(1);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
+    private void openNewFolderDialog(String groupName) {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.create_folder_dialog);
-        dialog.getWindow().setLayout(-1, -2);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+//      dialog.getWindow().setLayout(-1, -2);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogMore.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+
+
         EditText et_folder_name = (EditText) dialog.findViewById(R.id.et_folder_name);
+
         String folder_name = "CamScanner" + Constant.getDateTime("_ddMMHHmmss");
         et_folder_name.setText(folder_name);
 
         ((TextView) dialog.findViewById(R.id.tv_create)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String finalFolderName = et_folder_name.getText().toString().trim();
+
                 if (!finalFolderName.isEmpty()) {
                     String group_date = Constant.getDateTime("yyyy-MM-dd  hh:mm a");
                     if (groupName.isEmpty()) {        // for create new folder
@@ -427,7 +513,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
             }
         });
-        ((ImageView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
+        ((TextView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
@@ -435,6 +521,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         });
         dialog.show();
     }
+
+/*
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(1);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        dialog.setContentView(R.layout.create_folder_dialog);
+        dialog.getWindow().setLayout(-1, -2);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
+        EditText et_folder_name = (EditText) dialog.findViewById(R.id.et_folder_name);
+        String folder_name = "CamScanner" + Constant.getDateTime("_ddMMHHmmss");
+        et_folder_name.setText(folder_name);*/
+
+
 
     @Override
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -473,27 +574,43 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
     }
 
+
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
+
+
+            /*Grid*/
             case R.id.grid_view:
-                editor = preferences.edit();
+            /*    editor = preferences.edit();
                 editor.putString("ViewMode", "Grid");
                 editor.apply();
                 new setAllGroupAdapter().execute(new String[0]);
-                break;
+                break;*/
+
+
+
+
             case R.id.import_from_gallery:
                 ActivityCompat.requestPermissions(this, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.CAMERA"}, 1);
                 break;
+
+                /*List*/
             case R.id.list_view:
-                editor = preferences.edit();
+              /*  editor = preferences.edit();
                 editor.putString("ViewMode", "List");
                 editor.apply();
                 new setAllGroupAdapter().execute(new String[0]);
-                break;
-            case R.id.share_all:
+                break;*/
+
+
+
+        /*    case R.id.share_all:
                 new shareAllGroup().execute(new String[0]);
-                break;
+                break;*/
+
+
+
             case R.id.sort_by:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle((CharSequence) "Sort By");
@@ -507,6 +624,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 } else if (selected_sorting.equals(Constant.descending_name)) {
                     selected_sorting_pos = 3;
                 }
+
+
                 builder.setSingleChoiceItems((CharSequence[]) strArr, selected_sorting_pos, (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -580,6 +699,73 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
         super.onActivityResult(i, i2, intent);
     }
+
+
+    /*Clicks on menu item */
+
+    public void BottomClick(View view) {
+        switch (view.getId()) {
+            case R.id.share_all:
+                new shareAllGroup().execute(new String[0]);
+                return;
+
+            case R.id.sort_by:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle((CharSequence) "Sort By");
+                String[] strArr = {"Ascending date", "Descending date", "Ascending name", "Descending name"};
+                if (selected_sorting.equals(Constant.ascending_date)) {
+                    selected_sorting_pos = 0;
+                } else if (selected_sorting.equals(Constant.descending_date)) {
+                    selected_sorting_pos = 1;
+                } else if (selected_sorting.equals(Constant.ascending_name)) {
+                    selected_sorting_pos = 2;
+                } else if (selected_sorting.equals(Constant.descending_name)) {
+                    selected_sorting_pos = 3;
+                }
+
+
+                builder.setSingleChoiceItems((CharSequence[]) strArr, selected_sorting_pos, (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if (i == 0) {
+                            mainActivity.editor = mainActivity.preferences.edit();
+                            editor.putString("sortBy", Constant.ascending_date);
+                            editor.apply();
+                            new setAllGroupAdapter().execute(new String[0]);
+                            dialogInterface.dismiss();
+                        } else if (i == 1) {
+                            mainActivity.editor = mainActivity.preferences.edit();
+                            editor.putString("sortBy", Constant.descending_date);
+                            editor.apply();
+                            new setAllGroupAdapter().execute(new String[0]);
+                            dialogInterface.dismiss();
+                        } else if (i == 2) {
+                            mainActivity.editor = mainActivity.preferences.edit();
+                            editor.putString("sortBy", Constant.ascending_name);
+                            editor.apply();
+                            new setAllGroupAdapter().execute(new String[0]);
+                            dialogInterface.dismiss();
+                        } else if (i == 3) {
+                            mainActivity.editor = mainActivity.preferences.edit();
+                            editor.putString("sortBy", Constant.descending_name);
+                            editor.apply();
+                            new setAllGroupAdapter().execute(new String[0]);
+                            dialogInterface.dismiss();
+                        }
+                    }
+                });
+                builder.show();
+                return;
+
+            case R.id.create_folder:
+                openNewFolderDialog("");
+                return;
+
+            default:
+                return;
+        }
+
+        }
 
     private class shareAllGroup extends AsyncTask<String, Void, String> {
         ArrayList<Uri> allPDFList;
@@ -788,18 +974,32 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         rl_save_as_pdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 final Dialog dialog = new Dialog(MainActivity.this, R.style.ThemeWithRoundShape);
                 dialog.requestWindowFeature(1);
                 dialog.setContentView(R.layout.save_pdf_dialog_main);
-                dialog.getWindow().setLayout(-1, -2);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-                dialog.setCancelable(false);
-                dialog.setCanceledOnTouchOutside(false);
+//              dialog.getWindow().setLayout(-1, -2);
+                dialog.setCanceledOnTouchOutside(true);
+                dialog.setCancelable(true);
+
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                lp.gravity = Gravity.BOTTOM;
+                dialog.getWindow().setAttributes(lp);
+
+/*
                 if (AdmobAds.SHOW_ADS) {
                     AdmobAds.loadNativeAds(MainActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
                 } else {
                     dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-                }
+                }*/
+
+
+
                 ((RelativeLayout) dialog.findViewById(R.id.rl_save_pdf)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -810,16 +1010,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 ((RelativeLayout) dialog.findViewById(R.id.rl_save_pdf_pswrd)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        shareGroupPDFWithPswrd(name, "save", tv_dialog_title.getText().toString());
+                        shareGroupPDFWithPswrd(name, "Save", tv_dialog_title.getText().toString());
                         dialog.dismiss();
                     }
                 });
-                ((ImageView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
+               /* ((ImageView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
                     }
-                });
+                });*/
                 dialog.show();
                 bottomSheetDialog.dismiss();
             }
@@ -855,13 +1055,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         ((RelativeLayout) inflate.findViewById(R.id.rl_delete)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Dialog dialog = new Dialog(MainActivity.this, R.style.ThemeWithRoundShape);
-                dialog.requestWindowFeature(1);
+
+                final Dialog dialog = new Dialog(MainActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.delete_document_dialog);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-                dialog.getWindow().setLayout(-1, -2);
-                dialog.setCanceledOnTouchOutside(false);
-                dialog.setCancelable(false);
+//               dialog.getWindow().setLayout(-1, -2);
+                dialog.setCanceledOnTouchOutside(true);
+                dialog.setCancelable(true);
+
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                lp.gravity = Gravity.BOTTOM;
+                dialog.getWindow().setAttributes(lp);
+
+
                 if (AdmobAds.SHOW_ADS) {
                     AdmobAds.loadNativeAds(MainActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
                 } else {
@@ -875,7 +1085,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                         dialog.dismiss();
                     }
                 });
-                ((ImageView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
+                ((TextView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
@@ -894,14 +1104,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     private void openMoveFolderDialog(DBModel selectedDBModel) {
         selectedFolderName = "";
-        final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(1);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.move_folder_dialog);
-        dialog.getWindow().setLayout(-1, -2);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+//      dialog.getWindow().setLayout(-1, -2);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
 
         DBHelper dbHelper = new DBHelper(this);
 
@@ -965,7 +1182,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
             }
         });
-        ((ImageView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
+        ((TextView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
@@ -983,20 +1200,30 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
 
     public void saveGroupAsPDFDialog(String name, String title, String str3) {
-        final Dialog dialog = new Dialog(this, R.style.ThemeWithRoundShape);
-        dialog.requestWindowFeature(1);
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.save_pdf_dialog_sub);
-        dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
-        if (AdmobAds.SHOW_ADS) {
+//      dialog.getWindow().setLayout(-1, -2);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+
+      /*  if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(MainActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
         }
-        final TextView textView = (TextView) dialog.findViewById(R.id.tv_title);
-        final EditText et_pdf_name = (EditText) dialog.findViewById(R.id.et_pdf_name);
+        */
+        final TextView textView = (TextView) findViewById(R.id.tv_title);
+        final EditText et_pdf_name = (EditText) findViewById(R.id.et_pdf_name);
         textView.setText(title);
         et_pdf_name.setText(str3);
         et_pdf_name.setSelection(et_pdf_name.length());
@@ -1081,18 +1308,30 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
 
     public void shareGroup(final String name) {
-        final Dialog dialog = new Dialog(this, R.style.ThemeWithRoundShape);
-        dialog.requestWindowFeature(1);
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.share_group_doc);
-        dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
-        if (AdmobAds.SHOW_ADS) {
+//      dialog.getWindow().setLayout(-1, -2);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+
+        /*Ads*/
+       /* if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(MainActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
+
+
         ((RelativeLayout) dialog.findViewById(R.id.rl_share_pdf)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

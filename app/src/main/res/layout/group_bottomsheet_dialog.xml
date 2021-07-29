@@ -9,30 +9,34 @@
     android:paddingEnd="@dimen/_12sdp"
     android:paddingBottom="@dimen/_7sdp">
 
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_4sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@color/ViewColor" />
+
     <TextView
         android:id="@+id/tv_dialog_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_13sdp"
-        android:fontFamily="@font/inter_medium"
-        android:gravity="center"
+        style="@style/TextSemiBold12"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
         android:singleLine="true"
-        android:text="Meetings notes.pdf"
-        android:textColor="@color/txt_color"
-        android:textSize="@dimen/_15sdp" />
+        android:text="@string/inputText" />
 
     <TextView
         android:id="@+id/tv_dialog_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:layout_marginBottom="@dimen/_14sdp"
-        android:fontFamily="@font/inter_medium"
+        style="@style/TextPopReg12"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_8sdp"
         android:gravity="center"
-        android:maxLength="11"
         android:text="2020-08-14"
-        android:textColor="@color/unselected_txt_color"
-        android:textSize="@dimen/_11sdp" />
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textColor="#CECECE"
+        android:textSize="@dimen/_10sdp"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -57,19 +61,16 @@
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
                     android:padding="@dimen/_1sdp"
-                    android:src="@drawable/ic_save_as_pdf" />
+                    android:src="@drawable/pdf" />
 
                 <TextView
                     android:id="@+id/txtSavePdf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/TextPopMed14"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_toEndOf="@+id/iv_save_pdf"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/saveAsPdf"
-                    android:textColor="@color/txt_color"
-                    android:textSize="@dimen/_13sdp" />
+                    android:textSize="@dimen/_12sdp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -83,19 +84,15 @@
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
                     android:padding="@dimen/_1sdp"
-                    android:tint="@color/black"
-                    android:src="@drawable/ic_share_all" />
+                    android:src="@drawable/share" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/TextPopMed14"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_toEndOf="@+id/iv_share"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/share"
-                    android:textColor="@color/txt_color"
-                    android:textSize="@dimen/_13sdp" />
+                    android:textSize="@dimen/_12sdp" />
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/rl_move_folder"
@@ -108,18 +105,16 @@
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
                     android:padding="@dimen/_1sdp"
-                    android:src="@drawable/folder_move_outline" />
+                    android:src="@drawable/move" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/TextPopMed14"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_toEndOf="@+id/iv_move"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/move"
-                    android:textColor="@color/txt_color"
-                    android:textSize="@dimen/_13sdp" />
+                    android:textSize="@dimen/_12sdp" />
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -132,18 +127,15 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_rename" />
+                    android:src="@drawable/rename" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/TextPopMed14"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_toEndOf="@+id/iv_rename"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/rename"
-                    android:textColor="@color/txt_color"
-                    android:textSize="@dimen/_13sdp" />
+                    android:textSize="@dimen/_12sdp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -157,18 +149,16 @@
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
                     android:padding="@dimen/_1sdp"
-                    android:src="@drawable/ic_save_as_gallery" />
+                    android:src="@drawable/menu_gallery" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/TextPopMed14"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_toEndOf="@+id/iv_save_gallery"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/saveToGallery"
-                    android:textColor="@color/txt_color"
-                    android:textSize="@dimen/_13sdp" />
+
+                    android:textSize="@dimen/_12sdp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -181,18 +171,15 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_email" />
+                    android:src="@drawable/mail" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/TextPopMed14"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_toEndOf="@+id/iv_send_mail"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/sendToMail"
-                    android:textColor="@color/txt_color"
-                    android:textSize="@dimen/_13sdp" />
+                    android:textSize="@dimen/_12sdp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -206,19 +193,15 @@
                     android:layout_height="@dimen/_20sdp"
                     android:padding="@dimen/_1sdp"
                     android:layout_centerVertical="true"
-                    android:tint="@color/black"
-                    android:src="@drawable/ic_delete" />
+                    android:src="@drawable/delete" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/TextPopMed14"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_toEndOf="@+id/iv_delete"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/delete"
-                    android:textColor="@color/txt_color"
-                    android:textSize="@dimen/_13sdp" />
+                    android:textSize="@dimen/_12sdp" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:background="@color/dialog_bg_color"
+    android:background="@drawable/dialog_bottom_sheet"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
@@ -15,16 +15,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:background="@color/dialog_bg_color"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_2sdp"
+                android:layout_margin="@dimen/_4sdp"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -34,7 +31,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <include
+                  <!--  <include
                         android:id="@+id/admob_native_container"
                         layout="@layout/admob_native_medium"
                         android:layout_width="match_parent"
@@ -42,85 +39,119 @@
                         android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:layout_marginRight="@dimen/_5sdp"
-                        android:visibility="gone" />
+                        android:visibility="gone" />-->
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
+                        <View
+                            android:id="@+id/view"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_4sdp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="8dp"
+                            android:background="@color/ViewColor" />
+
+
                         <TextView
-                            android:id="@+id/tv_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:id="@+id/tvInputText"
+                            style="@style/TextSemiBold12"
+                            android:layout_below="@id/view"
                             android:layout_centerInParent="true"
-                            android:fontFamily="@font/inter_medium"
-                            android:padding="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:singleLine="true"
-                            android:text="@string/saveAsPdf"
-                            android:textColor="@color/txt_color"
-                            android:textSize="@dimen/_15sdp" />
+                            android:text="Save" />
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_below="@id/tvInputText"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="#59606A" />
                     </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/tvtext"
+                            style="@style/TextPopMed14"
+                            android:layout_marginStart="@dimen/_12sdp"
+                            android:text="File Name"
+                            android:textSize="@dimen/_12sdp" />
+                    </RelativeLayout>
+
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_18sdp"
-                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_6sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:background="@drawable/et_bg"
                         android:paddingTop="@dimen/_11sdp"
                         android:paddingBottom="@dimen/_11sdp">
 
-                        <EditText
-                            android:id="@+id/et_pdf_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:background="@color/transparent"
-                            android:cursorVisible="true"
-                            android:focusable="true"
-                            android:fontFamily="@font/inter_medium"
-                            android:hint="@string/enterPdfName"
-                            android:imeOptions="actionDone"
-                            android:inputType="text"
-                            android:textColor="#000"
-                            android:textColorHint="@color/unselected_txt_color"
-                            android:textSize="@dimen/_12sdp" />
+
+                    <EditText
+                        android:id="@+id/et_pdf_name"
+                        style="@style/TextPopReg12"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:background="@color/transparent"
+                        android:cursorVisible="true"
+                        android:focusable="true"
+                        android:hint="@string/enterText"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:textColor="#000000"
+                        android:textColorHint="@color/unselected_txt_color"  />
+
+
                     </RelativeLayout>
+
                 </LinearLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_3sdp"
-                    android:layout_marginBottom="@dimen/_4sdp">
+                    android:layout_marginBottom="@dimen/_8sdp">
 
                     <TextView
                         android:id="@+id/tv_cancel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toStartOf="@+id/tv_done"
-                        android:fontFamily="@font/inter_medium"
-                        android:padding="@dimen/_11sdp"
+                        style="@style/TextPopMed14"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:background="@drawable/white_border_grey"
+                        android:paddingStart="@dimen/_40sdp"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_40sdp"
+                        android:paddingBottom="@dimen/_8sdp"
                         android:text="@string/cancel"
-                        android:textColor="@color/light_txt_color"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textColor="@color/TextTheme"
+                        android:textSize="@dimen/_12sdp" />
 
                     <TextView
                         android:id="@+id/tv_done"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopMed14"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:fontFamily="@font/inter_medium"
-                        android:padding="@dimen/_11sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/btn_curve_bg"
+                        android:paddingStart="@dimen/_50sdp"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_50sdp"
+                        android:paddingBottom="@dimen/_8sdp"
                         android:text="@string/ok"
-                        android:textColor="@color/light_txt_color"
-                        android:textSize="@dimen/_13sdp" />
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/_12sdp"/>
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>

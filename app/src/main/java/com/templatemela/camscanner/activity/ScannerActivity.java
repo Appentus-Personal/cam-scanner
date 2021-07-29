@@ -289,6 +289,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
     protected ImageView iv_take_picture;
 
     public LinearLayout ly_camera;
+    public LinearLayout tv_select1;
 
     public LinearLayout ly_crop;
     protected LinearLayout ly_current_filter;
@@ -404,6 +405,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
         iv_sharp_black = (TextView) findViewById(R.id.iv_sharp_black);
         iv_ocv_black = (TextView) findViewById(R.id.iv_ocv_black);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        tv_select1 = (LinearLayout) findViewById(R.id.tv_select1);
     }
 
     private void bindView() {
@@ -525,6 +527,8 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                 Constant.card_type = "Single";
                 tv_id_card.setVisibility(View.GONE);
                 dialog.dismiss();
+          /*      tv_select1.setBackground(getResources().getDrawable(R.drawable.green_id_card_selection));*/
+
             }
         });
         ((LinearLayout) dialog.findViewById(R.id.tv_select2)).setOnClickListener(new View.OnClickListener() {

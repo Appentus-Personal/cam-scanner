@@ -338,7 +338,6 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                 dialogMore.getWindow().setAttributes(lp);
                 dialogMore.show();
 
-                Toast.makeText(this ,"Toast",Toast.LENGTH_SHORT).show();
 
 
             default:

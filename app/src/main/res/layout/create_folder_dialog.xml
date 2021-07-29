@@ -3,15 +3,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bottom_sheet"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:background="@color/dialog_bg_color"
         android:orientation="vertical">
 
         <LinearLayout
@@ -32,18 +30,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_4sdp"
                         android:layout_centerHorizontal="true"
-                        android:fontFamily="@font/inter_medium"
-                        android:gravity="center"
-                        android:padding="@dimen/_5sdp"
-                        android:text="@string/createNewFolder"
-                        android:textColor="@color/txt_color"
-                        android:textSize="@dimen/_15sdp" />
+                        android:layout_marginTop="8dp"
+                        android:background="@color/ViewColor" />
 
-                    <ImageView
+
+
+                    <TextView
+                        android:id="@+id/tvInputText"
+                        style="@style/TextSemiBold12"
+                        android:layout_below="@id/view"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_5sdp"
+                        android:singleLine="true"
+                        android:text="@string/inputText" />
+
+                  <!--  <ImageView
                         android:id="@+id/iv_close"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -52,62 +59,96 @@
                         android:layout_marginEnd="@dimen/_7sdp"
                         android:padding="@dimen/_4sdp"
                         android:src="@drawable/ic_close_black_24dp"
-                        android:tint="@color/txt_color" />
+                        android:tint="@color/txt_color" />-->
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/tvInputText"
+                        android:background="#59606A" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <TextView
+                        android:id="@+id/tvtext"
+                        style="@style/TextPopMed14"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:text="Folder Name"
+                        android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_18sdp"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
                     android:background="@drawable/et_bg"
                     android:paddingTop="@dimen/_11sdp"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
-
                     android:paddingBottom="@dimen/_11sdp">
 
                     <EditText
                         android:id="@+id/et_folder_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        style="@style/TextPopReg12"
                         android:layout_centerVertical="true"
-                       android:background="@color/transparent"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:background="@color/transparent"
                         android:cursorVisible="true"
-                        android:paddingLeft="@dimen/_5sdp"
-                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_ 0123456789"
                         android:focusable="true"
-                        android:fontFamily="@font/inter_medium"
-                        android:hint="@string/enterFolderName"
+                        android:hint="@string/enterText"
                         android:imeOptions="actionDone"
                         android:inputType="text"
-                        android:maxLength="50"
                         android:textColor="#000000"
-                        android:textColorHint="@color/unselected_txt_color"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textColorHint="@color/unselected_txt_color" />
                 </RelativeLayout>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:layout_marginBottom="@dimen/_12sdp"
-                    android:gravity="center"
-                    android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:orientation="horizontal">
+                    android:layout_marginEnd="@dimen/_3sdp"
+                    android:layout_marginBottom="@dimen/_8sdp">
+
+
+                    <TextView
+                        android:id="@+id/iv_close"
+                        style="@style/TextPopMed14"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:background="@drawable/white_border_grey"
+                        android:paddingStart="@dimen/_40sdp"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_40sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:text="@string/cancel"
+                        android:textColor="@color/TextTheme"
+                        android:textSize="@dimen/_12sdp" />
+
+
 
                     <TextView
                         android:id="@+id/tv_create"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:background="@drawable/done_btn_bg"
-                        android:fontFamily="@font/inter_medium"
-                        android:gravity="center"
-                        android:text="@string/create"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_13sdp" />
-                </LinearLayout>
+                        style="@style/TextPopMed14"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/btn_curve_bg"
+                        android:paddingStart="@dimen/_20sdp"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_20sdp"
+                        android:paddingBottom="@dimen/_8sdp"
+                        android:text="Create Folder"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/_12sdp" />
+                </RelativeLayout>
+
+
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

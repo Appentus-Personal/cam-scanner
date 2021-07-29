@@ -93,7 +93,7 @@ public class IDCardPreviewActivity extends BaseActivity implements View.OnClickL
     private LinearLayout ly_add_new,ly_scrap,ly_edit,ly_left_rotate,ly_right_rotate,ly_horizontal,ly_vertical;
 
     public ImageView iv_bg_color;
-    protected ImageView iv_done;
+    protected TextView iv_done;
     protected ImageView iv_edit;
     protected ImageView iv_horizontal;
     protected ImageView iv_left;
@@ -157,7 +157,7 @@ public class IDCardPreviewActivity extends BaseActivity implements View.OnClickL
         ly_add_new = (LinearLayout) findViewById(R.id.ly_add_new);
         ly_main = (LinearLayout) findViewById(R.id.ly_main);
         iv_back = (ImageView) findViewById(R.id.iv_back);
-        iv_done = (ImageView) findViewById(R.id.iv_done);
+        iv_done = (TextView) findViewById(R.id.iv_done);
         rl_main = (RelativeLayout) findViewById(R.id.rl_main);
         aspectRatioLayout = (AspectRatioLayout) findViewById(R.id.aspectRatioLayout);
         stickerHolderView = (StickerHolderView) findViewById(R.id.stickerHolderView);
@@ -189,8 +189,8 @@ public class IDCardPreviewActivity extends BaseActivity implements View.OnClickL
 
     @Override
     public void onImageStickerSelected(ImageStickerConfig imageStickerConfig, boolean z) {
-        iv_scrap.setImageResource(R.drawable.ic_scrap_selection);
-        txtScrap.setTextColor(getResources().getColor(R.color.black));
+        iv_scrap.setImageResource(R.drawable.greenscrap);
+        txtScrap.setTextColor(getResources().getColor(R.color.tab_white));
         ly_scrap_view.setVisibility(View.VISIBLE);
         Constant.original = imageStickerConfig.getBitmapImage();
     }
@@ -198,7 +198,7 @@ public class IDCardPreviewActivity extends BaseActivity implements View.OnClickL
     @Override
     public void onNoneStickerSelected() {
         iv_scrap.setImageResource(R.drawable.ic_scrap);
-        txtScrap.setTextColor(getResources().getColor(R.color.white));
+        txtScrap.setTextColor(getResources().getColor(R.color.tab_white));
         ly_scrap_view.setVisibility(View.GONE);
     }
 

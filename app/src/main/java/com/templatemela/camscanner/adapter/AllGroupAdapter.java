@@ -50,11 +50,12 @@ public class AllGroupAdapter extends RecyclerView.Adapter<AllGroupAdapter.ViewHo
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
 
         if (arrayList.get(i).getGroup_first_img() == null) {
-            viewHolder.iv_group_folder_img.setImageResource(R.drawable.ic_folder_fill);
+            viewHolder.iv_group_folder_img.setImageResource(R.drawable.ic_folder);
             viewHolder.iv_group_folder_img.setVisibility(View.VISIBLE);
             viewHolder.iv_group_first_img.setVisibility(View.GONE);
-        } else if (arrayList.get(i).getGroup_first_img().isEmpty()) {
-            viewHolder.iv_group_folder_img.setImageResource(R.drawable.ic_folder_fill);
+        }
+        else if (arrayList.get(i).getGroup_first_img().isEmpty()) {
+            viewHolder.iv_group_folder_img.setImageResource(R.drawable.ic_folder);
             viewHolder.iv_group_folder_img.setVisibility(View.VISIBLE);
             viewHolder.iv_group_first_img.setVisibility(View.GONE);
         } else {
