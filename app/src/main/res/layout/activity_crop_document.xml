@@ -20,12 +20,11 @@
 
             <ImageView
                 android:id="@+id/iv_back"
-                android:layout_width="@dimen/_32sdp"
-                android:layout_height="@dimen/_32sdp"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:onClick="onClick"
-                android:padding="@dimen/_7sdp"
                 android:src="@drawable/back_icn"
                 app:tint="#ffffff" />
 
@@ -49,26 +48,24 @@
 
             <ImageView
                 android:id="@+id/iv_edit"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_7sdp"
-                android:layout_toLeftOf="@+id/iv_done"
+                android:layout_marginEnd="@dimen/_8sdp"
+              android:layout_alignParentEnd="true"
                 android:onClick="onClick"
-                android:padding="@dimen/_7sdp"
                 android:src="@drawable/edit" />
 
-            <ImageView
+         <!--   <ImageView
                 android:id="@+id/iv_done"
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_7sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:onClick="onClick"
-                android:padding="@dimen/_7sdp"
                 android:src="@drawable/ic_check_mark"
-                app:tint="#ffffff" />
+                app:tint="#ffffff" />-->
         </RelativeLayout>
 
         <RelativeLayout
@@ -132,8 +129,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingBottom="@dimen/_5sdp">
@@ -192,7 +189,12 @@
                             android:id="@+id/iv_original"
                             android:layout_width="@dimen/_25sdp"
                             android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/originalgreen"
                             android:onClick="onClick" />
+
+
+
+
 
                         <TextView
                             style="@style/TextPopReg12"
@@ -214,6 +216,7 @@
                             android:id="@+id/iv_color"
                             android:layout_width="@dimen/_25sdp"
                             android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/colorwhite"
                             android:onClick="onClick"
 
                             android:text="C" />
@@ -238,6 +241,7 @@
                             android:id="@+id/iv_sharp_black"
                             android:layout_width="@dimen/_25sdp"
                             android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/sharpwhite"
                             android:onClick="onClick"
 
                             android:text="S" />
@@ -262,7 +266,7 @@
                             android:id="@+id/iv_ocv_black"
                             android:layout_width="@dimen/_25sdp"
                             android:layout_height="@dimen/_25sdp"
-
+                            android:src="@drawable/originalwhite"
                             android:onClick="onClick" />
 
                         <TextView
@@ -360,12 +364,13 @@
 
                     <TextView
                         style="@style/WhitePopMed12"
+                        android:id="@+id/iv_done"
                         android:layout_marginStart="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:layout_weight="1"
                         android:background="@drawable/btn_curve_bg"
                         android:gravity="center"
-
+                        android:onClick="onClick"
                         android:paddingStart="@dimen/_8sdp"
                         android:paddingTop="@dimen/_5sdp"
                         android:paddingEnd="@dimen/_8sdp"

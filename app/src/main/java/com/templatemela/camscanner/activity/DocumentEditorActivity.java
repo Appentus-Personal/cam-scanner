@@ -174,7 +174,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
 
     private LinearLayout llBrightness, llContrast, llSaturation, llExposure;
 
-    public ImageView iv_done;
+    public TextView iv_done;
     private PhotoEditorView iv_editImg;
 
     public ImageView iv_erase;
@@ -321,7 +321,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
         txtExposure = (TextView) findViewById(R.id.txtExposure);
 
         iv_back = (ImageView) findViewById(R.id.iv_back);
-        iv_done = (ImageView) findViewById(R.id.iv_done);
+        iv_done = (TextView) findViewById(R.id.iv_done);
         rl_main = (RelativeLayout) findViewById(R.id.rl_main);
         ly_aspectratio = (AspectRatioLayout) findViewById(R.id.ly_aspectratio);
         iv_editImg = (PhotoEditorView) findViewById(R.id.iv_editImg);
@@ -741,15 +741,16 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                         isbold = true;
                         return;
                     case R.id.llBrightness:
-                        iv_brightness.setImageResource(R.drawable.ic_brightness_selection);
-                        iv_contrast.setImageResource(R.drawable.ic_contrast);
-                        iv_saturation.setImageResource(R.drawable.ic_saturation);
-                        iv_exposure.setImageResource(R.drawable.ic_exposure);
 
-                        txtBrightness.setTextColor(getResources().getColor(R.color.white));
-                        txtContrast.setTextColor(getResources().getColor(R.color.white));
-                        txtSaturation.setTextColor(getResources().getColor(R.color.white));
-                        txtExposure.setTextColor(getResources().getColor(R.color.white));
+                        iv_brightness.setImageResource(R.drawable.brightness_green);
+                        iv_contrast.setImageResource(R.drawable.contrastwhite);
+                        iv_saturation.setImageResource(R.drawable.saturationwhite);
+                        iv_exposure.setImageResource(R.drawable.exposurewhite);
+
+                        txtBrightness.setTextColor(getResources().getColor(R.color.tab_white));
+                        txtContrast.setTextColor(getResources().getColor(R.color.tab_white));
+                        txtSaturation.setTextColor(getResources().getColor(R.color.tab_white));
+                        txtExposure.setTextColor(getResources().getColor(R.color.tab_white));
 
                         adjustPosition = 0;
                         sb_adjust.setProgress(Constant.adjustProgressArray[0][1]);
@@ -764,10 +765,10 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                 iv_saturation.setImageResource(R.drawable.ic_saturation);
                                 iv_exposure.setImageResource(R.drawable.ic_exposure);
 
-                                txtBrightness.setTextColor(getResources().getColor(R.color.white));
-                                txtContrast.setTextColor(getResources().getColor(R.color.white));
-                                txtSaturation.setTextColor(getResources().getColor(R.color.white));
-                                txtExposure.setTextColor(getResources().getColor(R.color.white));
+                                txtBrightness.setTextColor(getResources().getColor(R.color.tab_white));
+                                txtContrast.setTextColor(getResources().getColor(R.color.tab_white));
+                                txtSaturation.setTextColor(getResources().getColor(R.color.tab_white));
+                                txtExposure.setTextColor(getResources().getColor(R.color.tab_white));
 
                                 adjustPosition = 0;
                                 sb_adjust.setProgress(128);
@@ -856,7 +857,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                         rl_watermark.setVisibility(View.GONE);
                                         return;
                                     case R.id.llColor:
-                                        ColorPickerDialogBuilder.with(this).setTitle("Choose color").initialColor(brush_color).wheelType(ColorPickerView.WHEEL_TYPE.FLOWER).density(10).setOnColorSelectedListener(new OnColorSelectedListener() {
+                                        ColorPickerDialogBuilder.with(this).setTitle("Choose color").initialColor(brush_color).wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE).density(10).setOnColorSelectedListener(new OnColorSelectedListener() {
                                             @Override
                                             public void onColorSelected(int i) {
                                             }
@@ -888,9 +889,9 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                             case R.id.llContrast:
                                                 Constant.filterPosition = 0;
                                                 iv_brightness.setImageResource(R.drawable.brightnesswhite);
-                                                iv_contrast.setImageResource(R.drawable.ic_contrast_selection);
-                                                iv_saturation.setImageResource(R.drawable.ic_saturation);
-                                                iv_exposure.setImageResource(R.drawable.ic_exposure);
+                                                iv_contrast.setImageResource(R.drawable.contrastgreen);
+                                                iv_saturation.setImageResource(R.drawable.saturationwhite);
+                                                iv_exposure.setImageResource(R.drawable.exposurewhite);
 
                                                 txtBrightness.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtContrast.setTextColor(getResources().getColor(R.color.tab_white));
@@ -932,10 +933,10 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 photoEditor.brushEraser();
                                                 return;
                                             case R.id.llExposure:
-                                                iv_brightness.setImageResource(R.drawable.ic_brightness);
-                                                iv_contrast.setImageResource(R.drawable.ic_contrast);
-                                                iv_saturation.setImageResource(R.drawable.ic_saturation);
-                                                iv_exposure.setImageResource(R.drawable.ic_exposure_selection);
+                                                iv_brightness.setImageResource(R.drawable.brightnesswhite);
+                                                iv_contrast.setImageResource(R.drawable.contrastwhite);
+                                                iv_saturation.setImageResource(R.drawable.saturationwhite);
+                                                iv_exposure.setImageResource(R.drawable.exposuregreen);
 
                                                 txtBrightness.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtContrast.setTextColor(getResources().getColor(R.color.tab_white));
@@ -982,10 +983,11 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 return;
                                             case R.id.llSaturation:
                                                 Constant.filterPosition = 0;
-                                                iv_brightness.setImageResource(R.drawable.ic_brightness);
-                                                iv_contrast.setImageResource(R.drawable.ic_contrast);
-                                                iv_saturation.setImageResource(R.drawable.ic_saturation_selection);
-                                                iv_exposure.setImageResource(R.drawable.ic_exposure);
+
+                                                iv_saturation.setImageResource(R.drawable.saturationgreen);
+                                                iv_brightness.setImageResource(R.drawable.brightnesswhite);
+                                                iv_contrast.setImageResource(R.drawable.contrastwhite);
+                                                iv_exposure.setImageResource(R.drawable.exposurewhite);
 
                                                 txtBrightness.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtContrast.setTextColor(getResources().getColor(R.color.tab_white));
@@ -1070,9 +1072,9 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.input_text_dialog);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.getWindow().setLayout(-1, -2);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
+//        dialog.getWindow().setLayout(-1, -2);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
 
 
 /*
@@ -1107,17 +1109,6 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                 editText.requestFocus();
             }
 
-
-
-/*
-             dialog.show()
-            dialog.window?.setLayout(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-                    )
-            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            dialog.window?.attributes?.windowAnimations = R.style.bottomAnimation
-            dialog.window?.setGravity(Gravity.BOTTOM)*/
         });
 
 
@@ -1770,12 +1761,22 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
             dialog.getWindow().setAttributes(lp);
 
             final EditText editText = (EditText) dialog.findViewById(R.id.et_input_txt);
-
-
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-            dialog.getWindow().setLayout(-1, -2);
-            dialog.setCanceledOnTouchOutside(false);
-            dialog.setCancelable(false);
+//            dialog.getWindow().setLayout(-1, -2);
+            dialog.setCanceledOnTouchOutside(true);
+            dialog.setCancelable(true);
+
+            ((TextView) dialog.findViewById(R.id.keep_editing)).setOnClickListener(new View.OnClickListener(){
+
+
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+
+
             ((TextView) dialog.findViewById(R.id.iv_exit)).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

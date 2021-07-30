@@ -86,7 +86,7 @@ public class PDFViewerActivity extends BaseActivity implements OnPageChangeListe
     @Override
     public void onPageChanged(int i, int i2) {
         page_no = i;
-        tv_page.setText(String.format("%s / %s", new Object[]{Integer.valueOf(i + 1), Integer.valueOf(i2)}));
+        tv_page.setText(String.format("Page 1%s of  2%s", new Object[]{Integer.valueOf(i + 1), Integer.valueOf(i2)}));
     }
 
     @Override

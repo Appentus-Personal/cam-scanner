@@ -4,6 +4,7 @@
     android:id="@+id/drawer_ly"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:fitsSystemWindows="true">
 
     <include
@@ -15,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/ThemeBg">
+        android:background="@color/unselected_tab">
 
         <include
             android:id="@+id/ly_header"

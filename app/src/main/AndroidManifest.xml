@@ -34,8 +34,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CamScanner"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.WelcomeActivity"></activity>
-        <!-- <activity android:name=".activity.WelcomeScreen"></activity> -->
+        <activity android:name=".activity.TermsConditionActivity" />
+        <activity android:name=".activity.PrivacyPolicy" />
+        <activity android:name=".activity.AboutUsActivity" />
+        <activity android:name=".activity.WelcomeActivity" /> <!-- <activity android:name=".activity.WelcomeScreen"></activity> -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

@@ -10,8 +10,11 @@ import android.media.ToneGenerator;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -77,24 +80,38 @@ public class QRReaderActivity extends BaseActivity implements ZXingScannerView.R
         }
     }
 
+
+    /*Qr code result*/
     @Override
     public void handleResult(Result result) {
         barcode_result = result.getText();
         Log.e(TAG, result.getText());
         Log.e(TAG, result.getBarcodeFormat().toString());
         new ToneGenerator(5, 100).startTone(24);
-        final Dialog dialog = new Dialog(this, R.style.ThemeWithRoundShape);
-        dialog.requestWindowFeature(1);
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.barcode_result_dialog);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.getWindow().setLayout(-1, -2);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
-        if (AdmobAds.SHOW_ADS) {
+//      dialog.getWindow().setLayout(-1, -2);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+        dialog.show();
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+
+
+      /*  if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(QRReaderActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
+
 
         TextView tv_search = dialog.findViewById(R.id.tv_search);
         TextView tv_result = dialog.findViewById(R.id.tv_result);

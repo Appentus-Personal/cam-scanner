@@ -45,5 +45,7 @@
     <color name="border_color">#59606A</color>
     <color name="note_color">#59606A</color>
     <color name="unselected_tab">#373B40</color>
+    <color name="editTxtTheme">#59606A</color>
+    #373B40
 
 </resources>

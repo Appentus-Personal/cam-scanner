@@ -20,48 +20,45 @@
 
             <ImageView
                 android:id="@+id/iv_back"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_29sdp"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:onClick="onClick"
-                android:padding="@dimen/_7sdp"
-                android:src="@drawable/ic_back"
-                android:tint="@color/selected_txt_color" />
+                android:src="@drawable/backwhite"
+                app:tint="@color/TextTheme" />
 
             <TextView
                 android:id="@+id/tv_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/WhitePopSemi12"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_toStartOf="@+id/iv_create_pdf"
                 android:layout_toEndOf="@+id/iv_back"
-                android:fontFamily="@font/inter_medium"
                 android:singleLine="true"
                 android:text="@string/app_name"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_13sdp" />
 
             <ImageView
                 android:id="@+id/iv_create_pdf"
-                android:layout_width="@dimen/_28sdp"
-                android:layout_height="@dimen/_28sdp"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
                 android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_4sdp"
                 android:layout_toStartOf="@+id/iv_doc_more"
                 android:onClick="onClick"
-                android:padding="@dimen/_4sdp"
                 android:src="@drawable/ic_pdf" />
 
             <ImageView
                 android:id="@+id/iv_doc_more"
-                android:layout_width="@dimen/_28sdp"
-                android:layout_height="@dimen/_28sdp"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:onClick="onClick"
-                android:padding="@dimen/_4sdp"
                 android:src="@drawable/ic_more" />
         </RelativeLayout>
 

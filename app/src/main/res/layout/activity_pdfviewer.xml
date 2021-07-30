@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg_color1"
+    android:background="@color/dialog_bg_color"
     android:orientation="vertical">
 
     <LinearLayout
@@ -14,36 +14,33 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:elevation="5dp"
-            android:background="@color/fg_color">
+            android:layout_height="@dimen/_46sdp"
+            android:background="@color/ThemeBg">
 
             <ImageView
                 android:id="@+id/iv_back"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_29sdp"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_2sdp"
-                android:padding="@dimen/_7sdp"
-                android:src="@drawable/ic_back"
-                android:tint="@color/selected_txt_color" />
+                android:layout_marginStart="@dimen/_8sdp"
+                android:src="@drawable/backwhite"
+                app:tint="@color/TextTheme" />
 
             <TextView
                 android:id="@+id/tv_title"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_toStartOf="@+id/tv_page"
                 android:layout_toEndOf="@+id/iv_back"
                 android:fontFamily="@font/inter_medium"
                 android:singleLine="true"
                 android:text="@string/app_name"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_13sdp" />
 
-            <TextView
+           <!-- <TextView
                 android:id="@+id/tv_page"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,7 +51,11 @@
                 android:singleLine="true"
                 android:text="1 / 2"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/_14sdp" />
+                android:textSize="@dimen/_14sdp" />-->
+
+
+
+
         </RelativeLayout>
 
         <com.github.barteksc.pdfviewer.PDFView
@@ -64,7 +65,29 @@
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:layout_marginBottom="@dimen/_10sdp" />
+            android:layout_marginBottom="@dimen/_10sdp" >
+
+
+            <TextView
+                android:id="@+id/tv_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Page 1 of 2"
+                android:textColor="@color/tab_white"
+                android:paddingStart="@dimen/_15sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_15sdp"
+                android:background="@drawable/tab_curve_black"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"/>
+
+
+
+        </com.github.barteksc.pdfviewer.PDFView>
+
+
     </LinearLayout>
 
     <RelativeLayout

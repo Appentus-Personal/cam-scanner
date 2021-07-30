@@ -63,6 +63,9 @@ public class DrawerItemAdapter extends BaseAdapter {
         viewHolder.tv_item_name = (TextView) inflate.findViewById(R.id.tv_item_name);
         viewHolder.switchNightMode = (SwitchCompat) inflate.findViewById(R.id.switchNightMode);
 
+
+
+
         if (arrayList.get(i).getItem_name().equalsIgnoreCase(activity.getResources().getString(R.string.darkTheme))) {
             viewHolder.switchNightMode.setVisibility(View.VISIBLE);
             initTheme(viewHolder.switchNightMode);

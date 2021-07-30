@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5sdp"
-        android:background="@color/dialog_bg_color"
         android:orientation="vertical">
 
         <LinearLayout
@@ -100,9 +99,9 @@
                             style="@style/TextPopMed14"
                             android:layout_marginStart="@dimen/_12sdp"
                             android:background="@drawable/white_border_grey"
-                            android:paddingStart="@dimen/_15sdp"
+                            android:paddingStart="@dimen/_25sdp"
                             android:paddingTop="@dimen/_8sdp"
-                            android:paddingEnd="@dimen/_40sdp"
+                            android:paddingEnd="@dimen/_25sdp"
                             android:paddingBottom="@dimen/_8sdp"
                             android:text="Keep Editing"
                             android:textColor="@color/TextTheme"
@@ -115,9 +114,9 @@
                             android:layout_centerVertical="true"
                             android:layout_marginEnd="@dimen/_10sdp"
                             android:background="@drawable/btn_curve_bg"
-                            android:paddingStart="@dimen/_30sdp"
+                            android:paddingStart="@dimen/_25sdp"
                             android:paddingTop="@dimen/_8sdp"
-                            android:paddingEnd="@dimen/_30sdp"
+                            android:paddingEnd="@dimen/_25sdp"
                             android:paddingBottom="@dimen/_8sdp"
                             android:text="Discard"
                             android:textColor="#ffffff"

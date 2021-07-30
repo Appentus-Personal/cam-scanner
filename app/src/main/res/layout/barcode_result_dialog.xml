@@ -2,21 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:background="@drawable/dialog_bottom_sheet"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
-        android:background="@color/dialog_bg_color"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_4sdp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -25,6 +24,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:orientation="vertical">
+<!--
 
                 <include
                     android:id="@+id/admob_native_container"
@@ -36,77 +36,102 @@
                     android:layout_marginRight="@dimen/_5sdp"
                     android:layout_height="@dimen/_200sdp"
                     android:visibility="gone" />
+-->
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_4sdp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/ViewColor" />
+
+
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:fontFamily="@font/inter_medium"
-                        android:padding="@dimen/_5sdp"
-                        android:text="@string/qrCodeResult"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_14sdp" />
+                        android:id="@+id/tvInputText"
+                        style="@style/TextSemiBold12"
+                        android:layout_below="@id/view"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:singleLine="true"
+                        android:text="QR Code Result" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/tvInputText"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#59606A" />
+
 
                     <ImageView
                         android:id="@+id/iv_close"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_22sdp"
+                        android:layout_height="@dimen/_22sdp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginEnd="@dimen/_7sdp"
-                        android:padding="@dimen/_4sdp"
-                        android:src="@drawable/ic_close_black_24dp"
-                        android:tint="@color/black" />
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:src="@drawable/copy_cb" />
                 </RelativeLayout>
 
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_10sdp">
+
                 <TextView
+                    style="@style/TextPopMed14"
                     android:id="@+id/tv_result"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/qrReader"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/unselected_txt_color"
-                    android:textSize="@dimen/_13sdp" />
-            </LinearLayout>
+                    android:textSize="@dimen/_12sdp" />
+            </RelativeLayout>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_3sdp"
-                android:layout_marginEnd="@dimen/_3sdp"
-                android:layout_marginBottom="@dimen/_3sdp">
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp">
 
                 <TextView
                     android:id="@+id/tv_share"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toStartOf="@+id/tv_search"
-                    android:fontFamily="@font/inter_medium"
-                    android:padding="@dimen/_11sdp"
-                    android:text="@string/share"
-                    android:textColor="@color/light_txt_color"
-                    android:textSize="@dimen/_13sdp" />
+                    style="@style/TextPopMed14"
+                    android:background="@drawable/white_border_grey"
+                    android:paddingStart="@dimen/_40sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_40sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text="Share"
+                    android:textColor="@color/TextTheme"
+                    android:textSize="@dimen/_12sdp"  />
 
                 <TextView
                     android:id="@+id/tv_search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/TextPopMed14"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:fontFamily="@font/inter_medium"
-                    android:padding="@dimen/_11sdp"
-                    android:text="@string/search"
-                    android:textColor="@color/light_txt_color"
-                    android:textSize="@dimen/_13sdp" />
+                    android:background="@drawable/btn_curve_bg"
+                    android:paddingStart="@dimen/_40sdp"
+                    android:paddingTop="@dimen/_8sdp"
+                    android:paddingEnd="@dimen/_40sdp"
+                    android:paddingBottom="@dimen/_8sdp"
+                    android:text="Search"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_12sdp" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color1">
+    android:background="@color/ThemeBg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,18 +18,17 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="@dimen/_40sdp"
                 android:background="#000000"
                 android:elevation="5dp">
 
                 <ImageView
                     android:id="@+id/iv_back"
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_28sdp"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
                     android:onClick="onClick"
-                    android:padding="@dimen/_7sdp"
                     android:src="@drawable/backwhite" />
 
                 <TextView
@@ -39,17 +38,7 @@
                     android:layout_toRightOf="@+id/iv_back"
                     android:text="@string/editorDocument" />
 
-                <ImageView
-                    android:id="@+id/iv_done"
-                    android:layout_width="@dimen/_26sdp"
-                    android:layout_height="@dimen/_26sdp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="@dimen/_5sdp"
-                    android:onClick="onClick"
-                    android:padding="@dimen/_6sdp"
-                    android:src="@drawable/ic_check_mark"
-                    app:tint="#ffffff" />
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -85,7 +74,9 @@
                                 app:enableSignature="true"
                                 app:penColor="@color/txt_color"
                                 app:penSize="5dp" />
+
                         </com.xiaopo.flying.sticker.StickerView>
+
                     </ja.burhanrashid52.photoeditor.PhotoEditorView>
 
                     <ImageView
@@ -116,37 +107,36 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_4sdp" />
 
-
             <RelativeLayout
                 android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:layout_height="wrap_content">
 
             <TextView
                 style="@style/WhitePopMed12"
                 android:text="Cancel"
-                android:layout_marginStart="@dimen/_5sdp"
                 android:background="@drawable/white_border_black"
                 android:paddingStart="@dimen/_20sdp"
                 android:paddingTop="@dimen/_4sdp"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:paddingEnd="@dimen/_20sdp"
                 android:paddingBottom="@dimen/_4sdp"
                 android:textColor="@color/tab_white"
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
-
+                android:id="@+id/iv_done"
                 style="@style/TextPopMed14"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_10sdp"
                 android:background="@drawable/btn_curve_bg"
                 android:paddingStart="@dimen/_20sdp"
                 android:paddingTop="@dimen/_4sdp"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:paddingEnd="@dimen/_20sdp"
                 android:paddingBottom="@dimen/_4sdp"
                 android:text="Save"
+                android:onClick="onClick"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/_12sdp" />
             </RelativeLayout>
@@ -227,7 +217,9 @@
         android:background="#000000"
         android:orientation="vertical"
         android:paddingTop="@dimen/_5sdp"
-        android:visibility="gone">
+        android:visibility="gone"
+
+      >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -240,11 +232,10 @@
                 android:layout_marginStart="@dimen/_7sdp"
                 android:background="@drawable/white_border_black"
                 android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
                 android:paddingStart="@dimen/_14sdp"
-                android:paddingTop="@dimen/_5sdp"
+                android:paddingTop="@dimen/_4sdp"
                 android:paddingEnd="@dimen/_14sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_4sdp"
                 android:text="Cancel"
                 android:textSize="@dimen/_10sdp" />
 
@@ -261,11 +252,10 @@
                 android:layout_marginEnd="@dimen/_7sdp"
                 android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
                 android:paddingStart="@dimen/_14sdp"
-                android:paddingTop="@dimen/_5sdp"
+                android:paddingTop="@dimen/_4sdp"
                 android:paddingEnd="@dimen/_14sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_4sdp"
                 android:text="Apply"
                 android:textSize="@dimen/_10sdp" />
         </RelativeLayout>
@@ -323,16 +313,14 @@
                     android:id="@+id/iv_brightness"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
-                    android:src="@drawable/ic_brightness_selection" />
+                    android:src="@drawable/brightness_green" />
 
                 <TextView
                     android:id="@+id/txtBrightness"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/TextPopReg12"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/brightness"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -350,16 +338,14 @@
                     android:id="@+id/iv_contrast"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
-                    android:src="@drawable/ic_contrast" />
+                    android:src="@drawable/contrastwhite" />
 
                 <TextView
                     android:id="@+id/txtContrast"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/TextPopReg12"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/contrast"
-                    android:textColor="@color/white"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -377,16 +363,14 @@
                     android:id="@+id/iv_saturation"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
-                    android:src="@drawable/ic_saturation" />
+                    android:src="@drawable/saturationwhite" />
 
                 <TextView
                     android:id="@+id/txtSaturation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/TextPopReg12"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/saturation"
-                    android:textColor="@color/white"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -404,16 +388,14 @@
                     android:id="@+id/iv_exposure"
                     android:layout_width="@dimen/_19sdp"
                     android:layout_height="@dimen/_19sdp"
-                    android:src="@drawable/ic_exposure" />
+                    android:src="@drawable/exposurewhite" />
 
                 <TextView
+                    style="@style/TextPopReg12"
                     android:id="@+id/txtExposure"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:fontFamily="@font/inter_medium"
                     android:text="@string/exposure"
-                    android:textColor="@color/white"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -535,9 +517,9 @@
                 android:background="@drawable/white_border_black"
                 android:onClick="onClick"
                 android:paddingStart="@dimen/_14sdp"
-                android:paddingTop="@dimen/_5sdp"
+                android:paddingTop="@dimen/_4sdp"
                 android:paddingEnd="@dimen/_14sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_4sdp"
                 android:text="Cancel"
                 android:textSize="@dimen/_10sdp" />
 
@@ -554,11 +536,10 @@
                 android:layout_marginEnd="@dimen/_7sdp"
                 android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
-                android:padding="@dimen/_6sdp"
                 android:paddingStart="@dimen/_14sdp"
-                android:paddingTop="@dimen/_5sdp"
+                android:paddingTop="@dimen/_4sdp"
                 android:paddingEnd="@dimen/_14sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_4sdp"
                 android:text="Apply"
                 android:textSize="@dimen/_10sdp" />
 
@@ -677,8 +658,8 @@
 
                 <ImageView
                     android:id="@+id/iv_color"
-                    android:layout_width="@dimen/_24sdp"
-                    android:layout_height="@dimen/_24sdp"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:src="@drawable/white_color" />
 
                 <TextView
@@ -704,8 +685,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="@color/sig_color"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:background="@color/sig_color">
 
 
         <RelativeLayout
@@ -770,9 +751,9 @@
                 android:background="@drawable/white_border_black"
                 android:onClick="onClick"
                 android:paddingStart="@dimen/_14sdp"
-                android:paddingTop="@dimen/_5sdp"
+                android:paddingTop="@dimen/_4sdp"
                 android:paddingEnd="@dimen/_14sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_4sdp"
                 android:text="Cancel"
                 android:textSize="@dimen/_10sdp" />
 
@@ -790,9 +771,9 @@
                 android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
                 android:paddingStart="@dimen/_14sdp"
-                android:paddingTop="@dimen/_5sdp"
+                android:paddingTop="@dimen/_4sdp"
                 android:paddingEnd="@dimen/_14sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_4sdp"
                 android:text="Apply"
                 android:textSize="@dimen/_10sdp" />
         </RelativeLayout>
@@ -937,8 +918,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="@color/sig_color"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:background="@color/sig_color">
 
         <RelativeLayout
             android:layout_width="match_parent"

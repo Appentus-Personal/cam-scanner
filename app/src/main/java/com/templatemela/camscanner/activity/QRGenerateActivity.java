@@ -207,6 +207,7 @@ public class QRGenerateActivity extends BaseActivity implements View.OnClickList
                     et_value.setError("Required");
                     return;
                 }
+
             case R.id.iv_qrcode:
                 try {
                     File file = new File(qrPath.getPath());

@@ -21,6 +21,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
@@ -135,9 +136,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     public Dialog dialogMore;
 
-    public TextView sortBy ,create_folder ,shareAll;
+    public TextView sortBy ,create_folder ,shareAll ,TextAbout  ;
 
-
+public String TextPrivacy;
 
     public DBHelper dbHelper;
     protected DrawerItemAdapter drawerItemAdapter;
@@ -249,6 +250,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         et_search = (EditText) findViewById(R.id.et_search);
 
 //        et_folder_name = (EditText) findViewById(R.id.et_folder_name);
+
+        TextAbout = (TextView)  findViewById(R.id.txtAbout);
 
         iv_clear_txt = (ImageView) findViewById(R.id.iv_clear_txt);
         tag_tabs = (TabLayout) findViewById(R.id.tag_tabs);
@@ -1688,34 +1691,70 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
 
     public void onDrawerItemSelected(int i) {
+        /*Home*/
         if (i == 0) {
             drawer_ly.closeDrawer(GravityCompat.START);
-        } else if (i == 1) {
+        }
+        /*Qr Scan*/
+        else if (i == 1) {
             if (drawer_ly.isDrawerOpen(GravityCompat.START)) {
                 drawer_ly.closeDrawer(GravityCompat.START);
             }
             ActivityCompat.requestPermissions(this, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.CAMERA"}, 3);
-        } else if (i == 2) {
+        }
+
+        /*Qr generate*/
+        else if (i == 2) {
             if (drawer_ly.isDrawerOpen(GravityCompat.START)) {
                 drawer_ly.closeDrawer(GravityCompat.START);
             }
             ActivityCompat.requestPermissions(this, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.CAMERA"}, 4);
-        } else if (i == 3) {
+        }
+
+        /*About us*/
+        else if (i == 3) {
             if (drawer_ly.isDrawerOpen(GravityCompat.START)) {
                 drawer_ly.closeDrawer(GravityCompat.START);
             }
-            Constant.IdentifyActivity = "PrivacyPolicyActivity";
-            AdsUtils.showGoogleInterstitialAd(MainActivity.this, false);
 
-        } else if (i == 4) {
+            Intent send = new Intent(MainActivity.this, AboutUsActivity.class);
+            startActivity(send);
+        }
+
+        else if (i == 4) {
+            if (drawer_ly.isDrawerOpen(GravityCompat.START)) {
+                drawer_ly.closeDrawer(GravityCompat.START);
+            }
+            Intent send = new Intent(MainActivity.this, TermsConditionActivity.class);
+            startActivity(send);
+
+        }
+
+        else if (i == 5) {
+            if (drawer_ly.isDrawerOpen(GravityCompat.START)) {
+                drawer_ly.closeDrawer(GravityCompat.START);
+            }
+
+            Intent send = new Intent(MainActivity.this, PrivacyPolicy.class);
+            startActivity(send);
+
+
+           /* Constant.IdentifyActivity = "PrivacyPolicyActivity";
+            AdsUtils.showGoogleInterstitialAd(MainActivity.this, false);*/
+
+        } else if (i == 6) {
             if (drawer_ly.isDrawerOpen(GravityCompat.START)) {
                 drawer_ly.closeDrawer(GravityCompat.START);
             }
             Constant.shareApp(this);
-        } else if (i == 5) {
+
+
+
+        } else if (i == 9) {
             if (drawer_ly.isDrawerOpen(GravityCompat.START)) {
                 drawer_ly.closeDrawer(GravityCompat.START);
             }
+
             try {
                 Constant.rateApp(this);
             } catch (ActivityNotFoundException e) {

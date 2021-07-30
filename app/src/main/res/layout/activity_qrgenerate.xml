@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color1"
+    android:background="@color/sig_color"
     android:orientation="vertical">
 
     <LinearLayout
@@ -14,35 +15,31 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:elevation="5dp"
-            android:background="@color/fg_color">
+            android:background="@color/ThemeBg">
 
             <ImageView
                 android:id="@+id/iv_back"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_29sdp"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_2sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:onClick="onClick"
-                android:padding="@dimen/_7sdp"
-                android:src="@drawable/ic_back" />
+                android:src="@drawable/backwhite"
+                app:tint="@color/TextTheme" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/TextPopMed14"
                 android:layout_toRightOf="@+id/iv_back"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/qrGenerator"
+                android:text="QR Code Generate"
                 android:layout_marginLeft="@dimen/_8sdp"
-                android:textColor="@color/txt_color"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_13sdp" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
-            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_14sdp"
             android:layout_marginBottom="@dimen/_20sdp"
@@ -76,14 +73,14 @@
         <EditText
             android:id="@+id/et_value"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_110sdp"
-            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_height="@dimen/_310sdp"
+            android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_14sdp"
             android:background="@drawable/edt_bg"
             android:cursorVisible="true"
             android:fontFamily="@font/inter_medium"
             android:gravity="top|left|center_vertical|center_horizontal|center|start"
-            android:hint="@string/enterText"
+            android:hint="Write here"
             android:minLines="7"
             android:paddingStart="@dimen/_10sdp"
             android:paddingTop="@dimen/_7sdp"
@@ -91,7 +88,7 @@
             android:paddingBottom="@dimen/_7sdp"
             android:scrollbars="vertical"
             android:textColor="@color/selected_txt_color"
-            android:textColorHint="@color/unselected_txt_color"
+            android:textColorHint="#CECECE"
             android:textSize="@dimen/_12sdp" />
 
         <RelativeLayout
@@ -116,44 +113,36 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
         android:layout_marginBottom="@dimen/_15sdp">
 
         <TextView
             android:id="@+id/iv_generate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center_horizontal"
-            android:onClick="onClick"
-            android:paddingLeft="@dimen/_30sdp"
-            android:paddingRight="@dimen/_30sdp"
-            android:paddingTop="@dimen/_5sdp"
-            android:paddingBottom="@dimen/_5sdp"
-            android:text="@string/generate"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:textSize="@dimen/_14sdp"
-            android:fontFamily="@font/inter_medium"
-            android:background="@drawable/round_shape"/>
+            style="@style/TextPopMed14"
+            android:layout_width="match_parent"
+          android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_curve_bg"
+           android:gravity="center"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Genrate"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_12sdp"/>
 
         <TextView
             android:id="@+id/iv_refresh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center_horizontal"
-            android:onClick="onClick"
-            android:paddingLeft="@dimen/_30sdp"
-            android:paddingRight="@dimen/_30sdp"
-            android:paddingTop="@dimen/_5sdp"
-            android:paddingBottom="@dimen/_5sdp"
-            android:text="@string/refresh"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:textSize="@dimen/_14sdp"
-            android:visibility="gone"
-            android:fontFamily="@font/inter_medium"
-            android:background="@drawable/round_shape"/>
+            style="@style/TextPopMed14"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_curve_bg"
+            android:gravity="center"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:text="Refresh"
+            android:visibility="invisible"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_12sdp"/>
 
     </RelativeLayout>
 </LinearLayout>

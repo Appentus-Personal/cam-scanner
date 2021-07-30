@@ -77,7 +77,7 @@
     <color name="border_color">#E7F7F3</color>
     <color name="note_color">#ffffff</color>
     <color name="unselected_tab">#E7F7F3</color>
-
+    <color name="editTxtTheme">#ffffff</color>
 
 
 </resources>

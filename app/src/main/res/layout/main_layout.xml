@@ -26,14 +26,14 @@
                     android:id="@+id/iv_drawer"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
-                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
                     android:onClick="onClick"
                   android:layout_marginTop="@dimen/_10sdp"
                     android:src="@drawable/hamburger_icn" />
 
                 <TextView
                     style="@style/TextPopBold22"
-                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
                     android:layout_below="@id/iv_drawer"
                     android:text="Documents"
                     android:gravity="center"
@@ -58,7 +58,7 @@
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_below="@id/iv_drawer"
                     android:layout_alignParentEnd="true"
                     android:onClick="onClick"
@@ -83,7 +83,7 @@
                     android:layout_alignParentEnd="true"
                     android:onClick="onClick"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
                     android:src="@drawable/more" />
             </RelativeLayout>
 
@@ -147,7 +147,7 @@
                 style="@style/CustomTabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_25sdp"
-                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_12sdp"
                 android:background="@color/ThemeBg"
                 android:layout_marginStart="@dimen/_5sdp"
                 app:tabBackground="@drawable/selector_tab_layout"
@@ -192,7 +192,7 @@
                     <TextView
                         android:id="@+id/tv_empty"
                         style="@style/TextPopReg12"
-                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:gravity="center"
                         android:text="@string/noDocumentScan"
                         android:textSize="@dimen/_14sdp" />
@@ -201,15 +201,13 @@
 
             <LinearLayout
                 android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_height="@dimen/_35sdp"
                   android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="@dimen/_15sdp"
                 android:background="@drawable/main_curve_border"
                 android:paddingStart="@dimen/_5sdp"
-                android:paddingTop="4dp"
                 android:paddingEnd="@dimen/_5sdp"
-                android:paddingBottom="4dp"
                 android:gravity="center">
 
                 <ImageView
