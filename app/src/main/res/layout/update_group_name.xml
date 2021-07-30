@@ -4,8 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/dialog_bottom_sheet"
-
     android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -107,6 +110,16 @@
                         android:textColor="@color/ViewColor"
                         android:textColorHint="@color/unselected_txt_color"
                         android:textSize="@dimen/_10sdp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_10sdp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:src="@drawable/cross_icn"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_alignParentEnd="true"/>
+
+
                 </RelativeLayout>
             </LinearLayout>
 
@@ -146,4 +159,6 @@
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>

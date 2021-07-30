@@ -4,7 +4,6 @@
     android:id="@+id/drawer_ly"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:fitsSystemWindows="true">
 
     <include
@@ -23,9 +22,11 @@
             layout="@layout/nav_header_main" />
 
         <LinearLayout
+            android:id="@+id/llLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/ly_header">
+            android:layout_below="@+id/ly_header"
+            android:orientation="vertical">
 
             <ListView
                 android:id="@+id/lv_drawer"
@@ -36,6 +37,11 @@
                 android:divider="@color/transparent"
                 android:dividerHeight="0dp"
                 android:scrollbars="none" />
+
+
         </LinearLayout>
+
+
+
     </RelativeLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

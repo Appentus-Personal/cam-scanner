@@ -47,7 +47,7 @@
                     android:layout_width="@dimen/_28sdp"
                     android:layout_height="@dimen/_28sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
                      android:layout_below="@id/iv_drawer"
                     android:layout_alignParentEnd="true"
                     android:onClick="onClick"

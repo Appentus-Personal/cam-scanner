@@ -120,6 +120,7 @@
         <TextView
             android:id="@+id/iv_generate"
             style="@style/TextPopMed14"
+            android:onClick="onClick"
             android:layout_width="match_parent"
           android:layout_centerHorizontal="true"
             android:background="@drawable/btn_curve_bg"
@@ -137,6 +138,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/btn_curve_bg"
             android:gravity="center"
+            android:onClick="onClick"
             android:paddingTop="@dimen/_8sdp"
             android:paddingBottom="@dimen/_8sdp"
             android:text="Refresh"

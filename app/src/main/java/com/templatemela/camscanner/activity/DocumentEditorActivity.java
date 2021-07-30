@@ -1001,7 +1001,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                             case R.id.llSavedSig:
                                                 setSignatureAdapter();
                                                 iv_create_signature.setImageResource(R.drawable.ic_create_sig);
-                                                iv_saved_signature.setImageResource(R.drawable.save_sig);
+                                                iv_saved_signature.setImageResource(R.drawable.green_sig);
 
                                                 txtCreateSig.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtSavedSig.setTextColor(getResources().getColor(R.color.tab_white));

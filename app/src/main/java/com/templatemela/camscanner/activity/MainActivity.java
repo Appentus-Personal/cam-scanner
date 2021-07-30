@@ -353,11 +353,6 @@ public String TextPrivacy;
 
 
 
-
-
-
-
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -384,8 +379,6 @@ public String TextPrivacy;
                 new setAllGroupAdapter().execute(new String[0]);
                 return;
 
-
-
              /*   iv_grid.setImageResource(R.drawable.folder);*/
 
             case R.id.iv_clear_txt:
@@ -404,6 +397,16 @@ public String TextPrivacy;
             case R.id.iv_group_camera:
                 ActivityCompat.requestPermissions(this, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.CAMERA"}, 2);
                 return;
+
+            case R.id.gallery:
+                Intent intent = new Intent();
+                intent.setAction(android.content.Intent.ACTION_VIEW);
+                intent.setType("image/*");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+
+                return;
+
 
 
 
@@ -451,6 +454,16 @@ public String TextPrivacy;
                 return;
         }
     }
+
+
+   /* private void opengallery(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"),SELECT_IMAGE)
+
+    }*/
+
 
 
     private void openNewFolderDialog(String groupName) {

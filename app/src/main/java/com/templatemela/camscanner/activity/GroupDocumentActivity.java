@@ -255,7 +255,6 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
 
 
             case R.id.delete:
-                Toast.makeText(this ,"Toast1",Toast.LENGTH_SHORT).show();
                 bottomDelete();
 
 
@@ -327,8 +326,8 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                 dialogMore.setContentView(R.layout.save_file_menu);
                 dialogMore.getWindow().setBackgroundDrawable(new ColorDrawable(0));
 //               dialog.getWindow().setLayout(-1, -2);
-                dialogMore.setCanceledOnTouchOutside(false);
-                dialogMore.setCancelable(false);
+                dialogMore.setCanceledOnTouchOutside(true);
+                dialogMore.setCancelable(true);
 
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
                 lp.copyFrom(dialogMore.getWindow().getAttributes());
@@ -714,13 +713,13 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         dialog.setContentView(R.layout.set_pdf_pswrd);
         dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCancelable(false);
-        dialog.setCanceledOnTouchOutside(false);
-      /*  if (AdmobAds.SHOW_ADS) {
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
+        if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }*/
+        }
         final EditText et_enter_pass = (EditText) dialog.findViewById(R.id.et_enter_pswrd);
         final ImageView iv_pass_show = (ImageView) dialog.findViewById(R.id.iv_enter_pswrd_show);
         final ImageView iv_pass_hide = (ImageView) dialog.findViewById(R.id.iv_enter_pswrd_hide);
@@ -791,6 +790,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
+                dialogMore.show();
             }
         });
         dialog.show();
@@ -905,7 +905,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                 lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
                 lp.gravity = Gravity.BOTTOM;
                 dialog.getWindow().setAttributes(lp);
-                dialog.show();
+                dialogMore.dismiss();
 
                 if (AdmobAds.SHOW_ADS) {
                     AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
@@ -921,10 +921,10 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                         finish();
                     }
                 });
-                ((ImageView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
+                ((TextView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        dialogMore.show();
                         dialog.dismiss();
                     }
                 });
@@ -937,8 +937,8 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         dialog.setContentView(R.layout.update_group_name);
      /*   dialog.getWindow().setLayout(-1, -2);*/
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
@@ -950,11 +950,11 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         dialogMore.dismiss();
 
 
-       /* if (AdmobAds.SHOW_ADS) {
+        if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }*/
+        }
         final EditText editText = (EditText) dialog.findViewById(R.id.et_group_name);
         editText.setText(str);
         editText.setSelection(editText.length());
@@ -988,8 +988,8 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         dialog.setContentView(R.layout.enter_email_dialog);
        /* dialog.getWindow().setLayout(-1, -2);*/
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
@@ -999,13 +999,11 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         dialogMore.dismiss();
         dialog.show();
 
-
-
-       /* if (AdmobAds.SHOW_ADS) {
+        if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }*/
+        }
         final EditText editText = (EditText) dialog.findViewById(R.id.et_emailId);
         final Dialog dialog2 = dialog;
         final String str3 = str;
@@ -1210,18 +1208,26 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         ((RelativeLayout) inflate.findViewById(R.id.rl_delete)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Dialog dialog = new Dialog(GroupDocumentActivity.this, R.style.ThemeWithRoundShape);
-                dialog.requestWindowFeature(1);
+                final Dialog dialog = new Dialog(GroupDocumentActivity.this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.delete_document_dialog);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-                dialog.getWindow().setLayout(-1, -2);
-                dialog.setCanceledOnTouchOutside(false);
-                dialog.setCancelable(false);
-              /*  if (AdmobAds.SHOW_ADS) {
+//               dialog.getWindow().setLayout(-1, -2);
+                dialog.setCanceledOnTouchOutside(true);
+                dialog.setCancelable(true);
+
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                lp.gravity = Gravity.BOTTOM;
+                dialog.getWindow().setAttributes(lp);
+
+                if (AdmobAds.SHOW_ADS) {
                     AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
                 } else {
                     dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-                }*/
+                }
                 ((TextView) dialog.findViewById(R.id.tv_delete)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
