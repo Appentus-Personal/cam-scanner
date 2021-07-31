@@ -28,6 +28,7 @@
             <ImageView
                 android:id="@+id/iv_filter_view"
                 android:layout_width="@dimen/_45sdp"
+                android:background="@drawable/img_border_selected"
                 android:layout_height="@dimen/_45sdp"
                 android:scaleType="centerCrop" />
         </androidx.cardview.widget.CardView>

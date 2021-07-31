@@ -15,8 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
-            android:elevation="5dp"
-            android:background="@color/TextTheme">
+            android:elevation="5dp">
 
             <ImageView
                 android:id="@+id/iv_back"
@@ -34,7 +33,7 @@
                 android:layout_toEndOf="@+id/iv_back"
                 android:layout_centerVertical="true"
                 android:text="Note"
-                android:textColor="@color/TextTheme"
+            android:textColor="@color/TextTheme"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:textSize="@dimen/_15sdp" />
 

@@ -40,13 +40,13 @@
         <ImageView
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:src="@drawable/rename" />
 
         <ImageView
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_17sdp"
             android:src="@drawable/share" />
 
         <ImageView
@@ -64,13 +64,13 @@
         <ImageView
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_16sdp"
             android:src="@drawable/mail" />
 
         <ImageView
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
-            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_18sdp"
             android:src="@drawable/delete" />
     </LinearLayout>
 
@@ -90,7 +90,7 @@
         <TextView
             android:id="@+id/rename"
             style="@style/TextPopMed14"
-            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:onClick="BottomClick"
             android:text="Rename"
             android:textSize="@dimen/_12sdp" />
@@ -100,7 +100,7 @@
             android:id="@+id/share"
             style="@style/TextPopMed14"
             android:onClick="BottomClick"
-            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_16sdp"
             android:text="Share"
             android:textSize="@dimen/_12sdp" />
 
@@ -109,7 +109,7 @@
             android:id="@+id/import_from_gallery"
             style="@style/TextPopMed14"
             android:onClick="BottomClick"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:text="Add From Photos"
             android:textSize="@dimen/_12sdp" />
 
@@ -118,14 +118,14 @@
             android:id="@+id/save_to_gallery"
             style="@style/TextPopMed14"
             android:onClick="BottomClick"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:text="Save to Gallery"
             android:textSize="@dimen/_12sdp" />
 
         <TextView
             android:id="@+id/send_to_mail"
             style="@style/TextPopMed14"
-            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_16sdp"
             android:text="Send to Mail"
             android:onClick="BottomClick"
             android:textSize="@dimen/_12sdp" />
@@ -134,7 +134,7 @@
         <TextView
             android:id="@+id/delete"
             style="@style/TextPopMed14"
-            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_16sdp"
             android:text="Delete"
             android:onClick="BottomClick"
             android:textSize="@dimen/_12sdp" />

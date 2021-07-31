@@ -25,7 +25,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <!-- <include
+                 <include
                      android:id="@+id/admob_native_container"
                      layout="@layout/admob_native_medium"
                      android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                      android:layout_marginTop="@dimen/_5sdp"
                      android:layout_marginRight="@dimen/_5sdp"
                      android:layout_height="@dimen/_200sdp"
-                     android:visibility="gone" />-->
+                     android:visibility="gone" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"

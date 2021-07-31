@@ -62,9 +62,9 @@
             android:id="@+id/pdfView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp" >
 
 

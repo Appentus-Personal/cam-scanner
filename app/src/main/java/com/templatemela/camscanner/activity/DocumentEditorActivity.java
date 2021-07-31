@@ -379,7 +379,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
         iv_apply_signature = (TextView) findViewById(R.id.iv_apply_signature);
         rl_watermark = (RelativeLayout) findViewById(R.id.rl_watermark);
         et_watermark_txt = (EditText) findViewById(R.id.et_watermark_txt);
-     /*   rv_watermark_font = (RecyclerView) findViewById(R.id.rv_watermark_font)*/;
+        rv_watermark_font = (RecyclerView) findViewById(R.id.rv_watermark_font);
         rl_watermark_color = (RelativeLayout) findViewById(R.id.rl_watermark_color);
         sb_watermark_color = (ColorSeekBar) findViewById(R.id.sb_watermark_color);
         rl_watermark_opacity = (RelativeLayout) findViewById(R.id.rl_watermark_opacity);

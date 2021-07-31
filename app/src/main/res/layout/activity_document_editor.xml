@@ -504,9 +504,9 @@
         android:layout_alignParentBottom="true"
         android:background="#000000"
         android:orientation="vertical"
+        android:visibility="gone"
         android:paddingTop="@dimen/_5sdp"
-        android:paddingBottom="@dimen/_5sdp"
-        android:visibility="gone">
+        android:paddingBottom="@dimen/_5sdp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -921,7 +921,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:visibility="gone"
+
         android:background="@color/sig_color">
 
         <RelativeLayout
@@ -957,13 +957,13 @@
                 android:background="@color/fg_color"
                 android:orientation="vertical">
 
-                <!--  <androidx.recyclerview.widget.RecyclerView
+                  <androidx.recyclerview.widget.RecyclerView
                       android:id="@+id/rv_watermark_font"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:layout_centerVertical="true"
                       android:layout_margin="@dimen/_4sdp"
-                      android:visibility="gone" />-->
+                      android:visibility="gone" />
 
                 <RelativeLayout
                     android:id="@+id/rl_watermark_color"
@@ -1075,35 +1075,11 @@
                 android:textSize="@dimen/_10sdp" />
 
 
-            <!--  <androidx.recyclerview.widget.RecyclerView
-                     android:id="@+id/rv_watermark_font"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_centerVertical="true"
-                  android:layout_below="@id/iv_apply_watermark"
-                     android:layout_margin="@dimen/_4sdp"
-                     android:visibility="gone" />-->
+
 
         </RelativeLayout>
 
 
-        <!--   <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_below="@id/rl_bottom2">
-
-
-
-                 <androidx.recyclerview.widget.RecyclerView
-                       android:id="@+id/rv_watermark_font"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:layout_centerVertical="true"
-                       android:layout_margin="@dimen/_4sdp"
-                     android:visibility="gone"
-                       />
-
-           </RelativeLayout>-->
 
         <LinearLayout
             android:id="@+id/ly_btn2"
@@ -1147,8 +1123,8 @@
 
                 <ImageView
                     android:id="@+id/iv_watermark_color"
-                    android:layout_width="@dimen/_27sdp"
-                    android:layout_height="@dimen/_27sdp"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
                     android:onClick="onClick"
                     android:padding="@dimen/_4sdp"
                     android:src="@drawable/white_color" />

@@ -429,9 +429,6 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                 AdsUtils.showGoogleInterstitialAd(GroupDocumentActivity.this, true);
                 return true;
 
-            /*case R.id.rename:
-                updateGroupName(current_group);
-                return true;*/
 
             case R.id.save_to_gallery:
                 ArrayList<DBModel> groupDocs = dataBaseHelper.getGroupDocs(current_group.replace(" ", ""));
@@ -627,8 +624,8 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         dialog.setContentView(R.layout.share_group_doc);
 //        dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
@@ -639,11 +636,11 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         dialogMore.dismiss();
         dialog.show();
 
-       /* if (AdmobAds.SHOW_ADS) {
+        if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }*/
+        }
 
         ((RelativeLayout) dialog.findViewById(R.id.rl_share_pdf)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -708,13 +705,23 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
 
 
     public void sharePDFWithPassword(String str, String saveOrShare, String name) {
-        final Dialog dialog = new Dialog(this, R.style.ThemeWithRoundShape);
-        dialog.requestWindowFeature(1);
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.set_pdf_pswrd);
-        dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCancelable(true);
+//      dialog.getWindow().setLayout(-1, -2);
         dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+
+
+
         if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
@@ -733,12 +740,13 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
 
         et_enter_pass.setInputType(129);
         et_confirm_pass.setInputType(129);
+
         iv_pass_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 iv_pass_show.setVisibility(View.GONE);
                 iv_pass_hide.setVisibility(View.VISIBLE);
-             /*   et_enter_pass.setTransformationMethod(new HideReturnsTransformationMethod());*/
+                et_enter_pass.setTransformationMethod(new HideReturnsTransformationMethod());
                 et_enter_pass.setSelection(et_enter_pass.getText().length());
             }
         });
@@ -747,7 +755,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
             public void onClick(View view) {
                 iv_pass_show.setVisibility(View.VISIBLE);
                 iv_pass_hide.setVisibility(View.GONE);
-             /*   et_enter_pass.setTransformationMethod(new PasswordTransformationMethod());*/
+                et_enter_pass.setTransformationMethod(new PasswordTransformationMethod());
                 et_enter_pass.setSelection(et_enter_pass.getText().length());
             }
         });
@@ -955,6 +963,8 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
         }
+
+
         final EditText editText = (EditText) dialog.findViewById(R.id.et_group_name);
         editText.setText(str);
         editText.setSelection(editText.length());
@@ -978,6 +988,14 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                 dialog.cancel();
             }
         });
+
+        ((ImageView) dialog.findViewById(R.id.clear_text)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(GroupDocumentActivity.this,"Toasst",Toast.LENGTH_SHORT).show();
+            }
+        });
+
         dialog.show();
     }
 
@@ -1171,7 +1189,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                         dialog.dismiss();
                     }
                 });
-                ((ImageView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
+                ((TextView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();

@@ -79,17 +79,15 @@ public class ColorFilterAdapter extends RecyclerView.Adapter<ColorFilterAdapter.
             }
         });
         if (Constant.filterPosition == i) {
-
-
-
-            viewHolder.iv_filter_view.setBackground(activity.getResources().getDrawable(R.drawable.img_border_selected));
-
+            viewHolder.iv_filter_view.setBackground(activity.getDrawable(R.drawable.img_border_selected));
+//         viewHolder.iv_filter_view.setBackground(activity.getDrawable(R.drawable.img_border_selected));
 
            /* viewHolder.ly_img.setBackground(activity.getResources().getDrawable(R.drawable.img_border_selected));*/
             viewHolder.tv_filter_name.setTextColor(activity.getResources().getColor(R.color.tab_white));
 
             return;
         }
+//        viewHolder.iv_filter_view.setBackground(activity.getDrawable(R.drawable.img_border_selected));
      /*   viewHolder.ly_img.setBackground(activity.getResources().getDrawable(R.drawable.img_border_unselected));*/
         viewHolder.tv_filter_name.setTextColor(activity.getResources().getColor(R.color.tab_white));
     }
