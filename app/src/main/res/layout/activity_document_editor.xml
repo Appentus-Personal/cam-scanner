@@ -115,8 +115,10 @@
                 android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/tv_cancel"
                 style="@style/WhitePopMed12"
                 android:text="Cancel"
+                android:onClick="Onclick"
                 android:background="@drawable/white_border_black"
                 android:paddingStart="@dimen/_20sdp"
                 android:paddingTop="@dimen/_4sdp"
@@ -154,7 +156,8 @@
         android:layout_alignParentBottom="true"
         android:background="#000000"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="gone"
+     >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -218,7 +221,6 @@
         android:orientation="vertical"
         android:paddingTop="@dimen/_5sdp"
         android:visibility="gone"
-
       >
 
         <RelativeLayout
@@ -273,7 +275,7 @@
                 android:layout_marginEnd="@dimen/_18sdp"
                 android:fontFamily="@font/inter_medium"
                 android:text="50"
-                android:textColor="@color/white"
+                android:textColor="@color/tab_white"
                 android:textSize="@dimen/_11sdp" />
 
             <SeekBar
@@ -288,8 +290,9 @@
                 android:paddingTop="@dimen/_8sdp"
                 android:paddingBottom="@dimen/_8sdp"
                 android:progress="128"
-                android:progressDrawable="@drawable/seekbar_opacity"
                 android:thumb="@drawable/ic_thumb" />
+             <!--   android:progressDrawable="@drawable/seekbar_opacity"-->
+
         </RelativeLayout>
 
         <LinearLayout
@@ -684,8 +687,8 @@
         android:id="@+id/rl_signature"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
         android:visibility="gone"
+        android:layout_marginTop="?attr/actionBarSize"
         android:background="@color/sig_color">
 
 

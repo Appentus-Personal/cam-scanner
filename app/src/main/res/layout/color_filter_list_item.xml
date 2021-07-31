@@ -15,10 +15,12 @@
         android:layout_width="@dimen/_45sdp"
         android:layout_height="@dimen/_45sdp"
         android:gravity="center"
+
         android:orientation="vertical"
         android:padding="@dimen/_1sdp">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:cardCornerRadius="@dimen/_5sdp">
@@ -39,6 +41,6 @@
         android:fontFamily="@font/inter_medium"
         android:singleLine="true"
         android:text="Original"
-        android:textColor="@color/white"
+        android:textColor="@color/tab_white"
         android:textSize="@dimen/_9sdp" />
 </LinearLayout>

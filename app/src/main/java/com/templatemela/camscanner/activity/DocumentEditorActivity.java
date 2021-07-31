@@ -443,9 +443,11 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
         photoEditor.setBrushDrawingMode(false);
         setupSticker();
         stickerView.removeAllStickers();
+
         signa_pen_color = getResources().getColor(R.color.selected_txt_color);
         signature_view.setPenSize((float) sb_pen_size.getProgress());
         signature_view.setPenColor(signa_pen_color);
+
         sb_pen_color.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
             @Override
             public void onColorChangeListener(int i) {
@@ -509,12 +511,12 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                 photoEditor.setBrushColor(brush_color);
                 sb_highlight_size.setVisibility(View.VISIBLE);
                 sb_eraser_size.setVisibility(View.GONE);
-                iv_highlight.setImageResource(R.drawable.bic_highlight_selection);
-                iv_erase.setImageResource(R.drawable.bic_erase);
+                iv_highlight.setImageResource(R.drawable.highlight_green);
+                iv_erase.setImageResource(R.drawable.eraserwhite);
 
-                txtHighlight.setTextColor(getResources().getColor(R.color.black));
-                txtEraser.setTextColor(getResources().getColor(R.color.white));
-                txtColor.setTextColor(getResources().getColor(R.color.white));
+                txtHighlight.setTextColor(getResources().getColor(R.color.tab_white));
+                txtEraser.setTextColor(getResources().getColor(R.color.tab_white));
+                txtColor.setTextColor(getResources().getColor(R.color.tab_white));
 
                 slideUpAnimation(ly_highlight);
                 ly_edit_tools.setVisibility(View.INVISIBLE);
@@ -537,11 +539,11 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                         .start();
                 return;
             case SIGNATURE:
-                iv_create_signature.setImageResource(R.drawable.ic_create_sig_selection);
-                iv_saved_signature.setImageResource(R.drawable.ic_saved_sig);
+                iv_create_signature.setImageResource(R.drawable.green_create_sig);
+                iv_saved_signature.setImageResource(R.drawable.save_sig);
 
-                txtCreateSig.setTextColor(getResources().getColor(R.color.black));
-                txtSavedSig.setTextColor(getResources().getColor(R.color.light_bg_color));
+                txtCreateSig.setTextColor(getResources().getColor(R.color.tab_white));
+                txtSavedSig.setTextColor(getResources().getColor(R.color.tab_white));
 
                 ly_edit_tools.setVisibility(View.INVISIBLE);
                 iv_done.setVisibility(View.INVISIBLE);
@@ -1519,6 +1521,11 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
             return;
         }
         System.out.println("Empty Folder");
+    }
+
+    public void Onclick(View view) {
+        onBackPressed();
+
     }
 
     private class saveSignature extends AsyncTask<Bitmap, Void, Bitmap> {

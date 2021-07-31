@@ -112,6 +112,7 @@
                         android:textSize="@dimen/_10sdp" />
 
                     <ImageView
+                        android:id="@+id/clear_text"
                         android:layout_width="@dimen/_10sdp"
                         android:layout_height="@dimen/_10sdp"
                         android:src="@drawable/cross_icn"

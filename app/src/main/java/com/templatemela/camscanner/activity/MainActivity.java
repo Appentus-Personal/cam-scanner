@@ -85,8 +85,15 @@ import java.util.Comparator;
 import java.util.Iterator;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
+
+    int SELECT_PICTURE = 200;
+
     private static final String TAG = "MainActivity";
     public static MainActivity mainActivity;
+
+
+
+
     protected AllGroupAdapter allGroupAdapter;
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -138,6 +145,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     public TextView sortBy ,create_folder ,shareAll ,TextAbout  ;
 
+    public ImageView iv_preview_crop;
+    public ImageView clearText;
+
 public String TextPrivacy;
 
     public DBHelper dbHelper;
@@ -146,7 +156,8 @@ public String TextPrivacy;
     private DrawerLayout drawer_ly;
     protected SharedPreferences.Editor editor;
 
-    private EditText et_search;
+    private EditText et_search ,et_group_name;
+
 //    public EditText et_folder_name;
 
     public ArrayList<DBModel> groupList = new ArrayList<>();
@@ -241,6 +252,8 @@ public String TextPrivacy;
         iv_folder = (ImageView) findViewById(R.id.iv_list);
         iv_grid = (ImageView) findViewById(R.id.iv_grid);
 
+        clearText=(ImageView) findViewById(R.id.clear_text);
+
         iv_drawer = (ImageView) findViewById(R.id.iv_drawer);
         iv_search = (ImageView) findViewById(R.id.iv_search);
         iv_more = (ImageView) findViewById(R.id.iv_more);
@@ -248,6 +261,9 @@ public String TextPrivacy;
         iv_close_search = (ImageView) findViewById(R.id.iv_close_search);
 
         et_search = (EditText) findViewById(R.id.et_search);
+        et_group_name= (EditText) findViewById(R.id.et_group_name);
+
+        iv_preview_crop = (ImageView) findViewById(R.id.iv_preview_crop);
 
 //        et_folder_name = (EditText) findViewById(R.id.et_folder_name);
 
@@ -315,7 +331,10 @@ public String TextPrivacy;
                 new setAllGroupAdapter().execute(new String[0]);
             }
         });
+
+
         et_search.addTextChangedListener(new TextWatcher() {
+
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -399,11 +418,13 @@ public String TextPrivacy;
                 return;
 
             case R.id.gallery:
-                Intent intent = new Intent();
-                intent.setAction(android.content.Intent.ACTION_VIEW);
-                intent.setType("image/*");
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                Intent i = new Intent();
+                i.setType("image/*");
+                i.setAction(Intent.ACTION_GET_CONTENT);
+
+                // pass the constant to compare it
+                // with the returned requestCode
+                startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
 
                 return;
 
@@ -456,13 +477,27 @@ public String TextPrivacy;
     }
 
 
-   /* private void opengallery(){
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"),SELECT_IMAGE)
 
-    }*/
+ /*   public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+
+            // compare the resultCode with the
+            // SELECT_PICTURE constant
+            if (requestCode == SELECT_PICTURE) {
+                // Get the url of the image from data
+                Uri selectedImageUri = data.getData();
+                if (null != selectedImageUri) {
+                    // update the preview image in the layout
+                    Intent send = new Intent(MainActivity.this, CropDocumentActivity.class);
+                    startActivity(send);
+//                    IVPreviewImage.setImageURI(selectedImageUri);
+                }
+            }
+        }
+    }
+*/
 
 
 
@@ -680,8 +715,30 @@ public String TextPrivacy;
 
     @Override
     public void onActivityResult(int i, int i2, Intent intent) {
+
+      /*  if (i2 == RESULT_OK) {
+
+            // compare the resultCode with the
+            // SELECT_PICTURE constant
+            if (i == SELECT_PICTURE) {
+                // Get the url of the image from data
+                Uri selectedImageUri = intent.getData();
+                if (null != selectedImageUri) {
+                    // update the preview image in the layout
+                    Intent send = new Intent(MainActivity.this, CropDocumentActivity.class);
+
+                    send.putExtra("Data",selectedImageUri.toString());
+                    startActivity(send);
+                   iv_preview_crop.setImageURI(selectedImageUri);
+                }
+            }
+        }
+
+
+*/
         if (ImagePicker.shouldHandleResult(i, i2, intent, 100)) {
             Iterator<Image> it = ImagePicker.getImages(intent).iterator();
+
             while (it.hasNext()) {
                 Image next = it.next();
                 if (Build.VERSION.SDK_INT >= 29) {
@@ -711,6 +768,10 @@ public String TextPrivacy;
                         }
                     });
                 }
+
+
+
+
             }
         }
         super.onActivityResult(i, i2, intent);
@@ -990,7 +1051,6 @@ public String TextPrivacy;
         rl_save_as_pdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 final Dialog dialog = new Dialog(MainActivity.this, R.style.ThemeWithRoundShape);
                 dialog.requestWindowFeature(1);
@@ -1572,18 +1632,47 @@ public String TextPrivacy;
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(1);
         dialog.setContentView(R.layout.update_group_name);
-        dialog.getWindow().setLayout(-1, -2);
+//        dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+
         if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(MainActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
         }
-        final EditText editText = (EditText) dialog.findViewById(R.id.et_group_name);
-        editText.setText(name);
-        editText.setSelection(editText.length());
+        EditText editText = (EditText) dialog.findViewById(R.id.et_group_name);
+
+      /*  editText.setText(name);
+        editText.setSelection(editText.length());*/
+
+
+               /* editText.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                        if (i3 == 0) {
+                            clearText.setVisibility(View.INVISIBLE);
+                        } else if (i3 == 1) {
+                            clearText.setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+                        if (groupList.size() > 0) {
+                            filter(editable.toString());
+                        }
+                    }
+                });
+            }
+        });*/
+
+
         ((TextView) dialog.findViewById(R.id.tv_done)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -1602,6 +1691,17 @@ public String TextPrivacy;
             }
         });
         dialog.show();
+
+        /*((ImageView) dialog.findViewById(R.id.clear_text)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Toast", Toast.LENGTH_SHORT).show();
+
+            }
+        });*/
+
+
+
     }
 
     private class saveGroupToGallery extends AsyncTask<String, Void, String> {

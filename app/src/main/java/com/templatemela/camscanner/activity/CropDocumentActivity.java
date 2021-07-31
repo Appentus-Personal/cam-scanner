@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Matrix;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -116,6 +117,15 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
         setContentView(R.layout.activity_crop_document);
         dbHelper = new DBHelper(this);
         init();
+
+
+       /* Intent intent = getIntent();
+        String uriString = intent.getStringExtra("Data");
+        Uri uri = Uri.parse(uriString);
+        iv_preview_crop.setImageURI(uri);*/
+
+
+
     }
 
     private void init() {
@@ -138,6 +148,7 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
         iv_ocv_black = (ImageView) findViewById(R.id.iv_ocv_black);
 
 
+
         if (Constant.original != null) {
             iv_preview_crop.setImageToCrop(Constant.original);
             original = Constant.original;
@@ -145,7 +156,6 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
         }
         AdsUtils.loadGoogleInterstitialAd(this, CropDocumentActivity.this);
         AdsUtils.showGoogleBannerAd(this, adView);
-
 
         seekBarBrightness.setOnSeekBarChangeListener(this);
 
@@ -175,6 +185,7 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
                     showProgressDialog();
                     tempBitmap = original;
                     iv_preview_crop.setImageBitmap(original);
+
                     dismissProgressDialog();
                 } catch (OutOfMemoryError e) {
                     e.printStackTrace();

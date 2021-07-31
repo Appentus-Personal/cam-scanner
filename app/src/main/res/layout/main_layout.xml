@@ -96,7 +96,7 @@
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_7sdp"
                 android:background="@drawable/search_bar_bg"
-                android:visibility="gone">
+            >
 
                 <ImageView
                     android:id="@+id/iv_close_search"
