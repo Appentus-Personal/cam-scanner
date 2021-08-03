@@ -15,7 +15,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
-            android:elevation="5dp"
             android:background="@color/ThemeBg">
 
             <ImageView
@@ -75,7 +74,7 @@
                 android:paddingEnd="@dimen/_12sdp"
                 android:paddingBottom="@dimen/_4sdp"
                 android:text="Page 1 of 2"
-                android:textColor="@color/white"
+                android:textColor="@color/tab_white"
                 android:textSize="@dimen/_12sdp" />
         </RelativeLayout>
     </LinearLayout>

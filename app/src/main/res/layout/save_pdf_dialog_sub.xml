@@ -31,7 +31,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                  <!--  <include
+                    <include
                         android:id="@+id/admob_native_container"
                         layout="@layout/admob_native_medium"
                         android:layout_width="match_parent"
@@ -39,7 +39,7 @@
                         android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:layout_marginRight="@dimen/_5sdp"
-                        android:visibility="gone" />-->
+                        android:visibility="gone" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -113,6 +113,15 @@
                         android:textColor="#000000"
                         android:textColorHint="@color/unselected_txt_color"  />
 
+
+                        <ImageView
+                            android:id="@+id/clear_text"
+                            android:layout_width="@dimen/_10sdp"
+                            android:layout_height="@dimen/_10sdp"
+                            android:src="@drawable/cross_icn"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_alignParentEnd="true" />
 
                     </RelativeLayout>
 

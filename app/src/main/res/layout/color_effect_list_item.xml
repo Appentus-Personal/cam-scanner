@@ -17,21 +17,19 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/_1sdp">
-        <!-- android:background="@drawable/img_border_unselected"-->
 
-
-        <androidx.cardview.widget.CardView
+      <!--  <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/_5sdp">
+            app:cardCornerRadius="@dimen/_5sdp">-->
 
             <ImageView
                 android:id="@+id/iv_effect_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@color/tab_white" />
-        </androidx.cardview.widget.CardView>
+                android:scaleType="centerCrop" />
+
+       <!-- </androidx.cardview.widget.CardView>-->
     </LinearLayout>
 
     <TextView

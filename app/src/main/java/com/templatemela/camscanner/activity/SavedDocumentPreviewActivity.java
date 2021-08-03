@@ -377,7 +377,7 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
                         dialog.dismiss();
                     }
                 });
-                ((ImageView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
+                ((TextView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();

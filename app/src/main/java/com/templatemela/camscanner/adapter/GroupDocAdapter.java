@@ -54,11 +54,11 @@ public class GroupDocAdapter extends RecyclerView.Adapter<GroupDocAdapter.ViewHo
                     ((GroupDocumentActivity) activity).onClickItemMore(i, viewHolder.tv_doc_name.getText().toString());
                 }
             });
-            if (arrayList.get(i).getGroup_doc_note().equals("Insert text here...")) {
+         /*   if (arrayList.get(i).getGroup_doc_note().equals("Insert text here...")) {
                 viewHolder.iv_note.setVisibility(View.GONE);
             } else {
                 viewHolder.iv_note.setVisibility(View.VISIBLE);
-            }
+            }*/
         } else {
             viewHolder.newScanLayout.setVisibility(View.VISIBLE);
             viewHolder.docLayout.setVisibility(View.GONE);

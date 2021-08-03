@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DemoActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_7sdp"
+        android:background="@drawable/search_bar_bg">
+
+
+
+
+        <ImageView
+            android:id="@+id/iv_close_search"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_5sdp"
+
+            android:src="@drawable/search" />
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
+            android:layout_toStartOf="@+id/iv_clear_txt"
+            android:layout_toEndOf="@+id/iv_close_search"
+            android:background="@color/transparent"
+            android:cursorVisible="true"
+            android:focusable="true"
+            android:fontFamily="@font/inter_regular"
+            android:hint="Search for Document..."
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textColor="#858997"
+            android:textColorHint="#a2a8b9"
+            android:textSize="@dimen/_12sdp" />
+
+        <ImageView
+            android:id="@+id/iv_clear_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_close_black_24dp"
+            android:visibility="invisible"
+            app:tint="#858997" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

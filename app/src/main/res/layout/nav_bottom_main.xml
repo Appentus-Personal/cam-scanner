@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_50sdp"
-    android:layout_margin="@dimen/_10sdp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_12sdp"
     android:background="@color/unselected_tab"
     android:orientation="vertical">
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"
         android:background="@color/ViewColor"
@@ -17,8 +18,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="App Version"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_below="@id/view"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginStart="@dimen/_18sdp"
         android:textColor="@color/TextTheme"/>
 
     <TextView
@@ -28,8 +31,8 @@
         android:text="1.0.0"
         android:layout_below="@id/tv_version"
         android:layout_marginTop="@dimen/_10sdp"
-        android:textSize="@dimen/_8sdp"
-        android:layout_marginStart="@dimen/_5sdp"
+        android:textSize="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_18sdp"
         android:textColor="@color/TextTheme"/>
 
 </RelativeLayout>

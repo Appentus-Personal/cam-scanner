@@ -9,10 +9,10 @@
     <RelativeLayout
         android:id="@+id/rl_item"
         android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_5sdp"
-android:layout_marginStart="@dimen/_12sdp"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_11sdp">
+       android:padding="@dimen/_8sdp">
 
         <ImageView
             android:id="@+id/iv_item_icon"

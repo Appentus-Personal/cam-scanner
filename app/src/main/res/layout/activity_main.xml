@@ -24,8 +24,9 @@
         <LinearLayout
             android:id="@+id/llLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/ly_header"
+            android:layout_above="@id/nav_bottom"
             android:orientation="vertical">
 
             <ListView
@@ -41,6 +42,13 @@
 
         </LinearLayout>
 
+        <include
+            android:id="@+id/nav_bottom"
+            layout="@layout/nav_bottom_main"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
 
 
     </RelativeLayout>

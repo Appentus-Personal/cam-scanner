@@ -95,18 +95,17 @@
                 android:layout_marginTop="@dimen/_12sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_7sdp"
-                android:background="@drawable/search_bar_bg"
-            >
+                android:visibility="gone"
+                android:background="@drawable/search_bar_bg">
 
                 <ImageView
                     android:id="@+id/iv_close_search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:onClick="onClick"
-                    android:padding="@dimen/_7sdp"
-                    android:src="@drawable/ic_search_small" />
+                    android:src="@drawable/search" />
 
                 <EditText
                     android:id="@+id/et_search"

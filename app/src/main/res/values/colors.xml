@@ -5,7 +5,7 @@
     <color name="purple_700">#25c4a4</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="bg_color">#000000</color>
@@ -15,7 +15,7 @@
     <color name="colorPrimary">#25c4a4</color>
     <color name="colorPrimaryDark">#25c4a4</color>
 
-    <color name="editor_light_color">#e8e9ed</color>
+    <color name="editor_light_color">#CECECE</color>
     <color name="error_color_material_dark">#ff7043</color>
     <color name="error_color_material_light">#ff5722</color>
     <color name="fg_color">#ffffff</color>

@@ -91,9 +91,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private static final String TAG = "MainActivity";
     public static MainActivity mainActivity;
 
-
-
-
     protected AllGroupAdapter allGroupAdapter;
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -141,14 +138,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     public String current_group;
     protected String current_mode;
 
-    public Dialog dialogMore;
+    public Dialog dialogMore ,dialogItem;
 
     public TextView sortBy ,create_folder ,shareAll ,TextAbout  ;
 
     public ImageView iv_preview_crop;
     public ImageView clearText;
 
-public String TextPrivacy;
+    public String TextPrivacy;
 
     public DBHelper dbHelper;
     protected DrawerItemAdapter drawerItemAdapter;
@@ -158,7 +155,7 @@ public String TextPrivacy;
 
     private EditText et_search ,et_group_name;
 
-//    public EditText et_folder_name;
+    public EditText et_folder_name;
 
     public ArrayList<DBModel> groupList = new ArrayList<>();
 
@@ -313,7 +310,6 @@ public String TextPrivacy;
             tab.requestLayout();
         }
 
-
         Constant.current_tag = "All Docs";
 
         tag_tabs.addOnTabSelectedListener((TabLayout.OnTabSelectedListener) new TabLayout.OnTabSelectedListener() {
@@ -333,7 +329,7 @@ public String TextPrivacy;
         });
 
 
-        et_search.addTextChangedListener(new TextWatcher() {
+      et_search.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -342,7 +338,7 @@ public String TextPrivacy;
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 if (i3 == 0) {
-                    iv_clear_txt.setVisibility(View.INVISIBLE);
+                    iv_more.setVisibility(View.INVISIBLE);
                 } else if (i3 == 1) {
                     iv_clear_txt.setVisibility(View.VISIBLE);
                 }
@@ -356,6 +352,8 @@ public String TextPrivacy;
             }
         });
     }
+
+
 
 
     public void filter(String str) {
@@ -427,9 +425,6 @@ public String TextPrivacy;
                 startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
 
                 return;
-
-
-
 
             case R.id.iv_more:
                 dialogMore = new Dialog(this);
@@ -519,7 +514,7 @@ public String TextPrivacy;
         dialog.getWindow().setAttributes(lp);
 
 
-        EditText et_folder_name = (EditText) dialog.findViewById(R.id.et_folder_name);
+          et_folder_name = (EditText) dialog.findViewById(R.id.et_folder_name);
 
         String folder_name = "CamScanner" + Constant.getDateTime("_ddMMHHmmss");
         et_folder_name.setText(folder_name);
@@ -563,6 +558,7 @@ public String TextPrivacy;
                 }
 
             }
+
         });
         ((TextView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -570,6 +566,15 @@ public String TextPrivacy;
                 dialog.dismiss();
             }
         });
+
+        ((ImageView) dialog.findViewById(R.id.clear_text)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               et_folder_name.setText("");
+            };
+
+        });
+
         dialog.show();
     }
 
@@ -663,10 +668,27 @@ public String TextPrivacy;
 
 
             case R.id.sort_by:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle((CharSequence) "Sort By");
-                String[] strArr = {"Ascending date", "Descending date", "Ascending name", "Descending name"};
-                if (selected_sorting.equals(Constant.ascending_date)) {
+/*
+                final Dialog dialog = new Dialog(this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.sort_by_dialog);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+//               dialog.getWindow().setLayout(-1, -2);
+                dialog.setCanceledOnTouchOutside(true);
+                dialog.setCancelable(true);
+
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                lp.gravity = Gravity.BOTTOM;
+                dialog.getWindow().setAttributes(lp);*/
+
+
+              /*  AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle((CharSequence) "Sort By");*/
+//                String[] strArr = {"Ascending date", "Descending date", "Ascending name", "Descending name"};
+            /*    if (selected_sorting.equals(Constant.ascending_date)) {
                     selected_sorting_pos = 0;
                 } else if (selected_sorting.equals(Constant.descending_date)) {
                     selected_sorting_pos = 1;
@@ -675,9 +697,9 @@ public String TextPrivacy;
                 } else if (selected_sorting.equals(Constant.descending_name)) {
                     selected_sorting_pos = 3;
                 }
+*/
 
-
-                builder.setSingleChoiceItems((CharSequence[]) strArr, selected_sorting_pos, (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
+             /*   builder.setSingleChoiceItems((CharSequence[]) strArr, selected_sorting_pos, (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (i == 0) {
@@ -708,7 +730,7 @@ public String TextPrivacy;
                     }
                 });
                 builder.show();
-                break;
+                break;*/
         }
         return true;
     }
@@ -996,8 +1018,7 @@ public String TextPrivacy;
     }
 
     class SortByName implements Comparator<DBModel> {
-        SortByName() {
-        }
+        SortByName() { }
 
         @Override
         public int compare(DBModel dBModel, DBModel dBModel2) {
@@ -1019,17 +1040,34 @@ public String TextPrivacy;
     }
 
     public void clickOnListMore(DBModel dbModel, final String name, String date) {
-        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
-        View inflate = View.inflate(this, R.layout.group_bottomsheet_dialog, (ViewGroup) null);
-        final TextView tv_dialog_title = (TextView) inflate.findViewById(R.id.tv_dialog_title);
-        tv_dialog_title.setText(name);
-        ((TextView) inflate.findViewById(R.id.tv_dialog_date)).setText(date);
 
-        RelativeLayout rl_save_as_pdf = inflate.findViewById(R.id.rl_save_as_pdf);
-        RelativeLayout rl_share = inflate.findViewById(R.id.rl_share);
-        RelativeLayout rl_save_to_gallery = inflate.findViewById(R.id.rl_save_to_gallery);
-        RelativeLayout rl_send_to_mail = inflate.findViewById(R.id.rl_send_to_mail);
-        RelativeLayout rl_move_folder = inflate.findViewById(R.id.rl_move_folder);
+       dialogItem = new Dialog(this);
+        dialogItem.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogItem.setContentView(R.layout.group_bottomsheet_dialog);
+        dialogItem.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+//      dialog.getWindow().setLayout(-1, -2);
+        dialogItem.setCanceledOnTouchOutside(true);
+        dialogItem.setCancelable(true);
+        dialogItem.show();
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogItem.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialogItem.getWindow().setAttributes(lp);
+
+        final TextView tv_dialog_title = (TextView) dialogItem.findViewById(R.id.tv_dialog_title);
+
+        tv_dialog_title.setText(name);
+        ((TextView) dialogItem.findViewById(R.id.tv_dialog_date)).setText(date);
+
+        RelativeLayout rl_save_as_pdf = dialogItem.findViewById(R.id.rl_save_as_pdf);
+        RelativeLayout rl_share = dialogItem.findViewById(R.id.rl_share);
+        RelativeLayout rl_save_to_gallery = dialogItem.findViewById(R.id.rl_save_to_gallery);
+        RelativeLayout rl_send_to_mail = dialogItem.findViewById(R.id.rl_send_to_mail);
+        RelativeLayout rl_move_folder = dialogItem.findViewById(R.id.rl_move_folder);
+
         if (dbModel.getGroup_first_img() != null) {
             if (dbModel.getGroup_first_img().isEmpty()) {
                 rl_save_as_pdf.setVisibility(View.GONE);
@@ -1044,14 +1082,13 @@ public String TextPrivacy;
             @Override
             public void onClick(View v) {
                 openMoveFolderDialog(dbModel);
-                bottomSheetDialog.dismiss();
+                dialogItem.dismiss();
             }
         });
 
         rl_save_as_pdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 final Dialog dialog = new Dialog(MainActivity.this, R.style.ThemeWithRoundShape);
                 dialog.requestWindowFeature(1);
                 dialog.setContentView(R.layout.save_pdf_dialog_main);
@@ -1059,6 +1096,7 @@ public String TextPrivacy;
 //              dialog.getWindow().setLayout(-1, -2);
                 dialog.setCanceledOnTouchOutside(true);
                 dialog.setCancelable(true);
+                dialog.show();
 
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
                 lp.copyFrom(dialog.getWindow().getAttributes());
@@ -1067,14 +1105,11 @@ public String TextPrivacy;
                 lp.gravity = Gravity.BOTTOM;
                 dialog.getWindow().setAttributes(lp);
 
-/*
-                if (AdmobAds.SHOW_ADS) {
+               /* if (AdmobAds.SHOW_ADS) {
                     AdmobAds.loadNativeAds(MainActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
                 } else {
                     dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
                 }*/
-
-
 
                 ((RelativeLayout) dialog.findViewById(R.id.rl_save_pdf)).setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -1096,39 +1131,45 @@ public String TextPrivacy;
                         dialog.dismiss();
                     }
                 });*/
-                dialog.show();
-                bottomSheetDialog.dismiss();
+                dialogItem.dismiss();
+              dialog.show();
             }
         });
+
         rl_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 shareGroup(name);
-                bottomSheetDialog.dismiss();
+                dialogItem.dismiss();
             }
         });
-        ((RelativeLayout) inflate.findViewById(R.id.rl_rename)).setOnClickListener(new View.OnClickListener() {
+
+
+        ((RelativeLayout) dialogItem.findViewById(R.id.rl_rename)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updateGroupName(name);
-                bottomSheetDialog.dismiss();
+                dialogItem.dismiss();
             }
         });
+
         rl_save_to_gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new saveGroupToGallery(name).execute(new String[0]);
-                bottomSheetDialog.dismiss();
+                dialogItem.dismiss();
             }
         });
+
         rl_send_to_mail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendTomail(name, "gmail");
-                bottomSheetDialog.dismiss();
+                dialogItem.dismiss();
             }
         });
-        ((RelativeLayout) inflate.findViewById(R.id.rl_delete)).setOnClickListener(new View.OnClickListener() {
+
+        ((RelativeLayout) dialogItem.findViewById(R.id.rl_delete)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -1139,6 +1180,7 @@ public String TextPrivacy;
 //               dialog.getWindow().setLayout(-1, -2);
                 dialog.setCanceledOnTouchOutside(true);
                 dialog.setCancelable(true);
+                dialog.show();
 
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
                 lp.copyFrom(dialog.getWindow().getAttributes());
@@ -1153,6 +1195,7 @@ public String TextPrivacy;
                 } else {
                     dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
                 }
+
                 ((TextView) dialog.findViewById(R.id.tv_delete)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -1167,13 +1210,16 @@ public String TextPrivacy;
                         dialog.dismiss();
                     }
                 });
+
+
+
                 dialog.show();
-                bottomSheetDialog.dismiss();
             }
+
         });
-        bottomSheetDialog.setContentView(inflate);
-        bottomSheetDialog.show();
+
     }
+
 
     ArrayList<DBModel> modelArrayList = new ArrayList<>();
     String selectedFolderName = "";
@@ -1298,11 +1344,14 @@ public String TextPrivacy;
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
         }
         */
-        final TextView textView = (TextView) findViewById(R.id.tv_title);
-        final EditText et_pdf_name = (EditText) findViewById(R.id.et_pdf_name);
+        final TextView textView = (TextView) dialog.findViewById(R.id.tvtext);
+        final EditText et_pdf_name = (EditText) dialog.findViewById(R.id.et_pdf_name);
+
         textView.setText(title);
         et_pdf_name.setText(str3);
         et_pdf_name.setSelection(et_pdf_name.length());
+
+
 
         ((TextView) dialog.findViewById(R.id.tv_done)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1319,8 +1368,16 @@ public String TextPrivacy;
         ((TextView) dialog.findViewById(R.id.tv_cancel)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dialogItem.show();
                 dialog.dismiss();
             }
+        });
+        ((ImageView) dialog.findViewById(R.id.clear_text)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_pdf_name.setText("");
+            };
+
         });
         dialog.show();
     }
@@ -1452,13 +1509,24 @@ public String TextPrivacy;
 
 
     public void shareGroupPDFWithPswrd(String name, String saveOrShare, String pdfName) {
-        final Dialog dialog = new Dialog(this, R.style.ThemeWithRoundShape);
-        dialog.requestWindowFeature(1);
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.set_pdf_pswrd);
-        dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCancelable(false);
-        dialog.setCanceledOnTouchOutside(false);
+//      dialog.getWindow().setLayout(-1, -2);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+
+
+
         if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(MainActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
@@ -1535,7 +1603,9 @@ public String TextPrivacy;
         ((TextView) dialog.findViewById(R.id.tv_cancel)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dialogItem.show();
                 dialog.dismiss();
+
             }
         });
         dialog.show();

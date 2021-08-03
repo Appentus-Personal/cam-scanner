@@ -1,5 +1,6 @@
 package com.templatemela.camscanner.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.templatemela.camscanner.R;
@@ -29,6 +32,7 @@ public class ColorFilterAdapter extends RecyclerView.Adapter<ColorFilterAdapter.
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new ViewHolder(LayoutInflater.from(activity).inflate(R.layout.color_filter_list_item, viewGroup, false));
     }
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
         viewHolder.tv_filter_name.setText(colorFilterName[i]);
@@ -79,17 +83,14 @@ public class ColorFilterAdapter extends RecyclerView.Adapter<ColorFilterAdapter.
             }
         });
         if (Constant.filterPosition == i) {
-            viewHolder.iv_filter_view.setBackground(activity.getDrawable(R.drawable.img_border_selected));
-//         viewHolder.iv_filter_view.setBackground(activity.getDrawable(R.drawable.img_border_selected));
 
-           /* viewHolder.ly_img.setBackground(activity.getResources().getDrawable(R.drawable.img_border_selected));*/
+            viewHolder.ly_img.setBackground(ContextCompat.getDrawable(activity, R.drawable.img_border_selected));
             viewHolder.tv_filter_name.setTextColor(activity.getResources().getColor(R.color.tab_white));
-
-            return;
+        } else {
+            viewHolder.ly_img.setBackgroundResource(R.drawable.img_border_unselected);
+            viewHolder.tv_filter_name.setTextColor(activity.getResources().getColor(R.color.tab_white));
         }
-//        viewHolder.iv_filter_view.setBackground(activity.getDrawable(R.drawable.img_border_selected));
-     /*   viewHolder.ly_img.setBackground(activity.getResources().getDrawable(R.drawable.img_border_unselected));*/
-        viewHolder.tv_filter_name.setTextColor(activity.getResources().getColor(R.color.tab_white));
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.templatemela.camscanner.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -159,7 +160,9 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
     protected ImageView iv_back;
     private ImageView iv_bold;
     protected ImageView iv_brightness;
+
     protected TextView iv_close_adjust;
+
     protected TextView iv_close_effect;
     protected TextView iv_close_filter;
     protected TextView iv_close_highlight;
@@ -268,12 +271,10 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
     private TextView txtCreateSig, txtSavedSig;
 
     @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-    }
+    public void onStartTrackingTouch(SeekBar seekBar) { }
 
     @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-    }
+    public void onStopTrackingTouch(SeekBar seekBar) { }
 
     @Override
     public void onResume() {
@@ -348,6 +349,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
 
 
         iv_close_adjust = (TextView) findViewById(R.id.tv_close_adjust);
+
         tv_apply_adjust = (TextView) findViewById(R.id.tv_apply_adjust);
         ly_highlight = (LinearLayout) findViewById(R.id.ly_highlight);
         sb_highlight_size = (SeekBar) findViewById(R.id.sb_highlight_size);
@@ -443,11 +445,9 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
         photoEditor.setBrushDrawingMode(false);
         setupSticker();
         stickerView.removeAllStickers();
-
         signa_pen_color = getResources().getColor(R.color.selected_txt_color);
         signature_view.setPenSize((float) sb_pen_size.getProgress());
         signature_view.setPenColor(signa_pen_color);
-
         sb_pen_color.setOnColorChangeListener(new ColorSeekBar.OnColorChangeListener() {
             @Override
             public void onColorChangeListener(int i) {
@@ -557,8 +557,10 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                 showSoftKeyboard(et_watermark_txt);
                 ly_edit_tools.setVisibility(View.INVISIBLE);
                 iv_done.setVisibility(View.INVISIBLE);
+                rv_font.setVisibility(View.VISIBLE);
                 rl_watermark.setVisibility(View.VISIBLE);
                 return;
+
             case TEXT:
                 addTextDialog("", false);
                 return;
@@ -572,6 +574,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                 ly_edit_tools.setVisibility(View.INVISIBLE);
                 iv_done.setVisibility(View.INVISIBLE);
                 return;
+
             case OVERLAY:
                 rv_overlay.setHasFixedSize(true);
                 rv_overlay.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
@@ -760,12 +763,13 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                         return;
                     default:
                         switch (id) {
-                            case R.id.tv_apply_adjust:
+
+                            case R.id.tv_close_adjust:
                                 Constant.filterPosition = 0;
-                                iv_brightness.setImageResource(R.drawable.ic_brightness_selection);
-                                iv_contrast.setImageResource(R.drawable.ic_contrast);
-                                iv_saturation.setImageResource(R.drawable.ic_saturation);
-                                iv_exposure.setImageResource(R.drawable.ic_exposure);
+                                iv_brightness.setImageResource(R.drawable.brightness_green);
+                                iv_contrast.setImageResource(R.drawable.contrastwhite);
+                                iv_saturation.setImageResource(R.drawable.saturationwhite);
+                                iv_exposure.setImageResource(R.drawable.exposurewhite);
 
                                 txtBrightness.setTextColor(getResources().getColor(R.color.tab_white));
                                 txtContrast.setTextColor(getResources().getColor(R.color.tab_white));
@@ -791,11 +795,11 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                 slideDownAnimation(ly_adjust);
                                 return;
 
-                            case R.id.tv_close_adjust:
+                         /*   case R.id.tv_close_adjust:
                                 ly_edit_tools.setVisibility(View.VISIBLE);
                                 iv_done.setVisibility(View.VISIBLE);
                                 slideDownAnimation(ly_adjust);
-                                return;
+                                return;*/
 
                             case R.id.iv_close_effect:
                                 iv_editImg.getSource().setColorFilter(Constant.coloreffect[0]);
@@ -864,6 +868,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                             public void onColorSelected(int i) {
                                             }
                                         }).setPositiveButton((CharSequence) "ok", (ColorPickerClickListener) new ColorPickerClickListener() {
+
                                             @Override
                                             public void onClick(DialogInterface dialogInterface, int i, Integer[] numArr) {
                                                 brush_color = i;
@@ -873,9 +878,9 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 iv_highlight.setImageResource(R.drawable.highlightwhite);
                                                 iv_erase.setImageResource(R.drawable.eraserwhite);
 
-                                                txtHighlight.setTextColor(getResources().getColor(R.color.tab_white));
+                                             /*   txtHighlight.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtEraser.setTextColor(getResources().getColor(R.color.tab_white));
-                                                txtColor.setTextColor(getResources().getColor(R.color.tab_white));
+                                                txtColor.setTextColor(getResources().getColor(R.color.tab_white));*/
 
                                                 sb_highlight_size.setVisibility(View.VISIBLE);
                                                 sb_eraser_size.setVisibility(View.GONE);
@@ -895,10 +900,10 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 iv_saturation.setImageResource(R.drawable.saturationwhite);
                                                 iv_exposure.setImageResource(R.drawable.exposurewhite);
 
-                                                txtBrightness.setTextColor(getResources().getColor(R.color.tab_white));
+                                               /* txtBrightness.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtContrast.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtSaturation.setTextColor(getResources().getColor(R.color.tab_white));
-                                                txtExposure.setTextColor(getResources().getColor(R.color.tab_white));
+                                                txtExposure.setTextColor(getResources().getColor(R.color.tab_white));*/
 
                                                 adjustPosition = 1;
                                                 sb_adjust.setProgress(Constant.adjustProgressArray[1][1]);
@@ -910,8 +915,8 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 iv_create_signature.setImageResource(R.drawable.green_create_sig);
                                                 iv_saved_signature.setImageResource(R.drawable.save_sig);
 
-                                                txtCreateSig.setTextColor(getResources().getColor(R.color.tab_white));
-                                                txtSavedSig.setTextColor(getResources().getColor(R.color.tab_white));
+                                               /* txtCreateSig.setTextColor(getResources().getColor(R.color.tab_white));
+                                                txtSavedSig.setTextColor(getResources().getColor(R.color.tab_white));*/
 
                                                 ly_seek_view.setVisibility(View.VISIBLE);
                                                 rl_signature_list.setVisibility(View.GONE);
@@ -926,9 +931,9 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 iv_color.setImageResource(R.drawable.white_color);
                                                 iv_erase.setImageResource(R.drawable.erasergreen);
 
-                                                txtHighlight.setTextColor(getResources().getColor(R.color.tab_white));
+                                              /*  txtHighlight.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtEraser.setTextColor(getResources().getColor(R.color.tab_white));
-                                                txtColor.setTextColor(getResources().getColor(R.color.tab_white));
+                                                txtColor.setTextColor(getResources().getColor(R.color.tab_white));*/
 
                                                 sb_highlight_size.setVisibility(View.GONE);
                                                 sb_eraser_size.setVisibility(View.VISIBLE);
@@ -940,10 +945,10 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 iv_saturation.setImageResource(R.drawable.saturationwhite);
                                                 iv_exposure.setImageResource(R.drawable.exposuregreen);
 
-                                                txtBrightness.setTextColor(getResources().getColor(R.color.tab_white));
+                                               /* txtBrightness.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtContrast.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtSaturation.setTextColor(getResources().getColor(R.color.tab_white));
-                                                txtExposure.setTextColor(getResources().getColor(R.color.tab_white));
+                                                txtExposure.setTextColor(getResources().getColor(R.color.tab_white));*/
 
                                                 adjustPosition = 3;
                                                 sb_adjust.setProgress(Constant.adjustProgressArray[3][1]);
@@ -954,9 +959,9 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 iv_erase.setImageResource(R.drawable.eraserwhite);
                                                 iv_color.setImageResource(R.drawable.white_color);
 
-                                                txtHighlight.setTextColor(getResources().getColor(R.color.tab_white));
+                                            /*    txtHighlight.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtEraser.setTextColor(getResources().getColor(R.color.tab_white));
-                                                txtColor.setTextColor(getResources().getColor(R.color.tab_white));
+                                                txtColor.setTextColor(getResources().getColor(R.color.tab_white));*/
 
                                                 sb_highlight_size.setVisibility(View.VISIBLE);
                                                 sb_eraser_size.setVisibility(View.GONE);
@@ -991,10 +996,10 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 iv_contrast.setImageResource(R.drawable.contrastwhite);
                                                 iv_exposure.setImageResource(R.drawable.exposurewhite);
 
-                                                txtBrightness.setTextColor(getResources().getColor(R.color.tab_white));
+                                           /*     txtBrightness.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtContrast.setTextColor(getResources().getColor(R.color.tab_white));
                                                 txtSaturation.setTextColor(getResources().getColor(R.color.tab_white));
-                                                txtExposure.setTextColor(getResources().getColor(R.color.tab_white));
+                                                txtExposure.setTextColor(getResources().getColor(R.color.tab_white));*/
 
                                                 adjustPosition = 2;
                                                 sb_adjust.setProgress(Constant.adjustProgressArray[2][1]);
@@ -1005,8 +1010,8 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 iv_create_signature.setImageResource(R.drawable.ic_create_sig);
                                                 iv_saved_signature.setImageResource(R.drawable.green_sig);
 
-                                                txtCreateSig.setTextColor(getResources().getColor(R.color.tab_white));
-                                                txtSavedSig.setTextColor(getResources().getColor(R.color.tab_white));
+                                             /*   txtCreateSig.setTextColor(getResources().getColor(R.color.tab_white));
+                                                txtSavedSig.setTextColor(getResources().getColor(R.color.tab_white));*/
 
                                                 ly_seek_view.setVisibility(View.GONE);
                                                 rl_signature_list.setVisibility(View.VISIBLE);
@@ -1079,12 +1084,11 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
         dialog.setCancelable(true);
 
 
-/*
         if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(DocumentEditorActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }*/
+        }
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
@@ -1354,12 +1358,15 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
     }
 
     private void setupSticker() {
-        BitmapStickerIcon bitmapStickerIcon = new BitmapStickerIcon(ContextCompat.getDrawable(this, R.drawable.sticker_delete1), 0);
+        BitmapStickerIcon bitmapStickerIcon = new BitmapStickerIcon(ContextCompat.getDrawable(this, R.drawable.new_sticker_delete), 0);
         bitmapStickerIcon.setIconEvent(new DeleteIconEvent());
-        BitmapStickerIcon bitmapStickerIcon2 = new BitmapStickerIcon(ContextCompat.getDrawable(this, R.drawable.sticker_rotate), 3);
+        BitmapStickerIcon bitmapStickerIcon2 = new BitmapStickerIcon(ContextCompat.getDrawable(this, R.drawable.new_sticker_rotate), 3);
+
         bitmapStickerIcon2.setIconEvent(new ZoomIconEvent());
-        BitmapStickerIcon bitmapStickerIcon3 = new BitmapStickerIcon(ContextCompat.getDrawable(this, R.drawable.sticker_flip), 1);
+        BitmapStickerIcon bitmapStickerIcon3 = new BitmapStickerIcon(ContextCompat.getDrawable(this, R.drawable.new_sticker_flip), 1);
         bitmapStickerIcon3.setIconEvent(new FlipHorizontallyEvent());
+
+
         stickerView.setIcons(Arrays.asList(new BitmapStickerIcon[]{bitmapStickerIcon, bitmapStickerIcon2, bitmapStickerIcon3}));
         stickerView.setBackgroundColor(0);
         stickerView.setLocked(false);

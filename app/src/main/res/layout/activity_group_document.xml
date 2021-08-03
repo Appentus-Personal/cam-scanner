@@ -14,7 +14,6 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:elevation="5dp"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/fg_color">
 
@@ -55,9 +54,9 @@
                 android:id="@+id/iv_doc_more"
                 android:layout_width="@dimen/_18sdp"
                 android:layout_height="@dimen/_18sdp"
-                android:layout_marginEnd="@dimen/_8sdp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:onClick="onClick"
                 android:src="@drawable/ic_more" />
         </RelativeLayout>
@@ -75,29 +74,49 @@
 
             <LinearLayout
                 android:id="@+id/ly_doc_camera"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_45sdp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_35sdp"
                 android:layout_alignParentBottom="true"
-                android:background="@drawable/left_rounded_bg"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/main_curve_border"
                 android:gravity="center"
-                android:onClick="onClick"
-                android:elevation="5dp"
-                android:visibility="gone"
-                android:paddingLeft="@dimen/_8sdp">
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp">
 
                 <ImageView
                     android:id="@+id/iv_doc_camera"
-                    android:layout_width="@dimen/_24sdp"
-                    android:layout_height="@dimen/_24sdp"
-                    android:src="@drawable/ic_camera" />
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_marginRight="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:onClick="onClick"
+                    android:src="@drawable/grp_camera" />
+
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:background="#ffffff" />
+
+
+                <ImageView
+                    android:id="@+id/gallery"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:onClick="onClick"
+                    android:src="@drawable/groupgallery" />
+
 
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
 
-  <!--  <RelativeLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom">
@@ -109,5 +128,5 @@
             android:layout_alignParentBottom="true"
             app:adSize="BANNER"
             app:adUnitId="@string/admob_banner_id" />
-    </RelativeLayout>-->
+    </RelativeLayout>
 </LinearLayout>

@@ -73,6 +73,7 @@
                         android:orientation="vertical">
 
                         <RelativeLayout
+
                             android:layout_width="match_parent"
                             android:padding="@dimen/_4sdp"
                             android:layout_height="wrap_content">
@@ -145,6 +146,7 @@
 
 
                         <RelativeLayout
+                            android:id="@+id/r1Two"
                             android:layout_width="match_parent"
                             android:padding="@dimen/_4sdp"
                             android:layout_height="wrap_content">

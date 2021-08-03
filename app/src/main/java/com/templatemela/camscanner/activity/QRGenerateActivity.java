@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
@@ -193,8 +194,10 @@ public class QRGenerateActivity extends BaseActivity implements View.OnClickList
                         QRCodeEncoder qRCodeEncoder = new QRCodeEncoder(this, intent, (x * 3) / 4, false);
                         Log.e(TAG, "onClick: " + qrType);
                         qrImg = qRCodeEncoder.encodeAsBitmap();
+
                         iv_qrcode.setVisibility(View.VISIBLE);
                         iv_qrcode.setImageBitmap(qrImg);
+
                         iv_generate.setVisibility(View.GONE);
                         iv_refresh.setVisibility(View.VISIBLE);
                         saveBitmap();
@@ -252,7 +255,7 @@ public class QRGenerateActivity extends BaseActivity implements View.OnClickList
         if (makeDir != null) {
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(makeDir);
-                qrImg.compress(Bitmap.CompressFormat.PNG, 80, fileOutputStream);
+                qrImg.compress(Bitmap.CompressFormat.PNG, 60, fileOutputStream);
                 fileOutputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
