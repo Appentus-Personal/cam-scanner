@@ -49,12 +49,12 @@ public class WatermarkFontAdapter extends RecyclerView.Adapter<WatermarkFontAdap
             viewHolder.tv_fontStyle.setText("Sample");
         }
         if (Constant.selectedWatermarkFont == i) {
-            viewHolder.rl_main.setBackground(activity.getResources().getDrawable(R.drawable.selected_font_bg));
-            viewHolder.tv_fontStyle.setTextColor(activity.getResources().getColor(R.color.white));
+            viewHolder.rl_main.setBackground(activity.getResources().getDrawable(R.drawable.unselected_font_bg));
+            viewHolder.tv_fontStyle.setTextColor(activity.getResources().getColor(R.color.tab_white));
             return;
         }
-        viewHolder.rl_main.setBackground(activity.getResources().getDrawable(R.drawable.unselected_font_bg));
-        viewHolder.tv_fontStyle.setTextColor(activity.getResources().getColor(R.color.txt_color));
+        viewHolder.rl_main.setBackground(activity.getResources().getDrawable(R.drawable.selected_font_bg));
+        viewHolder.tv_fontStyle.setTextColor(activity.getResources().getColor(R.color.tab_white));
     }
 
     @Override

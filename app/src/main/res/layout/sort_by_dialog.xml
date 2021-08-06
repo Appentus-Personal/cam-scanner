@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_bottom_sheet">
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_4sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:background="@color/ViewColor" />
+
+
+    <TextView
+        android:id="@+id/tvInputText"
+        style="@style/TextSemiBold12"
+        android:layout_below="@id/view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:singleLine="true"
+        android:text="Sort by" />
+
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/tvInputText"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="#59606A" />
+
+
+    <RadioGroup
+        android:id="@+id/radio_grp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view2"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:inputType="text">
+
+
+        <RadioButton
+            android:id="@+id/rb_Ad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_margin="4dp"
+            android:layoutDirection="ltr"
+            android:text="Ascending Date"
+            android:textAlignment="textStart"
+            android:textColor="@color/TextTheme"
+            android:textSize="@dimen/_12sdp" />
+
+        <RadioButton
+            android:id="@+id/rb_Dd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_margin="4dp"
+            android:layoutDirection="ltr"
+            android:text="Descending Date"
+            android:textAlignment="textStart"
+            android:textColor="@color/TextTheme"
+            android:textSize="@dimen/_12sdp" />
+
+        <RadioButton
+            android:id="@+id/rb_An"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_margin="4dp"
+            android:layoutDirection="ltr"
+            android:text="Ascending Name"
+            android:textAlignment="textStart"
+            android:textColor="@color/TextTheme"
+            android:textSize="@dimen/_12sdp" />
+
+
+        <RadioButton
+            android:id="@+id/rb_Dn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_margin="4dp"
+            android:layoutDirection="ltr"
+            android:text="Descending Name"
+            android:textAlignment="textStart"
+            android:textColor="@color/TextTheme"
+            android:textSize="@dimen/_12sdp" />
+
+
+    </RadioGroup>
+</RelativeLayout>

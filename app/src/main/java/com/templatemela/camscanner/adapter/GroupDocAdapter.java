@@ -95,6 +95,8 @@ public class GroupDocAdapter extends RecyclerView.Adapter<GroupDocAdapter.ViewHo
             iv_doc_item_more = (ImageView) view.findViewById(R.id.iv_doc_item_more);
             newScanLayout = (RelativeLayout) view.findViewById(R.id.newScanLayout);
             docLayout = (RelativeLayout) view.findViewById(R.id.docLayout);
+
+
         }
     }
 }

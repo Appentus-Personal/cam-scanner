@@ -30,11 +30,11 @@
             android:text="Share App"
             android:textSize="@dimen/_12sdp" />
 
-        <androidx.appcompat.widget.SwitchCompat
+      <!--  <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchNightMode"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_30sdp"
-            android:visibility="gone"
-            android:layout_alignParentRight="true"/>
+
+            android:layout_alignParentRight="true"/>-->
     </RelativeLayout>
 </LinearLayout>

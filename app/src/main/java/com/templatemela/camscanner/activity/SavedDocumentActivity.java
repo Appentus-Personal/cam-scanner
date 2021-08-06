@@ -127,11 +127,11 @@ public class SavedDocumentActivity extends BaseActivity implements View.OnClickL
                 dialog.getWindow().setLayout(-1, -2);
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.setCancelable(false);
-                if (AdmobAds.SHOW_ADS) {
+               /* if (AdmobAds.SHOW_ADS) {
                     AdmobAds.loadNativeAds(SavedDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
                 } else {
                     dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-                }
+                }*/
                 ((TextView) dialog.findViewById(R.id.tv_delete)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

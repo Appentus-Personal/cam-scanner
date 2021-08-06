@@ -8,6 +8,8 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="id_card_color_selected">#11C099</color>
+
     <color name="bg_color">#000000</color>
     <color name="bg_color1">#f5f5f5</color>
     <color name="black_translucent">#5025c4a4</color>

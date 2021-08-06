@@ -10,7 +10,6 @@
 <!--    <color name="bg_color1">#1B1A1A</color>-->
     <color name="fg_color">#0D0D0D</color>
 
-    <color name="black">#FFFFFFFF</color>
     <color name="white">#FF000000</color>
 
     <color name="selected_txt_color">#FFFFFF</color>
@@ -46,6 +45,8 @@
     <color name="note_color">#59606A</color>
     <color name="unselected_tab">#373B40</color>
     <color name="editTxtTheme">#59606A</color>
+
+    #59606A
     #373B40
 
 </resources>

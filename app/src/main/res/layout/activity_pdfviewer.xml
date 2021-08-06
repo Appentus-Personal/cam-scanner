@@ -90,7 +90,7 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+   <!-- <RelativeLayout
         android:layout_width="match_parent"
         android:layout_gravity="bottom"
         android:layout_height="50dp">
@@ -102,5 +102,5 @@
             android:layout_alignParentBottom="true"
             app:adSize="BANNER"
             app:adUnitId="@string/admob_banner_id" />
-    </RelativeLayout>
+    </RelativeLayout>-->
 </LinearLayout>

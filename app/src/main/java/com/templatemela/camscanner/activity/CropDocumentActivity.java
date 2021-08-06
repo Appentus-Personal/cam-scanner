@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -63,7 +64,6 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
     };
 
     public String current_docs_name;
-
     public DBHelper dbHelper;
     protected ImageView iv_back;
     protected ImageView iv_Rotate_Doc;
@@ -77,7 +77,6 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
 
     public String selected_group_name;
     private AdView adView;
-
 
     private ImageView iv_ocv_black;
     private ImageView iv_original;
@@ -110,22 +109,12 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
-
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_crop_document);
         dbHelper = new DBHelper(this);
         init();
-
-
-       /* Intent intent = getIntent();
-        String uriString = intent.getStringExtra("Data");
-        Uri uri = Uri.parse(uriString);
-        iv_preview_crop.setImageURI(uri);*/
-
-
-
     }
 
     private void init() {
@@ -147,18 +136,17 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
         iv_sharp_black = (ImageView) findViewById(R.id.iv_sharp_black);
         iv_ocv_black = (ImageView) findViewById(R.id.iv_ocv_black);
 
-
-
         if (Constant.original != null) {
             iv_preview_crop.setImageToCrop(Constant.original);
+            tempBitmap = Constant.original;
             original = Constant.original;
             changeBrightness(20);
         }
+/*
         AdsUtils.loadGoogleInterstitialAd(this, CropDocumentActivity.this);
-        AdsUtils.showGoogleBannerAd(this, adView);
+        AdsUtils.showGoogleBannerAd(this, adView);*/
 
         seekBarBrightness.setOnSeekBarChangeListener(this);
-
     }
 
     @Override
@@ -171,27 +159,20 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
             case R.id.iv_original:
 
                 iv_original.setImageResource(R.drawable.originalgreen);
-                // iv_original.setTextColor(getResources().getColor(R.color.white));
                 iv_color.setImageResource(R.drawable.colorwhite);
-                // iv_color.setTextColor(getResources().getColor(R.color.black));
-
                 iv_sharp_black.setImageResource(R.drawable.sharpwhite);
-                // iv_sharp_black.setTextColor(getResources().getColor(R.color.black));
-
                 iv_ocv_black.setImageResource(R.drawable.originalwhite);
-                // iv_ocv_black.setTextColor(getResources().getColor(R.color.black));
-
                 try {
                     showProgressDialog();
                     tempBitmap = original;
                     iv_preview_crop.setImageBitmap(original);
 
                     dismissProgressDialog();
+
                 } catch (OutOfMemoryError e) {
                     e.printStackTrace();
                     dismissProgressDialog();
                 }
-
 
                 return;
 
@@ -199,18 +180,9 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
             case R.id.iv_ocv_black:
 
                 iv_ocv_black.setImageResource(R.drawable.originalgreen);
-
                 iv_original.setImageResource(R.drawable.originalwhite);
-                // iv_original.setTextColor(getResources().getColor(R.color.black));
-
                 iv_color.setImageResource(R.drawable.colorwhite);
-//                iv_color.setTextColor(getResources().getColor(R.color.black));
-
                 iv_sharp_black.setImageResource(R.drawable.sharpwhite);
-                //  iv_sharp_black.setTextColor(getResources().getColor(R.color.black));
-
-                // iv_ocv_black.setTextColor(getResources().getColor(R.color.white));
-
                 showProgressDialog();
                 AsyncTask.execute(new Runnable() {
                     @Override
@@ -237,23 +209,15 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
                         });
                     }
                 });
-
-
                 return;
 
             /*Color*/
             case R.id.iv_color:
 
                 iv_color.setImageResource(R.drawable.colorgreen);
-
                 iv_original.setImageResource(R.drawable.originalwhite);
-                //iv_original.setTextColor(getResources().getColor(R.color.black));
-
                 iv_sharp_black.setImageResource(R.drawable.sharpwhite);
-                // iv_sharp_black.setTextColor(getResources().getColor(R.color.black));
-
                 iv_ocv_black.setImageResource(R.drawable.originalwhite);
-                // iv_ocv_black.setTextColor(getResources().getColor(R.color.black));
 
                 showProgressDialog();
                 AsyncTask.execute(new Runnable() {
@@ -281,8 +245,6 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
                         });
                     }
                 });
-
-
 
                 return;
 
@@ -317,18 +279,9 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
                 });
 
                 iv_sharp_black.setImageResource(R.drawable.sharpgreen);
-
-                iv_original.setImageResource(R.drawable.originalwhite);
-               // iv_original.setTextColor(getResources().getColor(R.color.black));
-
-                iv_color.setImageResource(R.drawable.colorwhite);
-               // iv_color.setTextColor(getResources().getColor(R.color.black));
-
-
-               // iv_sharp_black.setTextColor(getResources().getColor(R.color.white));
-
                 iv_ocv_black.setBackgroundResource(R.drawable.originalwhite);
-                //iv_ocv_black.setTextColor(getResources().getColor(R.color.black));
+                iv_original.setImageResource(R.drawable.originalwhite);
+                iv_color.setImageResource(R.drawable.colorwhite);
                 return;
 
             case R.id.iv_done:
@@ -341,6 +294,7 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
             case R.id.iv_back:
                 onBackPressed();
                 return;
+
             case R.id.iv_Rotate_Doc:
                 Bitmap bitmap = Constant.original;
                 Matrix matrix = new Matrix();
@@ -353,12 +307,14 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
                 iv_preview_crop.setImageToCrop(Constant.original);
                 iv_preview_crop.setFullImgCrop();
                 Log.e(TAG, "onClick: Rotate");
-                /*if (iv_preview_crop.canRightCrop()) {
+
+                if (iv_preview_crop.canRightCrop()) {
                     Constant.original = iv_preview_crop.crop();
                     Constant.IdentifyActivity = "CurrentFilterActivity";
-                    AdsUtils.showGoogleInterstitialAd(CropDocumentActivity.this, true);
+//                    AdsUtils.showGoogleInterstitialAd(CropDocumentActivity.this, true);
                     return;
-                }*/
+                }
+
                 return;
             case R.id.iv_edit:
                 if (iv_preview_crop.canRightCrop()) {
@@ -382,17 +338,7 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
                     return;
                 }
                 return;
-          /*  case R.id.ly_rotate_doc:
-                Bitmap bitmap = Constant.original;
-                Matrix matrix = new Matrix();
-                matrix.postRotate(90.0f);
-                Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-                Constant.original.recycle();
-                System.gc();
-                Constant.original = createBitmap;
-                iv_preview_crop.setImageToCrop(Constant.original);
-                iv_preview_crop.setFullImgCrop();
-                return;*/
+
             default:
                 return;
         }
@@ -406,20 +352,16 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
                 break;
         }
     }
-
     private void changeBrightness(float brightness) {
-        iv_preview_crop.setImageBitmap(AdjustUtil.changeBitmapContrastBrightness(original, 1.0f, brightness));
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
+        iv_preview_crop.setImageBitmap(AdjustUtil.changeBitmapContrastBrightness(tempBitmap, 1.0f, brightness));
 
     }
 
     @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
+    public void onStartTrackingTouch(SeekBar seekBar) {}
 
-    }
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) { }
 
     private class addGroup extends AsyncTask<Bitmap, Void, Bitmap> {
         String current_doc_name;
@@ -427,8 +369,7 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
         String group_name;
         ProgressDialog progressDialog;
 
-        private addGroup() {
-        }
+        private addGroup() {}
 
         @Override
         public void onPreExecute() {
@@ -557,7 +498,6 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
     }
-
 
     public void dismissProgressDialog() {
         if (progressDialog.isShowing()) {

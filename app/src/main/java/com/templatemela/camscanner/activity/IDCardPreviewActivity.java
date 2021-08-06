@@ -215,8 +215,8 @@ public class IDCardPreviewActivity extends BaseActivity implements View.OnClickL
             case R.id.iv_done:
                 aspectRatioLayout.setDrawingCacheEnabled(true);
                 stickerHolderView.leaveSticker();
-                iv_scrap.setImageResource(R.drawable.ic_scrap);
-                txtScrap.setTextColor(getResources().getColor(R.color.white));
+                iv_scrap.setImageResource(R.drawable.greenscrap);
+                txtScrap.setTextColor(getResources().getColor(R.color.tab_white));
                 ly_scrap_view.setVisibility(View.GONE);
                 new saveIDCard().execute(new Bitmap[0]);
                 return;
@@ -235,12 +235,12 @@ public class IDCardPreviewActivity extends BaseActivity implements View.OnClickL
                 return;
             case R.id.ly_scrap:
                 if (ly_scrap_view.getVisibility() == View.VISIBLE) {
-                    iv_scrap.setImageResource(R.drawable.ic_scrap);
-                    txtScrap.setTextColor(getResources().getColor(R.color.white));
+                    iv_scrap.setImageResource(R.drawable.scrap);
+                    txtScrap.setTextColor(getResources().getColor(R.color.tab_white));
                     ly_scrap_view.setVisibility(View.GONE);
                     return;
                 } else if (ly_scrap_view.getVisibility() == View.GONE) {
-                    iv_scrap.setImageResource(R.drawable.ic_scrap_selection);
+                    iv_scrap.setImageResource(R.drawable.greenscrap);
                     txtScrap.setTextColor(getResources().getColor(R.color.black));
                     ly_scrap_view.setVisibility(View.VISIBLE);
                     return;
@@ -251,6 +251,7 @@ public class IDCardPreviewActivity extends BaseActivity implements View.OnClickL
                 stickerHolderView.flipSticker(true);
                 return;
             case R.id.ly_color:
+
                 ColorPickerDialogBuilder.with(this).setTitle("Choose color").initialColor(color).wheelType(ColorPickerView.WHEEL_TYPE.FLOWER).density(10).setOnColorSelectedListener(new OnColorSelectedListener() {
                     public void onColorSelected(int i) {
                     }

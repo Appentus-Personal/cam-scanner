@@ -47,7 +47,7 @@ public class NoteActivity extends BaseActivity {
         richEditor.setHtml(text);
         richEditor.requestFocus();
 
-        AdsUtils.showGoogleBannerAd(this, adView);
+//        AdsUtils.showGoogleBannerAd(this, adView);
     }
 
     private void bindView() {

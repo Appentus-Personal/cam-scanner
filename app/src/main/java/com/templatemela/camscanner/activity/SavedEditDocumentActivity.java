@@ -284,11 +284,11 @@ public class SavedEditDocumentActivity extends BaseActivity implements View.OnCl
                 dialog.getWindow().setLayout(-1, -2);
                 dialog.setCanceledOnTouchOutside(false);
                 dialog.setCancelable(false);
-                if (AdmobAds.SHOW_ADS) {
+               /* if (AdmobAds.SHOW_ADS) {
                     AdmobAds.loadNativeAds(SavedEditDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
                 } else {
                     dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-                }
+                }*/
                 ((TextView) dialog.findViewById(R.id.tv_delete)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -422,11 +422,11 @@ public class SavedEditDocumentActivity extends BaseActivity implements View.OnCl
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(false);
-        if (AdmobAds.SHOW_ADS) {
+       /* if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(SavedEditDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
         final EditText editText = (EditText) dialog.findViewById(R.id.et_group_name);
         editText.setText(str);
         editText.setSelection(editText.length());
@@ -460,11 +460,11 @@ public class SavedEditDocumentActivity extends BaseActivity implements View.OnCl
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(false);
-        if (AdmobAds.SHOW_ADS) {
+       /* if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(SavedEditDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
         ((RelativeLayout) dialog.findViewById(R.id.rl_share_pdf)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -514,11 +514,11 @@ public class SavedEditDocumentActivity extends BaseActivity implements View.OnCl
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
-        if (AdmobAds.SHOW_ADS) {
+       /* if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(SavedEditDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
         final EditText et_enter_pswrd = (EditText) dialog.findViewById(R.id.et_enter_pswrd);
         final ImageView iv_enter_pswrd_show = (ImageView) dialog.findViewById(R.id.iv_enter_pswrd_show);
         final ImageView iv_enter_pswrd_hide = (ImageView) dialog.findViewById(R.id.iv_enter_pswrd_hide);

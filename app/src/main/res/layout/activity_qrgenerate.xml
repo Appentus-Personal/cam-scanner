@@ -29,10 +29,10 @@
 
             <TextView
                 style="@style/TextPopMed14"
-                android:layout_toRightOf="@+id/iv_back"
+                android:layout_toEndOf="@+id/iv_back"
                 android:layout_centerVertical="true"
                 android:text="QR Code Generate"
-                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:textSize="@dimen/_13sdp" />
         </RelativeLayout>
 
@@ -54,8 +54,9 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:singleLine="true"
                 android:text="@string/qrCodeType"
+                android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/txt_color"
-                android:textSize="@dimen/_13sdp" />
+                android:textSize="@dimen/_12sdp"/>
 
             <Spinner
                 android:id="@+id/qrtype_spinner"
@@ -65,7 +66,8 @@
                 android:layout_centerVertical="true"
                 android:backgroundTint="@color/black"
                 android:layout_marginEnd="@dimen/_3sdp"
-                android:spinnerMode="dropdown" />
+                android:spinnerMode="dropdown"/>
+
         </RelativeLayout>
 
         <EditText

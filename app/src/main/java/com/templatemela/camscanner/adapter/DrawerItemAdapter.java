@@ -26,6 +26,7 @@ public class DrawerItemAdapter extends BaseAdapter {
     public Activity activity;
     private ArrayList<DrawerModel> arrayList;
 
+
     @Override
     public long getItemId(int i) {
         return (long) i;
@@ -46,10 +47,10 @@ public class DrawerItemAdapter extends BaseAdapter {
         return Integer.valueOf(i);
     }
 
-    public class ViewHolder {
+    public static class ViewHolder {
         private ImageView iv_item_icon;
         private TextView tv_item_name;
-        private SwitchCompat switchNightMode;
+//        private SwitchCompat switchNightMode;
 
         public ViewHolder() {
         }
@@ -61,17 +62,15 @@ public class DrawerItemAdapter extends BaseAdapter {
         View inflate = LayoutInflater.from(activity).inflate(R.layout.drawer_list_item, viewGroup, false);
         viewHolder.iv_item_icon = (ImageView) inflate.findViewById(R.id.iv_item_icon);
         viewHolder.tv_item_name = (TextView) inflate.findViewById(R.id.tv_item_name);
-        viewHolder.switchNightMode = (SwitchCompat) inflate.findViewById(R.id.switchNightMode);
 
+//        viewHolder.switchNightMode = (SwitchCompat) inflate.findViewById(R.id.switchNightMode);
 
-
-
-        if (arrayList.get(i).getItem_name().equalsIgnoreCase(activity.getResources().getString(R.string.darkTheme))) {
+    /*    if (arrayList.get(i).getItem_name().equalsIgnoreCase(activity.getResources().getString(R.string.darkTheme))) {
             viewHolder.switchNightMode.setVisibility(View.VISIBLE);
             initTheme(viewHolder.switchNightMode);
         } else {
             viewHolder.switchNightMode.setVisibility(View.GONE);
-        }
+        }*/
         viewHolder.iv_item_icon.setImageResource(arrayList.get(i).getItem_icon());
         viewHolder.tv_item_name.setText(arrayList.get(i).getItem_name());
         inflate.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +80,7 @@ public class DrawerItemAdapter extends BaseAdapter {
             }
         });
 
-        viewHolder.switchNightMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+      /*  viewHolder.switchNightMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 SharedPreferences sharedPreferences = activity.getSharedPreferences(Constant.PREFS_NAME, Context.MODE_PRIVATE);
@@ -93,17 +92,21 @@ public class DrawerItemAdapter extends BaseAdapter {
                     setTheme(AppCompatDelegate.MODE_NIGHT_NO, Constant.THEME_LIGHT);
                 }
             }
-        });
+        });*/
         return inflate;
     }
+}
 
-    private void initTheme(SwitchCompat switchNightMode) {
+
+
+
+/*    private void initTheme(SwitchCompat switchNightMode) {
         int savedTheme = getSavedTheme();
         if (savedTheme == Constant.THEME_LIGHT) {
-            switchNightMode.setChecked(false);
-//           ` setTheme(AppCompatDelegate.MODE_NIGHT_NO,Constant.THEME_LIGHT);
+//            switchNightMode.setChecked(false);
+//            setTheme(AppCompatDelegate.MODE_NIGHT_NO,Constant.THEME_LIGHT);
         } else if (savedTheme == Constant.THEME_DARK) {
-            switchNightMode.setChecked(true);
+//            switchNightMode.setChecked(true);
 //            setTheme(AppCompatDelegate.MODE_NIGHT_YES,Constant.THEME_DARK);
         }
     }
@@ -122,5 +125,5 @@ public class DrawerItemAdapter extends BaseAdapter {
     private void setTheme(int themeMode, int prefsMode) {
         AppCompatDelegate.setDefaultNightMode(themeMode);
         saveTheme(prefsMode);
-    }
-}
+    }*/
+

@@ -37,8 +37,10 @@ public class MyApp extends Application {
     private void initTheme() {
         int savedTheme = getSavedTheme();
         if (savedTheme == Constant.THEME_LIGHT) {
+
             setTheme(AppCompatDelegate.MODE_NIGHT_NO,Constant.THEME_LIGHT);
         } else if (savedTheme == Constant.THEME_DARK) {
+
             setTheme(AppCompatDelegate.MODE_NIGHT_YES,Constant.THEME_DARK);
         }
     }

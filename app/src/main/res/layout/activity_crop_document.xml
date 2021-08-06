@@ -192,10 +192,6 @@
                             android:src="@drawable/originalgreen"
                             android:onClick="onClick" />
 
-
-
-
-
                         <TextView
                             style="@style/TextPopReg12"
                             android:layout_marginTop="@dimen/_5sdp"
@@ -381,7 +377,7 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <RelativeLayout
+   <!-- <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom">
@@ -393,6 +389,6 @@
             android:layout_alignParentBottom="true"
             app:adSize="BANNER"
             app:adUnitId="@string/admob_banner_id" />
-    </RelativeLayout>
+    </RelativeLayout>-->
 
 </LinearLayout>

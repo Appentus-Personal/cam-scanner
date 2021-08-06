@@ -106,9 +106,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:fontFamily="@font/inter_medium"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="@string/edit"
-                    android:textColor="@color/white"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_9sdp" />
             </LinearLayout>
 
@@ -132,9 +132,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:fontFamily="@font/inter_medium"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="@string/left"
-                    android:textColor="@color/white"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_9sdp" />
             </LinearLayout>
 
@@ -158,9 +158,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:fontFamily="@font/inter_medium"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="@string/right"
-                    android:textColor="@color/white"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_9sdp" />
             </LinearLayout>
 
@@ -184,9 +184,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:fontFamily="@font/inter_medium"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="@string/horizontal"
-                    android:textColor="@color/white"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_9sdp" />
             </LinearLayout>
 
@@ -210,9 +210,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:fontFamily="@font/inter_medium"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="@string/verticle"
-                    android:textColor="@color/white"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_9sdp" />
             </LinearLayout>
 
@@ -252,9 +252,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_4sdp"
-                android:fontFamily="@font/inter_medium"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/addNew"
-                android:textColor="@color/white"
+                android:textColor="@color/tab_white"
                 android:textSize="@dimen/_10sdp" />
         </LinearLayout>
 
@@ -277,9 +277,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_4sdp"
-                android:fontFamily="@font/inter_medium"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/color"
-                android:textColor="@color/white"
+                android:textColor="@color/tab_white"
                 android:textSize="@dimen/_10sdp" />
         </LinearLayout>
 
@@ -306,9 +306,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_4sdp"
-                android:fontFamily="@font/inter_medium"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/scrap"
-                android:textColor="@color/white"
+                android:textColor="@color/tab_white"
                 android:textSize="@dimen/_10sdp" />
         </LinearLayout>
 
@@ -319,9 +319,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
      android:background="#000000"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_10sdp">
+
+       >
 
         <TextView
             style="@style/WhitePopMed12"
@@ -329,7 +328,9 @@
             android:background="@drawable/white_border_black"
             android:paddingStart="@dimen/_20sdp"
             android:paddingTop="@dimen/_4sdp"
+            android:layout_centerVertical="true"
             android:paddingEnd="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_8sdp"
             android:paddingBottom="@dimen/_4sdp"
             android:text="Cancel"
             android:textColor="@color/tab_white"
@@ -345,15 +346,13 @@
             android:paddingStart="@dimen/_20sdp"
             android:paddingTop="@dimen/_4sdp"
             android:onClick="onClick"
+            android:layout_marginEnd="@dimen/_8sdp"
             android:paddingEnd="@dimen/_20sdp"
             android:paddingBottom="@dimen/_4sdp"
             android:text="Save"
             android:textColor="#ffffff"
             android:textSize="@dimen/_12sdp" />
     </RelativeLayout>
-
-
-
 
 </LinearLayout>
 

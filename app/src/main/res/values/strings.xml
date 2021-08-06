@@ -6,7 +6,7 @@
     <string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>
 
-    <string name="academic_docs_empty">No Academic Docs Scanned Yet.</string>
+    <string name="academic_docs_empty">No Books Scanned Yet.</string>
     <string name="all_docs_empty">No Document Scanned Yet.</string>
     <string name="applying_filter">Applying filter</string>
     <string name="auto">Auto</string>

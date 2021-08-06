@@ -129,7 +129,6 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return arrayList;
     }
-
     public ArrayList<DBModel> getGroupDocs(String str) {
         ArrayList<DBModel> arrayList = new ArrayList<>();
         String str2 = "SELECT  * FROM " + str;

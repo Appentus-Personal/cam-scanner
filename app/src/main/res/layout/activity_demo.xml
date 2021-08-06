@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.DemoActivity">
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:id="@+id/rl_search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,7 +59,55 @@
             android:src="@drawable/ic_close_black_24dp"
             android:visibility="invisible"
             app:tint="#858997" />
-    </RelativeLayout>
+    </RelativeLayout>-->
+
+
+    <RadioGroup
+        android:id="@+id/radios"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:inputType="text">
+
+        <RadioButton
+            android:id="@+id/first"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:button="@null"
+            android:drawablePadding="30dp"
+            android:drawableEnd="@android:drawable/btn_radio"
+            android:text="first"
+            android:textColor="@color/black"
+            android:textSize="20dip"
+          />
+
+        <RadioButton
+            android:id="@+id/second"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:button="@null"
+            android:drawablePadding="30dp"
+            android:drawableRight="@android:drawable/btn_radio"
+            android:text="second"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+           />
+
+        <RadioButton
+            android:id="@+id/third"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:button="@null"
+            android:drawablePadding="30dp"
+            android:drawableRight="@android:drawable/btn_radio"
+            android:text="third"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:gravity="right" />
+    </RadioGroup>
 
 
 </RelativeLayout>

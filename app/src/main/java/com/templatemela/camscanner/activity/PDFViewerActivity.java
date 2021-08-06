@@ -36,8 +36,8 @@ public class PDFViewerActivity extends BaseActivity implements OnPageChangeListe
     }
 
     private void init() {
-        adView = findViewById(R.id.adView);
-        AdsUtils.showGoogleBannerAd(this, adView);
+        /*adView = findViewById(R.id.adView);
+        AdsUtils.showGoogleBannerAd(this, adView);*/
 
         tv_title = (TextView) findViewById(R.id.tv_title);
         tv_page = (TextView) findViewById(R.id.tv_page);

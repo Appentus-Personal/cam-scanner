@@ -22,12 +22,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +49,7 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
@@ -90,8 +93,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     private static final String TAG = "MainActivity";
     public static MainActivity mainActivity;
+    public Bitmap bitmap;
+
+
+
+    public static ArrayList<Bitmap> idcardImgList = new ArrayList<>();
 
     protected AllGroupAdapter allGroupAdapter;
+
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -137,10 +146,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     public String current_group;
     protected String current_mode;
+    public RadioGroup radioGroup;
 
-    public Dialog dialogMore ,dialogItem;
+    public Dialog dialogMore, dialogItem;
 
-    public TextView sortBy ,create_folder ,shareAll ,TextAbout  ;
+    public TextView sortBy, create_folder, shareAll, TextAbout;
 
     public ImageView iv_preview_crop;
     public ImageView clearText;
@@ -153,7 +163,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private DrawerLayout drawer_ly;
     protected SharedPreferences.Editor editor;
 
-    private EditText et_search ,et_group_name;
+    private EditText et_search, et_group_name;
 
     public EditText et_folder_name;
 
@@ -177,7 +187,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     protected String selected_sorting;
     protected int selected_sorting_pos;
 
-    public String[] tabList = {"All Docs", "Business Card", "ID Card", "Academic Docs", "Personal Tag"};
+    public String[] tabList = {"All Documents", "Documents", "ID Card", "Books", "Personal Tag"};
     private TabLayout tag_tabs;
     protected ActionBarDrawerToggle toggle;
 
@@ -249,7 +259,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         iv_folder = (ImageView) findViewById(R.id.iv_list);
         iv_grid = (ImageView) findViewById(R.id.iv_grid);
 
-        clearText=(ImageView) findViewById(R.id.clear_text);
+        clearText = (ImageView) findViewById(R.id.clear_text);
 
         iv_drawer = (ImageView) findViewById(R.id.iv_drawer);
         iv_search = (ImageView) findViewById(R.id.iv_search);
@@ -258,13 +268,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         iv_close_search = (ImageView) findViewById(R.id.iv_close_search);
 
         et_search = (EditText) findViewById(R.id.et_search);
-        et_group_name= (EditText) findViewById(R.id.et_group_name);
+        et_group_name = (EditText) findViewById(R.id.et_group_name);
 
         iv_preview_crop = (ImageView) findViewById(R.id.iv_preview_crop);
 
 //        et_folder_name = (EditText) findViewById(R.id.et_folder_name);
 
-        TextAbout = (TextView)  findViewById(R.id.txtAbout);
+        TextAbout = (TextView) findViewById(R.id.txtAbout);
+        radioGroup = (RadioGroup) findViewById(R.id.radio_group);
 
         iv_clear_txt = (ImageView) findViewById(R.id.iv_clear_txt);
         tag_tabs = (TabLayout) findViewById(R.id.tag_tabs);
@@ -280,21 +291,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         drawerList.add(new DrawerModel("QR Code Scan", R.drawable.qr_scan));
         drawerList.add(new DrawerModel("QR Code Generate", R.drawable.qr_generate));
         drawerList.add(new DrawerModel("About Us", R.drawable.aboutus));
+        drawerList.add(new DrawerModel("Theme", R.drawable.theme_drawer));
         drawerList.add(new DrawerModel("Terms and Condition", R.drawable.t_and_c));
         drawerList.add(new DrawerModel("Privacy Policy", R.drawable.policy));
         drawerList.add(new DrawerModel("Share App", R.drawable.share_drawer));
         drawerList.add(new DrawerModel("Rate Us", R.drawable.rateus));
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-        drawerList.add(new DrawerModel(getResources().getString(R.string.darkTheme), R.drawable.theme_drawer));
+
+
+/*//        drawerList.add(new DrawerModel("Theme" ,R.drawable.brightness_green));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            drawerList.add(new DrawerModel(getResources().getString(R.string.darkTheme), R.drawable.theme_drawer));
 //        }
 
-        toggle = new ActionBarDrawerToggle(this, drawer_ly, R.string.drawer_open, R.string.drawer_close);
-        drawer_ly.addDrawerListener(toggle);
-        drawerItemAdapter = new DrawerItemAdapter(this, drawerList);
-        lv_drawer.setAdapter(drawerItemAdapter);
+            toggle = new ActionBarDrawerToggle(this, drawer_ly, R.string.drawer_open, R.string.drawer_close);
+            drawer_ly.addDrawerListener(toggle);*/
 
-        setTab();
-    }
+            drawerItemAdapter = new DrawerItemAdapter(this, drawerList);
+            lv_drawer.setAdapter(drawerItemAdapter);
+
+            setTab();
+        }
 
     private void setTab() {
 
@@ -303,7 +319,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             tabLayout.addTab(tabLayout.newTab().setText((CharSequence) text));
         }
 
-        for(int i=0; i < tag_tabs.getTabCount(); i++) {
+        for (int i = 0; i < tag_tabs.getTabCount(); i++) {
             View tab = ((ViewGroup) tag_tabs.getChildAt(0)).getChildAt(i);
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
             p.setMargins(0, 0, 30, 0);
@@ -318,7 +334,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) { }
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -329,7 +346,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         });
 
 
-      et_search.addTextChangedListener(new TextWatcher() {
+        et_search.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -338,7 +355,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 if (i3 == 0) {
-                    iv_more.setVisibility(View.INVISIBLE);
+                    iv_more.setVisibility(View.VISIBLE);
                 } else if (i3 == 1) {
                     iv_clear_txt.setVisibility(View.VISIBLE);
                 }
@@ -354,8 +371,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
 
-
-
     public void filter(String str) {
         ArrayList arrayList = new ArrayList();
         Iterator<DBModel> it = groupList.iterator();
@@ -367,7 +382,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
         allGroupAdapter.filterList(arrayList);
     }
-
 
 
     @Override
@@ -382,9 +396,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 editor.apply();
                 new setAllGroupAdapter().execute(new String[0]);
                 return;
-               /* iv_folder.setImageResource(R.drawable.grid_icn);*/
 
-                /*openNewFolderDialog("");*/
 
             case R.id.iv_grid:
                 iv_grid.setVisibility(View.INVISIBLE);
@@ -396,7 +408,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 new setAllGroupAdapter().execute(new String[0]);
                 return;
 
-             /*   iv_grid.setImageResource(R.drawable.folder);*/
+            /*   iv_grid.setImageResource(R.drawable.folder);*/
 
             case R.id.iv_clear_txt:
                 et_search.setText("");
@@ -416,14 +428,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 return;
 
             case R.id.gallery:
-                Intent i = new Intent();
-                i.setType("image/*");
-                i.setAction(Intent.ACTION_GET_CONTENT);
 
-                // pass the constant to compare it
-                // with the returned requestCode
-                startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
-
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
                 return;
 
             case R.id.iv_more:
@@ -471,31 +480,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
     }
 
-
-
- /*   public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK) {
-
-            // compare the resultCode with the
-            // SELECT_PICTURE constant
-            if (requestCode == SELECT_PICTURE) {
-                // Get the url of the image from data
-                Uri selectedImageUri = data.getData();
-                if (null != selectedImageUri) {
-                    // update the preview image in the layout
-                    Intent send = new Intent(MainActivity.this, CropDocumentActivity.class);
-                    startActivity(send);
-//                    IVPreviewImage.setImageURI(selectedImageUri);
-                }
-            }
-        }
-    }
-*/
-
-
-
     private void openNewFolderDialog(String groupName) {
 
         final Dialog dialog = new Dialog(this);
@@ -507,14 +491,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         dialog.setCancelable(true);
 
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.copyFrom(dialogMore.getWindow().getAttributes());
+        lp.copyFrom(dialog.getWindow().getAttributes());
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.BOTTOM;
         dialog.getWindow().setAttributes(lp);
 
 
-          et_folder_name = (EditText) dialog.findViewById(R.id.et_folder_name);
+        et_folder_name = (EditText) dialog.findViewById(R.id.et_folder_name);
 
         String folder_name = "CamScanner" + Constant.getDateTime("_ddMMHHmmss");
         et_folder_name.setText(folder_name);
@@ -570,28 +554,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         ((ImageView) dialog.findViewById(R.id.clear_text)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               et_folder_name.setText("");
-            };
+                et_folder_name.setText("");
+            }
 
         });
 
         dialog.show();
     }
-
-/*
-        final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(1);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
-        dialog.setContentView(R.layout.create_folder_dialog);
-        dialog.getWindow().setLayout(-1, -2);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
-        EditText et_folder_name = (EditText) dialog.findViewById(R.id.et_folder_name);
-        String folder_name = "CamScanner" + Constant.getDateTime("_ddMMHHmmss");
-        et_folder_name.setText(folder_name);*/
-
-
 
     @Override
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -630,7 +599,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
     }
 
-
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
@@ -644,14 +612,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 new setAllGroupAdapter().execute(new String[0]);
                 break;*/
 
-
-
-
             case R.id.import_from_gallery:
                 ActivityCompat.requestPermissions(this, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.CAMERA"}, 1);
                 break;
 
-                /*List*/
+            /*List*/
             case R.id.list_view:
               /*  editor = preferences.edit();
                 editor.putString("ViewMode", "List");
@@ -664,7 +629,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         /*    case R.id.share_all:
                 new shareAllGroup().execute(new String[0]);
                 break;*/
-
 
 
             case R.id.sort_by:
@@ -738,26 +702,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     public void onActivityResult(int i, int i2, Intent intent) {
 
-      /*  if (i2 == RESULT_OK) {
-
-            // compare the resultCode with the
-            // SELECT_PICTURE constant
+        if (i2 == RESULT_OK) {
             if (i == SELECT_PICTURE) {
-                // Get the url of the image from data
                 Uri selectedImageUri = intent.getData();
-                if (null != selectedImageUri) {
-                    // update the preview image in the layout
-                    Intent send = new Intent(MainActivity.this, CropDocumentActivity.class);
 
-                    send.putExtra("Data",selectedImageUri.toString());
-                    startActivity(send);
-                   iv_preview_crop.setImageURI(selectedImageUri);
+                try {
+                  bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+                if (Constant.original != null) {
+                    Constant.original.recycle();
+                    System.gc();
+                }
+                Constant.current_camera_view = "Document";
+                Constant.original = bitmap;
+                Constant.IdentifyActivity = "CropDocumentActivity";
+                AdsUtils.showGoogleInterstitialAd(MainActivity.this, true);
+
             }
         }
 
-
-*/
         if (ImagePicker.shouldHandleResult(i, i2, intent, 100)) {
             Iterator<Image> it = ImagePicker.getImages(intent).iterator();
 
@@ -791,9 +756,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                     });
                 }
 
-
-
-
             }
         }
         super.onActivityResult(i, i2, intent);
@@ -809,9 +771,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 return;
 
             case R.id.sort_by:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle((CharSequence) "Sort By");
-                String[] strArr = {"Ascending date", "Descending date", "Ascending name", "Descending name"};
+
+                final Dialog dialog = new Dialog(this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                View v = LayoutInflater.from(this).inflate(R.layout.sort_by_dialog,null);
+
+                RadioButton radio_btn_Ad = (RadioButton) v.findViewById(R.id.rb_Ad);
+                RadioButton radio_btn_Dd = (RadioButton) v.findViewById(R.id.rb_Dd);
+                RadioButton radio_btn_An = (RadioButton) v.findViewById(R.id.rb_An);
+                RadioButton radio_btn_Dn = (RadioButton) v.findViewById(R.id.rb_Dn);
+                dialog.setContentView(v);
+
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+//               dialog.getWindow().setLayout(-1, -2);
+                dialog.setCanceledOnTouchOutside(true);
+                dialog.setCancelable(true);
+
                 if (selected_sorting.equals(Constant.ascending_date)) {
                     selected_sorting_pos = 0;
                 } else if (selected_sorting.equals(Constant.descending_date)) {
@@ -822,8 +797,112 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                     selected_sorting_pos = 3;
                 }
 
+                radio_btn_Ad.setOnClickListener(view1 -> {
+                    mainActivity.editor = mainActivity.preferences.edit();
+                    editor.putString("sortBy", Constant.ascending_date);
+                    editor.apply();
+                    new setAllGroupAdapter().execute(new String[0]);
+                });
 
-                builder.setSingleChoiceItems((CharSequence[]) strArr, selected_sorting_pos, (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
+
+
+                radio_btn_Dd.setOnClickListener(view1 -> {
+                    mainActivity.editor = mainActivity.preferences.edit();
+                    editor.putString("sortBy", Constant.descending_date);
+                    editor.apply();
+                    new setAllGroupAdapter().execute(new String[0]);
+                });
+
+
+                radio_btn_An.setOnClickListener(view1 -> {
+                    mainActivity.editor = mainActivity.preferences.edit();
+                    editor.putString("sortBy", Constant.ascending_name);
+                    editor.apply();
+                    new setAllGroupAdapter().execute(new String[0]);
+                });
+
+
+                radio_btn_Dn.setOnClickListener(view1 -> {
+                    mainActivity.editor = mainActivity.preferences.edit();
+                    editor.putString("sortBy", Constant.descending_name);
+                    editor.apply();
+                    new setAllGroupAdapter().execute(new String[0]);
+                });
+                dialog.show();
+
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                lp.gravity = Gravity.BOTTOM;
+                dialog.getWindow().setAttributes(lp);
+                return;
+
+
+            case R.id.create_folder:
+                openNewFolderDialog("");
+                return;
+
+            default:
+                return;
+        }
+
+    }
+
+
+
+/*
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle((CharSequence) "Sort By");
+                String[] strArr = {"Ascending date", "Descending date", "Ascending name", "Descending name"};
+
+
+                if (selected_sorting.equals(Constant.ascending_date)) {
+                    selected_sorting_pos = 0;
+                } else if (selected_sorting.equals(Constant.descending_date)) {
+                    selected_sorting_pos = 1;
+                } else if (selected_sorting.equals(Constant.ascending_name)) {
+                    selected_sorting_pos = 2;
+                } else if (selected_sorting.equals(Constant.descending_name)) {
+                    selected_sorting_pos = 3;
+                }
+
+                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        if (checkedId == 0) {
+                            mainActivity.editor = mainActivity.preferences.edit();
+                            editor.putString("sortBy", Constant.ascending_date);
+                            editor.apply();
+                            new setAllGroupAdapter().execute(new String[0]);
+                        }
+                        else if (checkedId == 1) {
+                            mainActivity.editor = mainActivity.preferences.edit();
+                            editor.putString("sortBy", Constant.descending_date);
+                            editor.apply();
+                            new setAllGroupAdapter().execute(new String[0]);
+
+
+                        } else if (checkedId == 2) {
+                            mainActivity.editor = mainActivity.preferences.edit();
+                            editor.putString("sortBy", Constant.ascending_name);
+                            editor.apply();
+                            new setAllGroupAdapter().execute(new String[0]);
+
+
+                        } else if (checkedId == 3) {
+                            mainActivity.editor = mainActivity.preferences.edit();
+                            editor.putString("sortBy", Constant.descending_name);
+                            editor.apply();
+                            new setAllGroupAdapter().execute(new String[0]);
+                        }
+
+
+                    }
+                });
+
+                dialog.setSingleChoiceItems((CharSequence[]) strArr, selected_sorting_pos, (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
+
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (i == 0) {
@@ -852,19 +931,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                             dialogInterface.dismiss();
                         }
                     }
-                });
-                builder.show();
-                return;
+                });*/
 
-            case R.id.create_folder:
-                openNewFolderDialog("");
-                return;
-
-            default:
-                return;
-        }
-
-        }
 
     private class shareAllGroup extends AsyncTask<String, Void, String> {
         ArrayList<Uri> allPDFList;
@@ -946,17 +1014,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         @Override
         public String doInBackground(String... strArr) {
-            if (Constant.current_tag.equals("All Docs")) {
+            if (Constant.current_tag.equals("All Documents")) {
                 groupList = dbHelper.getAllGroups();
                 return null;
-            } else if (Constant.current_tag.equals("Business Card")) {
-                groupList = dbHelper.getGroupsByTag("Business Card");
+            } else if (Constant.current_tag.equals("Documents")) {
+                groupList = dbHelper.getGroupsByTag("Documents");
                 return null;
             } else if (Constant.current_tag.equals("ID Card")) {
                 groupList = dbHelper.getGroupsByTag("ID Card");
                 return null;
-            } else if (Constant.current_tag.equals("Academic Docs")) {
-                groupList = dbHelper.getGroupsByTag("Academic Docs");
+            } else if (Constant.current_tag.equals("Books")) {
+                groupList = dbHelper.getGroupsByTag("Books");
                 return null;
             } else if (Constant.current_tag.equals("Personal Tag")) {
                 groupList = dbHelper.getGroupsByTag("Personal Tag");
@@ -999,13 +1067,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 mainActivity.selected_sorting = mainActivity.preferences.getString("sortBy", Constant.descending_date);
                 rv_group.setVisibility(View.GONE);
                 ly_empty.setVisibility(View.VISIBLE);
-                if (Constant.current_tag.equals("All Docs")) {
+                if (Constant.current_tag.equals("All Documents")) {
                     tv_empty.setText(getResources().getString(R.string.all_docs_empty));
-                } else if (Constant.current_tag.equals("Business Card")) {
+                } else if (Constant.current_tag.equals("Documents")) {
                     tv_empty.setText(getResources().getString(R.string.business_card_empty));
                 } else if (Constant.current_tag.equals("ID Card")) {
                     tv_empty.setText(getResources().getString(R.string.id_card_empty));
-                } else if (Constant.current_tag.equals("Academic Docs")) {
+                } else if (Constant.current_tag.equals("Books")) {
                     tv_empty.setText(getResources().getString(R.string.academic_docs_empty));
                 } else if (Constant.current_tag.equals("Personal Tag")) {
                     tv_empty.setText(getResources().getString(R.string.personal_tag_empty));
@@ -1018,7 +1086,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     class SortByName implements Comparator<DBModel> {
-        SortByName() { }
+        SortByName() {
+        }
 
         @Override
         public int compare(DBModel dBModel, DBModel dBModel2) {
@@ -1041,7 +1110,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     public void clickOnListMore(DBModel dbModel, final String name, String date) {
 
-       dialogItem = new Dialog(this);
+        dialogItem = new Dialog(this);
         dialogItem.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogItem.setContentView(R.layout.group_bottomsheet_dialog);
         dialogItem.getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -1132,7 +1201,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                     }
                 });*/
                 dialogItem.dismiss();
-              dialog.show();
+                dialog.show();
             }
         });
 
@@ -1180,6 +1249,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 //               dialog.getWindow().setLayout(-1, -2);
                 dialog.setCanceledOnTouchOutside(true);
                 dialog.setCancelable(true);
+                dialogItem.dismiss();
                 dialog.show();
 
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -1189,31 +1259,32 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 lp.gravity = Gravity.BOTTOM;
                 dialog.getWindow().setAttributes(lp);
 
-
+/*
                 if (AdmobAds.SHOW_ADS) {
                     AdmobAds.loadNativeAds(MainActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
                 } else {
                     dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-                }
+                }*/
 
                 ((TextView) dialog.findViewById(R.id.tv_delete)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dbHelper.deleteGroup(name);
                         new setAllGroupAdapter().execute(new String[0]);
+                        dialogItem.dismiss();
                         dialog.dismiss();
                     }
                 });
                 ((TextView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        dialogItem.dismiss();
                         dialog.dismiss();
                     }
                 });
 
 
 
-                dialog.show();
             }
 
         });
@@ -1352,7 +1423,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         et_pdf_name.setSelection(et_pdf_name.length());
 
 
-
         ((TextView) dialog.findViewById(R.id.tv_done)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -1376,7 +1446,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             @Override
             public void onClick(View v) {
                 et_pdf_name.setText("");
-            };
+            }
 
         });
         dialog.show();
@@ -1526,12 +1596,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         dialog.getWindow().setAttributes(lp);
 
 
-
-        if (AdmobAds.SHOW_ADS) {
+       /* if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(MainActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
 
         final EditText et_enter_pswrd = (EditText) dialog.findViewById(R.id.et_enter_pswrd);
         final EditText et_confirm_pswrd = (EditText) dialog.findViewById(R.id.et_confirm_pswrd);
@@ -1699,48 +1768,32 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
 
     public void updateGroupName(final String name) {
+
         final Dialog dialog = new Dialog(this);
-        dialog.requestWindowFeature(1);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.update_group_name);
-//        dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+//      dialog.getWindow().setLayout(-1, -2);
         dialog.setCanceledOnTouchOutside(true);
         dialog.setCancelable(true);
 
-        if (AdmobAds.SHOW_ADS) {
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+
+
+      /*  if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(MainActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
+
         EditText editText = (EditText) dialog.findViewById(R.id.et_group_name);
-
-      /*  editText.setText(name);
-        editText.setSelection(editText.length());*/
-
-
-               /* editText.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                        if (i3 == 0) {
-                            clearText.setVisibility(View.INVISIBLE);
-                        } else if (i3 == 1) {
-                            clearText.setVisibility(View.VISIBLE);
-                        }
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable editable) {
-                        if (groupList.size() > 0) {
-                            filter(editable.toString());
-                        }
-                    }
-                });
-            }
-        });*/
+        editText.setText(name);
+        editText.setSelection(editText.length());
 
 
         ((TextView) dialog.findViewById(R.id.tv_done)).setOnClickListener(new View.OnClickListener() {
@@ -1762,15 +1815,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         });
         dialog.show();
 
-        /*((ImageView) dialog.findViewById(R.id.clear_text)).setOnClickListener(new View.OnClickListener() {
+        ((ImageView) dialog.findViewById(R.id.clear_text)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Toast", Toast.LENGTH_SHORT).show();
+                editText.setText("");
 
             }
-        });*/
-
-
+        });
 
     }
 
@@ -1836,18 +1887,29 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
 
     public void sendTomail(String name, String shareType) {
-        final Dialog dialog = new Dialog(this, R.style.ThemeWithRoundShape);
-        dialog.requestWindowFeature(1);
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.enter_email_dialog);
-        dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
-        if (AdmobAds.SHOW_ADS) {
+//      dialog.getWindow().setLayout(-1, -2);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+        dialog.show();
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+
+
+       /* if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(MainActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
         final EditText editText = (EditText) dialog.findViewById(R.id.et_emailId);
 
         ((TextView) dialog.findViewById(R.id.tv_done)).setOnClickListener(new View.OnClickListener() {
@@ -1869,13 +1931,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 dialog.dismiss();
             }
         });
-        dialog.show();
+
     }
 
 
     public void onDrawerItemSelected(int i) {
         /*Home*/
         if (i == 0) {
+
+            tag_tabs.getTabAt(0).select();
             drawer_ly.closeDrawer(GravityCompat.START);
         }
         /*Qr Scan*/
@@ -1903,8 +1967,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             Intent send = new Intent(MainActivity.this, AboutUsActivity.class);
             startActivity(send);
         }
-
-        else if (i == 4) {
+        /*T&c*/
+        else if (i == 5) {
             if (drawer_ly.isDrawerOpen(GravityCompat.START)) {
                 drawer_ly.closeDrawer(GravityCompat.START);
             }
@@ -1912,8 +1976,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             startActivity(send);
 
         }
-
-        else if (i == 5) {
+        /*PP*/
+        else if (i == 6) {
             if (drawer_ly.isDrawerOpen(GravityCompat.START)) {
                 drawer_ly.closeDrawer(GravityCompat.START);
             }
@@ -1921,19 +1985,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             Intent send = new Intent(MainActivity.this, PrivacyPolicy.class);
             startActivity(send);
 
-
-           /* Constant.IdentifyActivity = "PrivacyPolicyActivity";
-            AdsUtils.showGoogleInterstitialAd(MainActivity.this, false);*/
-
-        } else if (i == 6) {
+            /*Share*/
+        } else if (i == 7) {
             if (drawer_ly.isDrawerOpen(GravityCompat.START)) {
                 drawer_ly.closeDrawer(GravityCompat.START);
             }
             Constant.shareApp(this);
 
 
-
-        } else if (i == 9) {
+            /*Rate us*/
+        } else if (i == 8) {
             if (drawer_ly.isDrawerOpen(GravityCompat.START)) {
                 drawer_ly.closeDrawer(GravityCompat.START);
             }
@@ -1943,8 +2004,76 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             } catch (ActivityNotFoundException e) {
                 e.printStackTrace();
             }
+
+            /*Theme*/
+
+        } else if (i == 4) {
+
+            if (drawer_ly.isDrawerOpen(GravityCompat.START)) {
+                drawer_ly.closeDrawer(GravityCompat.START);
+
+                final Dialog dialog = new Dialog(this);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+                View view = LayoutInflater.from(this).inflate(R.layout.theme_bottom_sheet,null);
+
+                RadioButton systemDefault = (RadioButton) view.findViewById(R.id.system_default);
+                RadioButton light = (RadioButton) view.findViewById(R.id.light_theme);
+                RadioButton dark = (RadioButton) view.findViewById(R.id.dark_theme);
+                dialog.setContentView(view);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+
+                //  dialog.getWindow().setLayout(-1, -2);
+                dialog.setCanceledOnTouchOutside(true);
+                dialog.setCancelable(true);
+
+                SharedPreferences sharedPreferences = MainActivity.this.getSharedPreferences(Constant.PREFS_NAME, Context.MODE_PRIVATE);
+
+                systemDefault.setOnClickListener(v -> {
+                    Toast.makeText(MainActivity.this, "System default", Toast.LENGTH_SHORT).show();
+                    sharedPreferences.edit().putInt(Constant.KEY_THEME,Constant.THEME_UNDEFINED).apply();
+                    setTheme(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM ,Constant.THEME_UNDEFINED);
+
+                });
+
+
+                light.setOnClickListener(v-> {
+                    Toast.makeText(MainActivity.this, "Light Theme", Toast.LENGTH_SHORT).show();
+                    sharedPreferences.edit().putInt(Constant.KEY_THEME, Constant.THEME_LIGHT).apply();
+                    setTheme(AppCompatDelegate.MODE_NIGHT_NO, Constant.THEME_LIGHT);
+
+                });
+
+                dark.setOnClickListener(v -> {
+                    Toast.makeText(this ,"Dark Theme",Toast.LENGTH_SHORT).show();
+                    sharedPreferences.edit().putInt(Constant.KEY_THEME, Constant.THEME_DARK).apply();
+                    setTheme(AppCompatDelegate.MODE_NIGHT_YES, Constant.THEME_DARK);
+                });
+
+
+                dialog.show();
+
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                lp.gravity = Gravity.BOTTOM;
+                dialog.getWindow().setAttributes(lp);
+
+            }
+
         }
     }
+    public void saveTheme(int theme) {
+        SharedPreferences sharedPreferences = MainActivity.this.getSharedPreferences(Constant.PREFS_NAME, Context.MODE_PRIVATE);
+        sharedPreferences.edit().putInt(Constant.KEY_THEME, theme).apply();
+    }
+
+    private void setTheme(int themeMode, int prefsMode) {
+        AppCompatDelegate.setDefaultNightMode(themeMode);
+        saveTheme(prefsMode);
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -1953,6 +2082,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         } else if (rl_search_bar.getVisibility() == View.VISIBLE) {
             rl_search_bar.setVisibility(View.GONE);
             iv_search.setVisibility(View.VISIBLE);
+            iv_more.setVisibility(View.VISIBLE);
         } else {
             finish();
         }

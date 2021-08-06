@@ -55,8 +55,8 @@ public class ImageToTextActivity extends BaseActivity implements View.OnClickLis
         iv_copy_txt = (ImageView) findViewById(R.id.iv_copy_txt);
         tv_ocr_txt = (TextView) findViewById(R.id.tv_ocr_txt);
 
-        adView  = findViewById(R.id.adView);
-        AdsUtils.showGoogleBannerAd(this, adView);
+       /* adView  = findViewById(R.id.adView);
+        AdsUtils.showGoogleBannerAd(this, adView);*/
     }
 
     private void bindView() {

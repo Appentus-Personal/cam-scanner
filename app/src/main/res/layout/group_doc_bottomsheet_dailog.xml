@@ -150,7 +150,6 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
-                    android:tint="@color/black"
                     android:padding="@dimen/_1sdp"
                     android:src="@drawable/delete" />
 

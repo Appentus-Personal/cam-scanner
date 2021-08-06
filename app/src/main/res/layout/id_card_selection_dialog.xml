@@ -35,12 +35,12 @@
 
                     <TextView
                         style="@style/WhitePopSemi12"
+                        android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:padding="@dimen/_5sdp"
-                        android:layout_centerHorizontal="true"
                         android:text="Please Select your ID Card"
-                       android:textColor="@color/TextTheme"
+                        android:textColor="@color/TextTheme"
                         android:textSize="@dimen/_12sdp" />
 
                     <ImageView
@@ -67,68 +67,65 @@
                         android:id="@+id/tv_select1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/tab_color"
                         android:layout_marginStart="@dimen/_12sdp"
                         android:layout_marginEnd="@dimen/_12sdp"
+                        android:background="@color/tab_color"
                         android:orientation="vertical">
 
                         <RelativeLayout
-
                             android:layout_width="match_parent"
-                            android:padding="@dimen/_4sdp"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_4sdp">
 
 
                             <ImageView
                                 android:id="@+id/ivsingle_id"
-                                android:layout_width="@dimen/_30sdp"
-                                android:layout_margin="@dimen/_8sdp"
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="@dimen/_40sdp"
                                 android:layout_centerVertical="true"
-                                android:layout_height="@dimen/_30sdp"
-                                android:src="@drawable/oneside_id_grn"/>
+                                android:layout_margin="@dimen/_8sdp"
+                                android:visibility="visible"
+                                android:src="@drawable/oneside_id_grn" />
 
 
                             <TextView
                                 android:id="@+id/txtTitle1"
                                 style="@style/WhitePopSemi12"
+                                android:layout_marginStart="@dimen/_10sdp"
                                 android:layout_marginTop="@dimen/_10sdp"
                                 android:layout_toEndOf="@id/ivsingle_id"
-                                android:layout_marginStart="@dimen/_10sdp"
                                 android:text="Single side ID Card"
                                 android:textColor="@color/TextTheme"
                                 android:textSize="@dimen/_10sdp" />
 
-                          <!--  <TextView
-                                android:id="@+id/tv_select1"
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_marginLeft="@dimen/_5sdp"
-                                android:layout_toRightOf="@+id/txtTitle1"
-                                android:background="@drawable/select_btn_bg"
-                                android:gravity="center"
-                                android:padding="@dimen/_2sdp"
-                                android:text="Select"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/_10sdp" />-->
+                            <!--  <TextView
+                                  android:id="@+id/tv_select1"
+                                  android:layout_width="@dimen/_40sdp"
+                                  android:layout_height="wrap_content"
+                                  android:layout_centerVertical="true"
+                                  android:layout_marginLeft="@dimen/_5sdp"
+                                  android:layout_toRightOf="@+id/txtTitle1"
+                                  android:background="@drawable/select_btn_bg"
+                                  android:gravity="center"
+                                  android:padding="@dimen/_2sdp"
+                                  android:text="Select"
+                                  android:textColor="@color/white"
+                                  android:textSize="@dimen/_10sdp" />-->
 
                             <TextView
+                                android:id="@+id/tv_sub_text1"
                                 style="@style/TextPopReg12"
                                 android:layout_below="@+id/txtTitle1"
                                 android:layout_gravity="start"
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:maxWidth="@dimen/_170sdp"
                                 android:layout_marginStart="@dimen/_10sdp"
-                                android:textColor="@color/TextTheme"
+                                android:layout_marginTop="@dimen/_2sdp"
                                 android:layout_toRightOf="@id/ivsingle_id"
+                                android:maxWidth="@dimen/_170sdp"
                                 android:text="@string/single_id_card_txt"
+                                android:textColor="@color/TextTheme"
                                 android:textSize="@dimen/_10sdp" />
 
                         </RelativeLayout>
-
-
-
-
 
 
                     </LinearLayout>
@@ -138,70 +135,72 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_12sdp"
-                        android:background="@color/tab_color"
                         android:layout_marginTop="@dimen/_8sdp"
                         android:layout_marginEnd="@dimen/_12sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
+                        android:background="@color/tab_color"
                         android:orientation="vertical">
 
 
                         <RelativeLayout
                             android:id="@+id/r1Two"
                             android:layout_width="match_parent"
-                            android:padding="@dimen/_4sdp"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_4sdp">
 
 
                             <ImageView
                                 android:id="@+id/iv_double_id"
-                                android:layout_width="@dimen/_30sdp"
-                                android:layout_margin="@dimen/_8sdp"
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="@dimen/_40sdp"
                                 android:layout_centerVertical="true"
-                                android:layout_height="@dimen/_30sdp"
-                                android:src="@drawable/twoside_id"/>
+                                android:layout_margin="@dimen/_8sdp"
+                                android:src="@drawable/twoside_id_green" />
 
                             <TextView
                                 android:id="@+id/txtTitle2"
                                 style="@style/WhitePopSemi12"
                                 android:layout_marginStart="@dimen/_10sdp"
-                                android:layout_toEndOf="@id/iv_double_id"
                                 android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_toEndOf="@id/iv_double_id"
                                 android:text="Two side ID Card"
                                 android:textColor="@color/TextTheme"
                                 android:textSize="@dimen/_10sdp" />
 
-                         <!--   <TextView
-                                android:id="@+id/tv_select2"
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_marginLeft="@dimen/_5sdp"
-                                android:layout_toRightOf="@+id/txtTitle2"
-                                android:background="@drawable/select_btn_bg"
-                                android:gravity="center"
-                                android:padding="@dimen/_2sdp"
-                                android:text="Select"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/_10sdp" />
-                                !-->
+                            <!--   <TextView
+                                   android:id="@+id/tv_select2"
+                                   android:layout_width="@dimen/_40sdp"
+                                   android:layout_height="wrap_content"
+                                   android:layout_centerVertical="true"
+                                   android:layout_marginLeft="@dimen/_5sdp"
+                                   android:layout_toRightOf="@+id/txtTitle2"
+                                   android:background="@drawable/select_btn_bg"
+                                   android:gravity="center"
+                                   android:padding="@dimen/_2sdp"
+                                   android:text="Select"
+                                   android:textColor="@color/white"
+                                   android:textSize="@dimen/_10sdp" />
+                                   !-->
 
 
                             <TextView
-                            style="@style/TextPopReg12"
-                            android:layout_gravity="start"
-                            android:maxWidth="@dimen/_170sdp"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:textColor="@color/TextTheme"
+                                android:id="@+id/tv_sub_text2"
+                                style="@style/TextPopReg12"
                                 android:layout_below="@id/txtTitle2"
-                            android:layout_toEndOf="@id/iv_double_id"
-                            android:layout_marginEnd="@dimen/_6sdp"
-                            android:text="@string/two_id_card_txt"
-                            android:textSize="@dimen/_11sdp" />
+                                android:layout_gravity="start"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginEnd="@dimen/_6sdp"
+                                android:layout_toEndOf="@id/iv_double_id"
+                                android:maxWidth="@dimen/_170sdp"
+                                android:text="@string/two_id_card_txt"
+                                android:textColor="@color/TextTheme"
+                                android:textSize="@dimen/_11sdp" />
                         </RelativeLayout>
 
 
-
                     </LinearLayout>
+
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

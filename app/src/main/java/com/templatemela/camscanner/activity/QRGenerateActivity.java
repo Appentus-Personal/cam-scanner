@@ -104,7 +104,7 @@ public class QRGenerateActivity extends BaseActivity implements View.OnClickList
                     et_value.setHint("Enter your sms");
                     et_value.setInputType(InputType.TYPE_CLASS_TEXT);
                 } else if (i == 4) {
-                    qrType = Contents.URL_KEY;
+                    qrType = Contents.Type.TEXT;
                     et_value.setHint("Enter your url_key");
                     et_value.setInputType(InputType.TYPE_CLASS_TEXT);
                 } else {
@@ -201,16 +201,15 @@ public class QRGenerateActivity extends BaseActivity implements View.OnClickList
                         iv_generate.setVisibility(View.GONE);
                         iv_refresh.setVisibility(View.VISIBLE);
                         saveBitmap();
-                        return;
                     } catch (WriterException e) {
                         e.printStackTrace();
-                        return;
+                    } catch (Exception e){
+                        e.printStackTrace();
                     }
                 } else {
                     et_value.setError("Required");
-                    return;
                 }
-
+                return;
             case R.id.iv_qrcode:
                 try {
                     File file = new File(qrPath.getPath());

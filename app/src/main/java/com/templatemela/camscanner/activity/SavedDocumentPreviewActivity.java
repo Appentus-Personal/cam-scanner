@@ -19,8 +19,10 @@ import android.os.Environment;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -157,10 +159,10 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
     }
 
     private void init() {
-        adView = findViewById(R.id.adView);
+      /*  adView = findViewById(R.id.adView);
         AdsUtils.showGoogleBannerAd(this, adView);
         AdsUtils.loadGoogleInterstitialAd(this, SavedDocumentPreviewActivity.this);
-
+*/
         iv_back = (ImageView) findViewById(R.id.iv_back);
         iv_home = (ImageView) findViewById(R.id.iv_home);
         viewPager = (ViewPagerFixed) findViewById(R.id.viewPager);
@@ -173,7 +175,6 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
         current_doc_name = getIntent().getStringExtra("current_doc_name");
         position = getIntent().getIntExtra("position", -1);
 //        currentDocList = GroupDocumentActivity.currentGroupList;
-
         new getAllDoc().execute();
 
     }
@@ -275,6 +276,7 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
                 Constant.IdentifyActivity = "DocumentEditorActivity_SavedPreview";
                 AdsUtils.showGoogleInterstitialAd(SavedDocumentPreviewActivity.this, true);
                 return;
+
             case OPENPDF:
                 try {
                     BitmapFactory.Options options2 = new BitmapFactory.Options();
@@ -287,6 +289,7 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
                 arrayList.add(Constant.original);
                 new openPDF(arrayList, edit_doc_grp_name).execute(new String[0]);
                 return;
+
             case NAME:
                 updateGroupName(edit_doc_grp_name);
                 return;
@@ -305,6 +308,7 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
                 Constant.IdentifyActivity = "NoteActivity_Preview";
                 AdsUtils.showGoogleInterstitialAd(SavedDocumentPreviewActivity.this, true);
                 return;
+
             case ImageToText:
                 try {
                     BitmapFactory.Options options4 = new BitmapFactory.Options();
@@ -316,6 +320,7 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
                 Constant.IdentifyActivity = "ImageToTextActivity_Preview";
                 AdsUtils.showGoogleInterstitialAd(SavedDocumentPreviewActivity.this, true);
                 return;
+
             case SHARE:
                 try {
                     BitmapFactory.Options options5 = new BitmapFactory.Options();
@@ -326,19 +331,29 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
                 }
                 shareGroupDoc();
                 return;
+
             case DELETE:
                 final Dialog dialog = new Dialog(this, R.style.ThemeWithRoundShape);
                 dialog.requestWindowFeature(1);
                 dialog.setContentView(R.layout.delete_document_dialog);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-                dialog.getWindow().setLayout(-1, -2);
-                dialog.setCanceledOnTouchOutside(false);
-                dialog.setCancelable(false);
-                if (AdmobAds.SHOW_ADS) {
+//                dialog.getWindow().setLayout(-1, -2);
+                dialog.setCanceledOnTouchOutside(true);
+                dialog.setCancelable(true);
+
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                lp.gravity = Gravity.BOTTOM;
+                dialog.getWindow().setAttributes(lp);
+
+              /*  if (AdmobAds.SHOW_ADS) {
                     AdmobAds.loadNativeAds(SavedDocumentPreviewActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
                 } else {
                     dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-                }
+                }*/
+
                 ((TextView) dialog.findViewById(R.id.tv_delete)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -429,21 +444,32 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
     }
 
     private void updateGroupName(final String str) {
+
         final Dialog dialog = new Dialog(this, R.style.ThemeWithRoundShape);
         dialog.requestWindowFeature(1);
         dialog.setContentView(R.layout.update_group_name);
-        dialog.getWindow().setLayout(-1, -2);
+//        dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
-        if (AdmobAds.SHOW_ADS) {
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+
+       /* if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(SavedDocumentPreviewActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
+
         final EditText editText = (EditText) dialog.findViewById(R.id.et_group_name);
         editText.setText(str);
         editText.setSelection(editText.length());
+
         ((TextView) dialog.findViewById(R.id.tv_done)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -464,6 +490,16 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
             }
         });
         dialog.show();
+
+        ((ImageView) dialog.findViewById(R.id.clear_text)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText("");
+
+            }
+        });
+
+
     }
 
     private class rotateDoc extends AsyncTask<String, Void, String> {
@@ -527,15 +563,24 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
         final Dialog dialog = new Dialog(this, R.style.ThemeWithRoundShape);
         dialog.requestWindowFeature(1);
         dialog.setContentView(R.layout.share_group_doc);
-        dialog.getWindow().setLayout(-1, -2);
+//        dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
-        if (AdmobAds.SHOW_ADS) {
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+
+       /* if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
+
         ((RelativeLayout) dialog.findViewById(R.id.rl_share_pdf)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -585,11 +630,11 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
-        if (AdmobAds.SHOW_ADS) {
+      /*  if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
         final EditText et_enter_pswrd = (EditText) dialog.findViewById(R.id.et_enter_pswrd);
         final ImageView iv_enter_pswrd_show = (ImageView) dialog.findViewById(R.id.iv_enter_pswrd_show);
         final ImageView iv_enter_pswrd_hide = (ImageView) dialog.findViewById(R.id.iv_enter_pswrd_hide);

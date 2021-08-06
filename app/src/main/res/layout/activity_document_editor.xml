@@ -208,10 +208,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#000000"
+       android:visibility="gone"
         android:orientation="vertical"
-        android:paddingTop="@dimen/_5sdp"
-        android:visibility="gone"
-     >
+        android:paddingTop="@dimen/_5sdp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -280,6 +279,8 @@
                 android:paddingTop="@dimen/_8sdp"
                 android:paddingBottom="@dimen/_8sdp"
                 android:progress="128"
+                android:progressTint="#11C099"
+                android:progressDrawable="@drawable/seekbar_opacity"
                 android:thumb="@drawable/ic_thumb" />
             <!--   android:progressDrawable="@drawable/seekbar_opacity"-->
 
@@ -578,6 +579,7 @@
                 android:paddingTop="@dimen/_8sdp"
                 android:paddingBottom="@dimen/_8sdp"
                 android:progress="25"
+                android:progressTint="#11C099"
                 android:progressDrawable="@drawable/seekbar_opacity"
                 android:thumb="@drawable/ic_thumb"
                 android:visibility="gone" />
@@ -677,17 +679,15 @@
         android:id="@+id/rl_signature"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="@color/sig_color"
-        android:visibility="gone">
+        android:background="@color/sig_color">
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/rl_bottom">
-
-
 
             <com.kyanogen.signatureview.SignatureView
                 android:id="@+id/signature_view"
@@ -916,12 +916,11 @@
 
     <!--WaterMark-->  <!--Due-->
 
-
-
     <RelativeLayout
         android:id="@+id/rl_watermark"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
         android:visibility="gone"
         android:background="@color/sig_color">
 
@@ -934,9 +933,9 @@
             <EditText
                 android:id="@+id/et_watermark_txt"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_110sdp"
+                android:layout_height="@dimen/_250sdp"
                 android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_30sdp"
                 android:layout_marginEnd="@dimen/_12sdp"
                 android:background="@drawable/white_bg"
                 android:cursorVisible="true"
@@ -959,7 +958,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="@dimen/_40sdp"
                 android:background="#000000">
-
 
 
                 <TextView
@@ -1010,10 +1008,11 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_watermark_font"
                     android:layout_width="match_parent"
-                    android:layout_alignParentBottom="true"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="@dimen/_4sdp"
                     android:visibility="gone"
-                    android:layout_margin="@dimen/_4sdp" />
+                    />
 
 
                 <RelativeLayout
@@ -1021,10 +1020,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:background="#000000"
-                    android:visibility="gone"
                     android:layout_marginTop="@dimen/_13sdp"
-                    android:layout_marginBottom="@dimen/_10sdp">
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="#000000"
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/tv_watermark_color"
@@ -1055,10 +1054,10 @@
                     android:id="@+id/rl_watermark_opacity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#000000"
-                    android:visibility="gone"
                     android:layout_alignParentBottom="true"
-                    android:paddingTop="@dimen/_5sdp">
+                    android:background="#000000"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/tv_watermark_opacity"
@@ -1101,52 +1100,52 @@
             android:paddingBottom="@dimen/_6sdp">
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/iv_watermark_font"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:onClick="onClick"
-                android:padding="@dimen/_4sdp"
-                android:src="@drawable/greenfont" />
+                <ImageView
+                    android:id="@+id/iv_watermark_font"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:onClick="onClick"
+                    android:padding="@dimen/_4sdp"
+                    android:src="@drawable/greenfont" />
 
-            <TextView
-                android:id="@+id/txtFont"
-                style="@style/WhitePopMed12"
-                android:layout_gravity="center"
-                android:text="@string/font"
-                android:textSize="@dimen/_10sdp" />
+                <TextView
+                    android:id="@+id/txtFont"
+                    style="@style/WhitePopMed12"
+                    android:layout_gravity="center"
+                    android:text="@string/font"
+                    android:textSize="@dimen/_10sdp" />
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:gravity="center"
-            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/iv_watermark_color"
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
-                android:onClick="onClick"
-                android:padding="@dimen/_4sdp"
-                android:src="@drawable/white_color" />
+                <ImageView
+                    android:id="@+id/iv_watermark_color"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:onClick="onClick"
+                    android:padding="@dimen/_4sdp"
+                    android:src="@drawable/white_color" />
 
-            <TextView
-                android:id="@+id/txtWatermarkColor"
-                style="@style/WhitePopMed12"
-                android:layout_gravity="center"
-                android:text="@string/color"
-                android:textSize="@dimen/_10sdp" />
+                <TextView
+                    android:id="@+id/txtWatermarkColor"
+                    style="@style/WhitePopMed12"
+                    android:layout_gravity="center"
+                    android:text="@string/color"
+                    android:textSize="@dimen/_10sdp" />
 
-        </LinearLayout>
+            </LinearLayout>
 
 
             <LinearLayout
@@ -1178,22 +1177,6 @@
 
 
     </RelativeLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <!--Text-->
     <LinearLayout
@@ -1239,8 +1222,8 @@
                 android:layout_marginEnd="@dimen/_7sdp"
                 android:onClick="onClick"
                 android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_check_mark"
-                android:tint="@color/white" />
+                android:src="@drawable/ic_check_mark" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -1440,9 +1423,7 @@
         android:background="#000000"
         android:orientation="vertical"
         android:paddingTop="@dimen/_5sdp"
-        android:visibility="gone"
-
-        >
+        android:visibility="gone">
 
 
         <RelativeLayout
@@ -1521,7 +1502,6 @@
             android:layout_margin="@dimen/_4sdp" />
 
     </LinearLayout>
-
 
     <!--ColorEffects-->
 

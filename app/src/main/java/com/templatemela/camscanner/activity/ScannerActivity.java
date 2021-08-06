@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
@@ -78,7 +79,10 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
     private static final String TAG = "ScannerActivity";
     public static ArrayList<Bitmap> bitmapList = new ArrayList<>();
     public static ArrayList<BookModel> bookImgList = new ArrayList<>();
+
+
     public static ArrayList<Bitmap> idcardImgList = new ArrayList<>();
+
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -98,7 +102,8 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                         .setRequestCode(100)
                         .start();
                 Constant.IdentifyActivity = "";
-            } else if (Constant.IdentifyActivity.equals("CropDocumentActivity2")) {
+            }
+            else if (Constant.IdentifyActivity.equals("CropDocumentActivity2")) {
                 startActivity(new Intent(ScannerActivity.this, CropDocumentActivity.class));
                 Constant.IdentifyActivity = "";
                 finish();
@@ -143,7 +148,9 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
         public void onPictureTaken(CameraView cameraView, byte[] bArr) {
             byte[] bArr2 = bArr;
             Log.e(TAG, "onPictureTaken " + bArr2.length);
+
             Toast.makeText(ScannerActivity.this, "Picture Taken", Toast.LENGTH_SHORT).show();
+
             if (Constant.current_camera_view.equals("Document") || (Constant.current_camera_view.equals("ID Card") && Constant.card_type.equals("Single"))) {
                 File externalFilesDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
                 File file = new File(externalFilesDir, System.currentTimeMillis() + ".jpg");
@@ -314,6 +321,8 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
     public TextView tv_id_card;
     private TextView tv_idcard;
     private TextView tv_photo;
+
+
    /* private View v_book;
     private View v_document;
     private View v_idcard;
@@ -377,10 +386,12 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
         tv_book = (TextView) findViewById(R.id.tv_book);
         tv_idcard = (TextView) findViewById(R.id.tv_idcard);
         tv_photo = (TextView) findViewById(R.id.tv_photo);
+
         /*v_document = findViewById(R.id.v_document);
         v_book = findViewById(R.id.v_book);
         v_idcard = findViewById(R.id.v_idcard);
         v_photo = findViewById(R.id.v_photo);*/
+
         cameraView = (CameraView) findViewById(R.id.cameraView);
         rl_book_view = (RelativeLayout) findViewById(R.id.rl_book_view);
         rl_idcard_view = (RelativeLayout) findViewById(R.id.rl_idcard_view);
@@ -397,6 +408,8 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
         iv_retake = (TextView) findViewById(R.id.iv_retake);
         iv_continue = (TextView) findViewById(R.id.iv_continue);
         ly_filter = (LinearLayout) findViewById(R.id.ly_filter);
+
+
         iv_back_filter = (ImageView) findViewById(R.id.iv_back_filter);
         iv_done_filter = (ImageView) findViewById(R.id.iv_done_filter);
         iv_card_filter = (PhotoView) findViewById(R.id.iv_card_filter);
@@ -415,16 +428,16 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
         }
         idcardImgList.clear();
         Constant.card_type = "Single";
-        if (Constant.current_tag.equals("All Docs")) {
+        if (Constant.current_tag.equals("All Documents")) {
             Constant.current_camera_view = "Document";
             setCameraView();
-        } else if (Constant.current_tag.equals("Business Card")) {
-            Constant.current_camera_view = "ID Card";
+        } else if (Constant.current_tag.equals("Documents")) {
+            Constant.current_camera_view = "Document";
             setCameraView();
         } else if (Constant.current_tag.equals("ID Card")) {
             Constant.current_camera_view = "ID Card";
             setCameraView();
-        } else if (Constant.current_tag.equals("Academic Docs")) {
+        } else if (Constant.current_tag.equals("Books")) {
             Constant.current_camera_view = "Book";
             setCameraView();
         } else if (Constant.current_tag.equals("Personal Tag")) {
@@ -494,6 +507,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
             v_idcard.setVisibility(View.VISIBLE);
             v_photo.setVisibility(View.INVISIBLE);*/
             IDCardDialog();
+
         } else if (Constant.current_camera_view.equals("Photo")) {
             rl_book_view.setVisibility(View.GONE);
             rl_idcard_view.setVisibility(View.GONE);
@@ -519,21 +533,25 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
         dialog.setContentView(R.layout.id_card_selection_dialog);
         dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+
         ((LinearLayout) dialog.findViewById(R.id.tv_select1)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                makeSelectable(dialog,0);
                 Constant.card_type = "Single";
                 tv_id_card.setVisibility(View.GONE);
                 dialog.dismiss();
-          /*      tv_select1.setBackground(getResources().getDrawable(R.drawable.green_id_card_selection));*/
+
+//                tv_select1.setBackground(getResources().getDrawable(R.drawable.green_id_card_selection));
 
             }
         });
         ((LinearLayout) dialog.findViewById(R.id.tv_select2)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                makeSelectable(dialog,1);
                 Constant.card_type = "Double";
                 tv_id_card.setVisibility(View.VISIBLE);
                 dialog.dismiss();
@@ -547,6 +565,30 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
         });
         dialog.show();
     }
+
+    private void makeSelectable(Dialog dialog, int i) {
+        if (i == 0){
+
+            ((ImageView)dialog.findViewById(R.id.ivsingle_id)).setBackgroundResource(R.drawable.oneside_id_white);
+
+            ((LinearLayout)dialog.findViewById(R.id.tv_select1)).setBackgroundColor(getResources().getColor(R.color.id_card_color_selected));
+            ((LinearLayout)dialog.findViewById(R.id.tv_select2)).setBackgroundColor(getResources().getColor(R.color.note_color));
+            ((TextView)dialog.findViewById(R.id.txtTitle1)).setTextColor(getResources().getColor(R.color.tab_white));
+            ((TextView)dialog.findViewById(R.id.tv_sub_text1)).setTextColor(getResources().getColor(R.color.tab_white));
+            ((TextView)dialog.findViewById(R.id.txtTitle2)).setTextColor(getResources().getColor(R.color.black));
+            ((TextView)dialog.findViewById(R.id.tv_sub_text2)).setTextColor(getResources().getColor(R.color.black));
+
+        }else{
+            ((ImageView)dialog.findViewById(R.id.iv_double_id)).setBackgroundResource(R.drawable.twoside_id_white);
+            ((TextView)dialog.findViewById(R.id.txtTitle1)).setTextColor(getResources().getColor(R.color.black));
+            ((TextView)dialog.findViewById(R.id.tv_sub_text1)).setTextColor(getResources().getColor(R.color.black));
+            ((TextView)dialog.findViewById(R.id.txtTitle2)).setTextColor(getResources().getColor(R.color.tab_white));
+            ((TextView)dialog.findViewById(R.id.tv_sub_text2)).setTextColor(getResources().getColor(R.color.tab_white));
+            ((LinearLayout)dialog.findViewById(R.id.tv_select2)).setBackgroundColor(getResources().getColor(R.color.id_card_color_selected));
+            ((LinearLayout)dialog.findViewById(R.id.tv_select1)).setBackgroundColor(getResources().getColor(R.color.note_color));
+        }
+    }
+
 
     @Override
     public void onPause() {
@@ -810,6 +852,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                 iv_card_crop.setFullImgCrop();
                 return;
             case R.id.iv_gallery:
+
                 if (idcardImgList.size() <= 0) {
                     Constant.current_camera_view = "Document";
                     Constant.IdentifyActivity = "ScannerGalleryActivity";

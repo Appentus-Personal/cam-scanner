@@ -108,7 +108,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
             } else if (Constant.IdentifyActivity.equals("ScannerActivity2")) {
                 startActivity(new Intent(GroupDocumentActivity.this, ScannerActivity.class));
                 Constant.IdentifyActivity = "";
-                finish();
+//                finish();
             } else if (Constant.IdentifyActivity.equals("SavedDocumentPreviewActivity")) {
                 Intent intent3 = new Intent(GroupDocumentActivity.this, SavedDocumentPreviewActivity.class);
                 intent3.putExtra("edit_doc_group_name", GroupDocumentActivity.current_group);
@@ -198,7 +198,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         iv_back = (ImageView) findViewById(R.id.iv_back);
         tv_title = (TextView) findViewById(R.id.tv_title);
         iv_create_pdf = (ImageView) findViewById(R.id.iv_create_pdf);
-        iv_doc_more = (ImageView) findViewById(R.id.iv_doc_more);
+        iv_doc_more = (ImageView) findViewById(R.id.iv_more);
         rv_group_doc = (RecyclerView) findViewById(R.id.rv_group_doc);
         iv_doc_camera = (ImageView) findViewById(R.id.iv_doc_camera);
         ly_doc_camera = (LinearLayout) findViewById(R.id.ly_doc_camera);
@@ -210,12 +210,9 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         delete = (TextView)findViewById(R.id.delete);
         clear_text=(ImageView)findViewById(R.id.iv_clear_txt);
 
-
-
-
-        adView = findViewById(R.id.adView);
+       /* adView = findViewById(R.id.adView);
         AdsUtils.showGoogleBannerAd(this, adView);
-        AdsUtils.loadGoogleInterstitialAd(this, GroupDocumentActivity.this);
+        AdsUtils.loadGoogleInterstitialAd(this, GroupDocumentActivity.this);*/
 
     }
 
@@ -270,8 +267,6 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
 
             case R.id.delete:
                 bottomDelete();
-
-
                 return;
 
             default:
@@ -328,12 +323,12 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
             case R.id.iv_create_pdf:
                 new createAndOpenPDF(current_group).execute(new String[0]);
                 return;
-            case R.id.ly_doc_camera:
+            case R.id.iv_doc_camera:
                 Constant.inputType = "GroupItem";
                 Constant.IdentifyActivity = "ScannerActivity2";
                 AdsUtils.showGoogleInterstitialAd(GroupDocumentActivity.this, true);
                 return;
-            case R.id.iv_doc_more:
+            case R.id.iv_more:
 
                 dialogMore = new Dialog(this);
                 dialogMore.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -350,8 +345,6 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                 lp.gravity = Gravity.BOTTOM;
                 dialogMore.getWindow().setAttributes(lp);
                 dialogMore.show();
-
-
 
             default:
                 return;
@@ -617,14 +610,14 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         public void onPostExecute(String str) {
             super.onPostExecute(str);
             if (currentGroupList.size() > 0) {
-                ly_doc_camera.setVisibility(View.GONE);
+                  ly_doc_camera.setVisibility(View.GONE);
                 currentGroupList.add(currentGroupList.size(), new DBModel());
                 rv_group_doc.setHasFixedSize(true);
                 rv_group_doc.setLayoutManager(new GridLayoutManager((Context) GroupDocumentActivity.this, 2, RecyclerView.VERTICAL, false));
                 groupDocAdapter = new GroupDocAdapter(groupDocumentActivity, currentGroupList);
                 rv_group_doc.setAdapter(groupDocAdapter);
             } else {
-                ly_doc_camera.setVisibility(View.VISIBLE);
+              iv_doc_camera.setVisibility(View.VISIBLE);
 //                Toast.makeText(getApplicationContext(), "Something Went Wrong...", Toast.LENGTH_SHORT).show();
             }
             progressDialog.dismiss();
@@ -647,7 +640,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.BOTTOM;
         dialog.getWindow().setAttributes(lp);
-        dialogMore.dismiss();
+        dialogItem.dismiss();
         dialog.show();
 /*
 
@@ -721,7 +714,6 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
 
     }
 
-
     public void sharePDFWithPassword(String str, String saveOrShare, String name) {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -738,11 +730,11 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         lp.gravity = Gravity.BOTTOM;
         dialog.getWindow().setAttributes(lp);
 
-        if (AdmobAds.SHOW_ADS) {
+       /* if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
         final EditText et_enter_pass = (EditText) dialog.findViewById(R.id.et_enter_pswrd);
         final ImageView iv_pass_show = (ImageView) dialog.findViewById(R.id.iv_enter_pswrd_show);
         final ImageView iv_pass_hide = (ImageView) dialog.findViewById(R.id.iv_enter_pswrd_hide);
@@ -814,7 +806,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                dialogMore.show();
+                dialogItem.show();
             }
         });
         dialog.show();
@@ -931,17 +923,16 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                 dialog.getWindow().setAttributes(lp);
                 dialogMore.dismiss();
 
-                if (AdmobAds.SHOW_ADS) {
+              /*  if (AdmobAds.SHOW_ADS) {
                     AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
                 } else {
                     dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-                }
+                }*/
 
                 ((TextView) dialog.findViewById(R.id.tv_delete)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dataBaseHelper.deleteGroup(GroupDocumentActivity.current_group);
-
                         finish();
                     }
                 });
@@ -973,11 +964,11 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         dialog.show();
         dialogMore.dismiss();
 
-        if (AdmobAds.SHOW_ADS) {
+       /* if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
 
 
         final EditText editText = (EditText) dialog.findViewById(R.id.et_group_name);
@@ -1037,11 +1028,11 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         dialogItem.dismiss();
         dialog.show();
 
-        if (AdmobAds.SHOW_ADS) {
+        /*if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
         final EditText editText = (EditText) dialog.findViewById(R.id.et_emailId);
         final Dialog dialog2 = dialog;
         final String str3 = str;
@@ -1219,11 +1210,11 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                 lp.gravity = Gravity.BOTTOM;
                 dialog.getWindow().setAttributes(lp);
 
-                if (AdmobAds.SHOW_ADS) {
+               /* if (AdmobAds.SHOW_ADS) {
                     AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
                 } else {
                     dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-                }
+                }*/
 
                 ((RelativeLayout) dialog.findViewById(R.id.rl_save_pdf)).setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -1291,11 +1282,11 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                 lp.gravity = Gravity.BOTTOM;
                 dialog.getWindow().setAttributes(lp);
 
-                if (AdmobAds.SHOW_ADS) {
+              /*  if (AdmobAds.SHOW_ADS) {
                     AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
                 } else {
                     dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-                }
+                }*/
 
 
                 ((TextView) dialog.findViewById(R.id.tv_delete)).setOnClickListener(new View.OnClickListener() {
@@ -1346,11 +1337,11 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         dialog.getWindow().setAttributes(lp);
 
 
-        if (AdmobAds.SHOW_ADS) {
+       /* if (AdmobAds.SHOW_ADS) {
             AdmobAds.loadNativeAds(GroupDocumentActivity.this, (View) null, (ViewGroup) dialog.findViewById(R.id.admob_native_container), (NativeAdView) dialog.findViewById(R.id.native_ad_view));
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
-        }
+        }*/
 
 
          TextView textView = (TextView) dialog.findViewById(R.id.tvtext);

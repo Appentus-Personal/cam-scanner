@@ -79,7 +79,7 @@ public class AdmobAds {
         nativeAdView.setNativeAd(nativeAd);
     }
 
-    public static void hideNativeAds(Activity activity) {
+    /*public static void hideNativeAds(Activity activity) {
         ((View) ((ViewGroup) activity.findViewById(R.id.admob_native_container)).getParent()).setVisibility(View.GONE);
-    }
+    }*/
 }
