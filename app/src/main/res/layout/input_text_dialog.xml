@@ -96,15 +96,17 @@
                     <EditText
                         android:id="@+id/et_input_txt"
                         style="@style/TextPopReg12"
+                        android:layout_width="match_parent"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:background="@color/transparent"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
                         android:cursorVisible="true"
                         android:focusable="true"
                         android:hint="@string/enterText"
                         android:imeOptions="actionDone"
                         android:inputType="text"
-                        android:textColor="#000000"
+                        android:textColor="@color/TextTheme"
                         android:textColorHint="@color/unselected_txt_color" />
                 </RelativeLayout>
             </LinearLayout>

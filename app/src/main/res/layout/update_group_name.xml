@@ -99,16 +99,18 @@
                     <EditText
                         android:id="@+id/et_group_name"
                         style="@style/TextPopReg12"
+                        android:layout_width="match_parent"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:background="@color/transparent"
                         android:cursorVisible="true"
-                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_ 0123456789"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+                        android:maxLength="20"
                         android:focusable="true"
                         android:hint="@string/enterDocumentName"
                         android:imeOptions="actionDone"
                         android:inputType="text"
-                        android:textColor="@color/ViewColor"
+                        android:textColor="@color/TextTheme"
                         android:textColorHint="@color/unselected_txt_color"
                         android:textSize="@dimen/_10sdp" />
 
@@ -120,8 +122,6 @@
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:layout_alignParentEnd="true" />
-
-
                 </RelativeLayout>
             </LinearLayout>
 

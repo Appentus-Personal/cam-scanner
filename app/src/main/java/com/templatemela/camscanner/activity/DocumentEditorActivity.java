@@ -765,6 +765,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                         sb_adjust.setProgress(Constant.adjustProgressArray[0][1]);
                         tv_progress.setText(Constant.getProgressPercentage(sb_adjust.getProgress(), 255) + "");
                         return;
+
                     default:
                         switch (id) {
 
@@ -935,8 +936,8 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 iv_exposure.setImageResource(R.drawable.exposuregreen);
 
 
-                                                adjustPosition = 0;
-                                                sb_adjust.setProgress(Constant.adjustProgressArray[0][1]);
+                                                adjustPosition = 3;
+                                                sb_adjust.setProgress(Constant.adjustProgressArray[3][1]);
                                                 tv_progress.setText(Constant.getProgressPercentage(sb_adjust.getProgress(), 255) + "");
                                                 return;
                                             case R.id.llHighLight:
@@ -979,8 +980,8 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 iv_exposure.setImageResource(R.drawable.exposurewhite);
 
 
-                                                adjustPosition = 0;
-                                                sb_adjust.setProgress(Constant.adjustProgressArray[0][1]);
+                                                adjustPosition = 2;
+                                                sb_adjust.setProgress(Constant.adjustProgressArray[2][1]);
                                                 tv_progress.setText(Constant.getProgressPercentage(sb_adjust.getProgress(), 255) + "");
                                                 return;
                                             case R.id.llSavedSig:
@@ -1272,9 +1273,9 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                 if (adjustPosition == 0) {
                     Constant.adjustProgressArray[0][1] = i;
                     iv_editImg.getSource().setColorFilter(AdjustUtil.setBrightness(i / 2));
-
                     tv_progress.setText(Constant.getProgressPercentage(i, 255) + "");
                     return;
+
                 } else if (adjustPosition == 1) {
                     contrast = (float) ((((double) i) / 9.99d) / 8.0d);
                     changeContrast();
@@ -1657,7 +1658,9 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
             iv_done.setVisibility(View.VISIBLE);
             slideDownAnimation(ly_color_filter);
             iv_editImg.getSource().setImageBitmap(Constant.original);
-        } else if (ly_adjust.getVisibility() == View.VISIBLE) {
+
+        }
+        else if (ly_adjust.getVisibility() == View.VISIBLE) {
             Constant.filterPosition = 0;
             iv_brightness.setImageResource(R.drawable.brightness_green);
             iv_contrast.setImageResource(R.drawable.contrastwhite);
@@ -1685,7 +1688,8 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
             ly_edit_tools.setVisibility(View.VISIBLE);
             iv_done.setVisibility(View.VISIBLE);
             slideDownAnimation(ly_adjust);
-        } else if (ly_highlight.getVisibility() == View.VISIBLE) {
+        }
+        else if (ly_highlight.getVisibility() == View.VISIBLE) {
             photoEditor.setBrushDrawingMode(false);
             photoEditor.clearAllViews();
             ly_edit_tools.setVisibility(View.VISIBLE);

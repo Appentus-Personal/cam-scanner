@@ -95,8 +95,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     public static MainActivity mainActivity;
     public Bitmap bitmap;
 
-
-
     public static ArrayList<Bitmap> idcardImgList = new ArrayList<>();
 
     protected AllGroupAdapter allGroupAdapter;
@@ -262,7 +260,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         clearText = (ImageView) findViewById(R.id.clear_text);
 
         iv_drawer = (ImageView) findViewById(R.id.iv_drawer);
+
         iv_search = (ImageView) findViewById(R.id.iv_search);
+
         iv_more = (ImageView) findViewById(R.id.iv_more);
         rl_search_bar = (RelativeLayout) findViewById(R.id.rl_search_bar);
         iv_close_search = (ImageView) findViewById(R.id.iv_close_search);
@@ -316,8 +316,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         for (String text : tabList) {
             TabLayout tabLayout = tag_tabs;
-            tabLayout.addTab(tabLayout.newTab().setText((CharSequence) text));
-        }
+            tabLayout.addTab(tabLayout.newTab().setText((CharSequence) text)); }
 
         for (int i = 0; i < tag_tabs.getTabCount(); i++) {
             View tab = ((ViewGroup) tag_tabs.getChildAt(0)).getChildAt(i);
@@ -382,6 +381,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
         allGroupAdapter.filterList(arrayList);
     }
+
+
+
+
+
+
+
+
 
 
     @Override
@@ -471,9 +478,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 }
 */
             case R.id.iv_search:
+                /*Intent send = new Intent(MainActivity.this, DemoActivity.class);
+                startActivity(send);*/
+
                 iv_search.setVisibility(View.GONE);
                 rl_search_bar.setVisibility(View.VISIBLE);
                 showSoftKeyboard(et_search);
+
                 return;
             default:
                 return;
@@ -512,8 +523,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 if (!finalFolderName.isEmpty()) {
                     String group_date = Constant.getDateTime("yyyy-MM-dd  hh:mm a");
                     if (groupName.isEmpty()) {        // for create new folder
-                        dbHelper.createDocTable(finalFolderName);
-                        dbHelper.addGroup(new DBModel(finalFolderName, group_date, "", Constant.current_tag));
+
+                        try {
+                            dbHelper.createDocTable(finalFolderName);
+                            dbHelper.addGroup(new DBModel(finalFolderName, group_date, "", Constant.current_tag));
+                        }
+                        catch (Exception ignored){
+                            Toast.makeText(MainActivity.this ,"Already Created" ,Toast.LENGTH_SHORT).show();
+                        }
+
+
                     } else {
                         dbHelper.createDocTable(finalFolderName);
                         dbHelper.addGroup(new DBModel(finalFolderName, group_date, "", Constant.current_tag));
@@ -849,8 +868,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     }
 
-
-
 /*
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle((CharSequence) "Sort By");
@@ -1043,6 +1060,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 ly_empty.setVisibility(View.GONE);
 
                 mainActivity.selected_sorting = mainActivity.preferences.getString("sortBy", Constant.descending_date);
+
                 if (selected_sorting.equals(Constant.ascending_date)) {
                     Log.e(MainActivity.TAG, "onPostExecute: ascending_date");
                 } else if (selected_sorting.equals(Constant.descending_date)) {
@@ -1099,6 +1117,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             }
             return 0;
         }
+
     }
 
 
@@ -1290,7 +1309,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         });
 
     }
-
 
     ArrayList<DBModel> modelArrayList = new ArrayList<>();
     String selectedFolderName = "";
@@ -1577,7 +1595,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         dialog.show();
     }
 
-
     public void shareGroupPDFWithPswrd(String name, String saveOrShare, String pdfName) {
 
         final Dialog dialog = new Dialog(this);
@@ -1766,7 +1783,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
     }
 
-
     public void updateGroupName(final String name) {
 
         final Dialog dialog = new Dialog(this);
@@ -1885,9 +1901,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
     }
 
-
     public void sendTomail(String name, String shareType) {
-
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.enter_email_dialog);
@@ -2064,6 +2078,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         }
     }
+
     public void saveTheme(int theme) {
         SharedPreferences sharedPreferences = MainActivity.this.getSharedPreferences(Constant.PREFS_NAME, Context.MODE_PRIVATE);
         sharedPreferences.edit().putInt(Constant.KEY_THEME, theme).apply();
@@ -2073,7 +2088,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         AppCompatDelegate.setDefaultNightMode(themeMode);
         saveTheme(prefsMode);
     }
-
 
     @Override
     public void onBackPressed() {

@@ -88,10 +88,11 @@
                 <ImageView
                     android:id="@+id/iv_doc_camera"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_18sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/_2sdp"
                     android:layout_weight="1"
                     android:onClick="onClick"
+                    android:padding="@dimen/_8sdp"
                     android:src="@drawable/grp_camera" />
 
 
@@ -106,10 +107,11 @@
                 <ImageView
                     android:id="@+id/gallery"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_20sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/_2sdp"
                     android:layout_weight="1"
                     android:onClick="onClick"
+                    android:padding="@dimen/_6sdp"
                     android:src="@drawable/groupgallery" />
 
 

@@ -96,12 +96,15 @@
                     <EditText
                         android:id="@+id/et_folder_name"
                         style="@style/TextPopReg12"
+                        android:layout_width="match_parent"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:background="@color/transparent"
                         android:cursorVisible="true"
                         android:focusable="true"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
                         android:hint="@string/enterText"
+                        android:maxLength="20"
                         android:imeOptions="actionDone"
                         android:inputType="text"
                         android:textColor="#000000"
@@ -114,6 +117,7 @@
                         android:src="@drawable/cross_icn"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/_10sdp"
+
                         android:layout_alignParentEnd="true" />
 
                 </RelativeLayout>
@@ -124,7 +128,6 @@
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_3sdp"
                     android:layout_marginBottom="@dimen/_8sdp">
-
 
                     <TextView
                         android:id="@+id/iv_close"

@@ -225,7 +225,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                 return;
 
             case R.id.share :
-                ArrayList<DBModel> shareGroupDocs = dataBaseHelper.getGroupDocs(GroupDocumentActivity.current_group.replace(" ", ""));
+                ArrayList<DBModel> shareGroupDocs = dataBaseHelper.getGroupDocs(GroupDocumentActivity.current_group.replace(" ", " "));
                 if (shareGroupDocs.size() > 0) {
                     shareGroupDocList("Multiple");
                 } else {
@@ -238,6 +238,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                 Constant.current_camera_view = "Document";
                 Constant.IdentifyActivity = "DocumentGalleryActivity";
                 AdsUtils.showGoogleInterstitialAd(GroupDocumentActivity.this, true);
+                dialogMore.dismiss();
                 return;
 
 
@@ -640,7 +641,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.BOTTOM;
         dialog.getWindow().setAttributes(lp);
-        dialogItem.dismiss();
+        dialogMore.dismiss();
         dialog.show();
 /*
 
@@ -706,8 +707,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                dialogItem.show();
-
+                dialogMore.show();
 
             }
         });
@@ -1025,7 +1025,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         lp.gravity = Gravity.BOTTOM;
         dialog.getWindow().setAttributes(lp);
 
-        dialogItem.dismiss();
+        dialogMore.dismiss();
         dialog.show();
 
         /*if (AdmobAds.SHOW_ADS) {
@@ -1033,6 +1033,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         } else {
             dialog.findViewById(R.id.admob_native_container).setVisibility(View.GONE);
         }*/
+
         final EditText editText = (EditText) dialog.findViewById(R.id.et_emailId);
         final Dialog dialog2 = dialog;
         final String str3 = str;
@@ -1053,13 +1054,11 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         ((TextView) dialog.findViewById(R.id.tv_cancel)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialogItem.show();
+                dialogMore.show();
                 dialog.dismiss();
             }
         });
-
     }
-
     private class saveToGallery extends AsyncTask<String, Void, String> {
         ArrayList<String> pathList;
         ProgressDialog progressDialog;
@@ -1113,7 +1112,6 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
             Toast.makeText(GroupDocumentActivity.this, "Save Successfully", Toast.LENGTH_SHORT).show();
         }
     }
-
     public void onClickSingleDoc(int i) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
@@ -1126,7 +1124,6 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         selected_position = i;
         Constant.IdentifyActivity = "SavedDocumentPreviewActivity";
         AdsUtils.showGoogleInterstitialAd(GroupDocumentActivity.this, true);
-
     }
 
     public void onClickItemMore(final int i, String str) {
@@ -1230,7 +1227,6 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
                         dialog.dismiss();
                     }
                 });
-
 
             }
         });

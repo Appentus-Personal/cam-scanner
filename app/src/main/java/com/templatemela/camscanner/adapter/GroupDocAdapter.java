@@ -40,6 +40,7 @@ public class GroupDocAdapter extends RecyclerView.Adapter<GroupDocAdapter.ViewHo
             viewHolder.newScanLayout.setVisibility(View.GONE);
             viewHolder.docLayout.setVisibility(View.VISIBLE);
             Glide.with(activity).load(arrayList.get(i).getGroup_doc_img()).into(viewHolder.iv_doc);
+
             TextView textView = viewHolder.tv_doc_name;
             textView.setText("Page " + (i + 1));
             viewHolder.iv_doc.setOnClickListener(new View.OnClickListener() {

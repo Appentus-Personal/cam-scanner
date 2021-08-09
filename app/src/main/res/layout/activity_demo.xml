@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".activity.DemoActivity">
 
-    <!--<RelativeLayout
+    <RelativeLayout
         android:id="@+id/rl_search_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginStart="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_15sdp"
@@ -23,7 +23,6 @@
             android:id="@+id/iv_close_search"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
-            android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_5sdp"
 
             android:src="@drawable/search" />
@@ -32,7 +31,6 @@
             android:id="@+id/et_search"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_36sdp"
-            android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_3sdp"
             android:layout_marginEnd="@dimen/_7sdp"
             android:layout_toStartOf="@+id/iv_clear_txt"
@@ -53,16 +51,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/_5sdp"
             android:padding="@dimen/_5sdp"
             android:src="@drawable/ic_close_black_24dp"
             android:visibility="invisible"
             app:tint="#858997" />
-    </RelativeLayout>-->
 
 
-    <RadioGroup
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tag_tabs"
+            style="@style/CustomTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_85sdp"
+            android:background="@color/ThemeBg"
+            app:tabBackground="@drawable/selector_tab_layout"
+            app:tabGravity="fill"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/tab_white"
+            app:tabTextAppearance="@style/MyCustomTabText"
+            app:tabTextColor="@color/TextTheme" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tag_tabs"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+
+
+   <!-- <RadioGroup
         android:id="@+id/radios"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -108,6 +133,6 @@
             android:textSize="20dp"
             android:gravity="right" />
     </RadioGroup>
-
+-->
 
 </RelativeLayout>

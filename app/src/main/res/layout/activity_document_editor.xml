@@ -208,8 +208,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#000000"
-       android:visibility="gone"
         android:orientation="vertical"
+
         android:paddingTop="@dimen/_5sdp">
 
         <RelativeLayout
@@ -949,6 +949,11 @@
                 android:textColor="@color/txt_color"
                 android:textColorHint="@color/unselected_txt_color"
                 android:textSize="@dimen/_12sdp" />
+
+
+
+
+
 
 
             <RelativeLayout
