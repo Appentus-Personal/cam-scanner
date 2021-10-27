@@ -53,7 +53,7 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
-            <com.templatemela.camscanner.document_view.ViewPagerFixed
+            <appentus.camscanner.document_view.ViewPagerFixed
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

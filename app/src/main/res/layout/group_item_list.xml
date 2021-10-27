@@ -31,7 +31,7 @@
                 android:layout_alignParentLeft="true"
                 android:orientation="horizontal">
 
-                <com.templatemela.camscanner.document_view.roundshapeImageview
+                <appentus.camscanner.document_view.roundshapeImageview
                     android:id="@+id/iv_group_first_img"
                     android:layout_width="@dimen/_45sdp"
                     android:layout_height="@dimen/_45sdp"
@@ -39,7 +39,7 @@
                     android:scaleType="centerCrop"
                     android:src="@color/white" />
 
-                <com.templatemela.camscanner.document_view.roundshapeImageview
+                <appentus.camscanner.document_view.roundshapeImageview
                     android:id="@+id/iv_group_folder_img"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"

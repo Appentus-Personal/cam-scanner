@@ -9,11 +9,11 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.templatemela.camscanner"
+        applicationId "com.appentus.camscanner"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
        /* ndk {
@@ -54,14 +54,14 @@ android {
     }
 
     /* Reduce apk size */
-    /*splits {
+    splits {
         abi {
             enable true
             reset()
             include 'arm64-v8a', 'armeabi-v7a', 'mips', 'mips64', 'x86', 'x86_64'
             universalApk false
         }
-    }*/
+    }
 
 }
 

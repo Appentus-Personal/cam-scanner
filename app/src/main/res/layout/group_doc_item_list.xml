@@ -14,7 +14,7 @@
         android:background="@drawable/rb_grp_doc"
         android:layout_margin="@dimen/_6sdp">
 
-        <com.templatemela.camscanner.document_view.roundshapeImageview
+        <appentus.camscanner.document_view.roundshapeImageview
             android:id="@+id/iv_doc"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_150sdp"
@@ -78,7 +78,7 @@
         android:background="@drawable/rb_grp_doc"
         android:layout_margin="@dimen/_6sdp">
 
-        <com.templatemela.camscanner.document_view.roundshapeImageview
+        <appentus.camscanner.document_view.roundshapeImageview
             android:id="@+id/iv_cam_doc"
             android:layout_width="@dimen/_30sdp"
             android:src="@drawable/cam_list_item"
