@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.appentus.camscanner">
+    package="com.appentus.finecapture">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -22,7 +22,7 @@
   <!--  <uses-permission android:name="com.android.vending.BILLING" />-->
 
     <application
-        android:name="com.appentus.camscanner.MyApp"
+        android:name="com.appentus.finecapture.MyApp"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,11 +34,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CamScanner"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.appentus.camscanner.activity.DemoActivity"></activity>
-        <activity android:name="com.appentus.camscanner.activity.TermsConditionActivity" />
-        <activity android:name="com.appentus.camscanner.activity.PrivacyPolicy" />
-        <activity android:name="com.appentus.camscanner.activity.AboutUsActivity" />
-        <activity android:name="com.appentus.camscanner.activity.WelcomeActivity" /> <!-- <activity android:name=".activity.WelcomeScreen"></activity> -->
+        <activity android:name="com.appentus.finecapture.activity.DemoActivity"></activity>
+        <activity android:name="com.appentus.finecapture.activity.TermsConditionActivity" />
+        <activity android:name="com.appentus.finecapture.activity.PrivacyPolicy" />
+        <activity android:name="com.appentus.finecapture.activity.AboutUsActivity" />
+        <activity android:name="com.appentus.finecapture.activity.WelcomeActivity" /> <!-- <activity android:name=".activity.WelcomeScreen"></activity> -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -51,9 +51,9 @@
                 tools:replace="android:resource" />
         </provider>
 
-        <activity android:name="com.appentus.camscanner.activity.BaseActivity" />
+        <activity android:name="com.appentus.finecapture.activity.BaseActivity" />
         <activity
-            android:name="com.appentus.camscanner.activity.SplashActivity"
+            android:name="com.appentus.finecapture.activity.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,58 +62,58 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.appentus.camscanner.activity.MainActivity"
+            android:name="com.appentus.finecapture.activity.MainActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.appentus.camscanner.activity.ScannerActivity"
+            android:name="com.appentus.finecapture.activity.ScannerActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/uCropStyle" />
         <activity
-            android:name="com.appentus.camscanner.activity.IDCardPreviewActivity"
+            android:name="com.appentus.finecapture.activity.IDCardPreviewActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.appentus.camscanner.activity.CropDocumentActivity"
+            android:name="com.appentus.finecapture.activity.CropDocumentActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.appentus.camscanner.activity.CurrentFilterActivity"
+            android:name="com.appentus.finecapture.activity.CurrentFilterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.appentus.camscanner.activity.SavedDocumentActivity"
+            android:name="com.appentus.finecapture.activity.SavedDocumentActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.appentus.camscanner.activity.DocumentEditorActivity"
+            android:name="com.appentus.finecapture.activity.DocumentEditorActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing" />
         <activity
-            android:name="com.appentus.camscanner.activity.SavedEditDocumentActivity"
+            android:name="com.appentus.finecapture.activity.SavedEditDocumentActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.appentus.camscanner.activity.SavedDocumentPreviewActivity"
+            android:name="com.appentus.finecapture.activity.SavedDocumentPreviewActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.appentus.camscanner.activity.NoteActivity"
+            android:name="com.appentus.finecapture.activity.NoteActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.appentus.camscanner.activity.ImageToTextActivity"
+            android:name="com.appentus.finecapture.activity.ImageToTextActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.appentus.camscanner.activity.GroupDocumentActivity"
+            android:name="com.appentus.finecapture.activity.GroupDocumentActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.appentus.camscanner.activity.PDFViewerActivity"
+            android:name="com.appentus.finecapture.activity.PDFViewerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.appentus.camscanner.activity.QRGenerateActivity"
+            android:name="com.appentus.finecapture.activity.QRGenerateActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.appentus.camscanner.activity.QRReaderActivity"
+            android:name="com.appentus.finecapture.activity.QRReaderActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.appentus.camscanner.activity.PrivacyPolicyActivity"
+            android:name="com.appentus.finecapture.activity.PrivacyPolicyActivity"
             android:screenOrientation="portrait" />
 
         <meta-data
