@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_7sdp"
-     app:cardBackgroundColor="@color/tab_color"
+        app:cardBackgroundColor="@color/tab_color"
         app:cardCornerRadius="@dimen/_6sdp">
 
         <RelativeLayout
@@ -31,7 +31,8 @@
                 android:layout_alignParentLeft="true"
                 android:orientation="horizontal">
 
-                <appentus.camscanner.document_view.roundshapeImageview
+
+                <com.appentus.finecapture.document_view.roundshapeImageview
                     android:id="@+id/iv_group_first_img"
                     android:layout_width="@dimen/_45sdp"
                     android:layout_height="@dimen/_45sdp"
@@ -39,7 +40,7 @@
                     android:scaleType="centerCrop"
                     android:src="@color/white" />
 
-                <appentus.camscanner.document_view.roundshapeImageview
+                <com.appentus.finecapture.document_view.roundshapeImageview
                     android:id="@+id/iv_group_folder_img"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
@@ -59,8 +60,8 @@
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/TextPopMed14"
                     android:id="@+id/tv_group_name"
+                    style="@style/TextPopMed14"
                     android:singleLine="true"
                     android:text="CamScanner_123456"
                     android:textSize="@dimen/_12sdp" />

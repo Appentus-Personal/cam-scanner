@@ -42,19 +42,6 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
-import com.divyanshu.colorseekbar.ColorSeekBar;
-import com.flask.colorpicker.ColorPickerView;
-import com.flask.colorpicker.OnColorSelectedListener;
-import com.flask.colorpicker.builder.ColorPickerClickListener;
-import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
-import com.itextpdf.text.html.HtmlTags;
-import com.kyanogen.signatureview.SignatureView;
-import com.nguyenhoanglam.imagepicker.model.Image;
-import com.nguyenhoanglam.imagepicker.ui.imagepicker.ImagePicker;
-import com.takwolf.android.aspectratio.AspectRatioLayout;
 import com.appentus.finecapture.R;
 import com.appentus.finecapture.adapter.ColorEffectAdapter;
 import com.appentus.finecapture.adapter.ColorFilterAdapter;
@@ -70,6 +57,19 @@ import com.appentus.finecapture.main_utils.BitmapUtils;
 import com.appentus.finecapture.main_utils.Constant;
 import com.appentus.finecapture.models.EditToolType;
 import com.appentus.finecapture.utils.AdsUtils;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
+import com.divyanshu.colorseekbar.ColorSeekBar;
+import com.flask.colorpicker.ColorPickerView;
+import com.flask.colorpicker.OnColorSelectedListener;
+import com.flask.colorpicker.builder.ColorPickerClickListener;
+import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+import com.itextpdf.text.html.HtmlTags;
+import com.kyanogen.signatureview.SignatureView;
+import com.nguyenhoanglam.imagepicker.model.Image;
+import com.nguyenhoanglam.imagepicker.ui.imagepicker.ImagePicker;
+import com.takwolf.android.aspectratio.AspectRatioLayout;
 import com.watermark.androidwm_light.WatermarkBuilder;
 import com.watermark.androidwm_light.bean.WatermarkText;
 import com.xiaopo.flying.sticker.BitmapStickerIcon;
@@ -505,14 +505,12 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                 photoEditor.setBrushColor(brush_color);
                 sb_highlight_size.setVisibility(View.VISIBLE);
                 sb_eraser_size.setVisibility(View.GONE);
-                iv_highlight.setImageResource(R.drawable.highlight_green);
+                iv_highlight.setImageResource(R.drawable.ic_highlight_blue);
                 iv_erase.setImageResource(R.drawable.eraserwhite);
                 iv_color.setImageResource(R.drawable.white_color);
-
                 txtHighlight.setTextColor(getResources().getColor(R.color.tab_white));
                 txtEraser.setTextColor(getResources().getColor(R.color.tab_white));
                 txtColor.setTextColor(getResources().getColor(R.color.tab_white));
-
                 slideUpAnimation(ly_highlight);
                 ly_edit_tools.setVisibility(View.INVISIBLE);
                 iv_done.setVisibility(View.INVISIBLE);
@@ -520,15 +518,17 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
 
             case PICTURE:
                 ImagePicker.with((Activity) this)
-                        .setStatusBarColor("#25c4a4")
-                        .setToolbarColor("#25c4a4")
+                        .setStatusBarColor("#ffffff")
+                        .setToolbarColor("#ffffff")
                         .setBackgroundColor("#ffffff")
                         .setFolderMode(true)
-                        .setFolderTitle("Gallery")
+                        .setFolderTitle("Add From Photos")
                         .setMultipleMode(true)
                         .setShowNumberIndicator(true)
                         .setAlwaysShowDoneButton(true)
                         .setMaxSize(1)
+                        .setToolbarTextColor("#000000")
+                        .setToolbarIconColor("#000000")
                         .setShowCamera(false)
                         .setLimitMessage("You can select up to 1 images")
                         .setRequestCode(100)
@@ -536,12 +536,10 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                 return;
 
             case SIGNATURE:
-                iv_create_signature.setImageResource(R.drawable.green_create_sig);
+                iv_create_signature.setImageResource(R.drawable.ic_create_sig_blue);
                 iv_saved_signature.setImageResource(R.drawable.save_sig);
-
                 txtCreateSig.setTextColor(getResources().getColor(R.color.tab_white));
                 txtSavedSig.setTextColor(getResources().getColor(R.color.tab_white));
-
                 ly_edit_tools.setVisibility(View.INVISIBLE);
                 iv_done.setVisibility(View.INVISIBLE);
                 rl_signature.setVisibility(View.VISIBLE);
@@ -745,7 +743,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                         return;
                     case R.id.llBrightness:
 
-                        iv_brightness.setImageResource(R.drawable.brightness_green);
+                        iv_brightness.setImageResource(R.drawable.ic_brightness_blue);
                         iv_contrast.setImageResource(R.drawable.contrastwhite);
                         iv_saturation.setImageResource(R.drawable.saturationwhite);
                         iv_exposure.setImageResource(R.drawable.exposurewhite);
@@ -765,7 +763,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
 
                             case R.id.tv_close_adjust:
                                 Constant.filterPosition = 0;
-                                iv_brightness.setImageResource(R.drawable.brightness_green);
+                                iv_brightness.setImageResource(R.drawable.ic_brightness_blue);
                                 iv_contrast.setImageResource(R.drawable.contrastwhite);
                                 iv_saturation.setImageResource(R.drawable.saturationwhite);
                                 iv_exposure.setImageResource(R.drawable.exposurewhite);
@@ -873,7 +871,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 brush_color = i;
                                                 photoEditor.setBrushColor(i);
                                                 photoEditor.setOpacity(Color.alpha(i));
-                                                iv_color.setImageResource(R.drawable.green_color);
+                                                iv_color.setImageResource(R.drawable.ic_blue_color);
                                                 iv_highlight.setImageResource(R.drawable.highlightwhite);
                                                 iv_erase.setImageResource(R.drawable.eraserwhite);
 
@@ -891,7 +889,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                             case R.id.llContrast:
                                                 Constant.filterPosition = 0;
                                                 iv_brightness.setImageResource(R.drawable.brightnesswhite);
-                                                iv_contrast.setImageResource(R.drawable.contrastgreen);
+                                                iv_contrast.setImageResource(R.drawable.ic_contrast_blue);
                                                 iv_saturation.setImageResource(R.drawable.saturationwhite);
                                                 iv_exposure.setImageResource(R.drawable.exposurewhite);
 
@@ -902,10 +900,8 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 return;
 
                                             case R.id.llCreateSig:
-                                                iv_create_signature.setImageResource(R.drawable.green_create_sig);
+                                                iv_create_signature.setImageResource(R.drawable.ic_create_sig_blue);
                                                 iv_saved_signature.setImageResource(R.drawable.save_sig);
-
-
                                                 ly_seek_view.setVisibility(View.VISIBLE);
                                                 rl_signature_list.setVisibility(View.GONE);
                                                 return;
@@ -917,7 +913,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                             case R.id.llEraser:
                                                 iv_highlight.setImageResource(R.drawable.highlightwhite);
                                                 iv_color.setImageResource(R.drawable.white_color);
-                                                iv_erase.setImageResource(R.drawable.erasergreen);
+                                                iv_erase.setImageResource(R.drawable.ic_eraser_blue);
 
                                                 sb_highlight_size.setVisibility(View.GONE);
                                                 sb_eraser_size.setVisibility(View.VISIBLE);
@@ -927,7 +923,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 iv_brightness.setImageResource(R.drawable.brightnesswhite);
                                                 iv_contrast.setImageResource(R.drawable.contrastwhite);
                                                 iv_saturation.setImageResource(R.drawable.saturationwhite);
-                                                iv_exposure.setImageResource(R.drawable.exposuregreen);
+                                                iv_exposure.setImageResource(R.drawable.ic_exposure_blue);
 
 
                                                 adjustPosition = 3;
@@ -935,7 +931,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                 tv_progress.setText(Constant.getProgressPercentage(sb_adjust.getProgress(), 255) + "");
                                                 return;
                                             case R.id.llHighLight:
-                                                iv_highlight.setImageResource(R.drawable.highlight_green);
+                                                iv_highlight.setImageResource(R.drawable.ic_highlight_blue);
                                                 iv_erase.setImageResource(R.drawable.eraserwhite);
                                                 iv_color.setImageResource(R.drawable.white_color);
 
@@ -968,7 +964,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                             case R.id.llSaturation:
                                                 Constant.filterPosition = 0;
 
-                                                iv_saturation.setImageResource(R.drawable.saturationgreen);
+                                                iv_saturation.setImageResource(R.drawable.ic_saturation_blue);
                                                 iv_brightness.setImageResource(R.drawable.brightnesswhite);
                                                 iv_contrast.setImageResource(R.drawable.contrastwhite);
                                                 iv_exposure.setImageResource(R.drawable.exposurewhite);
@@ -981,7 +977,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                             case R.id.llSavedSig:
                                                 setSignatureAdapter();
                                                 iv_create_signature.setImageResource(R.drawable.ic_create_sig);
-                                                iv_saved_signature.setImageResource(R.drawable.green_sig);
+                                                iv_saved_signature.setImageResource(R.drawable.ic_saved_sig_blue);
 
                                                 ly_seek_view.setVisibility(View.GONE);
                                                 rl_signature_list.setVisibility(View.VISIBLE);
@@ -1014,6 +1010,9 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                     default:
                                                         switch (id) {
                                                             case R.id.iv_watermark_color:
+                                                                iv_watermark_color.setImageResource(R.drawable.ic_blue_color);
+                                                                iv_watermark_font.setImageResource(R.drawable.whitefont);
+                                                                iv_watermark_opacity.setImageResource(R.drawable.brightnesswhite);
                                                                 rv_watermark_font.setVisibility(View.GONE);
                                                                 rl_watermark_color.setVisibility(View.VISIBLE);
                                                                 rl_watermark_opacity.setVisibility(View.GONE);
@@ -1024,10 +1023,17 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
                                                                 watermarkFontAdapter = new WatermarkFontAdapter(this, waterMarkFontList());
                                                                 rv_watermark_font.setAdapter(watermarkFontAdapter);
                                                                 rv_watermark_font.setVisibility(View.VISIBLE);
+                                                                iv_watermark_font.setImageResource(R.drawable.ic_font_blue);
+                                                                iv_watermark_color.setImageResource(R.drawable.white_color);
+                                                                iv_watermark_opacity.setImageResource(R.drawable.brightnesswhite);
                                                                 rl_watermark_color.setVisibility(View.GONE);
                                                                 rl_watermark_opacity.setVisibility(View.GONE);
                                                                 return;
                                                             case R.id.iv_watermark_opacity:
+
+                                                                iv_watermark_opacity.setImageResource(R.drawable.ic_brightness_blue);
+                                                                iv_watermark_color.setImageResource(R.drawable.white_color);
+                                                                iv_watermark_font.setImageResource(R.drawable.whitefont);
                                                                 rv_watermark_font.setVisibility(View.GONE);
                                                                 rl_watermark_color.setVisibility(View.GONE);
                                                                 rl_watermark_opacity.setVisibility(View.VISIBLE);
@@ -1656,7 +1662,7 @@ public class DocumentEditorActivity extends BaseActivity implements View.OnClick
         }
         else if (ly_adjust.getVisibility() == View.VISIBLE) {
             Constant.filterPosition = 0;
-            iv_brightness.setImageResource(R.drawable.brightness_green);
+            iv_brightness.setImageResource(R.drawable.ic_brightness_blue);
             iv_contrast.setImageResource(R.drawable.contrastwhite);
             iv_saturation.setImageResource(R.drawable.saturationwhite);
             iv_exposure.setImageResource(R.drawable.exposurewhite);

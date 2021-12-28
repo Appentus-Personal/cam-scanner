@@ -2,6 +2,6 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:shape="rectangle">
     <solid android:color="@color/DialogBottom"/>
     <corners
-        android:radius="@dimen/_8sdp"/>
-    <stroke android:width="0.8dip" android:color="@color/TextTheme"/>
+        android:radius="@dimen/_4sdp"/>
+    <stroke android:width="0.8dip" android:color="@color/ViewColor"/>
 </shape>

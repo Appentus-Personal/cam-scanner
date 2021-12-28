@@ -25,16 +25,16 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-              <!--   <include
-                     android:id="@+id/admob_native_container"
-                     layout="@layout/admob_native_medium"
-                     android:layout_width="match_parent"
-                     android:layout_marginLeft="@dimen/_5sdp"
-                     android:layout_marginTop="@dimen/_5sdp"
-                     android:layout_marginRight="@dimen/_5sdp"
-                     android:layout_height="@dimen/_200sdp"
-                     android:visibility="gone" />
--->
+                <!--   <include
+                       android:id="@+id/admob_native_container"
+                       layout="@layout/admob_native_medium"
+                       android:layout_width="match_parent"
+                       android:layout_marginLeft="@dimen/_5sdp"
+                       android:layout_marginTop="@dimen/_5sdp"
+                       android:layout_marginRight="@dimen/_5sdp"
+                       android:layout_height="@dimen/_200sdp"
+                       android:visibility="gone" />
+  -->
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -100,8 +100,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:background="@color/transparent"
-                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
                         android:cursorVisible="true"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
                         android:focusable="true"
                         android:hint="@string/enterText"
                         android:imeOptions="actionDone"
@@ -111,19 +111,21 @@
                 </RelativeLayout>
             </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
-                android:layout_marginStart="@dimen/_8sdp"
-
-                android:layout_marginBottom="@dimen/_8sdp">
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tv_cancel"
                     style="@style/TextPopMed14"
+                    android:layout_weight="0.5"
                     android:background="@drawable/white_border_grey"
+                    android:gravity="center"
                     android:paddingStart="@dimen/_40sdp"
                     android:paddingTop="@dimen/_8sdp"
                     android:paddingEnd="@dimen/_40sdp"
@@ -137,15 +139,18 @@
                     style="@style/TextPopMed14"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_weight="0.5"
                     android:background="@drawable/btn_curve_bg"
-                    android:paddingStart="@dimen/_40sdp"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_50sdp"
                     android:paddingTop="@dimen/_8sdp"
-                    android:paddingEnd="@dimen/_40sdp"
+                    android:paddingEnd="@dimen/_50sdp"
                     android:paddingBottom="@dimen/_8sdp"
                     android:text="@string/ok"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/_12sdp" />
-            </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

@@ -84,7 +84,6 @@ public class GroupDocAdapter extends RecyclerView.Adapter<GroupDocAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView iv_doc;
         private ImageView iv_doc_item_more;
-        private ImageView iv_note;
         private TextView tv_doc_name;
         private RelativeLayout newScanLayout, docLayout;
 
@@ -92,7 +91,6 @@ public class GroupDocAdapter extends RecyclerView.Adapter<GroupDocAdapter.ViewHo
             super(view);
             iv_doc = (ImageView) view.findViewById(R.id.iv_doc);
             tv_doc_name = (TextView) view.findViewById(R.id.tv_doc_name);
-            iv_note = (ImageView) view.findViewById(R.id.iv_note);
             iv_doc_item_more = (ImageView) view.findViewById(R.id.iv_doc_item_more);
             newScanLayout = (RelativeLayout) view.findViewById(R.id.newScanLayout);
             docLayout = (RelativeLayout) view.findViewById(R.id.docLayout);

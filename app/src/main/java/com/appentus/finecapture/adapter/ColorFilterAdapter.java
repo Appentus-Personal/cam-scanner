@@ -83,7 +83,6 @@ public class ColorFilterAdapter extends RecyclerView.Adapter<ColorFilterAdapter.
             }
         });
         if (Constant.filterPosition == i) {
-
             viewHolder.ly_img.setBackground(ContextCompat.getDrawable(activity, R.drawable.img_border_selected));
             viewHolder.tv_filter_name.setTextColor(activity.getResources().getColor(R.color.tab_white));
         } else {

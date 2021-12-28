@@ -178,7 +178,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     protected String selected_sorting;
     protected int selected_sorting_pos;
 
-    public String[] tabList = {"All Documents", "Documents", "ID Card", "Books", "Personal Tag"};
+    public String[] tabList = {"All Documents", "Documents", "ID Card", "Books", "Photos"};
     private TabLayout tag_tabs;
     protected ActionBarDrawerToggle toggle;
 
@@ -376,14 +376,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
 
-
-
-
-
-
-
-
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -428,7 +420,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 return;
 
             case R.id.gallery:
-
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -453,27 +444,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 dialogMore.show();
                 return;
 
-
-               /* PopupMenu popupMenu = new PopupMenu(this, view);
-                popupMenu.setOnMenuItemClickListener(this);
-                popupMenu.inflate(R.menu.group_more);
-                try {
-                    Field declaredField = PopupMenu.class.getDeclaredField("mPopup");
-                    declaredField.setAccessible(true);
-                    Object obj = declaredField.get(popupMenu);
-                    obj.getClass().getDeclaredMethod("setForceShowIcon", new Class[]{Boolean.TYPE}).invoke(obj, new Object[]{true});
-                    popupMenu.show();
-                    return;
-                } catch (Exception exception) {
-                    popupMenu.show();
-                    return;
-
-                }
-*/
             case R.id.iv_search:
-                /*Intent send = new Intent(MainActivity.this, DemoActivity.class);
-                startActivity(send);*/
-
                 iv_search.setVisibility(View.GONE);
                 rl_search_bar.setVisibility(View.VISIBLE);
                 showSoftKeyboard(et_search);
@@ -505,7 +476,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         et_folder_name = (EditText) dialog.findViewById(R.id.et_folder_name);
 
-        String folder_name = "CamScanner" + Constant.getDateTime("_ddMMHHmmss");
+        String folder_name = "FineCapture" + Constant.getDateTime("_ddMMHHmmss");
         et_folder_name.setText(folder_name);
 
         ((TextView) dialog.findViewById(R.id.tv_create)).setOnClickListener(new View.OnClickListener() {
@@ -616,98 +587,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     public boolean onMenuItemClick(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
 
-
-            /*Grid*/
-//            case R.id.grid_view:
-            /*    editor = preferences.edit();
-                editor.putString("ViewMode", "Grid");
-                editor.apply();
-                new setAllGroupAdapter().execute(new String[0]);
-                break;*/
-
             case R.id.import_from_gallery:
                 ActivityCompat.requestPermissions(this, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.CAMERA"}, 1);
                 break;
-
-            /*List*/
-//            case R.id.list_view:
-              /*  editor = preferences.edit();
-                editor.putString("ViewMode", "List");
-                editor.apply();
-                new setAllGroupAdapter().execute(new String[0]);
-                break;*/
-
-
-
-        /*    case R.id.share_all:
-                new shareAllGroup().execute(new String[0]);
-                break;*/
-
-
-            case R.id.sort_by:
-/*
-                final Dialog dialog = new Dialog(this);
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setContentView(R.layout.sort_by_dialog);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-//               dialog.getWindow().setLayout(-1, -2);
-                dialog.setCanceledOnTouchOutside(true);
-                dialog.setCancelable(true);
-
-                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-                lp.copyFrom(dialog.getWindow().getAttributes());
-                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-                lp.gravity = Gravity.BOTTOM;
-                dialog.getWindow().setAttributes(lp);*/
-
-
-              /*  AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle((CharSequence) "Sort By");*/
-//                String[] strArr = {"Ascending date", "Descending date", "Ascending name", "Descending name"};
-            /*    if (selected_sorting.equals(Constant.ascending_date)) {
-                    selected_sorting_pos = 0;
-                } else if (selected_sorting.equals(Constant.descending_date)) {
-                    selected_sorting_pos = 1;
-                } else if (selected_sorting.equals(Constant.ascending_name)) {
-                    selected_sorting_pos = 2;
-                } else if (selected_sorting.equals(Constant.descending_name)) {
-                    selected_sorting_pos = 3;
-                }
-*/
-
-             /*   builder.setSingleChoiceItems((CharSequence[]) strArr, selected_sorting_pos, (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (i == 0) {
-                            mainActivity.editor = mainActivity.preferences.edit();
-                            editor.putString("sortBy", Constant.ascending_date);
-                            editor.apply();
-                            new setAllGroupAdapter().execute(new String[0]);
-                            dialogInterface.dismiss();
-                        } else if (i == 1) {
-                            mainActivity.editor = mainActivity.preferences.edit();
-                            editor.putString("sortBy", Constant.descending_date);
-                            editor.apply();
-                            new setAllGroupAdapter().execute(new String[0]);
-                            dialogInterface.dismiss();
-                        } else if (i == 2) {
-                            mainActivity.editor = mainActivity.preferences.edit();
-                            editor.putString("sortBy", Constant.ascending_name);
-                            editor.apply();
-                            new setAllGroupAdapter().execute(new String[0]);
-                            dialogInterface.dismiss();
-                        } else if (i == 3) {
-                            mainActivity.editor = mainActivity.preferences.edit();
-                            editor.putString("sortBy", Constant.descending_name);
-                            editor.apply();
-                            new setAllGroupAdapter().execute(new String[0]);
-                            dialogInterface.dismiss();
-                        }
-                    }
-                });
-                builder.show();
-                break;*/
         }
         return true;
     }
@@ -862,89 +744,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     }
 
-/*
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle((CharSequence) "Sort By");
-                String[] strArr = {"Ascending date", "Descending date", "Ascending name", "Descending name"};
-
-
-                if (selected_sorting.equals(Constant.ascending_date)) {
-                    selected_sorting_pos = 0;
-                } else if (selected_sorting.equals(Constant.descending_date)) {
-                    selected_sorting_pos = 1;
-                } else if (selected_sorting.equals(Constant.ascending_name)) {
-                    selected_sorting_pos = 2;
-                } else if (selected_sorting.equals(Constant.descending_name)) {
-                    selected_sorting_pos = 3;
-                }
-
-                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(RadioGroup group, int checkedId) {
-                        if (checkedId == 0) {
-                            mainActivity.editor = mainActivity.preferences.edit();
-                            editor.putString("sortBy", Constant.ascending_date);
-                            editor.apply();
-                            new setAllGroupAdapter().execute(new String[0]);
-                        }
-                        else if (checkedId == 1) {
-                            mainActivity.editor = mainActivity.preferences.edit();
-                            editor.putString("sortBy", Constant.descending_date);
-                            editor.apply();
-                            new setAllGroupAdapter().execute(new String[0]);
-
-
-                        } else if (checkedId == 2) {
-                            mainActivity.editor = mainActivity.preferences.edit();
-                            editor.putString("sortBy", Constant.ascending_name);
-                            editor.apply();
-                            new setAllGroupAdapter().execute(new String[0]);
-
-
-                        } else if (checkedId == 3) {
-                            mainActivity.editor = mainActivity.preferences.edit();
-                            editor.putString("sortBy", Constant.descending_name);
-                            editor.apply();
-                            new setAllGroupAdapter().execute(new String[0]);
-                        }
-
-
-                    }
-                });
-
-                dialog.setSingleChoiceItems((CharSequence[]) strArr, selected_sorting_pos, (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (i == 0) {
-                            mainActivity.editor = mainActivity.preferences.edit();
-                            editor.putString("sortBy", Constant.ascending_date);
-                            editor.apply();
-                            new setAllGroupAdapter().execute(new String[0]);
-                            dialogInterface.dismiss();
-                        } else if (i == 1) {
-                            mainActivity.editor = mainActivity.preferences.edit();
-                            editor.putString("sortBy", Constant.descending_date);
-                            editor.apply();
-                            new setAllGroupAdapter().execute(new String[0]);
-                            dialogInterface.dismiss();
-                        } else if (i == 2) {
-                            mainActivity.editor = mainActivity.preferences.edit();
-                            editor.putString("sortBy", Constant.ascending_name);
-                            editor.apply();
-                            new setAllGroupAdapter().execute(new String[0]);
-                            dialogInterface.dismiss();
-                        } else if (i == 3) {
-                            mainActivity.editor = mainActivity.preferences.edit();
-                            editor.putString("sortBy", Constant.descending_name);
-                            editor.apply();
-                            new setAllGroupAdapter().execute(new String[0]);
-                            dialogInterface.dismiss();
-                        }
-                    }
-                });*/
-
-
     private class shareAllGroup extends AsyncTask<String, Void, String> {
         ArrayList<Uri> allPDFList;
         ProgressDialog progressDialog;
@@ -1082,7 +881,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 if (Constant.current_tag.equals("All Documents")) {
                     tv_empty.setText(getResources().getString(R.string.all_docs_empty));
                 } else if (Constant.current_tag.equals("Documents")) {
-                    tv_empty.setText(getResources().getString(R.string.business_card_empty));
+                    tv_empty.setText(getResources().getString(R.string.all_docs_empty));
                 } else if (Constant.current_tag.equals("ID Card")) {
                     tv_empty.setText(getResources().getString(R.string.id_card_empty));
                 } else if (Constant.current_tag.equals("Books")) {

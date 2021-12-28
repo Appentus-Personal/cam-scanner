@@ -87,17 +87,18 @@
                         android:text="@string/changesBeLost"
                         android:textSize="@dimen/_10sdp" />
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:layout_marginEnd="@dimen/_3sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_4sdp">
 
                         <TextView
                             android:id="@+id/keep_editing"
                             style="@style/TextPopMed14"
-                            android:layout_marginStart="@dimen/_12sdp"
+                            android:layout_weight="0.5"
                             android:background="@drawable/white_border_grey"
                             android:paddingStart="@dimen/_25sdp"
                             android:paddingTop="@dimen/_8sdp"
@@ -112,16 +113,18 @@
                             style="@style/TextPopMed14"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/_25sdp"
                             android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_weight="0.5"
                             android:background="@drawable/btn_curve_bg"
-                            android:paddingStart="@dimen/_25sdp"
+                            android:paddingStart="@dimen/_35sdp"
                             android:paddingTop="@dimen/_8sdp"
-                            android:paddingEnd="@dimen/_25sdp"
+                            android:paddingEnd="@dimen/_35sdp"
                             android:paddingBottom="@dimen/_8sdp"
                             android:text="Discard"
                             android:textColor="#ffffff"
                             android:textSize="@dimen/_12sdp" />
-                    </RelativeLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
             </LinearLayout>

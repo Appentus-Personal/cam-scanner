@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CamScanner</string>
+    <string name="app_name">Fine Capture</string>
 
     <string name="admob_native_ad">/6499/example/native</string>
     <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
@@ -18,7 +18,7 @@
     <string name="ok">Ok</string>
     <string name="original">Original</string>
 
-    <string name="personal_tag_empty">No Personal Tag Scanned Yet.</string>
+    <string name="personal_tag_empty">No Photos Scanned Yet.</string>
     <string name="please_hold_the_device_horizontally">Please hold the device horizontally and match the blue line in book\'s binding line</string>
 
     <string name="continue1">Continue</string>
@@ -122,4 +122,10 @@
     <string name="tapToAddNew">Tap to Add New</string>
 
     <string name="Aboutus">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt Stet clita kasd gubergren, no sea  consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt Stet clita kasd gubergren, no seatakimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo d Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</string>
+    <string name="scan_your_document">Scan your document</string>
+    <string name="anytime_anywhere">Anytime, Anywhere</string>
+    <string name="let_s_start">Let\'s Start</string>
+    <string name="documents">Documents</string>
+    <string name="apply">Apply</string>
+    <string name="create_signature">Create Signature</string>
 </resources>

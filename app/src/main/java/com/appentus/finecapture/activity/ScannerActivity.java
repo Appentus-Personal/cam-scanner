@@ -454,7 +454,6 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
             rl_book_view.setVisibility(View.GONE);
             rl_idcard_view.setVisibility(View.GONE);
 
-
           /*  tv_document.setTextColor(getResources().getColor(R.color.black));*/
             tv_document.setBackgroundResource(R.drawable.tab_curve);
             tv_book.setBackgroundResource(R.drawable.tab_curve_black);

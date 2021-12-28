@@ -26,12 +26,12 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-             <!--   <include
-                    android:id="@+id/admob_native_container"
-                    layout="@layout/admob_native_medium"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_200sdp"
-                    android:visibility="gone" />-->
+                <!--   <include
+                       android:id="@+id/admob_native_container"
+                       layout="@layout/admob_native_medium"
+                       android:layout_width="match_parent"
+                       android:layout_height="@dimen/_200sdp"
+                       android:visibility="gone" />-->
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:src="@drawable/bottom_delete"/>
+                    android:src="@drawable/bottom_delete" />
 
 
                 <TextView
@@ -98,9 +98,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_3sdp"
-                android:layout_marginBottom="@dimen/_4sdp">
+                android:layout_marginBottom="@dimen/_15sdp">
 
                 <TextView
                     android:id="@+id/iv_close"
@@ -126,7 +126,7 @@
                     android:paddingTop="@dimen/_8sdp"
                     android:paddingEnd="@dimen/_50sdp"
                     android:paddingBottom="@dimen/_8sdp"
-                    android:text="@string/ok"
+                    android:text="@string/delete"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/_12sdp" />
             </RelativeLayout>

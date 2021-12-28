@@ -80,8 +80,6 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
     private Bitmap tempBitmap;
     public Bitmap original;
     private ProgressDialog progressDialog;
-
-    private ImageView iv_add_new_scan;
     private SeekBar seekBarBrightness;
 
     @Override
@@ -114,7 +112,6 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
 
     private void init() {
         adView = findViewById(R.id.adView);
-        iv_add_new_scan = (ImageView) findViewById(R.id.iv_add_new_scan);
         seekBarBrightness = (SeekBar) findViewById(R.id.seekBarBrightness);
 
         iv_back = (ImageView) findViewById(R.id.iv_back);
@@ -147,13 +144,10 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.iv_add_new_scan:
-                return;
 
                 /*Original*/
             case R.id.iv_original:
-
-                iv_original.setImageResource(R.drawable.originalgreen);
+                iv_original.setImageResource(R.drawable.ic_original_blue);
                 iv_color.setImageResource(R.drawable.colorwhite);
                 iv_sharp_black.setImageResource(R.drawable.sharpwhite);
                 iv_ocv_black.setImageResource(R.drawable.originalwhite);
@@ -173,8 +167,7 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
 
             /*OCVBlack*/
             case R.id.iv_ocv_black:
-
-                iv_ocv_black.setImageResource(R.drawable.originalgreen);
+                iv_ocv_black.setImageResource(R.drawable.ic_original_blue);
                 iv_original.setImageResource(R.drawable.originalwhite);
                 iv_color.setImageResource(R.drawable.colorwhite);
                 iv_sharp_black.setImageResource(R.drawable.sharpwhite);
@@ -209,7 +202,7 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
             /*Color*/
             case R.id.iv_color:
 
-                iv_color.setImageResource(R.drawable.colorgreen);
+                iv_color.setImageResource(R.drawable.ic_color_blue);
                 iv_original.setImageResource(R.drawable.originalwhite);
                 iv_sharp_black.setImageResource(R.drawable.sharpwhite);
                 iv_ocv_black.setImageResource(R.drawable.originalwhite);
@@ -273,7 +266,7 @@ public class CropDocumentActivity extends BaseActivity implements View.OnClickLi
                     }
                 });
 
-                iv_sharp_black.setImageResource(R.drawable.sharpgreen);
+                iv_sharp_black.setImageResource(R.drawable.ic_sharp_blue);
                 iv_ocv_black.setBackgroundResource(R.drawable.originalwhite);
                 iv_original.setImageResource(R.drawable.originalwhite);
                 iv_color.setImageResource(R.drawable.colorwhite);

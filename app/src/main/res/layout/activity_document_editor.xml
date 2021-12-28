@@ -27,15 +27,15 @@
                     android:layout_width="@dimen/_18sdp"
                     android:layout_height="@dimen/_18sdp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
                     android:onClick="onClick"
                     android:src="@drawable/backwhite" />
 
                 <TextView
                     style="@style/WhitePopSemi12"
                     android:layout_centerInParent="true"
-                    android:layout_marginLeft="@dimen/_8sdp"
-                    android:layout_toRightOf="@+id/iv_back"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_toEndOf="@+id/iv_back"
                     android:text="@string/editorDocument" />
 
 
@@ -101,9 +101,10 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_8sdp">
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_10sdp">
 
                 <TextView
                     android:id="@+id/tv_cancel"
@@ -145,25 +146,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#000000"
-        android:visibility="gone"
-        android:orientation="vertical">
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp">
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_12sdp">
 
             <TextView
                 android:id="@+id/tv_close_filter"
                 style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_5sdp"
                 android:background="@drawable/white_border_black"
                 android:onClick="onClick"
-                android:paddingStart="@dimen/_14sdp"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingEnd="@dimen/_14sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_4sdp"
                 android:text="Cancel"
                 android:textSize="@dimen/_10sdp" />
 
@@ -173,22 +176,21 @@
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/colorFilter"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/_13sdp" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
 
             <TextView
                 android:id="@+id/tv_apply_filter"
                 style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_7sdp"
                 android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
-                android:paddingStart="@dimen/_14sdp"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingEnd="@dimen/_14sdp"
-                android:paddingBottom="@dimen/_5sdp"
-                android:text="Apply"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:text="@string/apply"
                 android:textSize="@dimen/_10sdp" />
         </RelativeLayout>
 
@@ -209,18 +211,19 @@
         android:layout_alignParentBottom="true"
         android:background="#000000"
         android:orientation="vertical"
-
-        android:paddingTop="@dimen/_5sdp">
+        android:paddingTop="@dimen/_5sdp"
+        android:visibility="gone">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp">
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp">
 
             <TextView
                 android:id="@+id/tv_close_adjust"
                 style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_7sdp"
                 android:background="@drawable/white_border_black"
                 android:onClick="onClick"
                 android:paddingStart="@dimen/_14sdp"
@@ -240,7 +243,6 @@
                 style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_7sdp"
                 android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
                 android:paddingStart="@dimen/_14sdp"
@@ -279,10 +281,9 @@
                 android:paddingTop="@dimen/_8sdp"
                 android:paddingBottom="@dimen/_8sdp"
                 android:progress="128"
-                android:progressTint="#11C099"
                 android:progressDrawable="@drawable/seekbar_opacity"
-                android:thumb="@drawable/ic_thumb" />
-            <!--   android:progressDrawable="@drawable/seekbar_opacity"-->
+                android:progressTint="@color/blue"
+                android:thumb="@drawable/ic_thumb_1" />
 
         </RelativeLayout>
 
@@ -307,7 +308,7 @@
                     android:id="@+id/iv_brightness"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
-                    android:src="@drawable/brightness_green" />
+                    android:src="@drawable/ic_brightness_blue" />
 
                 <TextView
                     android:id="@+id/txtBrightness"
@@ -407,19 +408,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#000000"
-        android:visibility="gone"
-        android:orientation="vertical">
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp">
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_12sdp">
 
             <TextView
                 android:id="@+id/iv_close_opacity"
                 style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_7sdp"
                 android:background="@drawable/white_border_black"
                 android:onClick="onClick"
                 android:paddingStart="@dimen/_14sdp"
@@ -444,7 +447,6 @@
                 style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_7sdp"
                 android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
                 android:padding="@dimen/_6sdp"
@@ -461,6 +463,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
             android:paddingStart="@dimen/_12sdp"
             android:paddingEnd="@dimen/_12sdp">
 
@@ -478,8 +481,8 @@
                 android:paddingBottom="@dimen/_9sdp"
                 android:progress="255"
                 android:progressDrawable="@drawable/seekbar_opacity"
-                android:progressTint="#11C099"
-                android:thumb="@drawable/ic_thumb" />
+                android:progressTint="@color/blue"
+                android:thumb="@drawable/ic_thumb_1" />
         </RelativeLayout>
 
 
@@ -493,21 +496,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#000000"
+        android:background="@color/black"
         android:orientation="vertical"
-        android:visibility="gone"
         android:paddingTop="@dimen/_5sdp"
-        android:paddingBottom="@dimen/_5sdp">
+        android:paddingBottom="@dimen/_5sdp"
+        android:visibility="gone">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp">
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp">
 
             <TextView
                 android:id="@+id/iv_close_highlight"
                 style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_7sdp"
                 android:background="@drawable/white_border_black"
                 android:onClick="onClick"
                 android:paddingStart="@dimen/_14sdp"
@@ -527,7 +531,6 @@
                 style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_7sdp"
                 android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
                 android:paddingStart="@dimen/_14sdp"
@@ -542,7 +545,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp">
 
             <TextView
                 android:id="@+id/tv_brush_size"
@@ -564,8 +568,8 @@
                 android:paddingBottom="@dimen/_8sdp"
                 android:progress="25"
                 android:progressDrawable="@drawable/seekbar_opacity"
-                android:progressTint="#11C099"
-                android:thumb="@drawable/ic_thumb" />
+                android:progressTint="@color/blue"
+                android:thumb="@drawable/ic_thumb_1" />
 
             <SeekBar
                 android:id="@+id/sb_eraser_size"
@@ -579,9 +583,9 @@
                 android:paddingTop="@dimen/_8sdp"
                 android:paddingBottom="@dimen/_8sdp"
                 android:progress="25"
-                android:progressTint="#11C099"
                 android:progressDrawable="@drawable/seekbar_opacity"
-                android:thumb="@drawable/ic_thumb"
+                android:progressTint="@color/blue"
+                android:thumb="@drawable/ic_thumb_1"
                 android:visibility="gone" />
         </RelativeLayout>
 
@@ -605,7 +609,7 @@
                     android:id="@+id/iv_highlight"
                     android:layout_width="@dimen/_18sdp"
                     android:layout_height="@dimen/_18sdp"
-                    android:src="@drawable/highlight_green" />
+                    android:src="@drawable/ic_highlight_blue" />
 
                 <TextView
                     android:id="@+id/txtHighlight"
@@ -679,9 +683,9 @@
         android:id="@+id/rl_signature"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="@color/sig_color">
+        android:background="@color/sig_color"
+        android:visibility="gone">
 
 
         <RelativeLayout
@@ -744,8 +748,10 @@
             android:id="@+id/rl_bottom"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
+
             android:layout_above="@+id/ly_seek_view"
-            android:background="#000000">
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/black">
 
             <TextView
                 android:id="@+id/iv_close_signature"
@@ -793,7 +799,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp">
 
                 <TextView
                     android:id="@+id/tv_pen_size"
@@ -816,14 +823,14 @@
                     android:paddingBottom="@dimen/_8sdp"
                     android:progress="20"
                     android:progressDrawable="@drawable/seekbar_opacity"
-                    android:progressTint="#11C099"
-                    android:thumb="@drawable/ic_thumb" />
+                    android:progressTint="@color/blue"
+                    android:thumb="@drawable/ic_thumb_1" />
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp">
 
                 <TextView
@@ -844,7 +851,8 @@
                     android:layout_toEndOf="@+id/tv_pen_color"
                     android:paddingTop="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_5sdp"
-                    app:colorSeeds="@array/colors" />
+                    app:colorSeeds="@array/colors"
+                    app:thumbBorderColor="@color/white" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -854,7 +862,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:background="#000000"
+            android:background="@color/black"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingBottom="@dimen/_5sdp">
@@ -873,13 +881,13 @@
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:padding="@dimen/_4sdp"
-                    android:src="@drawable/green_create_sig" />
+                    android:src="@drawable/ic_create_sig_blue" />
 
                 <TextView
                     android:id="@+id/txtCreateSig"
                     style="@style/WhitePopMed12"
                     android:layout_gravity="center"
-                    android:text="@string/createSig"
+                    android:text="@string/create_signature"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -921,8 +929,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_40sdp"
-        android:visibility="gone"
-        android:background="@color/sig_color">
+        android:background="@color/sig_color"
+        android:visibility="gone">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -933,7 +941,7 @@
             <EditText
                 android:id="@+id/et_watermark_txt"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_250sdp"
+                android:layout_height="@dimen/_150sdp"
                 android:layout_marginStart="@dimen/_12sdp"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:layout_marginEnd="@dimen/_12sdp"
@@ -951,11 +959,6 @@
                 android:textSize="@dimen/_12sdp" />
 
 
-
-
-
-
-
             <RelativeLayout
                 android:id="@+id/rl_bottom2"
                 android:layout_width="match_parent"
@@ -969,7 +972,7 @@
                     android:id="@+id/iv_close_watermark"
                     style="@style/WhitePopMed12"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
                     android:background="@drawable/white_border_black"
                     android:onClick="onClick"
                     android:paddingStart="@dimen/_14sdp"
@@ -989,7 +992,7 @@
                     style="@style/WhitePopMed12"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="@dimen/_7sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:background="@drawable/btn_curve_bg"
                     android:onClick="onClick"
                     android:paddingStart="@dimen/_14sdp"
@@ -1016,8 +1019,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_margin="@dimen/_4sdp"
-                    android:visibility="gone"
-                    />
+                    android:visibility="gone" />
 
 
                 <RelativeLayout
@@ -1051,7 +1053,8 @@
                         android:layout_toEndOf="@+id/tv_watermark_color"
                         android:paddingTop="@dimen/_5sdp"
                         android:paddingBottom="@dimen/_5sdp"
-                        app:colorSeeds="@array/colors" />
+                        app:colorSeeds="@array/colors"
+                        app:thumbBorderColor="@color/white" />
                 </RelativeLayout>
 
 
@@ -1088,7 +1091,8 @@
                         android:paddingBottom="@dimen/_8sdp"
                         android:progress="255"
                         android:progressDrawable="@drawable/watermark_seekbar_opacity"
-                        android:thumb="@drawable/ic_thumb" />
+                        android:progressTint="@color/blue"
+                        android:thumb="@drawable/ic_thumb_1" />
                 </RelativeLayout>
 
             </RelativeLayout>
@@ -1099,7 +1103,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="#000000"
+            android:background="@color/black"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingBottom="@dimen/_6sdp">
@@ -1108,16 +1112,17 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/iv_watermark_font"
                     android:layout_width="@dimen/_24sdp"
-                    android:layout_height="@dimen/_24sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:onClick="onClick"
                     android:padding="@dimen/_4sdp"
-                    android:src="@drawable/greenfont" />
+                    android:src="@drawable/ic_font_blue" />
 
                 <TextView
                     android:id="@+id/txtFont"
@@ -1132,13 +1137,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/iv_watermark_color"
                     android:layout_width="@dimen/_24sdp"
-                    android:layout_height="@dimen/_24sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:onClick="onClick"
                     android:padding="@dimen/_4sdp"
                     android:src="@drawable/white_color" />
@@ -1157,13 +1163,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/iv_watermark_opacity"
                     android:layout_width="@dimen/_24sdp"
-                    android:layout_height="@dimen/_24sdp"
+                    android:layout_height="@dimen/_30sdp"
                     android:onClick="onClick"
                     android:padding="@dimen/_4sdp"
                     android:src="@drawable/brightnesswhite" />
@@ -1183,15 +1190,16 @@
 
     </RelativeLayout>
 
-        <!--Text-->
+
+    <!--Text-->
     <LinearLayout
         android:id="@+id/ly_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/ThemeBg"
-        android:visibility="gone"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -1349,7 +1357,7 @@
                     android:layout_height="@dimen/_28sdp"
                     android:onClick="onClick"
                     android:padding="@dimen/_6sdp"
-                    android:src="@drawable/greenfont" />
+                    android:src="@drawable/ic_font_blue" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -1418,6 +1426,7 @@
 
     </LinearLayout>
 
+
     <!--Ovarlay-->
 
     <LinearLayout
@@ -1425,7 +1434,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#000000"
+        android:background="@color/black"
         android:orientation="vertical"
         android:paddingTop="@dimen/_5sdp"
         android:visibility="gone">
@@ -1433,13 +1442,15 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp">
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_12sdp">
 
             <TextView
                 android:id="@+id/iv_close_overlay"
                 style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_7sdp"
                 android:background="@drawable/white_border_black"
                 android:onClick="onClick"
                 android:paddingStart="@dimen/_14sdp"
@@ -1459,7 +1470,6 @@
                 style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_7sdp"
                 android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
                 android:paddingStart="@dimen/_14sdp"
@@ -1473,7 +1483,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp">
 
             <TextView
                 android:id="@+id/tv_overlay_opacity"
@@ -1495,8 +1506,8 @@
                 android:paddingBottom="@dimen/_6sdp"
                 android:progress="100"
                 android:progressDrawable="@drawable/seekbar_opacity"
-                android:progressTint="#11C099"
-                android:thumb="@drawable/ic_thumb" />
+                android:progressTint="@color/blue"
+                android:thumb="@drawable/ic_thumb_1" />
         </RelativeLayout>
 
 
@@ -1515,21 +1526,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#000000"
+        android:background="@color/black"
         android:orientation="vertical"
+        android:visibility="gone"
         android:paddingTop="@dimen/_5sdp"
-        android:paddingBottom="@dimen/_5sdp"
-        android:visibility="gone">
+        android:paddingBottom="@dimen/_5sdp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp">
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_12sdp">
 
             <TextView
                 android:id="@+id/iv_close_effect"
                 style="@style/WhitePopMed12"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_7sdp"
                 android:background="@drawable/white_border_black"
                 android:onClick="onClick"
                 android:paddingStart="@dimen/_14sdp"
@@ -1550,7 +1562,6 @@
                 style="@style/WhitePopMed12"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_7sdp"
                 android:background="@drawable/btn_curve_bg"
                 android:onClick="onClick"
                 android:paddingStart="@dimen/_14sdp"

@@ -20,47 +20,46 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_70sdp">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/iv_drawer"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
                     android:onClick="onClick"
-                    android:src="@drawable/hamburger_icn" />
+                    android:src="@drawable/ic_hamburger" />
 
                 <TextView
                     style="@style/TextPopBold22"
                     android:layout_below="@id/iv_drawer"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="center"
-                    android:text="Documents"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="@string/documents"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15sdp" />
 
 
                 <ImageView
                     android:id="@+id/iv_list"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_below="@id/iv_drawer"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:onClick="onClick"
-                    android:src="@drawable/folder" />
+                    android:src="@drawable/ic_folder_1" />
 
                 <ImageView
                     android:id="@+id/iv_grid"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_below="@id/iv_drawer"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:onClick="onClick"
                     android:src="@drawable/grid_icn"
                     android:visibility="invisible" />
@@ -70,21 +69,21 @@
                     android:id="@+id/iv_search"
                     android:layout_width="@dimen/_18sdp"
                     android:layout_height="@dimen/_18sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:layout_toStartOf="@+id/iv_more"
                     android:onClick="onClick"
-                    android:src="@drawable/search" />
+                    android:src="@drawable/ic_search" />
 
                 <ImageView
                     android:id="@+id/iv_more"
-                    android:layout_width="@dimen/_18sdp"
+                    android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
                     android:onClick="onClick"
-                    android:src="@drawable/more" />
+                    android:src="@drawable/ic_more" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -94,9 +93,9 @@
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
-                android:visibility="gone"
                 android:layout_marginBottom="@dimen/_7sdp"
-                android:background="@drawable/search_bar_bg">
+                android:background="@drawable/search_bar_bg"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/iv_close_search"
@@ -149,13 +148,20 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:background="@color/ThemeBg"
-                app:tabBackground="@drawable/selector_tab_layout"
                 app:tabGravity="fill"
-                app:tabIndicatorHeight="0dp"
+                app:tabIndicatorColor="@color/blue"
+                app:tabIndicatorHeight="2dp"
                 app:tabMode="scrollable"
-                app:tabSelectedTextColor="@color/tab_white"
+                app:tabSelectedTextColor="@color/blue"
                 app:tabTextAppearance="@style/MyCustomTabText"
                 app:tabTextColor="@color/TextTheme" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/viewColor" />
+
+
         </LinearLayout>
 
         <RelativeLayout
@@ -180,30 +186,31 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/_30sdp"
+                    android:paddingBottom="@dimen/_200sdp"
                     android:visibility="visible">
 
                     <ImageView
-                        android:layout_width="@dimen/_45sdp"
-                        android:layout_height="@dimen/_45sdp"
-                        android:src="@drawable/default_doc" />
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="@dimen/_70sdp"
+                        android:src="@drawable/ic_no_document" />
 
                     <TextView
                         android:id="@+id/tv_empty"
                         style="@style/TextPopReg12"
-                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_12sdp"
                         android:gravity="center"
                         android:text="@string/noDocumentScan"
-                        android:textSize="@dimen/_14sdp" />
+                        android:textSize="@dimen/_10sdp" />
                 </LinearLayout>
             </RelativeLayout>
 
             <LinearLayout
-                android:layout_width="@dimen/_100sdp"
+                android:layout_width="@dimen/_90sdp"
                 android:layout_height="@dimen/_35sdp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_25sdp"
                 android:background="@drawable/main_curve_border"
                 android:gravity="center"
                 android:paddingStart="@dimen/_5sdp"
@@ -213,16 +220,16 @@
                     android:id="@+id/iv_group_camera"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_18sdp"
-                    android:layout_marginRight="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:src="@drawable/grp_camera" />
 
                 <View
-                    android:layout_width="0.5dp"
+                    android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
                     android:background="#ffffff" />
 
 
@@ -230,7 +237,7 @@
                     android:id="@+id/gallery"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_20sdp"
-                    android:layout_marginRight="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
                     android:layout_weight="1"
                     android:onClick="onClick"
                     android:src="@drawable/groupgallery" />

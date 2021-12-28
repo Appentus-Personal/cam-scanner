@@ -54,7 +54,7 @@
             android:layout_height="match_parent"
             android:gravity="center">
 
-            <appentus.camscanner.document_view.ViewPagerFixed
+            <com.appentus.finecapture.document_view.ViewPagerFixed
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

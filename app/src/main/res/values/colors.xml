@@ -7,8 +7,9 @@
 
     <color name="bg_color">#000000</color>
     <color name="bg_color1">#f5f5f5</color>
-    <color name="colorAccent">#25c4a4</color>
-    <color name="colorPrimary">#25c4a4</color>
+
+    <color name="colorAccent">#000000</color>
+    <color name="colorPrimary">#000000</color>
 
     <color name="editor_light_color">#CECECE</color>
     <color name="fg_color">#ffffff</color>
@@ -34,18 +35,15 @@
     <color name="dialog_bg_color">#FFFFFF</color>
 
     <!--    <color name="ucrop_color_black">#000</color>-->
-<!--    <color name="ucrop_color_white">#FFF</color>-->
+    <!--    <color name="ucrop_color_white">#FFF</color>-->
 
 
     <color name="tab_white">#ffffff</color>
-    <color name="ViewColor">#CECECE</color>
-
-
 
 
 
     <!-- TODO :: Light Colors -->
-    <color name="ThemeBg">#F7FFFD</color>
+    <color name="ThemeBg">#FCFDFF</color>
     <color name="TextTheme">#000000</color>
     <color name="DialogBottom">#FFFFFF</color>
     <color name="tab_color">#E7F7F3</color>
@@ -54,6 +52,13 @@
     <color name="note_color">#ffffff</color>
     <color name="unselected_tab">#E7F7F3</color>
     <color name="editTxtTheme">#ffffff</color>
+
+
+    <!-- TODO :: Changed Colors -->
+    <color name="blue">#015CFA</color>
+    <color name="viewColor">#B7C2D6</color>
+    <color name="light_blue">#A1C3FF</color>
+    <color name="ViewColor">#CECECE</color>
 
 
 </resources>

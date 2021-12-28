@@ -12,19 +12,10 @@
     <ImageView
         android:id="@+id/iv_logo"
         style="@style/IvLogo"
-        android:layout_marginStart="@dimen/_70sdp"
-        android:src="@drawable/logo"
+        android:padding="@dimen/_80sdp"
+        android:src="@drawable/ic_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_splash"
-        style="@style/TextPopMed14"
-        android:layout_marginStart="@dimen/_4sdp"
-        android:text="CamScanner"
-        android:textAllCaps="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_logo"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

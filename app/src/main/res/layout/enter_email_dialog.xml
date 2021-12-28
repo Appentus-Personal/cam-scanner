@@ -99,6 +99,7 @@
                     <EditText
                         android:id="@+id/et_emailId"
                         style="@style/TextPopReg12"
+                        android:layout_width="match_parent"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:background="@color/transparent"
@@ -107,46 +108,49 @@
                         android:hint="Enter Email address"
                         android:imeOptions="actionDone"
                         android:inputType="text"
-                        android:textColor="#000000"
-                        android:textColorHint="@color/unselected_txt_color"/>
+                        android:textSize="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/unselected_txt_color" />
                 </RelativeLayout>
             </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_3sdp"
-                android:layout_marginBottom="@dimen/_4sdp">
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_12sdp">
 
                 <TextView
                     android:id="@+id/tv_cancel"
                     style="@style/TextPopMed14"
-                    android:layout_marginStart="@dimen/_12sdp"
                     android:background="@drawable/white_border_grey"
-                    android:paddingStart="@dimen/_40sdp"
+                    android:paddingStart="@dimen/_30sdp"
                     android:paddingTop="@dimen/_8sdp"
-                    android:paddingEnd="@dimen/_40sdp"
+                    android:paddingEnd="@dimen/_30sdp"
                     android:paddingBottom="@dimen/_8sdp"
+                    android:layout_weight="0.5"
                     android:text="@string/cancel"
+                    android:gravity="center"
                     android:textColor="@color/TextTheme"
                     android:textSize="@dimen/_12sdp" />
 
                 <TextView
                     android:id="@+id/tv_done"
                     style="@style/TextPopMed14"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:background="@drawable/btn_curve_bg"
-                    android:paddingStart="@dimen/_50sdp"
+                    android:paddingStart="@dimen/_30sdp"
                     android:paddingTop="@dimen/_8sdp"
-                    android:paddingEnd="@dimen/_50sdp"
+                    android:paddingEnd="@dimen/_30sdp"
                     android:paddingBottom="@dimen/_8sdp"
-                    android:text="@string/ok"
+                    android:background="@drawable/btn_curve_bg"
+                    android:text="Send"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_weight="0.5"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/_12sdp" />
-            </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

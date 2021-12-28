@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <appentus.camscanner.document_view.roundshapeImageview
+           <com.appentus.finecapture.document_view.roundshapeImageview
                 android:id="@+id/iv_group_first_img"
                 android:layout_width="match_parent"
               android:layout_marginStart="@dimen/_15sdp"
@@ -29,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop" />
 
-            <appentus.camscanner.document_view.roundshapeImageview
+            <com.appentus.finecapture.document_view.roundshapeImageview
                 android:id="@+id/iv_group_folder_img"
                 android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_45sdp"

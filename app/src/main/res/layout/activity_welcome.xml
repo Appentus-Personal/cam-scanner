@@ -11,69 +11,50 @@
         tools:context=".activity.WelcomeScreen">
 
         <ImageView
-            android:id="@+id/iv_logo"
-            style="@style/IvLogo"
-            android:layout_marginStart="@dimen/_12sdp"
+            android:id="@+id/ivLogo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_320sdp"
             android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_welcome"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-        <TextView
-            android:id="@+id/tvLogoName"
-            style="@style/TextPopMed14"
-            android:layout_marginStart="@dimen/_4sdp"
-            android:text="CamScanner"
-            android:textAllCaps="true"
-            app:layout_constraintBottom_toBottomOf="@id/iv_logo"
-            app:layout_constraintStart_toEndOf="@id/iv_logo"
-            app:layout_constraintTop_toTopOf="@id/iv_logo" />
-
-
-        <ImageView
-            android:id="@+id/ivDocument"
-            style="@style/IvDocuments"
-            android:layout_marginStart="@dimen/_12sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <TextView
-            android:id="@+id/tvWelcome"
-            style="@style/TextPopBold22"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:lineSpacingExtra="4dp"
-            android:maxWidth="@dimen/_160sdp"
-            android:text="Welcome to Cam Scanner"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivDocument" />
 
         <TextView
             android:id="@+id/tvScan"
-            style="@style/TextPopReg12"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:maxWidth="@dimen/_160sdp"
-            android:text="Scan anything, anytime, anywhere"
+            style="@style/TextSemiBold12"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/scan_your_document"
+            android:textSize="@dimen/_18sdp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
+            app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+
+        <TextView
+            android:id="@+id/tvAnytime"
+            style="@style/TextPopReg12"
+            android:text="@string/anytime_anywhere"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintStart_toStartOf="@id/tvScan"
+            app:layout_constraintTop_toBottomOf="@id/tvScan" />
 
 
         <TextView
             android:id="@+id/tvStarted"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_12sdp"
-            android:layout_marginEnd="@dimen/_12sdp"
-            android:layout_marginBottom="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_40sdp"
             android:background="@drawable/btn_curve_bg"
             android:fontFamily="@font/poppins_medium"
             android:gravity="start"
             android:paddingStart="@dimen/_15sdp"
-            android:paddingTop="@dimen/_8sdp"
-            android:paddingBottom="@dimen/_8sdp"
-            android:text="Get Started"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:text="@string/let_s_start"
             android:textColor="#ffffff"
             android:textSize="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="parent" />
