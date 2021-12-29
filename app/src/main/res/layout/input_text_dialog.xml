@@ -106,7 +106,7 @@
                         android:hint="@string/enterText"
                         android:imeOptions="actionDone"
                         android:inputType="text"
-                        android:textColor="@color/TextTheme"
+                        android:textColor="@color/black"
                         android:textColorHint="@color/unselected_txt_color" />
                 </RelativeLayout>
             </LinearLayout>
@@ -131,14 +131,12 @@
                     android:paddingEnd="@dimen/_40sdp"
                     android:paddingBottom="@dimen/_8sdp"
                     android:text="@string/cancel"
-                    android:textColor="@color/TextTheme"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_12sdp" />
 
                 <TextView
                     android:id="@+id/tv_done"
                     style="@style/TextPopMed14"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_30sdp"
                     android:layout_weight="0.5"
                     android:background="@drawable/btn_curve_bg"

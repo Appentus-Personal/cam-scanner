@@ -133,7 +133,7 @@
                     android:layout_weight="0.5"
                     android:text="@string/cancel"
                     android:gravity="center"
-                    android:textColor="@color/TextTheme"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_12sdp" />
 
                 <TextView

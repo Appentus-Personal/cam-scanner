@@ -33,6 +33,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -130,6 +131,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
     };
     private LinearLayout ly_doc_camera;
     private AdView adView;
+    private ConstraintLayout cyNoDocuments;
 
     @Override
     public void onResume() {
@@ -187,6 +189,7 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
         mail = (TextView) findViewById(R.id.send_to_mail);
         delete = (TextView) findViewById(R.id.delete);
         clear_text = (ImageView) findViewById(R.id.iv_clear_txt);
+        cyNoDocuments = (ConstraintLayout) findViewById(R.id.clNoDocuments);
 
        /* adView = findViewById(R.id.adView);
         AdsUtils.showGoogleBannerAd(this, adView);
@@ -1068,13 +1071,16 @@ public class GroupDocumentActivity extends BaseActivity implements View.OnClickL
             super.onPostExecute(str);
             if (currentGroupList.size() > 0) {
                 ly_doc_camera.setVisibility(View.GONE);
+                cyNoDocuments.setVisibility(View.GONE);
                 currentGroupList.add(currentGroupList.size(), new DBModel());
                 rv_group_doc.setHasFixedSize(true);
                 rv_group_doc.setLayoutManager(new GridLayoutManager((Context) GroupDocumentActivity.this, 2, RecyclerView.VERTICAL, false));
                 groupDocAdapter = new GroupDocAdapter(groupDocumentActivity, currentGroupList);
                 rv_group_doc.setAdapter(groupDocAdapter);
             } else {
-                iv_doc_camera.setVisibility(View.VISIBLE);
+                ly_doc_camera.setVisibility(View.VISIBLE);
+                cyNoDocuments.setVisibility(View.VISIBLE);
+
 //                Toast.makeText(getApplicationContext(), "Something Went Wrong...", Toast.LENGTH_SHORT).show();
             }
             progressDialog.dismiss();

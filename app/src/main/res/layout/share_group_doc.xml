@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -69,7 +70,7 @@
                         android:layout_marginEnd="@dimen/_7sdp"
                         android:padding="@dimen/_4sdp"
                         android:src="@drawable/ic_close_black_24dp"
-                        android:tint="@color/txt_color" />
+                        android:tint="@color/black" />
 
 
                     <View
@@ -103,6 +104,7 @@
                             android:layout_height="@dimen/_23sdp"
                             android:layout_centerVertical="true"
                             android:padding="@dimen/_1sdp"
+                            app:tint="@color/black"
                             android:src="@drawable/menu_gallery" />
 
                         <TextView
@@ -127,6 +129,7 @@
                             android:layout_height="@dimen/_23sdp"
                             android:layout_centerVertical="true"
                             android:padding="@dimen/_1sdp"
+                            app:tint="@color/black"
                             android:src="@drawable/pdf" />
 
                         <TextView
@@ -148,6 +151,7 @@
                             android:id="@+id/iv_pdf_pswrd"
                             android:layout_width="@dimen/_23sdp"
                             android:layout_height="@dimen/_23sdp"
+                            app:tint="@color/black"
                             android:layout_centerVertical="true"
                             android:src="@drawable/pdflock" />
 

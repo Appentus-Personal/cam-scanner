@@ -128,4 +128,8 @@
     <string name="documents">Documents</string>
     <string name="apply">Apply</string>
     <string name="create_signature">Create Signature</string>
+    <string name="qr_code_result">QR Code Result</string>
+    <string name="about">Appentus technologies always make sure to keep our clients and user’s information secure to ensure privacy. It will briefly explain how Appentus will make use of your data, so please note that while visiting and exploring appentus.com, you are willingly accepting the privacy policy and terms discussed below on the page.Here you will be explained how we will process your personal information provided by you, or what we manage to collect when you visit the website. So ensure to review our privacy policy regularly to make sure you won’t miss any update from us.</string>
+    <string name="no_document_added_to_this_folder">No document added to this folder</string>
+    <string name="enter_password">Enter Password</string>
 </resources>

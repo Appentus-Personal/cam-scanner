@@ -9,38 +9,38 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:elevation="5dp"
-        android:background="#000000">
+        android:background="#000000"
+        android:elevation="5dp">
 
         <ImageView
             android:id="@+id/iv_back"
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_15sdp"
             android:onClick="onClick"
-           android:src="@drawable/backwhite" />
+            android:src="@drawable/backwhite" />
 
         <TextView
             style="@style/TextSemiBold12"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:layout_toEndOf="@+id/iv_back"
             android:text="@string/idCard"
             android:textColor="@color/tab_white"
-            android:textSize="@dimen/_15sdp" />
+            android:textSize="@dimen/_12sdp" />
 
-      <!--  <ImageView
-            android:id="@+id/iv_done"
-            android:layout_width="@dimen/_26sdp"
-            android:layout_height="@dimen/_26sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/_5sdp"
-            android:onClick="onClick"
-            android:padding="@dimen/_6sdp"
-            android:src="@drawable/ic_check_mark"
-            android:tint="@color/selected_txt_color" />-->
+        <!--  <ImageView
+              android:id="@+id/iv_done"
+              android:layout_width="@dimen/_26sdp"
+              android:layout_height="@dimen/_26sdp"
+              android:layout_alignParentEnd="true"
+              android:layout_centerVertical="true"
+              android:layout_marginEnd="@dimen/_5sdp"
+              android:onClick="onClick"
+              android:padding="@dimen/_6sdp"
+              android:src="@drawable/ic_check_mark"
+              android:tint="@color/selected_txt_color" />-->
 
 
     </RelativeLayout>
@@ -56,7 +56,7 @@
             android:id="@+id/iv_bg_color"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/bg_color" />
+            android:background="@color/tab_white" />
 
         <com.takwolf.android.aspectratio.AspectRatioLayout
             android:id="@+id/aspectRatioLayout"
@@ -64,7 +64,7 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true">
 
-            <appentus.camscanner.scrapbook.StickerHolderView
+            <com.appentus.finecapture.scrapbook.StickerHolderView
                 android:id="@+id/stickerHolderView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -82,8 +82,7 @@
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingTop="@dimen/_8sdp"
-            android:paddingBottom="@dimen/_5sdp"
-           >
+            android:paddingBottom="@dimen/_5sdp">
 
 
             <LinearLayout
@@ -124,8 +123,8 @@
                 <ImageView
                     android:id="@+id/iv_left"
                     android:layout_width="@dimen/_23sdp"
-                    android:padding="@dimen/_2sdp"
                     android:layout_height="@dimen/_23sdp"
+                    android:padding="@dimen/_2sdp"
                     android:src="@drawable/left_idcard" />
 
                 <TextView
@@ -176,8 +175,8 @@
                 <ImageView
                     android:id="@+id/iv_horizontal"
                     android:layout_width="@dimen/_23sdp"
-                    android:padding="@dimen/_2sdp"
                     android:layout_height="@dimen/_23sdp"
+                    android:padding="@dimen/_2sdp"
                     android:src="@drawable/horizontal" />
 
                 <TextView
@@ -318,19 +317,21 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-     android:background="#000000"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@color/black"
 
-       >
+        >
 
         <TextView
             style="@style/WhitePopMed12"
+            android:layout_centerVertical="true"
             android:layout_marginTop="@dimen/_8sdp"
             android:background="@drawable/white_border_black"
             android:paddingStart="@dimen/_20sdp"
             android:paddingTop="@dimen/_4sdp"
-            android:layout_centerVertical="true"
             android:paddingEnd="@dimen/_20sdp"
-            android:layout_marginStart="@dimen/_8sdp"
             android:paddingBottom="@dimen/_4sdp"
             android:text="Cancel"
             android:textColor="@color/tab_white"
@@ -343,10 +344,9 @@
             android:layout_centerVertical="true"
             android:layout_marginTop="@dimen/_8sdp"
             android:background="@drawable/btn_curve_bg"
+            android:onClick="onClick"
             android:paddingStart="@dimen/_20sdp"
             android:paddingTop="@dimen/_4sdp"
-            android:onClick="onClick"
-            android:layout_marginEnd="@dimen/_8sdp"
             android:paddingEnd="@dimen/_20sdp"
             android:paddingBottom="@dimen/_4sdp"
             android:text="Save"

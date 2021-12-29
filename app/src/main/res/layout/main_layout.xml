@@ -50,7 +50,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:onClick="onClick"
-                    android:src="@drawable/ic_folder_1" />
+                    android:src="@drawable/ic_grid" />
 
                 <ImageView
                     android:id="@+id/iv_grid"
@@ -61,7 +61,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:onClick="onClick"
-                    android:src="@drawable/grid_icn"
+                    android:src="@drawable/ic_list"
                     android:visibility="invisible" />
 
 
@@ -95,7 +95,8 @@
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_7sdp"
                 android:background="@drawable/search_bar_bg"
-                android:visibility="gone">
+                android:visibility="gone"
+              >
 
                 <ImageView
                     android:id="@+id/iv_close_search"
@@ -104,6 +105,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:onClick="onClick"
+                    android:padding="@dimen/_2sdp"
                     android:src="@drawable/search" />
 
                 <EditText
@@ -122,19 +124,19 @@
                     android:hint="Search for Document..."
                     android:imeOptions="actionDone"
                     android:inputType="text"
-                    android:textColor="#858997"
-                    android:textColorHint="#a2a8b9"
+                    android:textColor="@color/black"
+                    android:textColorHint="#CECECE"
                     android:textSize="@dimen/_12sdp" />
 
                 <ImageView
                     android:id="@+id/iv_clear_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:onClick="onClick"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_2sdp"
                     android:src="@drawable/ic_close_black_24dp"
                     android:visibility="invisible"
                     app:tint="#858997" />
@@ -154,7 +156,7 @@
                 app:tabMode="scrollable"
                 app:tabSelectedTextColor="@color/blue"
                 app:tabTextAppearance="@style/MyCustomTabText"
-                app:tabTextColor="@color/TextTheme" />
+                app:tabTextColor="@color/black" />
 
             <View
                 android:layout_width="match_parent"

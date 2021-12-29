@@ -25,12 +25,11 @@
         android:name="com.appentus.finecapture.MyApp"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_logo"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CamScanner"
         android:usesCleartextTraffic="true">
@@ -111,9 +110,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.appentus.finecapture.activity.QRReaderActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.appentus.finecapture.activity.PrivacyPolicyActivity"
             android:screenOrientation="portrait" />
 
         <meta-data

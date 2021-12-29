@@ -38,7 +38,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="fontFamily">@font/poppins_semibold</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/tab_white</item>
         <item name="android:textSize">@dimen/_14sdp</item>
     </style>
 
@@ -47,7 +47,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="fontFamily">@font/poppins_medium</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/tab_white</item>
         <item name="android:textSize">@dimen/_12sdp</item>
 
     </style>

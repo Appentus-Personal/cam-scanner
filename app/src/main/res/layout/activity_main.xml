@@ -14,17 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/unselected_tab">
-
-        <include
-            android:id="@+id/ly_header"
-            layout="@layout/nav_header_main" />
+        android:background="@color/ThemeBg">
 
         <LinearLayout
             android:id="@+id/llLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ly_header"
             android:layout_above="@id/nav_bottom"
             android:orientation="vertical">
 
@@ -32,7 +27,6 @@
                 android:id="@+id/lv_drawer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
                 android:choiceMode="singleChoice"
                 android:divider="@color/transparent"
                 android:dividerHeight="0dp"
@@ -44,10 +38,10 @@
         <include
             android:id="@+id/nav_bottom"
             layout="@layout/nav_bottom_main"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/_60sdp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_90sdp" />
 
 
     </RelativeLayout>

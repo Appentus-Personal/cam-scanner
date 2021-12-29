@@ -21,6 +21,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -315,7 +316,6 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
                 Constant.IdentifyActivity = "ImageToTextActivity_Preview";
                 AdsUtils.showGoogleInterstitialAd(SavedDocumentPreviewActivity.this, true);
                 return;
-
             case SHARE:
                 try {
                     BitmapFactory.Options options5 = new BitmapFactory.Options();
@@ -440,8 +440,8 @@ public class SavedDocumentPreviewActivity extends BaseActivity implements View.O
 
     private void updateGroupName(final String str) {
 
-        final Dialog dialog = new Dialog(this, R.style.ThemeWithRoundShape);
-        dialog.requestWindowFeature(1);
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.update_group_name);
 //        dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));

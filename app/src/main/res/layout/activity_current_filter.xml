@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color1"
+    android:background="@color/ThemeBg"
     android:orientation="vertical">
 
     <LinearLayout
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:elevation="5dp"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/white">
+            android:background="@color/tab_white">
 
             <ImageView
                 android:id="@+id/iv_back"
@@ -96,7 +96,7 @@
                         android:gravity="center"
                         android:onClick="onClick"
                         android:text="O"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_18sdp" />
 
                     <TextView
@@ -105,7 +105,7 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         android:fontFamily="@font/inter_medium"
                         android:text="@string/original"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
@@ -135,7 +135,7 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         android:fontFamily="@font/inter_medium"
                         android:text="@string/color"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
@@ -165,7 +165,7 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         android:fontFamily="@font/inter_medium"
                         android:text="@string/sharpBlack"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
@@ -195,7 +195,7 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         android:fontFamily="@font/inter_medium"
                         android:text="@string/ocvBlack"
-                        android:textColor="@color/white"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>

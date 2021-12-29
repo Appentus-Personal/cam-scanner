@@ -26,14 +26,14 @@
                 android:onClick="onClick"
                 android:padding="@dimen/_7sdp"
                 android:src="@drawable/backwhite"
-                app:tint="@color/TextTheme" />
+                app:tint="@color/black" />
 
             <TextView
                 style="@style/TextPopMed14"
                 android:layout_toEndOf="@+id/iv_back"
                 android:layout_centerVertical="true"
                 android:text="Note"
-            android:textColor="@color/TextTheme"
+            android:textColor="@color/black"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:textSize="@dimen/_15sdp" />
 
@@ -43,28 +43,27 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_6sdp"
-                android:background="@drawable/btn_curve_bg"
+                android:background="@drawable/bg_blue_btn"
                 android:paddingStart="@dimen/_12sdp"
                 android:paddingTop="@dimen/_2sdp"
                 android:paddingEnd="@dimen/_12sdp"
                 android:paddingBottom="@dimen/_2sdp"
                 android:text="Save"
                 android:textColor="#ffffff"
-                android:textSize="@dimen/_10sdp"
-                />
+                android:textSize="@dimen/_10sdp" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/sig_color"
+            android:background="@color/ThemeBg"
             android:orientation="vertical">
 
             <jp.wasabeef.richeditor.RichEditor
                 android:id="@+id/editor"
                 android:layout_width="match_parent"
-                android:background="@color/note_color"
+                android:background="@color/ThemeBg"
                 android:layout_margin="@dimen/_6sdp"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_8sdp"

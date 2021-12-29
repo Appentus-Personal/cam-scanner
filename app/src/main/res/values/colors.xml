@@ -33,6 +33,7 @@
     <color name="viewfinder_mask">#b3000000</color>
 
     <color name="dialog_bg_color">#FFFFFF</color>
+    <color name="ViewColor">#CECECE</color>
 
     <!--    <color name="ucrop_color_black">#000</color>-->
     <!--    <color name="ucrop_color_white">#FFF</color>-->
@@ -58,7 +59,7 @@
     <color name="blue">#015CFA</color>
     <color name="viewColor">#B7C2D6</color>
     <color name="light_blue">#A1C3FF</color>
-    <color name="ViewColor">#CECECE</color>
+
 
 
 </resources>

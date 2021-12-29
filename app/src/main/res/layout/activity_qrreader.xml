@@ -31,10 +31,9 @@
 
             <TextView
                 style="@style/WhitePopSemi12"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:text="QR Code Scan"
+                android:layout_centerInParent="true"
                 android:layout_marginLeft="@dimen/_8sdp"
+                android:text="QR Code Scan"
                 android:textColor="@color/tab_white"
                 android:textSize="@dimen/_13sdp" />
         </RelativeLayout>

@@ -13,30 +13,30 @@
         android:id="@+id/iv_back"
         android:layout_width="@dimen/_18sdp"
         android:layout_height="@dimen/_18sdp"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp"
         android:src="@drawable/back_icn"
-        app:tint="@color/TextTheme" />
+        app:tint="@color/black" />
 
 
     <TextView
         android:id="@+id/txtAbout"
         style="@style/WhitePopSemi12"
         android:layout_marginStart="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_12sdp"
         android:layout_toEndOf="@+id/iv_back"
         android:text="About Us"
-        android:textColor="@color/TextTheme" />
+        android:textColor="@color/black" />
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/txtAbout"
-        android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_10sdp">
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp">
 
 
         <TextView
@@ -44,8 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="@dimen/_2sdp"
-            android:text="@string/Aboutus"
-
+            android:text="@string/about"
             app:layout_constraintStart_toStartOf="parent" />
 
 

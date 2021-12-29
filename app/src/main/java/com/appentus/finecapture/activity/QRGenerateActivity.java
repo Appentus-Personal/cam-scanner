@@ -144,7 +144,7 @@ public class QRGenerateActivity extends BaseActivity implements View.OnClickList
             textView.setTextSize(14.0f);
             textView.setTypeface(createFromAsset);
             textView.setBackground(getResources().getDrawable(R.drawable.round_shape));
-            textView.setBackgroundTintList(new ColorStateList(new int[][]{new int[0]}, new int[]{getResources().getColor(R.color.light_txt_color)}));
+            textView.setBackgroundTintList(new ColorStateList(new int[][]{new int[0]}, new int[]{getResources().getColor(R.color.blue)}));
             textView.setTextColor(getResources().getColor(R.color.bg_color1));
             textView.setGravity(17);
             textView.setPadding(43, 15, 43, 15);

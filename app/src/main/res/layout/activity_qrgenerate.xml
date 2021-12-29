@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sig_color"
+    android:background="@color/ThemeBg"
     android:orientation="vertical">
 
     <LinearLayout
@@ -25,7 +25,7 @@
                 android:layout_marginStart="@dimen/_8sdp"
                 android:onClick="onClick"
                 android:src="@drawable/backwhite"
-                app:tint="@color/TextTheme" />
+                app:tint="@color/black" />
 
             <TextView
                 style="@style/TextPopMed14"
@@ -43,7 +43,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_8sdp"
             android:layout_marginBottom="@dimen/_20sdp"
-            android:background="@drawable/edt_bg"
+            android:background="@color/tab_white"
             android:orientation="horizontal">
 
             <TextView
@@ -55,7 +55,7 @@
                 android:singleLine="true"
                 android:text="@string/qrCodeType"
                 android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/txt_color"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp"/>
 
             <Spinner
@@ -64,9 +64,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:backgroundTint="@color/black"
                 android:layout_marginEnd="@dimen/_3sdp"
-                android:spinnerMode="dropdown"/>
+                android:backgroundTint="@color/black"
+                android:spinnerMode="dropdown" />
 
         </RelativeLayout>
 
@@ -76,7 +76,7 @@
             android:layout_height="@dimen/_310sdp"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:background="@drawable/edt_bg"
+            android:background="@color/tab_white"
             android:cursorVisible="true"
             android:gravity="top|left|center_vertical|center_horizontal|center|start"
             android:hint="Write here"
@@ -86,7 +86,7 @@
             android:paddingEnd="@dimen/_10sdp"
             android:paddingBottom="@dimen/_7sdp"
             android:scrollbars="vertical"
-            android:textColor="@color/selected_txt_color"
+            android:textColor="@color/black"
             android:textColorHint="#CECECE"
             android:textSize="@dimen/_12sdp" />
 

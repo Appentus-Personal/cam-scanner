@@ -3,16 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_130sdp"
-       android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_6sdp"
-        app:cardBackgroundColor="@color/dialog_bg_color"
+        android:background="@drawable/bg_group"
         app:cardCornerRadius="@dimen/_6sdp">
 
         <RelativeLayout
@@ -20,22 +21,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-           <com.appentus.finecapture.document_view.roundshapeImageview
+            <com.appentus.finecapture.document_view.roundshapeImageview
                 android:id="@+id/iv_group_first_img"
                 android:layout_width="match_parent"
-              android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_2sdp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:scaleType="centerCrop" />
 
             <com.appentus.finecapture.document_view.roundshapeImageview
                 android:id="@+id/iv_group_folder_img"
                 android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_45sdp"
-               android:layout_centerHorizontal="true"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_15sdp"
-                android:src="@color/white" />
+                android:src="@color/tab_white" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -57,23 +58,23 @@
                         android:id="@+id/tv_group_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_medium"
+                        android:fontFamily="@font/poppins_medium"
                         android:singleLine="true"
                         android:text="Meeting Notes"
-                        android:textColor="@color/txt_color"
-                        android:textSize="@dimen/_12sdp" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp" />
 
                     <TextView
                         android:id="@+id/tv_group_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_1sdp"
-                        android:fontFamily="@font/inter_medium"
+                        android:fontFamily="@font/poppins_regular"
                         android:maxLength="11"
                         android:singleLine="true"
                         android:text="2020-08-14  10.03 PM"
-                        android:textColor="@color/unselected_txt_color"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_8sdp" />
                 </LinearLayout>
 
                 <ImageView
@@ -81,9 +82,9 @@
                     android:layout_width="@dimen/_15sdp"
                     android:layout_height="@dimen/_15sdp"
                     android:layout_alignParentEnd="true"
-                  android:layout_marginTop="@dimen/_10sdp"
-
-                    android:src="@drawable/more" />
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:src="@drawable/ic_more" />
             </RelativeLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

@@ -21,7 +21,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_55sdp"
-                android:background="#000000"
+                android:background="@color/black"
                 android:elevation="5dp"
                 android:orientation="vertical">
 
@@ -79,7 +79,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:adjustViewBounds="true"
-                    android:background="@color/bg_color1"
+                    android:background="@color/ThemeBg"
                     android:keepScreenOn="true"
                     app:aspectRatio="4:3"
                     app:autoFocus="true"
@@ -97,7 +97,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="15dp"
                         android:layout_centerInParent="true"
-                        android:layout_marginStart="55dp"
+                        android:layout_marginStart="@dimen/_40sdp"
                         android:background="@drawable/horizontal_dash_line"
                         android:layerType="software" />
 
@@ -114,7 +114,7 @@
                             android:gravity="center"
                             android:rotation="90"
                             android:text="A"
-                            android:textColor="#4a000000"
+                            android:textColor="#CECECE"
                             android:textSize="@dimen/_65sdp" />
 
                         <TextView
@@ -125,24 +125,23 @@
                             android:gravity="center"
                             android:rotation="90"
                             android:text="B"
-                            android:textColor="#4a000000"
+                            android:textColor="#CECECE"
                             android:textSize="@dimen/_65sdp" />
                     </LinearLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
                         android:background="@drawable/info_bg">
 
                         <ImageView
                             android:id="@+id/info_img"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
                             android:layout_centerVertical="true"
-                            android:padding="@dimen/_6sdp"
-                            android:src="@drawable/ic_error_black_24dp"
-                            android:tint="@color/colorAccent" />
+                            android:padding="@dimen/_2sdp"
+                            android:src="@drawable/ic_error" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -151,7 +150,7 @@
                             android:fontFamily="@font/inter_medium"
                             android:padding="@dimen/_6sdp"
                             android:text="@string/please_hold_the_device_horizontally"
-                            android:textColor="#FFF"
+                            android:textColor="@color/tab_white"
                             android:textSize="@dimen/_10sdp" />
                     </RelativeLayout>
                 </RelativeLayout>
@@ -167,7 +166,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
-                        android:layout_margin="@dimen/_25sdp"
+                        android:layout_margin="@dimen/_15sdp"
                         android:background="@drawable/square_line" />
 
                     <TextView
@@ -181,7 +180,7 @@
                         android:gravity="center"
                         android:padding="@dimen/_5sdp"
                         android:text="Front Side"
-                        android:textColor="#FFF"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_11sdp"
                         android:visibility="gone" />
                 </RelativeLayout>
@@ -190,7 +189,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#000000"
+                android:background="@color/black"
                 android:orientation="vertical">
 
 
@@ -216,6 +215,7 @@
                         android:paddingTop="@dimen/_3sdp"
                         android:paddingBottom="@dimen/_3sdp"
                         android:text="@string/photo"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_10sdp" />
 
 
@@ -230,6 +230,7 @@
                         android:paddingTop="@dimen/_3sdp"
                         android:paddingBottom="@dimen/_3sdp"
                         android:text="@string/book"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_10sdp" />
 
 
@@ -244,6 +245,7 @@
                         android:paddingTop="@dimen/_3sdp"
                         android:paddingBottom="@dimen/_3sdp"
                         android:text="@string/document"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_10sdp" />
 
                     <TextView
@@ -257,6 +259,7 @@
                         android:paddingTop="@dimen/_3sdp"
                         android:paddingBottom="@dimen/_3sdp"
                         android:text="@string/idCard"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
@@ -277,7 +280,7 @@
                         android:onClick="onClick"
                         android:padding="@dimen/_5sdp"
                         android:src="@drawable/ic_select_gallery"
-                        app:tint="#ffff" />
+                        app:tint="@color/tab_white" />
 
                     <ImageView
                         android:id="@+id/iv_take_picture"
@@ -299,11 +302,13 @@
         </LinearLayout>
     </LinearLayout>
 
+
+    <!--Changes -->
     <LinearLayout
         android:id="@+id/ly_crop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bg_color1"
+        android:background="@color/ThemeBg"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -316,27 +321,27 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/white">
+                android:background="@color/black">
 
                 <ImageView
                     android:id="@+id/iv_back_crop"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:onClick="onClick"
-                    android:padding="@dimen/_7sdp"
-                    android:src="@drawable/ic_back" />
+                    android:src="@drawable/back_icn"
+                    android:tint="@color/tab_white" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:layout_toEndOf="@+id/iv_back_crop"
                     android:fontFamily="@font/inter_medium"
-                    android:text="Crop Document"
-                    android:textColor="@color/black"
+                    android:text="Crop"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_15sdp" />
             </RelativeLayout>
 
@@ -368,11 +373,11 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:padding="@dimen/_12sdp"
-                        app:civLineColor="@color/light_txt_color"
-                        app:civMagnifierCrossColor="@color/light_txt_color"
-                        app:civPointColor="@color/light_txt_color"
+                        app:civLineColor="@color/blue"
+                        app:civMagnifierCrossColor="@color/blue"
+                        app:civPointColor="@color/blue"
                         app:civPointFillAlpha="35"
-                        app:civPointFillColor="@color/light_txt_color"
+                        app:civPointFillColor="@color/tab_white"
                         app:civShowEdgeMidPoint="true" />
                 </FrameLayout>
 
@@ -381,7 +386,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/toolbar_color"
+                    android:background="@color/black"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:paddingTop="@dimen/_12sdp"
@@ -404,11 +409,10 @@
                             android:padding="@dimen/_5sdp">
 
                             <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ic_rotate_doc"
-                                android:tint="@color/bg_color1" />
+                                android:src="@drawable/rotate" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -417,7 +421,7 @@
                                 android:layout_marginTop="@dimen/_3sdp"
                                 android:fontFamily="@font/inter_regular"
                                 android:text="Rotate Doc"
-                                android:textColor="@color/bg_color1"
+                                android:textColor="@color/tab_white"
                                 android:textSize="@dimen/_12sdp" />
                         </LinearLayout>
 
@@ -434,7 +438,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:src="@drawable/ic_current_filter" />
+                                android:src="@drawable/ic_current_filter"
+                                app:tint="@color/tab_white" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -443,7 +448,7 @@
                                 android:layout_marginTop="@dimen/_3sdp"
                                 android:fontFamily="@font/inter_regular"
                                 android:text="Current Filter"
-                                android:textColor="@color/bg_color1"
+                                android:textColor="@color/tab_white"
                                 android:textSize="@dimen/_12sdp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -461,29 +466,29 @@
                             android:layout_marginLeft="@dimen/_8sdp"
                             android:layout_marginRight="@dimen/_5sdp"
                             android:layout_weight="1"
-                            android:background="@drawable/white_bg"
+                            android:background="@drawable/white_border_black"
                             android:fontFamily="@font/inter_regular"
                             android:gravity="center"
                             android:onClick="onClick"
-                            android:padding="@dimen/_5sdp"
+                            android:padding="@dimen/_6sdp"
                             android:text="@string/retake"
-                            android:textColor="@color/black"
+                            android:textColor="@color/tab_white"
                             android:textSize="@dimen/_13sdp" />
 
                         <TextView
                             android:id="@+id/iv_continue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/_5sdp"
-                            android:layout_marginRight="@dimen/_8sdp"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
                             android:layout_weight="1"
-                            android:background="@drawable/white_bg"
+                            android:background="@drawable/bg_blue_btn"
                             android:fontFamily="@font/inter_regular"
                             android:gravity="center"
                             android:onClick="onClick"
-                            android:padding="@dimen/_5sdp"
+                            android:padding="@dimen/_6sdp"
                             android:text="@string/continue1"
-                            android:textColor="@color/black"
+                            android:textColor="@color/tab_white"
                             android:textSize="@dimen/_13sdp" />
 
                     </LinearLayout>
@@ -492,11 +497,13 @@
         </LinearLayout>
     </LinearLayout>
 
+
+    <!--Chnages Require-->
     <LinearLayout
         android:id="@+id/ly_filter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bg_color1"
+        android:background="@color/ThemeBg"
         android:orientation="vertical"
         android:visibility="gone">
 
@@ -509,17 +516,18 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/white">
+                android:background="@color/black">
 
                 <ImageView
                     android:id="@+id/iv_back_filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:onClick="onClick"
-                    android:padding="@dimen/_7sdp"
-                    android:src="@drawable/ic_back" />
+                    android:padding="@dimen/_4sdp"
+                    android:src="@drawable/back_icn"
+                    android:tint="@color/tab_white" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -529,7 +537,7 @@
                     android:layout_toEndOf="@+id/iv_back_filter"
                     android:fontFamily="@font/inter_medium"
                     android:text="Current Filter"
-                    android:textColor="@color/black"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_15sdp" />
 
                 <ImageView
@@ -541,7 +549,8 @@
                     android:layout_marginEnd="@dimen/_7sdp"
                     android:onClick="onClick"
                     android:padding="@dimen/_6sdp"
-                    android:src="@drawable/ic_check_mark" />
+                    android:src="@drawable/ic_check_mark"
+                    android:tint="@color/tab_white" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -567,7 +576,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:background="@color/toolbar_color"
+                    android:background="@color/black"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingTop="@dimen/_15sdp"
@@ -584,13 +593,13 @@
                             android:id="@+id/iv_original"
                             android:layout_width="@dimen/_30sdp"
                             android:layout_height="@dimen/_32sdp"
-                            android:background="@drawable/filter_selection_bg"
-                            android:fontFamily="@font/inter_medium"
+                            android:background="@drawable/filter_bg_blue"
                             android:gravity="center"
                             android:onClick="onClick"
                             android:text="O"
-                            android:textColor="@color/white"
+                            android:textColor="@color/tab_white"
                             android:textSize="@dimen/_18sdp" />
+
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -598,7 +607,7 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/inter_medium"
                             android:text="@string/original"
-                            android:textColor="@color/white"
+                            android:textColor="@color/tab_white"
                             android:textSize="@dimen/_10sdp" />
 
                     </LinearLayout>
@@ -628,7 +637,7 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/inter_medium"
                             android:text="@string/color"
-                            android:textColor="@color/white"
+                            android:textColor="@color/tab_white"
                             android:textSize="@dimen/_10sdp" />
 
                     </LinearLayout>
@@ -658,7 +667,7 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/inter_medium"
                             android:text="@string/sharpBlack"
-                            android:textColor="@color/white"
+                            android:textColor="@color/tab_white"
                             android:textSize="@dimen/_10sdp" />
 
                     </LinearLayout>
@@ -688,7 +697,7 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             android:fontFamily="@font/inter_medium"
                             android:text="@string/ocvBlack"
-                            android:textColor="@color/white"
+                            android:textColor="@color/tab_white"
                             android:textSize="@dimen/_10sdp" />
 
                     </LinearLayout>

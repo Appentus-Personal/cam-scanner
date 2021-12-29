@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -41,37 +42,43 @@
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
             android:layout_marginTop="@dimen/_12sdp"
-            android:src="@drawable/rename" />
+            android:src="@drawable/rename"
+            app:tint="@color/black" />
 
         <ImageView
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
             android:layout_marginTop="@dimen/_17sdp"
-            android:src="@drawable/share" />
+            android:src="@drawable/share"
+            app:tint="@color/black" />
 
         <ImageView
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
             android:layout_marginTop="@dimen/_15sdp"
-            android:src="@drawable/photos" />
+            android:src="@drawable/photos"
+            app:tint="@color/black" />
 
         <ImageView
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
             android:layout_marginTop="@dimen/_15sdp"
-            android:src="@drawable/menu_gallery" />
+            android:src="@drawable/menu_gallery"
+            app:tint="@color/black" />
 
         <ImageView
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
             android:layout_marginTop="@dimen/_16sdp"
-            android:src="@drawable/mail" />
+            android:src="@drawable/mail"
+            app:tint="@color/black" />
 
         <ImageView
             android:layout_width="@dimen/_18sdp"
             android:layout_height="@dimen/_18sdp"
             android:layout_marginTop="@dimen/_18sdp"
-            android:src="@drawable/delete" />
+            android:src="@drawable/delete"
+            app:tint="@color/black" />
     </LinearLayout>
 
 
@@ -99,8 +106,8 @@
         <TextView
             android:id="@+id/share"
             style="@style/TextPopMed14"
-            android:onClick="BottomClick"
             android:layout_marginTop="@dimen/_16sdp"
+            android:onClick="BottomClick"
             android:text="Share"
             android:textSize="@dimen/_12sdp" />
 
@@ -108,8 +115,8 @@
         <TextView
             android:id="@+id/import_from_gallery"
             style="@style/TextPopMed14"
-            android:onClick="BottomClick"
             android:layout_marginTop="@dimen/_12sdp"
+            android:onClick="BottomClick"
             android:text="Add From Photos"
             android:textSize="@dimen/_12sdp" />
 
@@ -117,8 +124,8 @@
         <TextView
             android:id="@+id/save_to_gallery"
             style="@style/TextPopMed14"
-            android:onClick="BottomClick"
             android:layout_marginTop="@dimen/_12sdp"
+            android:onClick="BottomClick"
             android:text="Save to Gallery"
             android:textSize="@dimen/_12sdp" />
 
@@ -126,8 +133,8 @@
             android:id="@+id/send_to_mail"
             style="@style/TextPopMed14"
             android:layout_marginTop="@dimen/_16sdp"
-            android:text="Send to Mail"
             android:onClick="BottomClick"
+            android:text="Send to Mail"
             android:textSize="@dimen/_12sdp" />
 
 
@@ -135,8 +142,8 @@
             android:id="@+id/delete"
             style="@style/TextPopMed14"
             android:layout_marginTop="@dimen/_16sdp"
-            android:text="Delete"
             android:onClick="BottomClick"
+            android:text="Delete"
             android:textSize="@dimen/_12sdp" />
 
 

@@ -4,16 +4,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/_20sdp"
+    android:layout_marginStart="@dimen/_22sdp"
     android:layout_marginTop="@dimen/_5sdp"
-    android:layout_marginEnd="@dimen/_20sdp"
+    android:layout_marginEnd="@dimen/_22sdp"
     android:orientation="vertical"
     app:cardCornerRadius="@dimen/_5sdp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/DialogBottom"
+        android:background="@color/tab_white"
         android:orientation="vertical">
 
         <LinearLayout
@@ -40,7 +40,7 @@
                         android:layout_marginStart="@dimen/_10sdp"
                         android:padding="@dimen/_5sdp"
                         android:text="Please Select your ID Card"
-                        android:textColor="@color/TextTheme"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
 
                     <ImageView
@@ -52,7 +52,7 @@
                         android:layout_marginEnd="@dimen/_7sdp"
                         android:padding="@dimen/_4sdp"
                         android:src="@drawable/ic_close_black_24dp"
-                        app:tint="@color/TextTheme" />
+                        app:tint="@color/black" />
 
                 </RelativeLayout>
 
@@ -69,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_12sdp"
                         android:layout_marginEnd="@dimen/_12sdp"
-                        android:background="@color/tab_color"
+                        android:background="@color/ThemeBg"
                         android:orientation="vertical">
 
                         <RelativeLayout
@@ -83,9 +83,12 @@
                                 android:layout_width="@dimen/_40sdp"
                                 android:layout_height="@dimen/_40sdp"
                                 android:layout_centerVertical="true"
-                                android:layout_margin="@dimen/_8sdp"
-                                android:visibility="visible"
-                                android:src="@drawable/oneside_id_grn" />
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                android:src="@drawable/ic_one_side"
+                                android:visibility="visible" />
 
 
                             <TextView
@@ -95,7 +98,7 @@
                                 android:layout_marginTop="@dimen/_10sdp"
                                 android:layout_toEndOf="@id/ivsingle_id"
                                 android:text="Single side ID Card"
-                                android:textColor="@color/TextTheme"
+                                android:textColor="@color/black"
                                 android:textSize="@dimen/_10sdp" />
 
                             <!--  <TextView
@@ -122,7 +125,7 @@
                                 android:layout_toRightOf="@id/ivsingle_id"
                                 android:maxWidth="@dimen/_170sdp"
                                 android:text="@string/single_id_card_txt"
-                                android:textColor="@color/TextTheme"
+                                android:textColor="@color/black"
                                 android:textSize="@dimen/_10sdp" />
 
                         </RelativeLayout>
@@ -138,7 +141,7 @@
                         android:layout_marginTop="@dimen/_8sdp"
                         android:layout_marginEnd="@dimen/_12sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
-                        android:background="@color/tab_color"
+                        android:background="@color/ThemeBg"
                         android:orientation="vertical">
 
 
@@ -154,8 +157,11 @@
                                 android:layout_width="@dimen/_40sdp"
                                 android:layout_height="@dimen/_40sdp"
                                 android:layout_centerVertical="true"
-                                android:layout_margin="@dimen/_8sdp"
-                                android:src="@drawable/twoside_id_green" />
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:layout_marginBottom="@dimen/_8sdp"
+                                android:src="@drawable/ic_double_side" />
 
                             <TextView
                                 android:id="@+id/txtTitle2"
@@ -164,7 +170,7 @@
                                 android:layout_marginTop="@dimen/_10sdp"
                                 android:layout_toEndOf="@id/iv_double_id"
                                 android:text="Two side ID Card"
-                                android:textColor="@color/TextTheme"
+                                android:textColor="@color/black"
                                 android:textSize="@dimen/_10sdp" />
 
                             <!--   <TextView
@@ -193,7 +199,7 @@
                                 android:layout_toEndOf="@id/iv_double_id"
                                 android:maxWidth="@dimen/_170sdp"
                                 android:text="@string/two_id_card_txt"
-                                android:textColor="@color/TextTheme"
+                                android:textColor="@color/black"
                                 android:textSize="@dimen/_11sdp" />
                         </RelativeLayout>
 

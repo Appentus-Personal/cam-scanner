@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:background="@color/unselected_tab"
+   android:background="@color/ThemeBg"
     android:gravity="center_vertical"
     android:orientation="vertical">
 
@@ -26,6 +26,7 @@
             style="@style/TextPopMed14"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_15sdp"
+            android:textColor="@color/black"
             android:layout_toEndOf="@+id/iv_item_icon"
             android:text="Share App"
             android:textSize="@dimen/_12sdp" />
@@ -34,7 +35,6 @@
             android:id="@+id/switchNightMode"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_30sdp"
-
             android:layout_alignParentRight="true"/>-->
     </RelativeLayout>
 </LinearLayout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color1"
+    android:background="@color/ThemeBg"
     android:orientation="vertical">
 
     <LinearLayout
@@ -26,7 +26,7 @@
                 android:layout_marginStart="@dimen/_15sdp"
                 android:onClick="onClick"
                 android:src="@drawable/back_icn"
-                app:tint="@color/white" />
+                app:tint="@color/tab_white" />
 
             <TextView
                 style="@style/WhitePopSemi12"
@@ -98,7 +98,7 @@
                         app:civLineColor="@color/blue"
                         app:civMagnifierCrossColor="@color/blue"
                         app:civPointColor="@color/blue"
-                        app:civPointFillColor="@color/white"
+                        app:civPointFillColor="@color/tab_white"
                         app:civShowGuideLine="true" />
                 </FrameLayout>
 
@@ -295,7 +295,7 @@
                             android:layout_marginTop="@dimen/_3sdp"
                             android:fontFamily="@font/inter_regular"
                             android:text="@string/rotateDoc"
-                            android:textColor="@color/white"
+                            android:textColor="@color/tab_white"
                             android:textSize="@dimen/_12sdp" />
                     </LinearLayout>
 
@@ -321,7 +321,7 @@
                             android:layout_marginTop="@dimen/_3sdp"
                             android:fontFamily="@font/inter_regular"
                             android:text="@string/currentFilter"
-                            android:textColor="@color/white"
+                            android:textColor="@color/tab_white"
                             android:textSize="@dimen/_12sdp" />
                     </LinearLayout>
                 </LinearLayout>

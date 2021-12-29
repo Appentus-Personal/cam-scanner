@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/ThemeBg"
     android:orientation="vertical">
 
     <LinearLayout
@@ -24,7 +24,7 @@
                 android:layout_marginStart="@dimen/_15sdp"
                 android:onClick="onClick"
                 android:src="@drawable/backwhite"
-                app:tint="@color/TextTheme" />
+                app:tint="@color/black" />
 
             <TextView
                 android:id="@+id/tv_title"
@@ -36,7 +36,7 @@
                 android:layout_toEndOf="@+id/iv_back"
                 android:singleLine="true"
                 android:text="@string/app_name"
-                android:textColor="@color/txt_color"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp" />
 
             <ImageView
@@ -66,6 +66,36 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_6sdp">
+            
+            
+            
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clNoDocuments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_10sdp">
+                
+                <ImageView
+                    android:id="@+id/ivNoDocument"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:src="@drawable/ic_no_documents"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                
+                <TextView
+                 style="@style/TextPopReg12"
+                    android:text="@string/no_document_added_to_this_folder"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@id/ivNoDocument"/>
+                
+                
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_group_doc"

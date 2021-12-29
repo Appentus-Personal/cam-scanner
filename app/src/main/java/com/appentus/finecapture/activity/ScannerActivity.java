@@ -38,6 +38,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
+import com.appentus.finecapture.R;
+import com.appentus.finecapture.db.DBHelper;
+import com.appentus.finecapture.main_utils.AspectRatioFragment;
+import com.appentus.finecapture.main_utils.BitmapUtils;
+import com.appentus.finecapture.main_utils.Constant;
+import com.appentus.finecapture.models.BookModel;
+import com.appentus.finecapture.models.DBModel;
+import com.appentus.finecapture.utils.AdsUtils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
@@ -47,14 +55,6 @@ import com.google.android.cameraview.CameraView;
 import com.nguyenhoanglam.imagepicker.model.Image;
 import com.nguyenhoanglam.imagepicker.ui.imagepicker.ImagePicker;
 import com.scanlibrary.ScanActivity;
-import com.appentus.finecapture.R;
-import com.appentus.finecapture.db.DBHelper;
-import com.appentus.finecapture.main_utils.AspectRatioFragment;
-import com.appentus.finecapture.main_utils.BitmapUtils;
-import com.appentus.finecapture.main_utils.Constant;
-import com.appentus.finecapture.models.BookModel;
-import com.appentus.finecapture.models.DBModel;
-import com.appentus.finecapture.utils.AdsUtils;
 import com.yalantis.ucrop.UCrop;
 import com.yalantis.ucrop.util.FileUtils;
 
@@ -87,8 +87,8 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
         public void onReceive(Context context, Intent intent) {
             if (Constant.IdentifyActivity.equals("ScannerGalleryActivity")) {
                 ImagePicker.with((Activity) ScannerActivity.this)
-                        .setStatusBarColor("#25c4a4")
-                        .setToolbarColor("#25c4a4")
+                        .setStatusBarColor("#FCFDFF")
+                        .setToolbarColor("#FCFDFF")
                         .setBackgroundColor("#ffffff")
                         .setFolderMode(true)
                         .setFolderTitle("Gallery")
@@ -96,13 +96,14 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                         .setShowNumberIndicator(true)
                         .setAlwaysShowDoneButton(true)
                         .setMaxSize(1)
+                        .setToolbarTextColor("#000000")
+                        .setToolbarIconColor("#000000")
                         .setShowCamera(false)
                         .setLimitMessage("You can select up to 1 images")
                         .setRequestCode(100)
                         .start();
                 Constant.IdentifyActivity = "";
-            }
-            else if (Constant.IdentifyActivity.equals("CropDocumentActivity2")) {
+            } else if (Constant.IdentifyActivity.equals("CropDocumentActivity2")) {
                 startActivity(new Intent(ScannerActivity.this, CropDocumentActivity.class));
                 Constant.IdentifyActivity = "";
                 finish();
@@ -316,16 +317,9 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
     public Bitmap tempBitmap;
     private TextView tv_book;
     private TextView tv_document;
-
     public TextView tv_id_card;
     private TextView tv_idcard;
     private TextView tv_photo;
-
-
-   /* private View v_book;
-    private View v_document;
-    private View v_idcard;
-    private View v_photo;*/
 
     @Override
     public void onResume() {
@@ -385,12 +379,6 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
         tv_book = (TextView) findViewById(R.id.tv_book);
         tv_idcard = (TextView) findViewById(R.id.tv_idcard);
         tv_photo = (TextView) findViewById(R.id.tv_photo);
-
-        /*v_document = findViewById(R.id.v_document);
-        v_book = findViewById(R.id.v_book);
-        v_idcard = findViewById(R.id.v_idcard);
-        v_photo = findViewById(R.id.v_photo);*/
-
         cameraView = (CameraView) findViewById(R.id.cameraView);
         rl_book_view = (RelativeLayout) findViewById(R.id.rl_book_view);
         rl_idcard_view = (RelativeLayout) findViewById(R.id.rl_idcard_view);
@@ -454,7 +442,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
             rl_book_view.setVisibility(View.GONE);
             rl_idcard_view.setVisibility(View.GONE);
 
-          /*  tv_document.setTextColor(getResources().getColor(R.color.black));*/
+            /*  tv_document.setTextColor(getResources().getColor(R.color.black));*/
             tv_document.setBackgroundResource(R.drawable.tab_curve);
             tv_book.setBackgroundResource(R.drawable.tab_curve_black);
             tv_idcard.setBackgroundResource(R.drawable.tab_curve_black);
@@ -464,11 +452,6 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
             tv_idcard.setTextColor(getResources().getColor(R.color.tab_white));
             tv_photo.setTextColor(getResources().getColor(R.color.tab_white));
             tv_document.setTextColor(getResources().getColor(R.color.tab_white));
-
-         /*   v_document.setVisibility(View.VISIBLE);
-            v_book.setVisibility(View.INVISIBLE);
-            v_idcard.setVisibility(View.INVISIBLE);
-            v_photo.setVisibility(View.INVISIBLE);*/
 
         } else if (Constant.current_camera_view.equals("Book")) {
             rl_book_view.setVisibility(View.VISIBLE);
@@ -481,11 +464,6 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
             tv_book.setBackgroundResource(R.drawable.tab_curve);
             tv_idcard.setTextColor(getResources().getColor(R.color.tab_white));
             tv_photo.setTextColor(getResources().getColor(R.color.tab_white));
-
-          /*  v_document.setVisibility(View.INVISIBLE);
-            v_book.setVisibility(View.VISIBLE);
-            v_idcard.setVisibility(View.INVISIBLE);
-            v_photo.setVisibility(View.INVISIBLE);*/
 
         } else if (Constant.current_camera_view.equals("ID Card")) {
             rl_book_view.setVisibility(View.GONE);
@@ -500,10 +478,6 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
             tv_idcard.setBackgroundResource(R.drawable.tab_curve);
             tv_photo.setTextColor(getResources().getColor(R.color.tab_white));
 
-          /*  v_document.setVisibility(View.INVISIBLE);
-            v_book.setVisibility(View.INVISIBLE);
-            v_idcard.setVisibility(View.VISIBLE);
-            v_photo.setVisibility(View.INVISIBLE);*/
             IDCardDialog();
 
         } else if (Constant.current_camera_view.equals("Photo")) {
@@ -526,64 +500,52 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
     }
 
     private void IDCardDialog() {
-        final Dialog dialog = new Dialog(this, R.style.ThemeWithRoundShape);
+        final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(1);
         dialog.setContentView(R.layout.id_card_selection_dialog);
         dialog.getWindow().setLayout(-1, -2);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        dialog.setCanceledOnTouchOutside(true);
-        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
 
-        ((LinearLayout) dialog.findViewById(R.id.tv_select1)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                makeSelectable(dialog,0);
-                Constant.card_type = "Single";
-                tv_id_card.setVisibility(View.GONE);
-                dialog.dismiss();
+        ((LinearLayout) dialog.findViewById(R.id.tv_select1)).setOnClickListener(view -> {
+            makeSelectable(dialog, 0);
+            Constant.card_type = "Single";
+            tv_id_card.setVisibility(View.GONE);
+            dialog.dismiss();
 
-//                tv_select1.setBackground(getResources().getDrawable(R.drawable.green_id_card_selection));
-
-            }
+//        tv_select1.setBackground(getResources().getDrawable(R.drawable.green_id_card_selection));
         });
-        ((LinearLayout) dialog.findViewById(R.id.tv_select2)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                makeSelectable(dialog,1);
-                Constant.card_type = "Double";
-                tv_id_card.setVisibility(View.VISIBLE);
-                dialog.dismiss();
-            }
+        ((LinearLayout) dialog.findViewById(R.id.tv_select2)).setOnClickListener(view -> {
+            makeSelectable(dialog, 1);
+            Constant.card_type = "Double";
+            tv_id_card.setVisibility(View.VISIBLE);
+            dialog.dismiss();
         });
-        ((ImageView) dialog.findViewById(R.id.iv_close)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
+        ((ImageView) dialog.findViewById(R.id.iv_close)).setOnClickListener(view -> dialog.dismiss());
         dialog.show();
     }
 
     private void makeSelectable(Dialog dialog, int i) {
-        if (i == 0){
+        if (i == 0) {
 
-            ((ImageView)dialog.findViewById(R.id.ivsingle_id)).setBackgroundResource(R.drawable.oneside_id_white);
+            ((ImageView) dialog.findViewById(R.id.ivsingle_id)).setBackgroundResource(R.drawable.oneside_id_white);
 
-            ((LinearLayout)dialog.findViewById(R.id.tv_select1)).setBackgroundColor(getResources().getColor(R.color.id_card_color_selected));
-            ((LinearLayout)dialog.findViewById(R.id.tv_select2)).setBackgroundColor(getResources().getColor(R.color.note_color));
-            ((TextView)dialog.findViewById(R.id.txtTitle1)).setTextColor(getResources().getColor(R.color.tab_white));
-            ((TextView)dialog.findViewById(R.id.tv_sub_text1)).setTextColor(getResources().getColor(R.color.tab_white));
-            ((TextView)dialog.findViewById(R.id.txtTitle2)).setTextColor(getResources().getColor(R.color.black));
-            ((TextView)dialog.findViewById(R.id.tv_sub_text2)).setTextColor(getResources().getColor(R.color.black));
+            ((LinearLayout) dialog.findViewById(R.id.tv_select1)).setBackgroundColor(getResources().getColor(R.color.blue));
+            ((LinearLayout) dialog.findViewById(R.id.tv_select2)).setBackgroundColor(getResources().getColor(R.color.note_color));
+            ((TextView) dialog.findViewById(R.id.txtTitle1)).setTextColor(getResources().getColor(R.color.tab_white));
+            ((TextView) dialog.findViewById(R.id.tv_sub_text1)).setTextColor(getResources().getColor(R.color.tab_white));
+            ((TextView) dialog.findViewById(R.id.txtTitle2)).setTextColor(getResources().getColor(R.color.black));
+            ((TextView) dialog.findViewById(R.id.tv_sub_text2)).setTextColor(getResources().getColor(R.color.black));
 
-        }else{
-            ((ImageView)dialog.findViewById(R.id.iv_double_id)).setBackgroundResource(R.drawable.twoside_id_white);
-            ((TextView)dialog.findViewById(R.id.txtTitle1)).setTextColor(getResources().getColor(R.color.black));
-            ((TextView)dialog.findViewById(R.id.tv_sub_text1)).setTextColor(getResources().getColor(R.color.black));
-            ((TextView)dialog.findViewById(R.id.txtTitle2)).setTextColor(getResources().getColor(R.color.tab_white));
-            ((TextView)dialog.findViewById(R.id.tv_sub_text2)).setTextColor(getResources().getColor(R.color.tab_white));
-            ((LinearLayout)dialog.findViewById(R.id.tv_select2)).setBackgroundColor(getResources().getColor(R.color.id_card_color_selected));
-            ((LinearLayout)dialog.findViewById(R.id.tv_select1)).setBackgroundColor(getResources().getColor(R.color.note_color));
+        } else {
+            ((ImageView) dialog.findViewById(R.id.iv_double_id)).setBackgroundResource(R.drawable.twoside_id_white);
+            ((TextView) dialog.findViewById(R.id.txtTitle1)).setTextColor(getResources().getColor(R.color.black));
+            ((TextView) dialog.findViewById(R.id.tv_sub_text1)).setTextColor(getResources().getColor(R.color.black));
+            ((TextView) dialog.findViewById(R.id.txtTitle2)).setTextColor(getResources().getColor(R.color.tab_white));
+            ((TextView) dialog.findViewById(R.id.tv_sub_text2)).setTextColor(getResources().getColor(R.color.tab_white));
+            ((LinearLayout) dialog.findViewById(R.id.tv_select2)).setBackgroundColor(getResources().getColor(R.color.blue));
+            ((LinearLayout) dialog.findViewById(R.id.tv_select1)).setBackgroundColor(getResources().getColor(R.color.note_color));
         }
     }
 
@@ -788,8 +750,8 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                 iv_original.setBackgroundResource(R.drawable.filter_bg);
                 iv_original.setTextColor(getResources().getColor(R.color.black));
 
-                iv_color.setBackgroundResource(R.drawable.filter_selection_bg);
-                iv_color.setTextColor(getResources().getColor(R.color.white));
+                iv_color.setBackgroundResource(R.drawable.filter_bg_blue);
+                iv_color.setTextColor(getResources().getColor(R.color.tab_white));
 
                 iv_sharp_black.setBackgroundResource(R.drawable.filter_bg);
                 iv_sharp_black.setTextColor(getResources().getColor(R.color.black));
@@ -894,8 +856,8 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                 iv_sharp_black.setBackgroundResource(R.drawable.filter_bg);
                 iv_sharp_black.setTextColor(getResources().getColor(R.color.black));
 
-                iv_ocv_black.setBackgroundResource(R.drawable.filter_selection_bg);
-                iv_ocv_black.setTextColor(getResources().getColor(R.color.white));
+                iv_ocv_black.setBackgroundResource(R.drawable.filter_bg_blue);
+                iv_ocv_black.setTextColor(getResources().getColor(R.color.tab_white));
 
                 return;
             case R.id.iv_original:
@@ -908,8 +870,8 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                     e.printStackTrace();
                     dismissProgressDialog();
                 }
-                iv_original.setBackgroundResource(R.drawable.filter_selection_bg);
-                iv_original.setTextColor(getResources().getColor(R.color.white));
+                iv_original.setBackgroundResource(R.drawable.filter_bg_blue);
+                iv_original.setTextColor(getResources().getColor(R.color.tab_white));
 
                 iv_color.setBackgroundResource(R.drawable.filter_bg);
                 iv_color.setTextColor(getResources().getColor(R.color.black));
@@ -969,8 +931,8 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                 iv_color.setBackgroundResource(R.drawable.filter_bg);
                 iv_color.setTextColor(getResources().getColor(R.color.black));
 
-                iv_sharp_black.setBackgroundResource(R.drawable.filter_selection_bg);
-                iv_sharp_black.setTextColor(getResources().getColor(R.color.white));
+                iv_sharp_black.setBackgroundResource(R.drawable.filter_bg_blue);
+                iv_sharp_black.setTextColor(getResources().getColor(R.color.tab_white));
 
                 iv_ocv_black.setBackgroundResource(R.drawable.filter_bg);
                 iv_ocv_black.setTextColor(getResources().getColor(R.color.black));
@@ -1014,8 +976,9 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                     ly_filter.setVisibility(View.VISIBLE);
                     originalBitmap = Constant.IDCardBitmap;
                     iv_card_filter.setImageBitmap(originalBitmap);
-                    iv_original.setBackgroundResource(R.drawable.filter_selection_bg);
-                    iv_original.setTextColor(getResources().getColor(R.color.white));
+
+                    iv_original.setBackgroundResource(R.drawable.filter_bg_blue);
+                    iv_original.setTextColor(getResources().getColor(R.color.tab_white));
 
                     iv_color.setBackgroundResource(R.drawable.filter_bg);
                     iv_color.setTextColor(getResources().getColor(R.color.black));

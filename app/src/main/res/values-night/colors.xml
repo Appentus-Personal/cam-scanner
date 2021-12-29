@@ -27,8 +27,8 @@
 
     <!-- TODO :: DARK Colors -->
 
-    <color name="ThemeBg">#000000</color>
-    <color name="TextTheme">#FFFFFF</color>
+    <color name="ThemeBg">#FCFDFF</color>
+    <color name="TextTheme">#000000</color>
     <color name="DialogBottom">#373B40</color>
     <color name="tab_color">#373B40</color>
     <color name="sig_color">#373B40</color>

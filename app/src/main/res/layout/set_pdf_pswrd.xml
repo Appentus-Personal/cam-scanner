@@ -82,7 +82,7 @@
                         android:background="@color/transparent"
                         android:cursorVisible="true"
                         android:focusable="true"
-                        android:hint="Enter Password"
+                        android:hint="@string/enter_password"
                         android:inputType="numberPassword"
                         android:textColor="@color/black"
                         android:textColorHint="@color/unselected_txt_color"

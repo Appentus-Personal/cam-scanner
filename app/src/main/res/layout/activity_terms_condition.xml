@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ThemeBg"
-
     tools:context=".activity.AboutUsActivity">
 
 
@@ -16,7 +15,7 @@
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:src="@drawable/back_icn"
-        app:tint="@color/TextTheme" />
+        app:tint="@color/black" />
 
 
     <TextView
@@ -26,17 +25,17 @@
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_toEndOf="@+id/iv_back"
         android:text="Terms and Condition"
-        android:textColor="@color/TextTheme" />
+        android:textColor="@color/black" />
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/txtAbout"
-        android:layout_marginBottom="@dimen/_10sdp"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginEnd="@dimen/_10sdp">
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp">
 
 
         <TextView
@@ -45,7 +44,6 @@
             android:layout_height="wrap_content"
             android:lineSpacingExtra="@dimen/_2sdp"
             android:text="@string/Aboutus"
-
             app:layout_constraintStart_toStartOf="parent" />
 
 

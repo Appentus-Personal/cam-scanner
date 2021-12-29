@@ -15,7 +15,6 @@ class WelcomeActivity : AppCompatActivity() {
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         binding.tvStarted.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

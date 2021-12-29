@@ -18,14 +18,14 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_150sdp"
             android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_1sdp"
             android:layout_marginEnd="@dimen/_15sdp"
             android:layout_marginBottom="@dimen/_1sdp"
-            android:layout_marginTop="@dimen/_1sdp"
             android:scaleType="centerCrop" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_33sdp"
+            android:layout_height="@dimen/_30sdp"
             android:layout_alignParentBottom="true"
             android:background="@drawable/bottom_ly_bg">
 
@@ -38,7 +38,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:singleLine="true"
                 android:text="Page  1"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/ThemeBg"
                 android:textSize="@dimen/_10sdp" />
 
             <!--  <ImageView
@@ -73,9 +73,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_140sdp"
         android:layout_margin="@dimen/_6sdp"
-        android:visibility="gone"
         android:background="@drawable/rb_grp_doc"
-      >
+        android:visibility="gone">
 
         <com.appentus.finecapture.document_view.roundshapeImageview
             android:id="@+id/iv_cam_doc"
@@ -93,7 +92,7 @@
             android:fontFamily="@font/inter_medium"
             android:singleLine="true"
             android:text="@string/tapToAddNew"
-            android:textColor="@color/TextTheme"
+            android:textColor="@color/black"
             android:textSize="@dimen/_12sdp" />
     </RelativeLayout>
 </LinearLayout>

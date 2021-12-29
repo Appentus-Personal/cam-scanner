@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:background="@drawable/dialog_bottom_sheet"
     android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bottom_sheet"
     android:orientation="vertical">
 
     <LinearLayout
@@ -24,19 +24,19 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:orientation="vertical">
-<!--
+                <!--
 
-                <include
-                    android:id="@+id/admob_native_container"
-                    layout="@layout/admob_native_medium"
-                    android:layout_width="match_parent"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_marginBottom="@dimen/_5sdp"
-                    android:layout_marginRight="@dimen/_5sdp"
-                    android:layout_height="@dimen/_200sdp"
-                    android:visibility="gone" />
--->
+                                <include
+                                    android:id="@+id/admob_native_container"
+                                    layout="@layout/admob_native_medium"
+                                    android:layout_width="match_parent"
+                                    android:layout_marginLeft="@dimen/_5sdp"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:layout_marginRight="@dimen/_5sdp"
+                                    android:layout_height="@dimen/_200sdp"
+                                    android:visibility="gone" />
+                -->
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -58,7 +58,7 @@
                         android:layout_centerInParent="true"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:singleLine="true"
-                        android:text="QR Code Result" />
+                        android:text="@string/qr_code_result" />
 
 
                     <View
@@ -66,7 +66,7 @@
                         android:layout_height="0.5dp"
                         android:layout_below="@id/tvInputText"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:background="#59606A" />
+                        android:background="@color/ViewColor" />
 
 
                     <ImageView
@@ -76,7 +76,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/_8sdp"
-                        android:src="@drawable/copy_cb" />
+                        android:src="@drawable/copy_qr" />
                 </RelativeLayout>
 
 
@@ -89,8 +89,8 @@
                 android:layout_marginTop="@dimen/_10sdp">
 
                 <TextView
-                    style="@style/TextPopMed14"
                     android:id="@+id/tv_result"
+                    style="@style/TextPopMed14"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginBottom="@dimen/_5sdp"
@@ -102,10 +102,10 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
-                android:layout_marginStart="@dimen/_8sdp"
-                android:layout_marginBottom="@dimen/_8sdp">
+                android:layout_marginBottom="@dimen/_15sdp">
 
                 <TextView
                     android:id="@+id/tv_share"
@@ -116,8 +116,8 @@
                     android:paddingEnd="@dimen/_40sdp"
                     android:paddingBottom="@dimen/_8sdp"
                     android:text="Share"
-                    android:textColor="@color/TextTheme"
-                    android:textSize="@dimen/_12sdp"  />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
 
                 <TextView
                     android:id="@+id/tv_search"

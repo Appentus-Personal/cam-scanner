@@ -105,7 +105,7 @@
                             android:paddingEnd="@dimen/_25sdp"
                             android:paddingBottom="@dimen/_8sdp"
                             android:text="Keep Editing"
-                            android:textColor="@color/TextTheme"
+                            android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp" />
 
                         <TextView

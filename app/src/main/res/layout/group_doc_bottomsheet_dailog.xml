@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/dialog_main"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/dialog_bottom_sheet"
     android:orientation="vertical">
@@ -11,14 +12,14 @@
         android:id="@+id/view"
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_4sdp"
-       android:layout_gravity="center"
+        android:layout_gravity="center"
         android:layout_marginTop="8dp"
         android:background="@color/ViewColor" />
 
     <TextView
         android:id="@+id/tv_dialog_title"
         style="@style/TextSemiBold12"
-       android:layout_gravity="center"
+        android:layout_gravity="center"
         android:layout_marginTop="@dimen/_10sdp"
         android:singleLine="true"
         android:text="@string/inputText" />
@@ -27,10 +28,10 @@
         android:id="@+id/tv_page"
         style="@style/TextPopReg12"
         android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_8sdp"
         android:gravity="center"
         android:text="2020-08-14"
-        android:layout_marginTop="@dimen/_5sdp"
         android:textColor="#CECECE"
         android:textSize="@dimen/_10sdp" />
 
@@ -44,9 +45,9 @@
             android:id="@+id/ll_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginEnd="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:orientation="vertical"
             android:paddingStart="@dimen/_3sdp"
             android:paddingEnd="@dimen/_3sdp">
 
@@ -61,7 +62,8 @@
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
                     android:padding="@dimen/_1sdp"
-                    android:src="@drawable/pdf" />
+                    android:src="@drawable/pdf"
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/txtSavePdf"
@@ -83,7 +85,8 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/share" />
+                    android:src="@drawable/share"
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/txtShare"
@@ -106,7 +109,8 @@
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
                     android:padding="@dimen/_1sdp"
-                    android:src="@drawable/menu_gallery" />
+                    android:src="@drawable/menu_gallery"
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/txtGallery"
@@ -128,7 +132,8 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/mail" />
+                    android:src="@drawable/mail"
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/txtEmail"
@@ -151,7 +156,8 @@
                     android:layout_height="@dimen/_20sdp"
                     android:layout_centerVertical="true"
                     android:padding="@dimen/_1sdp"
-                    android:src="@drawable/delete" />
+                    android:src="@drawable/delete"
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/txtDelete"

@@ -38,8 +38,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/view2"
-        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:inputType="text">
 
 
@@ -52,7 +53,7 @@
             android:layoutDirection="ltr"
             android:text="Ascending Date"
             android:textAlignment="textStart"
-            android:textColor="@color/TextTheme"
+            android:textColor="@color/black"
             android:textSize="@dimen/_12sdp" />
 
         <RadioButton
@@ -64,7 +65,7 @@
             android:layoutDirection="ltr"
             android:text="Descending Date"
             android:textAlignment="textStart"
-            android:textColor="@color/TextTheme"
+            android:textColor="@color/black"
             android:textSize="@dimen/_12sdp" />
 
         <RadioButton
@@ -76,7 +77,7 @@
             android:layoutDirection="ltr"
             android:text="Ascending Name"
             android:textAlignment="textStart"
-            android:textColor="@color/TextTheme"
+            android:textColor="@color/black"
             android:textSize="@dimen/_12sdp" />
 
 
@@ -89,7 +90,7 @@
             android:layoutDirection="ltr"
             android:text="Descending Name"
             android:textAlignment="textStart"
-            android:textColor="@color/TextTheme"
+            android:textColor="@color/black"
             android:textSize="@dimen/_12sdp" />
 
 

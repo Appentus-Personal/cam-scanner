@@ -96,8 +96,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         @Override
         public void onReceive(Context context, Intent intent) {
             if (Constant.IdentifyActivity.equals("PrivacyPolicyActivity")) {
-                startActivity(new Intent(MainActivity.this, PrivacyPolicyActivity.class));
-                Constant.IdentifyActivity = "";
+//                startActivity(new Intent(MainActivity.this, PrivacyPolicyActivity.class));
+//                Constant.IdentifyActivity = "";
             } else if (Constant.IdentifyActivity.equals("QRGenerateActivity")) {
                 startActivity(new Intent(MainActivity.this, QRGenerateActivity.class));
                 Constant.IdentifyActivity = "";
@@ -281,14 +281,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     private void bindView() {
         drawerList.add(new DrawerModel("Home", R.drawable.home));
-        drawerList.add(new DrawerModel("QR Code Scan", R.drawable.qr_scan));
+        drawerList.add(new DrawerModel("QR Code Scan", R.drawable.qr_code));
         drawerList.add(new DrawerModel("QR Code Generate", R.drawable.qr_generate));
-        drawerList.add(new DrawerModel("About Us", R.drawable.aboutus));
-        drawerList.add(new DrawerModel("Theme", R.drawable.theme_drawer));
-        drawerList.add(new DrawerModel("Terms and Condition", R.drawable.t_and_c));
-        drawerList.add(new DrawerModel("Privacy Policy", R.drawable.policy));
-        drawerList.add(new DrawerModel("Share App", R.drawable.share_drawer));
-        drawerList.add(new DrawerModel("Rate Us", R.drawable.rateus));
+        drawerList.add(new DrawerModel("About Us", R.drawable.about_us));
+        drawerList.add(new DrawerModel("Theme", R.drawable.ic_brightness_blue));
+        drawerList.add(new DrawerModel("Terms and Condition", R.drawable.terms_condition));
+        drawerList.add(new DrawerModel("Privacy Policy", R.drawable.privacy_policy));
+        drawerList.add(new DrawerModel("Share App", R.drawable.ic_share));
+        drawerList.add(new DrawerModel("Rate Us", R.drawable.rate_us));
 
 
 /*//        drawerList.add(new DrawerModel("Theme" ,R.drawable.brightness_green));
@@ -393,7 +393,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             case R.id.iv_grid:
                 iv_grid.setVisibility(View.INVISIBLE);
                 iv_folder.setVisibility(View.VISIBLE);
-
                 editor = preferences.edit();
                 editor.putString("ViewMode", "Grid");
                 editor.apply();

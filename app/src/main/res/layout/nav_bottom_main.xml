@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/_12sdp"
-    android:background="@color/unselected_tab"
+    android:background="@color/ThemeBg"
     android:orientation="vertical">
 
     <View
@@ -22,7 +22,7 @@
         android:textSize="@dimen/_12sdp"
         android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginStart="@dimen/_18sdp"
-        android:textColor="@color/TextTheme"/>
+        android:textColor="@color/black"/>
 
     <TextView
         style="@style/TextPopReg12"
@@ -33,6 +33,6 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:textSize="@dimen/_10sdp"
         android:layout_marginStart="@dimen/_18sdp"
-        android:textColor="@color/TextTheme"/>
+        android:textColor="@color/black"/>
 
 </RelativeLayout>

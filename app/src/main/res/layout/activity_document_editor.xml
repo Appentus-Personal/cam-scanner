@@ -176,7 +176,7 @@
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/colorFilter"
-                android:textColor="@color/white"
+                android:textColor="@color/tab_white"
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
@@ -684,8 +684,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:background="@color/sig_color"
-        android:visibility="gone">
+        android:background="@color/tab_white"
+        android:visibility="gone"
+     >
 
 
         <RelativeLayout
@@ -699,7 +700,7 @@
                 android:layout_height="match_parent"
                 app:backgroundColor="#00000000"
                 app:enableSignature="true"
-                app:penColor="@color/txt_color"
+                app:penColor="@color/black"
                 app:penSize="5dp" />
 
 
@@ -726,7 +727,7 @@
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true"
                     android:text="@string/noSignFound"
-                    android:textColor="@color/txt_color"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_14sdp" />
             </RelativeLayout>
 
@@ -852,7 +853,7 @@
                     android:paddingTop="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_5sdp"
                     app:colorSeeds="@array/colors"
-                    app:thumbBorderColor="@color/white" />
+                    app:thumbBorderColor="@color/tab_white" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -929,14 +930,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_40sdp"
-        android:background="@color/sig_color"
-        android:visibility="gone">
+      android:visibility="gone"
+        android:background="@color/ThemeBg">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/ly_btn2"
-            android:background="#000000">
+            android:background="@color/black">
 
             <EditText
                 android:id="@+id/et_watermark_txt"
@@ -954,7 +955,7 @@
                 android:imeOptions="actionDone"
                 android:inputType="text"
                 android:padding="@dimen/_10sdp"
-                android:textColor="@color/txt_color"
+                android:textColor="@color/black"
                 android:textColorHint="@color/unselected_txt_color"
                 android:textSize="@dimen/_12sdp" />
 
@@ -1054,7 +1055,7 @@
                         android:paddingTop="@dimen/_5sdp"
                         android:paddingBottom="@dimen/_5sdp"
                         app:colorSeeds="@array/colors"
-                        app:thumbBorderColor="@color/white" />
+                        app:thumbBorderColor="@color/tab_white" />
                 </RelativeLayout>
 
 
@@ -1215,7 +1216,7 @@
                 android:onClick="onClick"
                 android:padding="@dimen/_6sdp"
                 android:src="@drawable/ic_close"
-                app:tint="@color/white" />
+                app:tint="@color/tab_white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -1223,7 +1224,7 @@
                 android:layout_centerInParent="true"
                 android:fontFamily="@font/inter_medium"
                 android:text="@string/text"
-                android:textColor="@color/white"
+                android:textColor="@color/tab_white"
                 android:textSize="@dimen/_12sdp" />
 
             <ImageView
@@ -1269,7 +1270,7 @@
                     android:layout_marginStart="@dimen/_18sdp"
                     android:fontFamily="@font/inter_medium"
                     android:text="@string/color"
-                    android:textColor="@color/white"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_11sdp" />
 
                 <com.divyanshu.colorseekbar.ColorSeekBar
@@ -1364,7 +1365,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/font"
-                    android:textColor="@color/white"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -1390,7 +1391,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/color"
-                    android:textColor="@color/white"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
@@ -1415,7 +1416,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/alignment"
-                    android:textColor="@color/white"
+                    android:textColor="@color/tab_white"
                     android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>

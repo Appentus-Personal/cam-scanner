@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -95,8 +96,9 @@
                             android:id="@+id/iv_pdf"
                             android:layout_width="@dimen/_22sdp"
                             android:layout_height="@dimen/_22sdp"
-                            android:padding="@dimen/_1sdp"
                             android:layout_centerVertical="true"
+                            android:padding="@dimen/_1sdp"
+                            app:tint="@color/black"
                             android:src="@drawable/pdf" />
 
                         <TextView
@@ -119,6 +121,7 @@
                             android:layout_width="@dimen/_22sdp"
                             android:layout_height="@dimen/_22sdp"
                             android:layout_centerVertical="true"
+                            app:tint="@color/black"
                             android:src="@drawable/pdflock" />
 
                         <TextView

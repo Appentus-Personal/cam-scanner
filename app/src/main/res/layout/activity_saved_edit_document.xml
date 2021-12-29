@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bg_color1"
+    android:background="@color/ThemeBg"
     android:orientation="vertical">
 
     <LinearLayout
@@ -15,8 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-
-            android:background="@color/fg_color">
+            android:background="@color/ThemeBg">
 
             <ImageView
                 android:id="@+id/iv_back"
@@ -27,16 +26,16 @@
                 android:onClick="onClick"
                 android:padding="@dimen/_7sdp"
                 android:src="@drawable/backwhite"
-                app:tint="@color/TextTheme" />
+                app:tint="@color/black" />
 
             <TextView
                 style="@style/TextPopMed14"
-                android:layout_toRightOf="@+id/iv_back"
                 android:layout_centerVertical="true"
-                android:text="@string/savedDocument"
-                android:textColor="@color/TextTheme"
                 android:layout_marginLeft="@dimen/_8sdp"
-                android:textSize="@dimen/_15sdp"  />
+                android:layout_toRightOf="@+id/iv_back"
+                android:text="@string/savedDocument"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
 
             <ImageView
                 android:id="@+id/iv_home"
@@ -46,7 +45,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_6sdp"
                 android:onClick="onClick"
-                android:src="@drawable/home_save" />
+                android:src="@drawable/ic_home" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -90,7 +89,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#000000"
+        android:background="@color/black"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -101,17 +100,17 @@
             android:layout_marginBottom="@dimen/_4sdp" />
     </LinearLayout>
 
-   <!-- <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_gravity="bottom"
-        android:layout_height="50dp">
+    <!-- <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_gravity="bottom"
+         android:layout_height="50dp">
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            app:adSize="BANNER"
-            app:adUnitId="@string/admob_banner_id" />
-    </RelativeLayout>-->
+         <com.google.android.gms.ads.AdView
+             android:id="@+id/adView"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"
+             app:adSize="BANNER"
+             app:adUnitId="@string/admob_banner_id" />
+     </RelativeLayout>-->
 </LinearLayout>

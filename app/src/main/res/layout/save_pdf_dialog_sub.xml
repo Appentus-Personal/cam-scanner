@@ -159,7 +159,7 @@
                         android:paddingEnd="@dimen/_50sdp"
                         android:paddingBottom="@dimen/_8sdp"
                         android:text="@string/ok"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_12sdp"/>
                 </RelativeLayout>
             </LinearLayout>

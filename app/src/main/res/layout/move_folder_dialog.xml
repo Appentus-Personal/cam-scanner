@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:background="@drawable/dialog_bottom_sheet"
@@ -71,6 +72,7 @@
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_gravity="center"
+                        app:tint="@color/black"
                         android:src="@drawable/create_folder"/>
 
 
@@ -88,7 +90,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:orientation="vertical">
 
@@ -117,7 +120,7 @@
                         android:paddingEnd="@dimen/_40sdp"
                         android:paddingBottom="@dimen/_8sdp"
                         android:text="@string/cancel"
-                        android:textColor="@color/TextTheme"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp" />
 
 
@@ -134,7 +137,7 @@
                         android:paddingEnd="@dimen/_50sdp"
                         android:paddingBottom="@dimen/_8sdp"
                         android:text="Move"
-                        android:textColor="#ffffff"
+                        android:textColor="@color/tab_white"
                         android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
             </LinearLayout>

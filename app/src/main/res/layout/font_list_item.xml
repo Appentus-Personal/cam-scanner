@@ -18,6 +18,6 @@
         android:singleLine="true"
         android:text="Sample"
         style="@style/TextPopMed14"
-        android:textColor="@color/txt_color"
+        android:textColor="@color/black"
         android:textSize="@dimen/_12sdp" />
 </RelativeLayout>
