@@ -43,7 +43,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_6sdp"
-                android:background="@drawable/bg_blue_btn"
+                android:background="@drawable/main_curve_border"
                 android:paddingStart="@dimen/_12sdp"
                 android:paddingTop="@dimen/_2sdp"
                 android:paddingEnd="@dimen/_12sdp"

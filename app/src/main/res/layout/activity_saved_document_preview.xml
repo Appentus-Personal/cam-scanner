@@ -45,7 +45,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:onClick="onClick"
-                android:src="@drawable/ic_home" />
+                app:tint="@color/black"
+                android:src="@drawable/save_sig" />
         </RelativeLayout>
 
         <RelativeLayout

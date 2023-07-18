@@ -61,7 +61,7 @@
                     android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
                     android:onClick="onClick"
-                    android:src="@drawable/ic_list"
+                    android:src="@drawable/cam_list_item"
                     android:visibility="invisible" />
 
 

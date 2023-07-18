@@ -141,7 +141,7 @@
                             android:layout_height="@dimen/_25sdp"
                             android:layout_centerVertical="true"
                             android:padding="@dimen/_2sdp"
-                            android:src="@drawable/ic_error" />
+                            android:src="@drawable/cross_icn" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -482,7 +482,7 @@
                             android:layout_marginStart="@dimen/_10sdp"
                             android:layout_marginEnd="@dimen/_8sdp"
                             android:layout_weight="1"
-                            android:background="@drawable/bg_blue_btn"
+                            android:background="@drawable/main_curve_border"
                             android:fontFamily="@font/inter_regular"
                             android:gravity="center"
                             android:onClick="onClick"
@@ -593,7 +593,7 @@
                             android:id="@+id/iv_original"
                             android:layout_width="@dimen/_30sdp"
                             android:layout_height="@dimen/_32sdp"
-                            android:background="@drawable/filter_bg_blue"
+                            android:background="@drawable/main_curve_border"
                             android:gravity="center"
                             android:onClick="onClick"
                             android:text="O"

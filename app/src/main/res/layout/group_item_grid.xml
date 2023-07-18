@@ -13,7 +13,7 @@
         android:layout_marginTop="@dimen/_6sdp"
         android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_6sdp"
-        android:background="@drawable/bg_group"
+        android:background="@drawable/grp_camera"
         app:cardCornerRadius="@dimen/_6sdp">
 
         <RelativeLayout

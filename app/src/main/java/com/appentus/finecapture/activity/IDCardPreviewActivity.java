@@ -191,7 +191,7 @@ public class IDCardPreviewActivity extends BaseActivity implements View.OnClickL
 
     @Override
     public void onImageStickerSelected(ImageStickerConfig imageStickerConfig, boolean z) {
-        iv_scrap.setImageResource(R.drawable.ic_blue_scrap);
+        iv_scrap.setImageResource(R.drawable.ic_scrap);
         txtScrap.setTextColor(getResources().getColor(R.color.tab_white));
         ly_scrap_view.setVisibility(View.VISIBLE);
         Constant.original = imageStickerConfig.getBitmapImage();
@@ -217,7 +217,7 @@ public class IDCardPreviewActivity extends BaseActivity implements View.OnClickL
             case R.id.iv_done:
                 aspectRatioLayout.setDrawingCacheEnabled(true);
                 stickerHolderView.leaveSticker();
-                iv_scrap.setImageResource(R.drawable.ic_blue_scrap);
+                iv_scrap.setImageResource(R.drawable.ic_scrap);
                 txtScrap.setTextColor(getResources().getColor(R.color.tab_white));
                 ly_scrap_view.setVisibility(View.GONE);
                 new saveIDCard().execute(new Bitmap[0]);
@@ -242,7 +242,7 @@ public class IDCardPreviewActivity extends BaseActivity implements View.OnClickL
                     ly_scrap_view.setVisibility(View.GONE);
                     return;
                 } else if (ly_scrap_view.getVisibility() == View.GONE) {
-                    iv_scrap.setImageResource(R.drawable.ic_blue_scrap);
+                    iv_scrap.setImageResource(R.drawable.ic_scrap);
                     txtScrap.setTextColor(getResources().getColor(R.color.black));
                     ly_scrap_view.setVisibility(View.VISIBLE);
                     return;
@@ -340,8 +340,12 @@ public class IDCardPreviewActivity extends BaseActivity implements View.OnClickL
                 Log.w(IDCardPreviewActivity.TAG, "Cannot write to " + file, e);
             }
             if (Constant.inputType.equals("Group")) {
-                group_name = "CamScanner" + Constant.getDateTime("_ddMMHHmmss");
-                group_date = Constant.getDateTime("yyyy-MM-dd  hh:mm a");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    group_name = "CamScanner" + Constant.getDateTime("_ddMMHHmmss");
+                }
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    group_date = Constant.getDateTime("yyyy-MM-dd  hh:mm a");
+                }
                 current_doc_name = "Doc_" + System.currentTimeMillis();
                 dbHelper.createDocTable(group_name);
                 dbHelper.addGroup(new DBModel(group_name, group_date, file.getPath(), Constant.current_tag));

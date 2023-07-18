@@ -49,7 +49,7 @@
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:onClick="onClick"
                 android:padding="@dimen/_6sdp"
-                android:src="@drawable/ic_scan" />
+                android:src="@drawable/ic_add_new_scan" />
         </RelativeLayout>
 
         <LinearLayout

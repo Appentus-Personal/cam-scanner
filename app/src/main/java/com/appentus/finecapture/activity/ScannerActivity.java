@@ -750,7 +750,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                 iv_original.setBackgroundResource(R.drawable.filter_bg);
                 iv_original.setTextColor(getResources().getColor(R.color.black));
 
-                iv_color.setBackgroundResource(R.drawable.filter_bg_blue);
+                iv_color.setBackgroundResource(R.drawable.filter_bg);
                 iv_color.setTextColor(getResources().getColor(R.color.tab_white));
 
                 iv_sharp_black.setBackgroundResource(R.drawable.filter_bg);
@@ -856,7 +856,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                 iv_sharp_black.setBackgroundResource(R.drawable.filter_bg);
                 iv_sharp_black.setTextColor(getResources().getColor(R.color.black));
 
-                iv_ocv_black.setBackgroundResource(R.drawable.filter_bg_blue);
+                iv_ocv_black.setBackgroundResource(R.drawable.filter_bg);
                 iv_ocv_black.setTextColor(getResources().getColor(R.color.tab_white));
 
                 return;
@@ -870,7 +870,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                     e.printStackTrace();
                     dismissProgressDialog();
                 }
-                iv_original.setBackgroundResource(R.drawable.filter_bg_blue);
+                iv_original.setBackgroundResource(R.drawable.filter_bg);
                 iv_original.setTextColor(getResources().getColor(R.color.tab_white));
 
                 iv_color.setBackgroundResource(R.drawable.filter_bg);
@@ -931,7 +931,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                 iv_color.setBackgroundResource(R.drawable.filter_bg);
                 iv_color.setTextColor(getResources().getColor(R.color.black));
 
-                iv_sharp_black.setBackgroundResource(R.drawable.filter_bg_blue);
+                iv_sharp_black.setBackgroundResource(R.drawable.filter_bg);
                 iv_sharp_black.setTextColor(getResources().getColor(R.color.tab_white));
 
                 iv_ocv_black.setBackgroundResource(R.drawable.filter_bg);
@@ -977,7 +977,7 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                     originalBitmap = Constant.IDCardBitmap;
                     iv_card_filter.setImageBitmap(originalBitmap);
 
-                    iv_original.setBackgroundResource(R.drawable.filter_bg_blue);
+                    iv_original.setBackgroundResource(R.drawable.filter_bg);
                     iv_original.setTextColor(getResources().getColor(R.color.tab_white));
 
                     iv_color.setBackgroundResource(R.drawable.filter_bg);
@@ -1213,9 +1213,13 @@ public class ScannerActivity extends BaseActivity implements ActivityCompat.OnRe
                         dbHelper.addGroupDoc(selected_group_name, file.getPath(), current_doc_name, "Insert text here...");
                         bookImgList.add(new BookModel(bitmapList.get(i), current_doc_name, i));
                     } else if (i == 0) {
-                        group_name = "CamScanner" + Constant.getDateTime("_ddMMHHmmss");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            group_name = "CamScanner" + Constant.getDateTime("_ddMMHHmmss");
+                        }
                         selected_group_name = group_name;
-                        group_date = Constant.getDateTime("yyyy-MM-dd  hh:mm a");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            group_date = Constant.getDateTime("yyyy-MM-dd  hh:mm a");
+                        }
                         current_doc_name = "Doc_" + System.currentTimeMillis();
                         dbHelper.createDocTable(group_name);
                         dbHelper.addGroup(new DBModel(group_name, group_date, file.getPath(), Constant.current_tag));

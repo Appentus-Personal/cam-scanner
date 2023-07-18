@@ -76,7 +76,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/_8sdp"
-                        android:src="@drawable/copy_qr" />
+                        android:src="@drawable/copy_cb" />
                 </RelativeLayout>
 
 

@@ -280,15 +280,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
 
     private void bindView() {
-        drawerList.add(new DrawerModel("Home", R.drawable.home));
-        drawerList.add(new DrawerModel("QR Code Scan", R.drawable.qr_code));
-        drawerList.add(new DrawerModel("QR Code Generate", R.drawable.qr_generate));
-        drawerList.add(new DrawerModel("About Us", R.drawable.about_us));
+        drawerList.add(new DrawerModel("Home", R.drawable.ic_hamburger));
+        drawerList.add(new DrawerModel("QR Code Scan", R.drawable.ic_no_document));
+        drawerList.add(new DrawerModel("QR Code Generate", R.drawable.ic_original_blue));
+        drawerList.add(new DrawerModel("About Us", R.drawable.ic_pdf));
         drawerList.add(new DrawerModel("Theme", R.drawable.ic_brightness_blue));
-        drawerList.add(new DrawerModel("Terms and Condition", R.drawable.terms_condition));
-        drawerList.add(new DrawerModel("Privacy Policy", R.drawable.privacy_policy));
-        drawerList.add(new DrawerModel("Share App", R.drawable.ic_share));
-        drawerList.add(new DrawerModel("Rate Us", R.drawable.rate_us));
+        drawerList.add(new DrawerModel("Terms and Condition", R.drawable.ic_sharp_blue));
+        drawerList.add(new DrawerModel("Privacy Policy", R.drawable.ic_sharp_blue));
+        drawerList.add(new DrawerModel("Share App", R.drawable.ic_share_app));
+        drawerList.add(new DrawerModel("Rate Us", R.drawable.ic_sharp_blue));
+
+//        drawerList.add(new DrawerModel("Home", R.drawable.home));
+//        drawerList.add(new DrawerModel("QR Code Scan", R.drawable.qr_code));
+//        drawerList.add(new DrawerModel("QR Code Generate", R.drawable.qr_generate));
+//        drawerList.add(new DrawerModel("About Us", R.drawable.about_us));
+//        drawerList.add(new DrawerModel("Theme", R.drawable.ic_brightness_blue));
+//        drawerList.add(new DrawerModel("Terms and Condition", R.drawable.terms_condition));
+//        drawerList.add(new DrawerModel("Privacy Policy", R.drawable.privacy_policy));
+//        drawerList.add(new DrawerModel("Share App", R.drawable.ic_share_app));
+//        drawerList.add(new DrawerModel("Rate Us", R.drawable.rate_us));
 
 
 /*//        drawerList.add(new DrawerModel("Theme" ,R.drawable.brightness_green));

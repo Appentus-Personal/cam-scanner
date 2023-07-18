@@ -80,7 +80,7 @@
                     android:id="@+id/ivNoDocument"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
-                    android:src="@drawable/ic_no_documents"
+                    android:src="@drawable/ic_no_document"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
