@@ -33,7 +33,7 @@
                 android:orientation="horizontal">
 
 
-                <com.appentus.finecapture.document_view.roundshapeImageview
+                <com.app.camscan.document_view.roundshapeImageview
                     android:id="@+id/iv_group_first_img"
                     android:layout_width="@dimen/_45sdp"
                     android:layout_height="@dimen/_45sdp"
@@ -41,7 +41,7 @@
                     android:scaleType="centerCrop"
                     android:src="@color/tab_white" />
 
-                <com.appentus.finecapture.document_view.roundshapeImageview
+                <com.app.camscan.document_view.roundshapeImageview
                     android:id="@+id/iv_group_folder_img"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"

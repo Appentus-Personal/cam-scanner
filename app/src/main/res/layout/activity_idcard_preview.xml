@@ -64,7 +64,7 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true">
 
-            <com.appentus.finecapture.scrapbook.StickerHolderView
+            <com.app.camscan.scrapbook.StickerHolderView
                 android:id="@+id/stickerHolderView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
