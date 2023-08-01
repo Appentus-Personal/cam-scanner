@@ -280,15 +280,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
 
     private void bindView() {
-        drawerList.add(new DrawerModel("Home", R.drawable.ic_hamburger));
-        drawerList.add(new DrawerModel("QR Code Scan", R.drawable.ic_no_document));
-        drawerList.add(new DrawerModel("QR Code Generate", R.drawable.ic_original_blue));
-        drawerList.add(new DrawerModel("About Us", R.drawable.ic_pdf));
-        drawerList.add(new DrawerModel("Theme", R.drawable.ic_brightness_blue));
-        drawerList.add(new DrawerModel("Terms and Condition", R.drawable.ic_sharp_blue));
-        drawerList.add(new DrawerModel("Privacy Policy", R.drawable.ic_sharp_blue));
-        drawerList.add(new DrawerModel("Share App", R.drawable.ic_share_app));
-        drawerList.add(new DrawerModel("Rate Us", R.drawable.ic_sharp_blue));
+        drawerList.add(new DrawerModel("Home", R.drawable.ic_home_main));
+        drawerList.add(new DrawerModel("QR Code Scan", R.drawable.qr_code_ic));
+        drawerList.add(new DrawerModel("QR Code Generate", R.drawable.ic_qr_generate));
+        drawerList.add(new DrawerModel("About Us", R.drawable.ic_about_main));
+        drawerList.add(new DrawerModel("Theme", R.drawable.ic_theme));
+        drawerList.add(new DrawerModel("Terms and Condition", R.drawable.ic_tnc_main));
+        drawerList.add(new DrawerModel("Privacy Policy", R.drawable.ic_pp_main));
+        drawerList.add(new DrawerModel("Share App", R.drawable.ic_share_main));
+        drawerList.add(new DrawerModel("Rate Us", R.drawable.ic_rate_main));
 
 //        drawerList.add(new DrawerModel("Home", R.drawable.home));
 //        drawerList.add(new DrawerModel("QR Code Scan", R.drawable.qr_code));

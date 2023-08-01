@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.app.camscan.R
-import com.app.camscan.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity : AppCompatActivity() {
 
